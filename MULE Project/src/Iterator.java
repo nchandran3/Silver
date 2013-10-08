@@ -17,7 +17,7 @@ public class Iterator {
 		}
 	}
 	public void simulateTurn(){
-		
+		//hep
 	}
 	
 	public static Iterator getIterator()
