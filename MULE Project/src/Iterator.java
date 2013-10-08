@@ -1,28 +1,30 @@
-
-
-
-
+/**
+ * 
+ * @author Andrew Ford
+ *
+ */
 public class Iterator {
 	Menu_Screen ms = new Menu_Screen();
-	Screen sc;
+	Screen sc = new Screen();
 	//local instance variables
 	private static int turn = 1;
 	private int numPlayers;
 	
-	//constructor
+	//constructors
+	public Iterator(){}
 	public Iterator(int numPlayers){
 		
 		this.numPlayers = numPlayers;
-		choosePlayer();
+		playerCreation();
 	}
-	public void choosePlayer(){
+	public void playerCreation(){
 		if(turn <= numPlayers){
 			for(int i = turn; i<=numPlayers; i++){
 				//create selection screen, 
-				sc = new Screen();
 			}
 		}
 	}
+	
 	public void simulateTurn(){
 		//not implemented yet
 	}
