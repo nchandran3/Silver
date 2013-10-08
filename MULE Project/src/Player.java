@@ -17,6 +17,11 @@ public class Player implements Person {
 		this.location = startLoc;
 	}
 	
+	/**
+	 * Takes in the string color and converts it back to an int
+	 * where it gives the player the respective color
+	 * @param color
+	 */
 	private void setColor(String color){
 		int aColor = (int) color;
 	}

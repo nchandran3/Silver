@@ -19,7 +19,7 @@ public class Iterator {
 		}
 		plarr = new Player[numPlayers];
 		iterator = this;
-		PlayerSelect ps = new PlayerSelect();
+		PlayerSelection ps = new PlayerSelection();
 		for(int i = turn; i<=numPlayers; i++){
 			String[] nP = ps.selectPlayer(colors);
 		}
