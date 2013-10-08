@@ -24,13 +24,13 @@ public class Menu_Screen extends Screen {
 		
 		/**
 		 * Code for the title. Includes font, color, size, and position.
-		 */
+		 *
 		JLabel title = new JLabel("D.R.A.G.O.N.");
 		title.setFont(new Font("Stencil", Font.PLAIN, 90));
 		title.setForeground(Color.YELLOW);
 		title.setBounds(588, 11, title.getPreferredSize().width, title.getPreferredSize().height);
 		add(title);
-		
+		*/
 		/**
 		 * Start button, which initiates the connection to the configuration manager 
 		 * to set up the next screens and record input.
@@ -46,7 +46,7 @@ public class Menu_Screen extends Screen {
 		JComboBox <Integer> comboBox = new JComboBox <Integer>();
 		comboBox.setFont(new Font("Iskoola Pota", Font.BOLD, 16));
 		comboBox.setBackground(Color.WHITE);
-		comboBox.setForeground(Color.MAGENTA);
+		comboBox.setForeground(new Color(255, 51, 153));
 		comboBox.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1, 2, 3, 4}));
 		comboBox.setSelectedIndex(0);
 		comboBox.setBounds(1018, 370, 94, 28);
@@ -56,7 +56,7 @@ public class Menu_Screen extends Screen {
 		 * Label for the combo box.
 		 */
 		JLabel lblNumberOfNobles = new JLabel("Number of Nobles");
-		lblNumberOfNobles.setForeground(Color.MAGENTA);
+		lblNumberOfNobles.setForeground(new Color(255, 51, 204));
 		lblNumberOfNobles.setFont(new Font("Vivaldi", Font.BOLD, 40));
 		lblNumberOfNobles.setBackground(Color.BLUE);
 		lblNumberOfNobles.setBounds(588, 357, lblNumberOfNobles.getPreferredSize().width, lblNumberOfNobles.getPreferredSize().height);
