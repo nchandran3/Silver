@@ -10,7 +10,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 
 
-public class Menu_Screen extends JPanel {
+public class Menu_Screen extends Screen {
 
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,7 @@ public class Menu_Screen extends JPanel {
 	 * Create the panel.
 	 */
 	public Menu_Screen() {
-		setBackground(Color.BLUE);
+		super(Color.BLUE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100};
 		gridBagLayout.rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100};
