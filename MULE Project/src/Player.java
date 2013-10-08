@@ -4,15 +4,21 @@ import java.awt.Point;
 public class Player implements Person {
 	
 	private final String race;
-	private final String playerSprite;
+	private String name;
+	private final String color;
 	private int[] resources;
 	private Point location;
 	
-	Player(String playerSprite, String race, int[] resources, Point startLoc){
-		this.playerSprite = playerSprite;
+	Player(String name, String color, String race, int[] resources, Point startLoc){
+		this.name = name;
+		setColor(color);
 		this.race = race;
 		this.resources = resources;
 		this.location = startLoc;
+	}
+	
+	private void setColor(String color){
+		int aColor = (int) color;
 	}
 	
 	/**
