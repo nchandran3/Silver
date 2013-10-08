@@ -1,10 +1,13 @@
 
 public class Iterator {
-	static int turn = 1;
-	int numPlayers;
+	private static int turn = 1;
+	private int numPlayers;
+	private static Iterator iterator;
+	
 	public Iterator(int numPlayers){
 		this.numPlayers = numPlayers;
 		choosePlayer();
+		iterator = this;
 	}
 	public void choosePlayer(){
 		if(turn <= numPlayers){
@@ -15,5 +18,10 @@ public class Iterator {
 	}
 	public void simulateTurn(){
 		
+	}
+	
+	public static Iterator getIterator()
+	{
+		return iterator;
 	}
 }

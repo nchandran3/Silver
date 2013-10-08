@@ -1,7 +1,5 @@
 import java.awt.GridBagLayout;
-
 import javax.swing.JLabel;
-
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -55,7 +53,7 @@ public class Menu_Screen extends Screen {
 	public static void main (String [] args)
 	{
 		javax.swing.JFrame frame = new javax.swing.JFrame();
-		frame.add(new Menu_Screen());
+		frame.getContentPane().add(new Menu_Screen());
 		frame.pack();
 		frame.setVisible(true);
 	}
