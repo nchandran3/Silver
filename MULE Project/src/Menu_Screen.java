@@ -1,12 +1,14 @@
-import javax.swing.JPanel;
 import java.awt.GridBagLayout;
+
 import javax.swing.JLabel;
+
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
 import java.awt.Color;
+
 import javax.swing.SwingConstants;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
 
 
@@ -19,6 +21,7 @@ public class Menu_Screen extends Screen {
 	 */
 	public Menu_Screen() {
 		super(Color.BLUE);
+		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100};
 		gridBagLayout.rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100};
@@ -49,4 +52,11 @@ public class Menu_Screen extends Screen {
 
 	}
 
+	public static void main (String [] args)
+	{
+		javax.swing.JFrame frame = new javax.swing.JFrame();
+		frame.add(new Menu_Screen());
+		frame.pack();
+		frame.setVisible(true);
+	}
 }

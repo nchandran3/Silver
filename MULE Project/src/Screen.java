@@ -14,11 +14,11 @@ public class Screen extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private ImageIcon background;
 	private int width = 1700, height = 900;
-	private Dimension dimension = new Dimension(width, height);
 	
 	public Screen()
 	{
-		setPreferredSize(dimension);
+		super();
+		setPreferredSize(new Dimension(width,height));
 		setFocusable(true);
 		requestFocus();
 	}
@@ -38,6 +38,7 @@ public class Screen extends JPanel{
 	
 	public void paintComponent(Graphics g)
 	{
+		super.paintComponent(g);
 		if(background != null) 
 			g.drawImage(background.getImage(),0,0,width,height, null);
 	}
