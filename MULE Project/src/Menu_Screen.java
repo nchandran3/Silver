@@ -12,6 +12,8 @@ import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 
 public class Menu_Screen extends Screen {
@@ -29,8 +31,29 @@ public class Menu_Screen extends Screen {
 		JLabel title = new JLabel("D.R.A.G.O.N.");
 		title.setFont(new Font("Stencil", Font.PLAIN, 90));
 		title.setForeground(Color.YELLOW);
-		title.setBounds(668, 11, 524, 145);
+		title.setBounds(588, 11, 524, 145);
 		add(title);
+		
+		JButton done = new JButton("START!");
+		done.setBackground(Color.BLACK);
+		done.setBounds(792, 855, 115, 34);
+		add(done);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Iskoola Pota", Font.BOLD, 16));
+		comboBox.setBackground(Color.WHITE);
+		comboBox.setForeground(Color.MAGENTA);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
+		comboBox.setSelectedIndex(0);
+		comboBox.setBounds(1018, 370, 94, 28);
+		add(comboBox);
+		
+		JLabel lblNumberOfNobles = new JLabel("Number of Nobles");
+		lblNumberOfNobles.setForeground(Color.MAGENTA);
+		lblNumberOfNobles.setFont(new Font("Vivaldi", Font.BOLD, 35));
+		lblNumberOfNobles.setBackground(Color.BLUE);
+		lblNumberOfNobles.setBounds(588, 357, 278, 54);
+		add(lblNumberOfNobles);
 		
 	}
 
