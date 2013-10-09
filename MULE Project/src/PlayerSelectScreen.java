@@ -40,7 +40,12 @@ public class PlayerSelectScreen extends Screen {
 		add(raceSelectPanel);
 		
 		ColorChooseBox colorChooseBox = new ColorChooseBox();
-		colorChooseBox.setBounds(190, 678, 1200, 112);
+		colorChooseBox.setBounds(250, 649, 1200, 188);
 		add(colorChooseBox);
+		
+		JLabel lblChooseColor = new JLabel("Choose A Color: ");
+		lblChooseColor.setFont(new Font("Tahoma", Font.PLAIN, 40));
+		lblChooseColor.setBounds(701, 607, lblChooseColor.getPreferredSize().width, lblChooseColor.getPreferredSize().height);
+		add(lblChooseColor);
 	}
 }

@@ -59,7 +59,7 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 		chosen = (map.get(source));
 		Graphics g= getGraphics();
 		g.setColor(chosen);
-		g.fillRect(getWidth()/2, 0, 50, 50);
+		g.fillRect(getWidth()/2-25, 0, 50, 50);
 	}
 	
 	public Color getColorChosen()
