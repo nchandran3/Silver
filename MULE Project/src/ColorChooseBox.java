@@ -19,22 +19,27 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 	private static ArrayList <Color> colors_available = new ArrayList <Color>(Arrays.asList(colors));			//Each time a color is chosen, the color will be removed from the ArrayList
 	private int width = 1200, height = 900/8;
 	private HashMap<JButton, Color> map = new HashMap<>();
+	private Color chosen;
 	
 	public ColorChooseBox()
 	{
 		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 		setPreferredSize(new Dimension(width, height));
+		setBackground(Color.PINK);
+		
 		for(Color c : colors_available)
-			drawColorBox(c, width/colors_available.size());
+			drawColorBox(c, width);
 	}
 	
 	public void drawColorBox(Color c, int width)
 	{
 		add(Box.createHorizontalGlue());
-		JButton box = new JButton(c.toString());
+		JButton box = new JButton("                                                                  ");
 		map.put(box, c);
 		box.setBackground(c);
-		box.setPreferredSize(new Dimension(width, height));
+		box.setBorder(null);
+		box.setForeground(c);
+		box.setSize(new Dimension(width, height));
 		box.addActionListener(this);
 		add(box);
 		add(Box.createHorizontalGlue());
@@ -43,8 +48,18 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		remove(1);
-		new ColorChooseBox();
+		JButton source = (JButton)e.getSource();
+		colors_available.remove(map.get(source));
+		System.out.println(colors_available.toString());
+		JFrame frame = new JFrame();
+		frame.add(new ColorChooseBox());
+		frame.pack();
+		frame.setVisible(true);
+	}
+	
+	public Color getColorChosen()
+	{
+		return chosen;
 	}
 	public static void main (String [] args)
 	{
