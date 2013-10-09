@@ -5,7 +5,7 @@ import javax.swing.*;
  * This class is the connection between the front-end and back-end
  * 
  * 
- * @author Michael
+ * @author Michael Carlson
  *
  */
 public class Controller {
