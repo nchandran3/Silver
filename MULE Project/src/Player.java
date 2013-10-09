@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Point;
 
 
@@ -5,26 +6,18 @@ public class Player implements Person {
 	
 	private final String race;
 	private String name;
-	private final String color;
+	private final Color color;
 	private int[] resources;
 	private Point location;
 	
-	Player(String name, String color, String race, int[] resources, Point startLoc){
+	Player(String name, Color color, String race, int[] resources, Point startLoc){
 		this.name = name;
-		setColor(color);
+		this.color = color;
 		this.race = race;
 		this.resources = resources;
 		this.location = startLoc;
 	}
-	
-	/**
-	 * Takes in the string color and converts it back to an int
-	 * where it gives the player the respective color
-	 * @param color
-	 */
-	private void setColor(String color){
-		int aColor = (int) color;
-	}
+
 	
 	/**
 	 * Moves the player's location to the point given.  Returns
@@ -45,6 +38,9 @@ public class Player implements Person {
 		return location;
 	}
 
+	/**
+	 * Adds resources to the player's resource array
+	 */
 	@Override
 	public int[] addResources(int[] transaction) {
 		for(int i = 0; i<transaction.length;i++){
