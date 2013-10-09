@@ -1,20 +1,21 @@
+import java.awt.Color;
 import java.awt.Point;
 
 
 public class Player implements Person {
 	
-	private final String race;
+	private final Race race;
 	private String name;
-	private final String color;
+	private Color color;
 	private int[] resources;
-	private Point location;
+//	private Point location;
 	
-	Player(String name, String color, String race, int[] resources, Point startLoc){
+	Player(String name, Color color, Race race){
 		this.name = name;
 		setColor(color);
 		this.race = race;
-		this.resources = resources;
-		this.location = startLoc;
+		resources = new int[4]; 
+//		this.location = startLoc;
 	}
 	
 	/**
@@ -22,8 +23,8 @@ public class Player implements Person {
 	 * where it gives the player the respective color
 	 * @param color
 	 */
-	private void setColor(String color){
-		int aColor = (int) color;
+	private void setColor(Color color){
+		this.color = color;
 	}
 	
 	/**
@@ -39,11 +40,11 @@ public class Player implements Person {
 	/**
 	 * Get the player's location.
 	 */
-	@Override
-	public Point getLocation() {
-		// TODO Auto-generated method stub
-		return location;
-	}
+//	@Override
+//	public Point getLocation() {
+//		// TODO Auto-generated method stub
+//		return location;
+//	}
 
 	@Override
 	public int[] addResources(int[] transaction) {
