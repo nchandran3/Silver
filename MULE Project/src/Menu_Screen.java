@@ -115,6 +115,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		difgroup.add(plebian);
 		difgroup.add(bourg);
 		difgroup.add(royalty);
+
 		add(plebian);
 		add(bourg);
 		add(royalty);
