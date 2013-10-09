@@ -30,8 +30,12 @@ public class PlayerSelectScreen extends Screen {
 		txtEnterPlayerName.setText("ENTER PLAYER NAME");
 		txtEnterPlayerName.setForeground(Color.WHITE);
 		txtEnterPlayerName.setBackground(Color.BLACK);
-		txtEnterPlayerName.setBounds(646, 174, 449, 50);
+		txtEnterPlayerName.setBounds(625, 174, 449, 50);
 		add(txtEnterPlayerName);
 		txtEnterPlayerName.setColumns(10);
+		
+		RaceSelectPanel raceSelectPanel = new RaceSelectPanel();
+		raceSelectPanel.setBounds(634, 276, 432, 320);
+		add(raceSelectPanel);
 	}
 }
