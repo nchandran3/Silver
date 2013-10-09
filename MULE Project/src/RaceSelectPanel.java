@@ -16,6 +16,7 @@ import java.net.URL;
 
 import javax.swing.Box;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
@@ -65,6 +66,6 @@ public class RaceSelectPanel extends Screen {
 			e.printStackTrace();
 		}
 		
-		
 	}
+	
 }
