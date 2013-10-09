@@ -9,14 +9,15 @@ import javax.swing.*;
  *
  */
 public class Controller {
+	public static Controller controller;
 	private Player[] players;
 	private int playerCount;
 	private int numPlayers;
+	private int difficulty;
 	
-	public Controller(int numPlayers){
+	public Controller(){
 		playerCount = 0;
-		this.numPlayers = numPlayers;
-		players = new Player[numPlayers];
+//		players = new Player[numPlayers];
 	}
 	
 	public void createPlayer(String name, Color color, Race race){
@@ -27,6 +28,12 @@ public class Controller {
 		}
 	/*	else
 			System.out.print("Can not create anymore players");*/
+	}
+	public void setNumPlayers(int num){
+		numPlayers = num;
+	}
+	public void setDifficulty(int num){
+		
 	}
 	
 	

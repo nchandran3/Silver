@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
@@ -13,10 +15,15 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 
-public class Menu_Screen extends Screen {
+public class Menu_Screen extends Screen implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-
+	private JComboBox <Integer> comboBox;
+	private ButtonGroup difgroup;
+	private JRadioButton plebian;
+	private JRadioButton bourg;
+	private JRadioButton royalty;
+	
 	/*
 	 * Create the panel.
 	 */
@@ -53,6 +60,7 @@ public class Menu_Screen extends Screen {
 		done.setBackground(Color.BLACK);
 		done.setForeground(Color.YELLOW);
 		done.setBounds(792, 855, 115, 34);
+		done.addActionListener(this);
 		add(done);
 
 
@@ -60,7 +68,7 @@ public class Menu_Screen extends Screen {
 		 * Combo box to select the number of players. Includes selectable options, font, color, position, and default selection.
 		 */
 
-		JComboBox <Integer> comboBox = new JComboBox <Integer>();
+		comboBox = new JComboBox <Integer>();
 		comboBox.setFont(new Font("Iskoola Pota", Font.BOLD, 16));
 		comboBox.setBackground(Color.WHITE);
 		comboBox.setForeground(new Color(255, 51, 153));
@@ -85,29 +93,28 @@ public class Menu_Screen extends Screen {
 		 * No two check boxes can be selected at once due to the ButtonGroup functionality.
 		 */
 
-		JRadioButton plebian = new JRadioButton("Plebian");
+		plebian = new JRadioButton("Plebian");
 		plebian.setOpaque(false);
 		plebian.setForeground(Color.YELLOW);
 		plebian.setFont(new Font("Vivaldi", Font.BOLD, 30));
 		plebian.setBounds(320,686,plebian.getPreferredSize().width,plebian.getPreferredSize().height);
 		
-		JRadioButton bourg = new JRadioButton("Bourgeoisie");
+		bourg = new JRadioButton("Bourgeoisie");
 		bourg.setOpaque(false);
 		bourg.setForeground(Color.YELLOW);
 		bourg.setFont(new Font("Vivaldi", Font.BOLD, 30));
 		bourg.setBounds(761,686,bourg.getPreferredSize().width,bourg.getPreferredSize().height);
 		
-		JRadioButton royalty = new JRadioButton("Royalty");
+		royalty = new JRadioButton("Royalty");
 		royalty.setOpaque(false);
 		royalty.setForeground(Color.YELLOW);
 		royalty.setFont(new Font("Vivaldi", Font.BOLD, 30));
 		royalty.setBounds(1250,686,royalty.getPreferredSize().width,royalty.getPreferredSize().height);
 
-		ButtonGroup difgroup = new ButtonGroup();
+		difgroup = new ButtonGroup();
 		difgroup.add(plebian);
 		difgroup.add(bourg);
 		difgroup.add(royalty);
-
 		add(plebian);
 		add(bourg);
 		add(royalty);
@@ -121,8 +128,23 @@ public class Menu_Screen extends Screen {
 		difficultylbl.setFont(new Font("Onyx", Font.PLAIN, 88));
 		difficultylbl.setBounds(724, 533, difficultylbl.getPreferredSize().width, difficultylbl.getPreferredSize().height);
 		add(difficultylbl);
+		
+	
 	}
-
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Controller.controller.setNumPlayers((int) comboBox.getSelectedItem());
+		
+		if(plebian.isSelected()){
+			Controller.controller.setDifficulty(1);
+		}
+		else if(bourg.isSelected())
+			Controller.controller.setDifficulty(2);
+		else
+			Controller.controller.setDifficulty(3);
+		
+	}
 
 	public static void main (String [] args)
 	{
@@ -133,4 +155,7 @@ public class Menu_Screen extends Screen {
 		frame.pack();
 		frame.setVisible(true);
 	}
+
+
+	
 }
