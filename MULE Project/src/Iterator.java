@@ -13,8 +13,16 @@ public class Iterator {
 	private JFrame frame;
 	public Screen screen;
 	private CardLayout c;
-	
+	/**
+	 * Constructor that initializes the iterator
+	 */
 	public Iterator(){iterator = this;}
+	/**
+	 * Overloaded constructor that instantiates the gameframe into the cardLayout and adds the two components 
+	 * men screen and player select screen
+	 * 
+	 * @param JFrame gameframe
+	 */
 	public Iterator(JFrame gameframe){
 		this();
 		frame = gameframe;
@@ -25,9 +33,17 @@ public class Iterator {
 		c.addLayoutComponent(pSS, "pSS");
 		
 	}
+	/**
+	 * changes the screen displayed on the card layout 
+	 * 
+	 * @param String screen 
+	 */
 	public void switchScreen(String screen){
 		c.show(frame, screen);
 	}
+	/**
+	 * 
+	 */
 	public void disposing(){
 		c.removeLayoutComponent(frame);
 	}
@@ -35,10 +51,16 @@ public class Iterator {
 //		
 //		this.screen = screen;
 //	}
+	/**
+	 * @return Screen that the Card Layout is currently on 
+	 */
 	public Screen getScreen(){
 		return screen;
 	}
-	
+	/**
+	 * 
+	 * @return Instance of Iterator
+	 */
 	public static Iterator getIterator()
 	{
 		return iterator;

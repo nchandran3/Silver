@@ -15,7 +15,14 @@ public class Player implements Person {
 	private final Map map;
 	private Point location;
 	
-	Player(String name, Color color, Race race){
+	/**
+	 * This is the constructor for the player class which initializes the player's data. 
+	 * 
+	 * @param name
+	 * @param color
+	 * @param race
+	 */
+	public Player(String name, Color color, Race race){
 		this.name = name;
 		this.color = color;
 		this.race = race;
@@ -38,7 +45,6 @@ public class Player implements Person {
 	/**
 	 * Get the player's location.
 	 */
-	@Override
 	public Point getLocation() {
 		return location;
 	}
