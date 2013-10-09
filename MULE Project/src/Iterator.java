@@ -1,10 +1,17 @@
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
-
+/**
+ * This class controls the switching between the screens in the game.
+ * It keeps track of the current screen and updates the game according to the game.
+ * 
+ * @author Andrew Ford
+ *
+ */
 public class Iterator {
 	private static Iterator iterator;
 	private JFrame frame;
+	public Screen screen;
 	private CardLayout c;
 	public Iterator(){iterator = this;}
 	public Iterator(JFrame gameframe){
@@ -14,15 +21,17 @@ public class Iterator {
 	}
 	public void switchScreen(){
 		c.next(frame);
+		c.show(parent, name);
 	}
 	public void disposing(){
 		c.removeLayoutComponent(frame);
 	}
-	public void setScreen(JFrame frame){
-		this.frame = frame;
+	public void setNextScreen(Screen screen){
+		
+		this.screen = screen;
 	}
-	public JFrame getScreen(){
-		return frame;
+	public Screen getScreen(){
+		return screen;
 	}
 	public static Iterator getIterator()
 	{
