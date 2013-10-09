@@ -18,6 +18,12 @@ public class Iterator {
 	public void disposing(){
 		c.removeLayoutComponent(frame);
 	}
+	public void setScreen(JFrame frame){
+		this.frame = frame;
+	}
+	public JFrame getScreen(){
+		return frame;
+	}
 	public static Iterator getIterator()
 	{
 		return iterator;
