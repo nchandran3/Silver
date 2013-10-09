@@ -16,6 +16,7 @@ public class Controller {
 	private int difficulty;
 	
 	public Controller(){
+		controller=this;
 		playerCount = 0;
 //		players = new Player[numPlayers];
 	}
@@ -36,5 +37,9 @@ public class Controller {
 		difficulty = num;
 	}
 	
+	public static Controller getController()
+	{
+		return controller;
+	}
 	
 }

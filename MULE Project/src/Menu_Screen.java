@@ -135,7 +135,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Controller.controller.setNumPlayers((int) comboBox.getSelectedItem());
+		Controller.getController().setNumPlayers((int) comboBox.getSelectedItem());
 		
 		if(plebian.isSelected()){
 			Controller.controller.setDifficulty(1);

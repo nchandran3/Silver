@@ -38,6 +38,7 @@ public class Iterator {
 	public Screen getScreen(){
 		return screen;
 	}
+	
 	public static Iterator getIterator()
 	{
 		return iterator;

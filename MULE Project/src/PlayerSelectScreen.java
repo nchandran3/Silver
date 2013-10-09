@@ -4,6 +4,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
 /**
  * @author Naveen Chandran
@@ -40,12 +41,18 @@ public class PlayerSelectScreen extends Screen {
 		add(raceSelectPanel);
 		
 		ColorChooseBox colorChooseBox = new ColorChooseBox();
-		colorChooseBox.setBounds(250, 649, 1200, 188);
+		colorChooseBox.setBounds(250, 664, 1200, 173);
 		add(colorChooseBox);
 		
 		JLabel lblChooseColor = new JLabel("Choose A Color: ");
 		lblChooseColor.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		lblChooseColor.setBounds(701, 607, lblChooseColor.getPreferredSize().width, lblChooseColor.getPreferredSize().height);
 		add(lblChooseColor);
+		
+		JButton done = new JButton("Done");
+		done.setForeground(Color.WHITE);
+		done.setBackground(Color.BLACK);
+		done.setBounds(805, 866, 115, 34);
+		add(done);
 	}
 }
