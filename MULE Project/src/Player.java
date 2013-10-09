@@ -43,6 +43,9 @@ public class Player implements Person {
 		return location;
 	}
 
+	/**
+	 * Adds resources to the player's inventory.
+	 */
 	@Override
 	public int[] addResources(int[] transaction) {
 		for(int i = 0; i<transaction.length;i++){
