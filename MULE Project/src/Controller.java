@@ -33,7 +33,7 @@ public class Controller {
 		numPlayers = num;
 	}
 	public void setDifficulty(int num){
-		
+		difficulty = num;
 	}
 	
 	
