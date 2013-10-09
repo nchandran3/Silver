@@ -4,7 +4,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6"/>
-	<classpathentry kind="lib" path="C:/Users/Naveen/.eclipse/org.eclipse.platform_4.3.0_920333535_win32_win32_x86_64/configuration/org.eclipse.osgi/bundles/409/1/.cp/miglayout15-swing.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
