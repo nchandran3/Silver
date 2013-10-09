@@ -23,6 +23,11 @@ public class Tile {
 		owner = player;
 		isOwned = true;
 	}
+	
+	public Player getOwner(){
+		return owner;
+	}
+	
 	public void setOwner(Player newOwner){
 		owner = newOwner;
 	}
