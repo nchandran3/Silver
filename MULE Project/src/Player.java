@@ -17,7 +17,6 @@ public class Player implements Person {
 		resources = new int[4];
 		location.x = 0;
 		location.y = 0;
-//		this.location = startLoc;
 	}
 	
 	/**
