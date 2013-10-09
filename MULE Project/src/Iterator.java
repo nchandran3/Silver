@@ -8,7 +8,7 @@ public class Iterator {
 	private int numPlayers;
 	private static Iterator iterator;
 	private Player[] plarr;
-	private final Point CENTER = ("0", "0");
+	private final Point center = (0, 0);
 	private ArrayList<Integer> colors = new ArrayList<Integer>(6);
 	
 	public Iterator(int numPlayers){
