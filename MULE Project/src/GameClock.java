@@ -1,4 +1,8 @@
 
 public class GameClock {
-	protected static int time;
+	private static long time;
+	
+	public GameClock(){
+		
+	}
 }
