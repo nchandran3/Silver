@@ -8,13 +8,15 @@ public class Player implements Person {
 	private String name;
 	private Color color;
 	private int[] resources;
-//	private Point location;
+	private Point location;
 	
 	Player(String name, Color color, Race race){
 		this.name = name;
 		setColor(color);
 		this.race = race;
-		resources = new int[4]; 
+		resources = new int[4];
+		location.x = 0;
+		location.y = 0;
 //		this.location = startLoc;
 	}
 	
@@ -33,18 +35,17 @@ public class Player implements Person {
 	 */
 	@Override
 	public Point move(Point p) {
-		// TODO Auto-generated method stub
-		return null;
+		location.move(p.x, p.y);
+		return location;
 	}
 
 	/**
 	 * Get the player's location.
 	 */
-//	@Override
-//	public Point getLocation() {
-//		// TODO Auto-generated method stub
-//		return location;
-//	}
+	@Override
+	public Point getLocation() {
+		return location;
+	}
 
 	@Override
 	public int[] addResources(int[] transaction) {
