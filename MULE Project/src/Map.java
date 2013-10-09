@@ -7,7 +7,13 @@
 public class Map {
 	private Tile[][] tileMap;
 	private Player [] players;
-	
+	/**
+	 * This is the constructor of the class which sets the number of tiles on the map and also 
+	 * sets the players array equal to the parameters value. 
+	 * 
+	 * @param numTiles
+	 * @param newPlayers
+	 */
 	public Map(int numTiles, Player[] newPlayers){
 		tileMap = new Tile[numTiles][numTiles];
 		players = newPlayers;

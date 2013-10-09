@@ -15,7 +15,14 @@ public class Player implements Person {
 	private final Map map;
 	private Point location;
 	
-	Player(String name, Color color, Race race){
+	/**
+	 * This is the constructor for the player class which initializes the player's data. 
+	 * 
+	 * @param name
+	 * @param color
+	 * @param race
+	 */
+	public Player(String name, Color color, Race race){
 		this.name = name;
 		this.color = color;
 		this.race = race;
@@ -38,15 +45,23 @@ public class Player implements Person {
 	/**
 	 * Get the player's location.
 	 */
-	@Override
 	public Point getLocation() {
 		return location;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Adds resources to the player's inventory.
 	 */
 	@Override
+=======
+	/**
+	 * updates the player's resources amount based on transactions that happened while in the auction house.
+	 * 
+	 * @param int[] transaction 
+	 * @return int[] an array of ints each index is a different resource amount.
+	 */
+>>>>>>> 2fc92848e205357b5825cb93a882def61f9dbb13
 	public int[] addResources(int[] transaction) {
 		for(int i = 0; i<transaction.length;i++){
 			resources[i]+=transaction[i];
@@ -82,7 +97,11 @@ public class Player implements Person {
 		//}
 	}
 
-	@Override
+	/**
+	 * Getter for race
+	 * 
+	 * @return Race
+	 */
 	public Race getRace() {
 		// TODO Auto-generated method stub
 		return race;

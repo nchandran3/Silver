@@ -13,14 +13,22 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-
+/**
+ * Creates the Color choose option that is displayed on the player select screen. Once a color is 
+ * selected it is dicarded from the remaining colors that the next player can choose from.
+ * 
+ * @author Naveen Chandran
+ *
+ */
 public class ColorChooseBox extends JPanel implements ActionListener {
 	private static Color [] colors = new Color [] {Color.BLUE, Color.YELLOW, Color.RED, Color.MAGENTA, Color.GREEN, Color.CYAN};
 	private static ArrayList <Color> colors_available = new ArrayList <Color>(Arrays.asList(colors));			//Each time a color is chosen, the color will be removed from the ArrayList
 	private int width = 1200, height = 900/5;
 	private HashMap<JButton, Color> map = new HashMap<>();
 	private Color chosen;
-	
+	/**
+	 * Constructor that initializes the layout and dimensions of the boxlayout where the colors will be displayed.
+	 */
 	public ColorChooseBox()
 	{
 		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
@@ -33,7 +41,7 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 	}
 	
 	/**
-	 * 
+	 * This draws the colorBox in the panel and adds the action listener that reads what the user inputs. 
 	 * @param c
 	 * @param width
 	 */
@@ -52,7 +60,12 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 	}
 	
 	
-	
+	/**
+	 * Recognises an action performed from the players and based on that action draws over the color 
+	 * that was just chosen which in turn eliminates that option from the next player.
+	 * 
+	 * @param ActionEvent e
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		JButton source = (JButton)e.getSource();
@@ -61,12 +74,17 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 		g.setColor(chosen);
 		g.fillRect(getWidth()/2-25, 0, 50, 50);
 	}
-	
+	/**
+	 * simple getter which returns the color that the player chose
+	 * @return Color
+	 */
 	public Color getColorChosen()
 	{
 		return chosen;
 	}
-	
+	/**
+	 * This removes the color that the player has recently chosen. 
+	 */
 	public void removeColorFromChoices()
 	{
 		colors_available.remove(chosen);
