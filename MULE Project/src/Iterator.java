@@ -15,21 +15,20 @@ public class Iterator {
 	private CardLayout c;
 	public Iterator(){iterator = this;}
 	public Iterator(JFrame gameframe){
-		iterator = this;
+		this();
 		frame = gameframe;
 		c = (CardLayout)frame.getLayout();
 	}
-	public void switchScreen(){
-		c.next(frame);
-		c.show(parent, name);
+	public void switchScreen(String screen){
+		c.show(frame, screen);
 	}
 	public void disposing(){
 		c.removeLayoutComponent(frame);
 	}
-	public void setNextScreen(Screen screen){
-		
-		this.screen = screen;
-	}
+//	public void setNextScreen(Screen screen){
+//		
+//		this.screen = screen;
+//	}
 	public Screen getScreen(){
 		return screen;
 	}
