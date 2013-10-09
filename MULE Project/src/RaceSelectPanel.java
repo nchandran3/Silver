@@ -1,7 +1,5 @@
 import java.awt.Color;
-<<<<<<< HEAD
 import java.awt.GridLayout;
-=======
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.JButton;
@@ -9,7 +7,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
->>>>>>> Made color choose box and improved player select panel
 
 /**
  * Race Selection Panel that is a part of the Player Select Screen
@@ -23,11 +20,9 @@ public class RaceSelectPanel extends Screen {
 	
 	public RaceSelectPanel() {
 		super(Color.BLACK);
-<<<<<<< HEAD
 		setLayout(new GridLayout());
-	}
+	
 
-=======
 		setLayout(null);
 		setPreferredSize(new Dimension(430,320));
 		
@@ -66,7 +61,4 @@ public class RaceSelectPanel extends Screen {
 		}
 	}
 	
-	
-	
->>>>>>> Made color choose box and improved player select panel
 }
