@@ -13,11 +13,17 @@ public class Iterator {
 	private JFrame frame;
 	public Screen screen;
 	private CardLayout c;
+	
 	public Iterator(){iterator = this;}
 	public Iterator(JFrame gameframe){
 		this();
 		frame = gameframe;
 		c = (CardLayout)frame.getLayout();
+		Menu_Screen menuScreen = new Menu_Screen();
+		PlayerSelectScreen pSS = new PlayerSelectScreen();
+		c.addLayoutComponent(menuScreen, "menu");
+		c.addLayoutComponent(pSS, "pSS");
+		
 	}
 	public void switchScreen(String screen){
 		c.show(frame, screen);
