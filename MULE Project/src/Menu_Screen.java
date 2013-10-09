@@ -1,7 +1,10 @@
 import javax.swing.JLabel;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Point;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JRadioButton;
@@ -14,7 +17,7 @@ public class Menu_Screen extends Screen {
 
 	private static final long serialVersionUID = 1L;
 
-	/**
+	/*
 	 * Create the panel.
 	 */
 	public Menu_Screen() {
@@ -22,25 +25,26 @@ public class Menu_Screen extends Screen {
 		setPreferredSize(new Dimension(1700, 900));
 		setLayout(null);
 		
-		/**
+		/*
 		 * Code for the title. Includes font, color, size, and position.
-		 *
+		 */
 		JLabel title = new JLabel("D.R.A.G.O.N.");
 		title.setFont(new Font("Stencil", Font.PLAIN, 90));
 		title.setForeground(Color.YELLOW);
 		title.setBounds(588, 11, title.getPreferredSize().width, title.getPreferredSize().height);
 		add(title);
-		*/
-		/**
+		
+		/*
 		 * Start button, which initiates the connection to the configuration manager 
 		 * to set up the next screens and record input.
 		 */
 		JButton done = new JButton("START!");
 		done.setBackground(Color.BLACK);
+		done.setForeground(Color.YELLOW);
 		done.setBounds(792, 855, 115, 34);
 		add(done);
 		
-		/**
+		/*
 		 * Combo box to select the number of players. Includes selectable options, font, color, position, and default selection.
 		 */
 		JComboBox <Integer> comboBox = new JComboBox <Integer>();
@@ -52,7 +56,7 @@ public class Menu_Screen extends Screen {
 		comboBox.setBounds(1018, 370, 94, 28);
 		add(comboBox);
 		
-		/**
+		/*
 		 * Label for the combo box.
 		 */
 		JLabel lblNumberOfNobles = new JLabel("Number of Nobles");
@@ -62,7 +66,7 @@ public class Menu_Screen extends Screen {
 		lblNumberOfNobles.setBounds(588, 357, lblNumberOfNobles.getPreferredSize().width, lblNumberOfNobles.getPreferredSize().height);
 		add(lblNumberOfNobles);
 		
-		/**
+		/*
 		 * Difficulty selector. Plebian is beginner, bourgeoisie is intermediate, and royalty is advanced. 
 		 * No two combo boxes can be selected at once due to the ButtonGroup functionality.
 		 */
@@ -92,6 +96,9 @@ public class Menu_Screen extends Screen {
 		add(bourg);
 		add(royalty);
 		
+		/*
+		 * Difficulty Label
+		 */
 		JLabel difficultylbl = new JLabel("DIFFICULTY");
 		difficultylbl.setForeground(Color.CYAN);
 		difficultylbl.setFont(new Font("Onyx", Font.PLAIN, 88));
@@ -103,9 +110,9 @@ public class Menu_Screen extends Screen {
 	{
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().add(new Menu_Screen());
-		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+		frame.setLocation(new Point(100,0));
+		frame.pack();
 		frame.setVisible(true);
 	}
 }
