@@ -55,7 +55,7 @@ public class Player implements Person {
 	}
 
 	@Override
-	public String getRace() {
+	public Race getRace() {
 		// TODO Auto-generated method stub
 		return race;
 	}
