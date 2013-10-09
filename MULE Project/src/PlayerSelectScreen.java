@@ -51,6 +51,7 @@ public class PlayerSelectScreen extends Screen {
 		
 		JButton done = new JButton("Done");
 		done.setForeground(Color.WHITE);
+		done.setOpaque(true);
 		done.setBackground(Color.BLACK);
 		done.setBounds(805, 866, 115, 34);
 		add(done);
