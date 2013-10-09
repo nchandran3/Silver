@@ -6,6 +6,8 @@ public class Iterator {
 	private static Iterator iterator;
 	private JFrame frame;
 	private CardLayout c;
+	private Controller con;
+	
 	public Iterator(){iterator = this;}
 	public Iterator(JFrame gameframe){
 		iterator = this;
@@ -14,10 +16,11 @@ public class Iterator {
 	}
 	public void switchScreen(){
 		c.next(frame);
+		
 	}
-	public void disposing(){
+	/*public void dispose(){
 		c.removeLayoutComponent(frame);
-	}
+	}*/
 	public static Iterator getIterator()
 	{
 		return iterator;
