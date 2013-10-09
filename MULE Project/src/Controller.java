@@ -35,6 +35,7 @@ public class Controller {
 	}
 	public void setDifficulty(int num){
 		difficulty = num;
+		System.out.println("Difficulty is " + difficulty);
 	}
 	
 	public static Controller getController()

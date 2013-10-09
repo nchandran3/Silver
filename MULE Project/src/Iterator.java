@@ -18,7 +18,7 @@ public class Iterator {
 	public Iterator(JFrame gameframe){
 		this();
 		frame = gameframe;
-		c = (CardLayout)frame.getLayout();
+		c = (CardLayout)frame.getContentPane().getLayout();
 		Menu_Screen menuScreen = new Menu_Screen();
 		PlayerSelectScreen pSS = new PlayerSelectScreen();
 		c.addLayoutComponent(menuScreen, "menu");

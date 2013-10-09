@@ -144,12 +144,17 @@ public class Menu_Screen extends Screen implements ActionListener {
 			Controller.controller.setDifficulty(2);
 		else
 			Controller.controller.setDifficulty(3);
+		Iterator.getIterator().switchScreen("pSS");
 		
 	}
 
 	public static void main (String [] args)
 	{
+		
+		Controller controller = new Controller();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
+		frame.getContentPane().setLayout(new java.awt.CardLayout());
+		Iterator iterator = new Iterator(frame);
 		frame.getContentPane().add(new Menu_Screen());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(new Point(100,0));
