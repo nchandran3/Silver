@@ -17,7 +17,10 @@ public class RaceSelectPanel extends Screen {
 
 	private static final long serialVersionUID = 1L;
 	private Race selected;
-	
+	/**
+	 * This creates the panel where the races will be displayed on the create player class and
+	 * reads what the user presses and sets that player's race to what they selected.
+	 */
 	public RaceSelectPanel() {
 		super(Color.BLACK);
 		setLayout(new GridLayout());

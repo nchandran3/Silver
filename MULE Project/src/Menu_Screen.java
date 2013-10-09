@@ -14,7 +14,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-
+/**
+ * This class creates the first screen that will be displayed when the player starts the game. In allows the 
+ * player to choose a difficulty, map, and the number of players that are going to be playing.  
+ * 
+ * @author Naveen Chandran 
+ *
+ */
 public class Menu_Screen extends Screen implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -133,7 +139,13 @@ public class Menu_Screen extends Screen implements ActionListener {
 	
 	}
 	
-	@Override
+	/**
+	 * This is the action performed method which reads when the user presses the start button. It then reads all the 
+	 * other information that was selected and then calls the controller class to start the game and progress to the 
+	 * player select screen. 
+	 * 
+	 * @param ActionEvent e
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Controller.getController().setNumPlayers((int) comboBox.getSelectedItem());
 		

@@ -48,8 +48,12 @@ public class Player implements Person {
 	public Point getLocation() {
 		return location;
 	}
-
-	@Override
+	/**
+	 * updates the player's resources amount based on transactions that happened while in the auction house.
+	 * 
+	 * @param int[] transaction 
+	 * @return int[] an array of ints each index is a different resource amount.
+	 */
 	public int[] addResources(int[] transaction) {
 		for(int i = 0; i<transaction.length;i++){
 			resources[i]+=transaction[i];
@@ -85,7 +89,11 @@ public class Player implements Person {
 		//}
 	}
 
-	@Override
+	/**
+	 * Getter for race
+	 * 
+	 * @return Race
+	 */
 	public Race getRace() {
 		// TODO Auto-generated method stub
 		return race;
