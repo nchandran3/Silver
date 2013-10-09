@@ -1,7 +1,13 @@
 import java.awt.Color;
 import javax.swing.*;
 
-
+/**
+ * This class is the connection between the front-end and back-end
+ * 
+ * 
+ * @author Michael Carlson
+ *
+ */
 public class Controller {
 	private Player[] players;
 	private int playerCount;
@@ -23,8 +29,5 @@ public class Controller {
 			System.out.print("Can not create anymore players");*/
 	}
 	
-	public void changeScreen(){
-		
-	}
 	
 }
