@@ -8,7 +8,7 @@ public interface Person {
 		
 		public int[] addResources(int[] transaction);
 		
-		public String getRace();
+		public Race getRace();
 
 
 }
