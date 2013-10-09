@@ -15,6 +15,7 @@ public class PlayerSelectScreen extends Screen {
 	public PlayerSelectScreen()
 	{
 		super(Color.MAGENTA); //Creates screen with background color Blue
+		setBackground(Color.PINK);
 		setLayout(null);
 		setPreferredSize(new Dimension(1700,900));
 		
@@ -37,5 +38,9 @@ public class PlayerSelectScreen extends Screen {
 		RaceSelectPanel raceSelectPanel = new RaceSelectPanel();
 		raceSelectPanel.setBounds(634, 276, 432, 320);
 		add(raceSelectPanel);
+		
+		ColorChooseBox colorChooseBox = new ColorChooseBox();
+		colorChooseBox.setBounds(190, 678, 1200, 112);
+		add(colorChooseBox);
 	}
 }
