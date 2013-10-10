@@ -1,4 +1,5 @@
 import java.awt.Color;
+
 import javax.swing.*;
 
 /**
@@ -46,6 +47,8 @@ public class Controller {
 	 */
 	public void setNumPlayers(int num){
 		numPlayers = num;
+		System.out.println("setNUm");
+
 	}
 	/**
 	 * Simple setter that sets the difficulty to a desired hardness. 

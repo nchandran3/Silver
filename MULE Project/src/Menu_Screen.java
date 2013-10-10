@@ -33,6 +33,8 @@ public class Menu_Screen extends Screen implements ActionListener {
 	private JRadioButton plebian;
 	private JRadioButton bourg;
 	private JRadioButton royalty;
+	Controller controller = new Controller();
+
 	//hey ford
 	/*
 	 * Create the panel.
@@ -165,31 +167,37 @@ public class Menu_Screen extends Screen implements ActionListener {
 	 * @param ActionEvent e
 	 */
 	public void actionPerformed(ActionEvent e) {
-		Controller controller = Controller.getController();
+		System.out.println("test");
+
+		controller.getController();
 		controller.setNumPlayers((int) comboBox.getSelectedItem());
 		
 		if(verifyDifficultySelected() != -1)
-			Iterator.getIterator().switchScreen("pSS");
+			System.out.println("test");
+			Iterator it = new Iterator();
+			it.getIterator().switchScreen("pSS");
 		
 	}
 
 	public int verifyDifficultySelected()
 	{
+		System.out.println("tedededt");
+
 		int difficulty = -1;
 		
 		if(plebian.isSelected()){
 			difficulty =1;
-			Controller.controller.setDifficulty(difficulty);
+			controller.setDifficulty(difficulty);
 		}
 		else if(bourg.isSelected())
 		{
 			difficulty =2;
-			Controller.controller.setDifficulty(difficulty);
+			controller.setDifficulty(difficulty);
 		}
 		else if (royalty.isSelected())
 		{
 			difficulty =3;
-			Controller.controller.setDifficulty(difficulty);
+			controller.setDifficulty(difficulty);
 		}
 		else
 			JOptionPane.showMessageDialog(null,"You must pick a difficulty!");

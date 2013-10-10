@@ -39,11 +39,17 @@ public class Iterator {
 	 * @param String screen 
 	 */
 	public void switchScreen(String screen){
+		System.out.println("iterator");
 		System.out.println("Screen to show is: " + screen);
 		//c.show(contentPane, screen);
 		//c.next(contentPane);
-		frame.add(this.screen);
-		c.toString();
+		
+		//frame.add(this.screen);
+		//c.toString();
+		PlayerSelectScreen pss = new PlayerSelectScreen();
+		contentPane.add(pss);
+		contentPane.
+		frame.add(pss);
 	}
 	/**
 	 * 
