@@ -1,3 +1,5 @@
+import java.awt.EventQueue;
+
 
 /**
  * @author Naveen Chandran
@@ -8,10 +10,17 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		GameFrame frame = new GameFrame();
-		Iterator iterator = new Iterator(frame);
-		Controller controller = new Controller();
-		frame.main(args);
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GameFrame frame = new GameFrame();
+					Iterator iterator = new Iterator(frame);
+					Controller controller = new Controller();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 }

@@ -14,18 +14,9 @@ public class GameFrame extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GameFrame frame = new GameFrame();
-					frame.pack();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public static void main(String [] args)
+	{
+		new GameFrame();
 	}
 
 	/**
@@ -41,7 +32,8 @@ public class GameFrame extends JFrame {
 		setContentPane(contentPane);
 		
 		contentPane.add(new Menu_Screen());
-		
+		pack();
+		setVisible(true);
 	}
 
 }

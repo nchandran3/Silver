@@ -9,7 +9,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -163,19 +165,36 @@ public class Menu_Screen extends Screen implements ActionListener {
 	 * @param ActionEvent e
 	 */
 	public void actionPerformed(ActionEvent e) {
-		Controller.getController().setNumPlayers((int) comboBox.getSelectedItem());
+		Controller controller = Controller.getController();
+		controller.setNumPlayers((int) comboBox.getSelectedItem());
 		
-		if(plebian.isSelected()){
-			Controller.controller.setDifficulty(1);
-		}
-		else if(bourg.isSelected())
-			Controller.controller.setDifficulty(2);
-		else
-			Controller.controller.setDifficulty(3);
-		Iterator.getIterator().switchScreen("pSS");
+		if(verifyDifficultySelected() != -1)
+			Iterator.getIterator().switchScreen("pSS");
 		
 	}
 
+	public int verifyDifficultySelected()
+	{
+		int difficulty = -1;
+		
+		if(plebian.isSelected()){
+			difficulty =1;
+			Controller.controller.setDifficulty(difficulty);
+		}
+		else if(bourg.isSelected())
+		{
+			difficulty =2;
+			Controller.controller.setDifficulty(difficulty);
+		}
+		else if (royalty.isSelected())
+		{
+			difficulty =3;
+			Controller.controller.setDifficulty(difficulty);
+		}
+		else
+			JOptionPane.showMessageDialog(null,"You must pick a difficulty!");
+		return difficulty;
+	}
 	public static void main (String [] args)
 	{
 		

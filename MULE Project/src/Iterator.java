@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import javax.swing.*;
 /**
  * This class controls the switching between the screens in the game.
@@ -9,6 +10,7 @@ import javax.swing.*;
  */
 public class Iterator {
 	private static Iterator iterator;
+	private Container contentPane;
 	private JFrame frame;
 	public Screen screen;
 	private CardLayout c;
@@ -18,13 +20,14 @@ public class Iterator {
 	public Iterator(){iterator = this;}
 	/**
 	 * Overloaded constructor that instantiates the gameframe into the cardLayout and adds the two components 
-	 * men screen and player select screen
+	 * menu screen and player select screen
 	 * 
 	 * @param JFrame gameframe
 	 */
 	public Iterator(JFrame gameframe){
 		this();
 		frame = gameframe;
+		contentPane = frame.getContentPane();
 		c = (CardLayout)frame.getContentPane().getLayout();
 		Menu_Screen menuScreen = new Menu_Screen();
 		PlayerSelectScreen pSS = new PlayerSelectScreen();
@@ -38,7 +41,9 @@ public class Iterator {
 	 * @param String screen 
 	 */
 	public void switchScreen(String screen){
-		c.show(frame, screen);
+		System.out.println("Screen to show is: " + screen);
+		//c.show(contentPane, screen);
+		c.next(frame);
 	}
 	/**
 	 * 
