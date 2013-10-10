@@ -33,8 +33,9 @@ public class Menu_Screen extends Screen implements ActionListener {
 	private JRadioButton plebian;
 	private JRadioButton bourg;
 	private JRadioButton royalty;
-	Controller controller = new Controller();
-
+	private Controller controller = Controller.getController();
+	private Iterator iterator = Iterator.getIterator();
+	
 	//hey ford
 	/*
 	 * Create the panel.
@@ -169,13 +170,13 @@ public class Menu_Screen extends Screen implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("test");
 
-		controller.getController();
 		controller.setNumPlayers((int) comboBox.getSelectedItem());
 		
 		if(verifyDifficultySelected() != -1)
-			System.out.println("test");
-			Iterator it = new Iterator();
-			it.getIterator().switchScreen("pSS");
+		{
+			
+			iterator.switchScreen("pSS");
+		}
 		
 	}
 
@@ -209,7 +210,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		Controller controller = new Controller();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
-		Iterator iterator = new Iterator(frame);
+		Iterator iterator = new Iterator(frame.getContentPane());
 		frame.getContentPane().add(new Menu_Screen());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(new Point(100,0));
