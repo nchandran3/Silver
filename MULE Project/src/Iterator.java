@@ -29,8 +29,8 @@ public class Iterator {
 		frame = pane.getParent();
 		contentPane = pane;
 		c = (CardLayout)pane.getLayout();
-		PlayerSelectScreen pSS = new PlayerSelectScreen();
-		c.addLayoutComponent(pSS, "pSS");
+		screen = new PlayerSelectScreen();
+		c.addLayoutComponent(screen, "pSS");
 		
 	}
 	/**
@@ -41,7 +41,8 @@ public class Iterator {
 	public void switchScreen(String screen){
 		System.out.println("Screen to show is: " + screen);
 		//c.show(contentPane, screen);
-		c.next(contentPane);
+		//c.next(contentPane);
+		frame.add(this.screen);
 		c.toString();
 	}
 	/**
