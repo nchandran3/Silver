@@ -8,11 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.SwingConstants;
 
 /**
  * This class creates the first screen that will be displayed when the player starts the game. In allows the 
@@ -56,19 +58,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		title.setBounds(588, 11, title.getPreferredSize().width, title.getPreferredSize().height);
 		add(title);
 
-
-		/*
-		 * Start button, which initiates the connection to the configuration manager 
-		 * to set up the next screens and record input.
-		 */
-
-		JButton done = new JButton("START!");
-		done.setBackground(Color.BLACK);
-		done.setForeground(Color.YELLOW);
-		done.setBounds(792, 855, 115, 34);
-		done.addActionListener(this);
-		add(done);
-
+		
 
 		/*
 		 * Combo box to select the number of players. Includes selectable options, font, color, position, and default selection.
@@ -80,7 +70,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		comboBox.setForeground(new Color(255, 51, 153));
 		comboBox.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1, 2, 3, 4}));
 		comboBox.setSelectedIndex(0);
-		comboBox.setBounds(1018, 370, 94, 28);
+		comboBox.setBounds(1018, 270, 94, 28);
 		add(comboBox);
 
 		/*
@@ -91,9 +81,19 @@ public class Menu_Screen extends Screen implements ActionListener {
 		lblNumberOfNobles.setForeground(new Color(255, 51, 204));
 		lblNumberOfNobles.setFont(new Font("Vivaldi", Font.BOLD, 40));
 		lblNumberOfNobles.setBackground(Color.BLUE);
-		lblNumberOfNobles.setBounds(588, 357, lblNumberOfNobles.getPreferredSize().width, lblNumberOfNobles.getPreferredSize().height);
+		lblNumberOfNobles.setBounds(588, 257, lblNumberOfNobles.getPreferredSize().width, lblNumberOfNobles.getPreferredSize().height);
 		add(lblNumberOfNobles);
 
+		/*
+		 * Difficulty Label
+		 */
+		
+		JLabel difficultylbl = new JLabel("DIFFICULTY");
+		difficultylbl.setForeground(Color.CYAN);
+		difficultylbl.setFont(new Font("Onyx", Font.PLAIN, 88));
+		difficultylbl.setBounds(724, 433, difficultylbl.getPreferredSize().width, difficultylbl.getPreferredSize().height);
+		add(difficultylbl);
+		
 		/*
 		 * Difficulty selector. Plebian is beginner, bourgeoisie is intermediate, and royalty is advanced. 
 		 * No two check boxes can be selected at once due to the ButtonGroup functionality.
@@ -103,19 +103,19 @@ public class Menu_Screen extends Screen implements ActionListener {
 		plebian.setOpaque(false);
 		plebian.setForeground(Color.YELLOW);
 		plebian.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		plebian.setBounds(320,686,plebian.getPreferredSize().width,plebian.getPreferredSize().height);
+		plebian.setBounds(320,586,plebian.getPreferredSize().width,plebian.getPreferredSize().height);
 		
 		bourg = new JRadioButton("Bourgeoisie");
 		bourg.setOpaque(false);
 		bourg.setForeground(Color.YELLOW);
 		bourg.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		bourg.setBounds(761,686,bourg.getPreferredSize().width,bourg.getPreferredSize().height);
+		bourg.setBounds(761,586,bourg.getPreferredSize().width,bourg.getPreferredSize().height);
 		
 		royalty = new JRadioButton("Royalty");
 		royalty.setOpaque(false);
 		royalty.setForeground(Color.YELLOW);
 		royalty.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		royalty.setBounds(1250,686,royalty.getPreferredSize().width,royalty.getPreferredSize().height);
+		royalty.setBounds(1250,586,royalty.getPreferredSize().width,royalty.getPreferredSize().height);
 
 		difgroup = new ButtonGroup();
 		difgroup.add(plebian);
@@ -126,17 +126,33 @@ public class Menu_Screen extends Screen implements ActionListener {
 		add(bourg);
 		add(royalty);
 
+		
 		/*
-		 * Difficulty Label
+		 * Random map generation check box. If checked, map will be generated randomly. 
 		 */
 		
-		JLabel difficultylbl = new JLabel("DIFFICULTY");
-		difficultylbl.setForeground(Color.CYAN);
-		difficultylbl.setFont(new Font("Onyx", Font.PLAIN, 88));
-		difficultylbl.setBounds(724, 533, difficultylbl.getPreferredSize().width, difficultylbl.getPreferredSize().height);
-		add(difficultylbl);
+		JCheckBox map = new JCheckBox("Random Map");
+		map.setFont(new Font("Vivaldi", Font.BOLD, 30));
+		map.setForeground(Color.YELLOW);
+		map.setOpaque(false);
+		map.setToolTipText("Randomly generate the tiles of the map");
+		map.setBounds(742, 722, map.getPreferredSize().width , map.getPreferredSize().height);
+		add(map);
 		
-	
+		
+		/*
+		 * Start button, which initiates the connection to the configuration manager 
+		 * to set up the next screens and record input.
+		 */
+
+		JButton done = new JButton("START!");
+		done.setBackground(Color.BLACK);
+		done.setForeground(Color.YELLOW);
+		done.setBounds(792, 855, 115, 34);
+		done.addActionListener(this);
+		add(done);
+		
+		
 	}
 	
 	/**
@@ -173,7 +189,4 @@ public class Menu_Screen extends Screen implements ActionListener {
 		frame.pack();
 		frame.setVisible(true);
 	}
-
-
-	
 }
