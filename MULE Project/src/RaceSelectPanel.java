@@ -3,6 +3,8 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
@@ -23,7 +25,7 @@ public class RaceSelectPanel extends Screen {
 
 	private static final long serialVersionUID = 1L;
 	private Race selected;
-	private JButton btnHuman, btnTargaryen, btnBaratheon, btnStark, btnLannister;
+	private JButton btnGreyjoy, btnTargaryen, btnBaratheon, btnStark, btnLannister;
 	private ArrayList<Component> buttons = new ArrayList<>();
 	private JLabel image;
 	private HashMap <String, ImageIcon> map = new HashMap<>(); //allows calling images by their name
@@ -39,10 +41,10 @@ public class RaceSelectPanel extends Screen {
 		/*
 		 * Button initialization
 		 */
-		btnHuman = new JButton("Greyjoy");
-		btnHuman.setBounds(170, 32, 89, 23);
-		add(btnHuman);
-		buttons.add(btnHuman);
+		btnGreyjoy = new JButton("Greyjoy");
+		btnGreyjoy.setBounds(170, 32, 89, 23);
+		add(btnGreyjoy);
+		buttons.add(btnGreyjoy);
 		
 		btnTargaryen = new JButton("Targaryen");
 		btnTargaryen.setBounds(331, 131, 89, 23);
@@ -67,13 +69,48 @@ public class RaceSelectPanel extends Screen {
 			ImageIcon icon = new ImageIcon(new URL("http://opinionessoftheworld.files.wordpress.com/2013/04/game-of-thrones-daenerys-dragon.jpg"));
 			Image icon2 = icon.getImage().getScaledInstance(148, 148, Image.SCALE_FAST);
 			icon = new ImageIcon(icon2);
-			JLabel label = new JLabel(icon);
-			label.setBounds(141, 79, 148, 148);
-			add(label);
+			image = new JLabel(icon);
+			image.setBounds(141, 79, 148, 148);
+			add(image);
 		}
 		catch (MalformedURLException e)
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public ImageIcon compress(ImageIcon icon)
+	{
+		Image icon2 = icon.getImage().getScaledInstance(148, 148, Image.SCALE_FAST);
+		return new ImageIcon(icon2);
+	}
+	/**
+	 * Listener for race buttons
+	 * @author Naveen
+	 *
+	 */
+	private class ButtonListener implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JButton src = (JButton) e.getSource();
+			setSelected(src); //sets the selected race			
+		}
+		
+		public void setSelected(JButton src)
+		{
+			if(src == btnGreyjoy)
+				selected = Race.GREYJOY;
+			else if (src == btnTargaryen)
+				selected = Race.TARGARYEN;
+			else if (src == btnBaratheon)
+				selected = Race.BARATHEON;
+			else if (src == btnStark)
+				selected = Race.STARK;
+			else if (src == btnLannister)
+				selected = Race.LANNISTER;
+		}
+		
 	}
 }
