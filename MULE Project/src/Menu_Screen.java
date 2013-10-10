@@ -33,8 +33,8 @@ public class Menu_Screen extends Screen implements ActionListener {
 	private JRadioButton plebian;
 	private JRadioButton bourg;
 	private JRadioButton royalty;
-	private Controller controller = Controller.getController();
-	private Iterator iterator = Iterator.getIterator();
+	private Controller controller;
+	private Iterator iterator;
 	
 	//hey ford
 	/*
@@ -169,7 +169,10 @@ public class Menu_Screen extends Screen implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("test");
-
+		
+		controller = Controller.getController();
+		iterator = Iterator.getIterator();
+		
 		controller.setNumPlayers((int) comboBox.getSelectedItem());
 		
 		if(verifyDifficultySelected() != -1)
@@ -182,8 +185,6 @@ public class Menu_Screen extends Screen implements ActionListener {
 
 	public int verifyDifficultySelected()
 	{
-		System.out.println("tedededt");
-
 		int difficulty = -1;
 		
 		if(plebian.isSelected()){

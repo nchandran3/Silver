@@ -48,8 +48,6 @@ public class Iterator {
 		//c.toString();
 		PlayerSelectScreen pss = new PlayerSelectScreen();
 		contentPane.add(pss);
-		contentPane.
-		frame.add(pss);
 	}
 	/**
 	 * 
