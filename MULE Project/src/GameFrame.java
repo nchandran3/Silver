@@ -26,12 +26,11 @@ public class GameFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 0, 450, 300);
 		setTitle("D.R.A.G.O.N. The Game");
-		contentPane = new JPanel();
 		cl = new CardLayout();
-		contentPane.setLayout(cl);
-		setContentPane(contentPane);
+		getContentPane().setLayout(cl);
 		
-		contentPane.add(new Menu_Screen());
+		System.out.println("Layout: " + getContentPane().getLayout());
+		add(new Menu_Screen());
 		pack();
 		setVisible(true);
 	}

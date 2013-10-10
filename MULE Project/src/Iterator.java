@@ -11,7 +11,7 @@ import javax.swing.*;
 public class Iterator {
 	private static Iterator iterator;
 	private Container contentPane;
-	private JFrame frame;
+	private Container frame;
 	public Screen screen;
 	private CardLayout c;
 	/**
@@ -24,14 +24,12 @@ public class Iterator {
 	 * 
 	 * @param JFrame gameframe
 	 */
-	public Iterator(JFrame gameframe){
+	public Iterator(Container pane){
 		this();
-		frame = gameframe;
-		contentPane = frame.getContentPane();
-		c = (CardLayout)frame.getContentPane().getLayout();
-		Menu_Screen menuScreen = new Menu_Screen();
+		frame = pane.getParent();
+		contentPane = pane;
+		c = (CardLayout)pane.getLayout();
 		PlayerSelectScreen pSS = new PlayerSelectScreen();
-		c.addLayoutComponent(menuScreen, "menu");
 		c.addLayoutComponent(pSS, "pSS");
 		
 	}
@@ -43,7 +41,8 @@ public class Iterator {
 	public void switchScreen(String screen){
 		System.out.println("Screen to show is: " + screen);
 		//c.show(contentPane, screen);
-		c.next(frame);
+		c.next(contentPane);
+		c.toString();
 	}
 	/**
 	 * 
