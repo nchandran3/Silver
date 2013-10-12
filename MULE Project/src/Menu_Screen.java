@@ -168,12 +168,15 @@ public class Menu_Screen extends Screen implements ActionListener {
 	 * @param ActionEvent e
 	 */
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("test");
+//		System.out.println("test");
 		
 		controller = Controller.getController();
 		iterator = Iterator.getIterator();
-		
-		controller.setNumPlayers((int) comboBox.getSelectedItem());
+		Integer num = (int) comboBox.getSelectedItem();
+		if(num != 1 || num != 2 || num != 3 || num != 4)
+			controller.setNumPlayers(1);
+		else
+			controller.setNumPlayers(num);
 		
 		if(verifyDifficultySelected() != -1)
 		{
