@@ -61,7 +61,7 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 	
 	
 	/**
-	 * Recognises an action performed from the players and based on that action draws over the color 
+	 * Recognizes an action performed from the players and based on that action draws over the color 
 	 * that was just chosen which in turn eliminates that option from the next player.
 	 * 
 	 * @param ActionEvent e

@@ -25,7 +25,7 @@ public class Controller {
 	}
 	/**
 	 * This creates new players by calling the player class to set up each player's instance variables 
-	 * It puts the players into an array which makes it easy for the iteratorr to iterate through the players for the game.
+	 * It puts the players into an array which makes it easy for the iterator to iterate through the players for the game.
 	 * 
 	 * @param name
 	 * @param color
@@ -47,7 +47,7 @@ public class Controller {
 	 */
 	public void setNumPlayers(int num){
 		numPlayers = num;
-		System.out.println("setNUm");
+		System.out.println("Set number of players to: "  + num);
 
 	}
 	/**
