@@ -14,7 +14,7 @@ public class Main {
 			public void run() {
 				try {
 					GameFrame frame = new GameFrame();
-					Iterator iterator = new Iterator(frame.getContentPane());
+					Iterator iterator = new Iterator(frame);
 					Controller controller = new Controller();
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -12,7 +12,7 @@ public class Iterator {
 	private static Iterator iterator;
 	private static JPanel cards;
 	private Container contentPane;
-	private Container frame;
+	private JFrame frame;
 	public Screen screen;
 //	private CardLayout c;
 	/**
@@ -25,10 +25,10 @@ public class Iterator {
 	 * 
 	 * @param JFrame gameframe
 	 */
-	public Iterator(Container pane){ //add the cards to the pane
+	public Iterator(JFrame frm){ //add the cards to the pane
 		this();
-		frame = pane.getParent();
-		contentPane = pane;
+		frame = frm;
+		contentPane = frame.getContentPane();
 		
 		//make the cards
 		JPanel pSSCard = new PlayerSelectScreen();
@@ -40,7 +40,7 @@ public class Iterator {
 		cards.add(pSSCard, "pSS");
 		
 		
-		pane.add(cards);
+		contentPane.add(cards);
 	}
 	/**
 	 * changes the screen displayed on the card layout 
