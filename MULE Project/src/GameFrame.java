@@ -27,14 +27,6 @@ public class GameFrame extends JFrame {
 		setBounds(100, 0, 450, 300);
 		setTitle("D.R.A.G.O.N. The Game");
 		setResizable(false);
-		
-		cl = new CardLayout();
-		getContentPane().setLayout(cl);
-		
-		System.out.println("Layout: " + getContentPane().getLayout());
-		add(new Menu_Screen());
-		pack();
-		setVisible(true);
 	}
 
 }

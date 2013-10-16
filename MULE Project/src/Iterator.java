@@ -41,6 +41,9 @@ public class Iterator {
 		
 		
 		contentPane.add(cards);
+		
+		frame.pack();
+		frame.setVisible(true);
 	}
 	/**
 	 * changes the screen displayed on the card layout 

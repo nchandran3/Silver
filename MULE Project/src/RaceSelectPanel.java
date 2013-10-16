@@ -42,26 +42,26 @@ public class RaceSelectPanel extends Screen {
 		 * Button initialization
 		 */
 		btnGreyjoy = new JButton("Greyjoy");
-		btnGreyjoy.setBounds(170, 32, 89, 23);
+		btnGreyjoy.setBounds(170, 32, 100, 23);
 		add(btnGreyjoy);
 		buttons.add(btnGreyjoy);
 		
 		btnTargaryen = new JButton("Targaryen");
-		btnTargaryen.setBounds(331, 131, 89, 23);
+		btnTargaryen.setBounds(331, 130, 100, 23);
 		add(btnTargaryen);
 		buttons.add(btnTargaryen);
 		
 		btnBaratheon = new JButton("Baratheon");
-		btnBaratheon.setBounds(84, 261, 89, 23);
+		btnBaratheon.setBounds(84, 261, 100, 23);
 		add(btnBaratheon);
 		buttons.add(btnBaratheon);
 		
 		btnStark = new JButton("Stark");
-		btnStark.setBounds(257, 261, 89, 23);
+		btnStark.setBounds(257, 261, 100, 23);
 		add(btnStark);
 		
 		btnLannister = new JButton("Lannister");
-		btnLannister.setBounds(10, 131, 89, 23);
+		btnLannister.setBounds(10, 130, 100, 23);
 		add(btnLannister);
 		
 		try
