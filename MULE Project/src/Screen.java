@@ -47,4 +47,9 @@ public class Screen extends JPanel{
 	{
 		repaint();
 	}
+	
+	public String toString()
+	{
+		return this.getName();
+	}
 }
