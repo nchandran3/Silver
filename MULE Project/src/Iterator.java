@@ -50,11 +50,12 @@ public class Iterator {
 	 * 
 	 * @param String screen 
 	 */
-	public void switchScreen(String screen){
+	public void switchScreen(Screen screen){
 		System.out.println("iterator");
 		System.out.println("Screen to show is: " + screen);
+		
 		CardLayout c = (CardLayout) (cards.getLayout());
-		c.show(cards, screen);
+		c.show(screen, "screen");
 	}
 	/**
 	 * 
