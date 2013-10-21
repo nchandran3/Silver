@@ -73,6 +73,7 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 		Graphics g= getGraphics();
 		g.setColor(chosen);
 		g.fillRect(getWidth()/2-25, 0, 50, 50);
+		System.out.println("Color chosen was "  + chosen);
 	}
 	/**
 	 * simple getter which returns the color that the player chose

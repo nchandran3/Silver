@@ -26,9 +26,10 @@ public class RaceSelectPanel extends Screen {
 	private static final long serialVersionUID = 1L;
 	private Race selected;
 	private JButton btnGreyjoy, btnTargaryen, btnBaratheon, btnStark, btnLannister;
-	private ArrayList<Component> buttons = new ArrayList<>();
+	private ArrayList<JButton> buttons = new ArrayList<>();
 	private JLabel image;
 	private HashMap <String, ImageIcon> map = new HashMap<>(); //allows calling images by their name
+	private ButtonListener listener = new ButtonListener();
 	/**
 	 * This creates the panel where the races will be displayed on the create player class and
 	 * reads what the user presses and sets that player's race to what they selected.
@@ -77,12 +78,30 @@ public class RaceSelectPanel extends Screen {
 		{
 			e.printStackTrace();
 		}
+		
+		/*
+		 * Add action listener to all buttons
+		 */
+		
+		for (JButton b : buttons)
+		{
+			b.addActionListener(listener);
+		}
 	}
-	
+	/**
+	 * Compresses the ImageIcon to the preferred size.
+	 * @param icon the icon to compress
+	 * @return the compressed icon
+	 */
 	public ImageIcon compress(ImageIcon icon)
 	{
 		Image icon2 = icon.getImage().getScaledInstance(148, 148, Image.SCALE_FAST);
 		return new ImageIcon(icon2);
+	}
+	
+	public Race getSelectedRace()
+	{
+		return selected;
 	}
 	/**
 	 * Listener for race buttons
@@ -95,7 +114,8 @@ public class RaceSelectPanel extends Screen {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JButton src = (JButton) e.getSource();
-			setSelected(src); //sets the selected race			
+			setSelected(src); //sets the selected race	
+			changePicture(src); //changes the central image to the selected race
 		}
 		
 		public void setSelected(JButton src)
@@ -110,6 +130,20 @@ public class RaceSelectPanel extends Screen {
 				selected = Race.STARK;
 			else if (src == btnLannister)
 				selected = Race.LANNISTER;
+		}
+		
+		public void changePicture(JButton src)
+		{
+			if(src == btnGreyjoy)
+				image.setIcon(compress(new ImageIcon("dragon.png")));
+			else if (src == btnTargaryen)
+				image.setIcon(compress(new ImageIcon("targaryen.png")));
+			else if (src == btnBaratheon)
+				image.setIcon(compress(new ImageIcon("baratheon.png")));
+			else if (src == btnStark)
+				image.setIcon(compress(new ImageIcon("stark.png")));
+			else if (src == btnLannister)
+				image.setIcon(compress(new ImageIcon("lannister.png")));
 		}
 		
 	}

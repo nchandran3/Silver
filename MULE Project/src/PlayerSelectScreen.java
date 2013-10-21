@@ -1,7 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -12,6 +15,8 @@ import javax.swing.JButton;
  */
 public class PlayerSelectScreen extends Screen {
 	private JTextField txtEnterPlayerName;
+	private Color color;
+	private Race race;
 
 	public PlayerSelectScreen()
 	{
