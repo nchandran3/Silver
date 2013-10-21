@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
@@ -21,6 +22,7 @@ public class PlayerSelectScreen extends Screen {
 	private Race race;
 	private RaceSelectPanel raceSelectPanel;
 	private ColorChooseBox colorChooseBox;
+	private static int players_created =0;
 
 	public PlayerSelectScreen()
 	{
@@ -65,16 +67,46 @@ public class PlayerSelectScreen extends Screen {
 		done.setBackground(Color.BLACK);
 		done.setBounds(805, 866, 115, 34);
 		add(done);
+		
+		players_created++;
 	}
 	
+	/**
+	 * Listener for the Done button. Determines if all options are selected, and if so, will create a new player and bring up 
+	 * another PlayerSelectScreen if needed; otherwise, bring up the map. 
+	 * @author Naveen
+	 *
+	 */
 	private class DoneListener implements ActionListener
 	{
 
+		/*
+		 * If user has selected all required fields, create a new player. Then check to see if there are 
+		 * more players left to create. If not, change to the map screen. 
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(raceSelectPanel.getSelectedRace() != null && colorChooseBox.getColorChosen() != null && txtEnterPlayerName.getText() != "")
 			{
+				Controller controller = Controller.getController();
+				Iterator iterator = Iterator.getIterator();
 				
+				if(players_created < controller.getNumPlayers())
+				{
+					controller.createPlayer(txtEnterPlayerName.getText(), colorChooseBox.getColorChosen(), raceSelectPanel.getSelectedRace());
+					colorChooseBox.removeColorFromChoices(); //remove the color chosen from the list of options
+					iterator.switchScreen(new PlayerSelectScreen());
+				}
+				
+				else
+				{
+					iterator.switchScreen(new JPanel()); //change this to the Map Screen class
+				}
+			}
+			
+			else
+			{
+				JOptionPane.showMessageDialog(null,"You must fill out all options!");
 			}
 			
 		}

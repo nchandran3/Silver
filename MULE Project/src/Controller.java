@@ -21,7 +21,7 @@ public class Controller {
 	public Controller(){
 		controller=this;
 		playerCount = 0;
-//		players = new Player[numPlayers];
+	//	players = new Player[numPlayers];
 	}
 	/**
 	 * This creates new players by calling the player class to set up each player's instance variables 
@@ -48,7 +48,13 @@ public class Controller {
 	public void setNumPlayers(int num){
 		numPlayers = num;
 		System.out.println("Set number of players to: "  + num);
+		players = new Player[numPlayers];
 
+	}
+	
+	public int getNumPlayers()
+	{
+		return numPlayers;
 	}
 	/**
 	 * Simple setter that sets the difficulty to a desired hardness. 
