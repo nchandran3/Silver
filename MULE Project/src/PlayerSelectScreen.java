@@ -66,6 +66,7 @@ public class PlayerSelectScreen extends Screen {
 		done.setOpaque(true);
 		done.setBackground(Color.BLACK);
 		done.setBounds(805, 866, 115, 34);
+		done.addActionListener(new DoneListener());
 		add(done);
 		
 		players_created++;
