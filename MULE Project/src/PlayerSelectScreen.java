@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -17,6 +19,8 @@ public class PlayerSelectScreen extends Screen {
 	private JTextField txtEnterPlayerName;
 	private Color color;
 	private Race race;
+	private RaceSelectPanel raceSelectPanel;
+	private ColorChooseBox colorChooseBox;
 
 	public PlayerSelectScreen()
 	{
@@ -61,5 +65,19 @@ public class PlayerSelectScreen extends Screen {
 		done.setBackground(Color.BLACK);
 		done.setBounds(805, 866, 115, 34);
 		add(done);
+	}
+	
+	private class DoneListener implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(raceSelectPanel.getSelectedRace() != null && colorChooseBox.getColorChosen() != null && txtEnterPlayerName.getText() != "")
+			{
+				
+			}
+			
+		}
+		
 	}
 }

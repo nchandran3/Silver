@@ -60,10 +60,12 @@ public class RaceSelectPanel extends Screen {
 		btnStark = new JButton("Stark");
 		btnStark.setBounds(257, 261, 100, 23);
 		add(btnStark);
+		buttons.add(btnStark);
 		
 		btnLannister = new JButton("Lannister");
 		btnLannister.setBounds(10, 130, 100, 23);
 		add(btnLannister);
+		buttons.add(btnLannister);
 		
 		try
 		{
@@ -130,12 +132,14 @@ public class RaceSelectPanel extends Screen {
 				selected = Race.STARK;
 			else if (src == btnLannister)
 				selected = Race.LANNISTER;
+			
+			System.out.println("Seleted race was " + selected);
 		}
 		
 		public void changePicture(JButton src)
 		{
 			if(src == btnGreyjoy)
-				image.setIcon(compress(new ImageIcon("dragon.png")));
+				image.setIcon(new ImageIcon("dragon.png"));
 			else if (src == btnTargaryen)
 				image.setIcon(compress(new ImageIcon("targaryen.png")));
 			else if (src == btnBaratheon)
