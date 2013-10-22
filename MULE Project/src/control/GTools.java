@@ -62,7 +62,7 @@ public abstract class GTools {
 					(int) (c_width), //the width scaled by a factor of rwidth
 					(int) (c_height)); //the height scaled by a factor of rheight
 			
-			container.add(component);
+			container.add(component); 
 		} 
 	
 	/**
