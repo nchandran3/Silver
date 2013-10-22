@@ -58,11 +58,9 @@ public class Menu_Screen extends Screen implements ActionListener {
 		JLabel title = new JLabel("D.R.A.G.O.N.");
 		title.setFont(new Font("Stencil", Font.PLAIN, 90));
 		title.setForeground(Color.YELLOW);
-		GTools.setBounds(title, .5, .1, this);
-		//title.setBounds(super.width/2, 11 title.getPreferredSize().width, title.getPreferredSize().height);
-		add(title);
-
+		GTools.positionAndAdd(title, .5, .1, this);
 		
+
 
 		/*
 		 * Combo box to select the number of players. Includes selectable options, font, color, position, and default selection.
@@ -74,8 +72,8 @@ public class Menu_Screen extends Screen implements ActionListener {
 		comboBox.setForeground(new Color(255, 51, 153));
 		comboBox.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1, 2, 3, 4}));
 		comboBox.setSelectedIndex(0);
-		comboBox.setBounds(1018, 270, 94, 28);
-		add(comboBox);
+		GTools.positionAndAdd(comboBox, 3.0/4, 5.0/12, 2, 1, this);
+		
 
 		/*
 		 * Label for the combo box.
@@ -85,9 +83,8 @@ public class Menu_Screen extends Screen implements ActionListener {
 		lblNumberOfNobles.setForeground(new Color(255, 51, 204));
 		lblNumberOfNobles.setFont(new Font("Vivaldi", Font.BOLD, 40));
 		lblNumberOfNobles.setBackground(Color.BLUE);
-		GTools.setBounds(lblNumberOfNobles, 1.0/4, 5.0/12, this);
-		//lblNumberOfNobles.setBounds(588, 257, lblNumberOfNobles.getPreferredSize().width, lblNumberOfNobles.getPreferredSize().height);
-		add(lblNumberOfNobles);
+		GTools.positionAndAdd(lblNumberOfNobles, 1.0/4, 5.0/12, this);
+		
 
 		/*
 		 * Difficulty Label
@@ -95,9 +92,9 @@ public class Menu_Screen extends Screen implements ActionListener {
 		
 		JLabel difficultylbl = new JLabel("DIFFICULTY");
 		difficultylbl.setForeground(Color.CYAN);
-		difficultylbl.setFont(new Font("Onyx", Font.PLAIN, 88));
-		difficultylbl.setBounds(724, 433, difficultylbl.getPreferredSize().width, difficultylbl.getPreferredSize().height);
-		add(difficultylbl);
+		difficultylbl.setFont(new Font("Onyx", Font.PLAIN, 70));
+		GTools.positionAndAdd(difficultylbl, .5, .6, this);
+		
 		
 		/*
 		 * Difficulty selector. Plebian is beginner, bourgeoisie is intermediate, and royalty is advanced. 
@@ -108,28 +105,24 @@ public class Menu_Screen extends Screen implements ActionListener {
 		plebian.setOpaque(false);
 		plebian.setForeground(Color.YELLOW);
 		plebian.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		plebian.setBounds(320,586,plebian.getPreferredSize().width,plebian.getPreferredSize().height);
+		GTools.positionAndAdd(plebian, 1.0/6, .8, this);
 		
 		bourg = new JRadioButton("Bourgeoisie");
 		bourg.setOpaque(false);
 		bourg.setForeground(Color.YELLOW);
 		bourg.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		bourg.setBounds(761,586,bourg.getPreferredSize().width,bourg.getPreferredSize().height);
+		GTools.positionAndAdd(bourg, 3.0/6, .8, this);
 		
 		royalty = new JRadioButton("Royalty");
 		royalty.setOpaque(false);
 		royalty.setForeground(Color.YELLOW);
 		royalty.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		royalty.setBounds(1250,586,royalty.getPreferredSize().width,royalty.getPreferredSize().height);
-
+		GTools.positionAndAdd(royalty, 5.0/6, .8, this);
+		
 		difgroup = new ButtonGroup();
 		difgroup.add(plebian);
 		difgroup.add(bourg);
 		difgroup.add(royalty);
-
-		add(plebian);
-		add(bourg);
-		add(royalty);
 
 		
 		/*
@@ -141,8 +134,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		map.setForeground(Color.YELLOW);
 		map.setOpaque(false);
 		map.setToolTipText("Randomly generate the tiles of the map");
-		map.setBounds(742, 722, map.getPreferredSize().width , map.getPreferredSize().height);
-		add(map);
+		GTools.positionAndAdd(map, .5, .88, this);
 		
 		
 		/*
@@ -153,9 +145,9 @@ public class Menu_Screen extends Screen implements ActionListener {
 		JButton done = new JButton("START!");
 		done.setBackground(Color.BLACK);
 		done.setForeground(Color.YELLOW);
-		done.setBounds(792, 855, 115, 34);
 		done.addActionListener(this);
-		add(done);
+		GTools.positionAndAdd(done, .5, .97, this);
+		done.addActionListener(this);
 		
 		
 	}
