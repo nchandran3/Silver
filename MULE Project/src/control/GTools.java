@@ -63,7 +63,7 @@ public abstract class GTools {
 					(int) (c_height)); //the height scaled by a factor of rheight
 			
 			container.add(component);
-		}
+		} 
 	
 	/**
 	 * Compresses an ImageIcon to the desired size
