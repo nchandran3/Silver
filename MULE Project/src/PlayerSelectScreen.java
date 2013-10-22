@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Point;
 
 import javax.swing.JLabel;
 
@@ -7,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -112,5 +114,18 @@ public class PlayerSelectScreen extends Screen {
 			
 		}
 		
+	}
+	
+	public static void main(String [] args)
+	{
+		Controller controller = new Controller();
+		javax.swing.JFrame frame = new javax.swing.JFrame();
+		frame.getContentPane().setLayout(new java.awt.CardLayout());
+		Iterator iterator = new Iterator(frame);
+		frame.getContentPane().add(new PlayerSelectScreen());
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocation(new Point(100,0));
+		frame.pack();
+		frame.setVisible(true);
 	}
 }
