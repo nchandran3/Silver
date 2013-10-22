@@ -52,8 +52,13 @@ public class Screen extends JPanel{
 		repaint();
 	}
 	
-	public String toString()
+	public int getWidth()
 	{
-		return this.getName();
+		return width;
+	}
+	
+	public int getHeight()
+	{
+		return height;
 	}
 }

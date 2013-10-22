@@ -5,26 +5,25 @@ import javax.swing.JPanel;
 
 public abstract class GTools {
 	
-	/**
-	 * Returns the left coordinate to center a component at a fraction of the panel.
-	 * @param panel The panel to add the component to
-	 * @param ratio	The percent width on the screen where it should be centered
-	 * @param component The component being added
-	 * @return
-	 */
-	public static double setXBound(JPanel panel, double ratio, JComponent component)
+/**
+ * Sets the bounds of the component by computing the percent of pixels horizontally and vertically. Centers the component on the given pixel
+ * @param component
+ * @param x
+ * @param y
+ * @param container
+ */
+	public static void setBounds(JComponent component, double percentX, double percentY, JPanel container)
 	{
-		int width = panel.getWidth();
 		int c_width = component.getPreferredSize().width;
-		
-		return width*ratio - c_width/2;
-	}
-	
-	public static double setYBound(JPanel panel, double ratio, JComponent component)
-	{
-		int height = panel.getHeight();
 		int c_height = component.getPreferredSize().height;
 		
-		return height*ratio - c_height/2;
+		int width = container.getWidth();
+		int height = container.getHeight();
+				
+		component.setBounds(
+				(int)(width*percentX - c_width/2 ), //the centered x bound
+				(int) (height*percentY - c_height/2), //the centered y bound
+				c_width, //the width
+				c_height); //the height
 	}
 }

@@ -15,6 +15,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+import control.GTools;
+
 /**
  * This class creates the first screen that will be displayed when the player starts the game. In allows the 
  * player to choose a difficulty, map, and the number of players that are going to be playing.  
@@ -56,7 +58,8 @@ public class Menu_Screen extends Screen implements ActionListener {
 		JLabel title = new JLabel("D.R.A.G.O.N.");
 		title.setFont(new Font("Stencil", Font.PLAIN, 90));
 		title.setForeground(Color.YELLOW);
-		title.setBounds(super.width/2, 11, title.getPreferredSize().width, title.getPreferredSize().height);
+		GTools.setBounds(title, .5, .1, this);
+		//title.setBounds(super.width/2, 11 title.getPreferredSize().width, title.getPreferredSize().height);
 		add(title);
 
 		
@@ -82,7 +85,8 @@ public class Menu_Screen extends Screen implements ActionListener {
 		lblNumberOfNobles.setForeground(new Color(255, 51, 204));
 		lblNumberOfNobles.setFont(new Font("Vivaldi", Font.BOLD, 40));
 		lblNumberOfNobles.setBackground(Color.BLUE);
-		lblNumberOfNobles.setBounds(588, 257, lblNumberOfNobles.getPreferredSize().width, lblNumberOfNobles.getPreferredSize().height);
+		GTools.setBounds(lblNumberOfNobles, 1.0/4, 5.0/12, this);
+		//lblNumberOfNobles.setBounds(588, 257, lblNumberOfNobles.getPreferredSize().width, lblNumberOfNobles.getPreferredSize().height);
 		add(lblNumberOfNobles);
 
 		/*
