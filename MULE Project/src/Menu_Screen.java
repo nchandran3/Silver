@@ -1,6 +1,5 @@
 import javax.swing.JLabel;
 
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Point;
@@ -9,14 +8,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.SwingConstants;
 
 /**
  * This class creates the first screen that will be displayed when the player starts the game. In allows the 
@@ -36,7 +33,6 @@ public class Menu_Screen extends Screen implements ActionListener {
 	private Controller controller;
 	private Iterator iterator;
 	
-	//hey ford
 	/*
 	 * Create the panel.
 	 */
