@@ -28,8 +28,7 @@ public class Player implements Person {
 		this.race = race;
 		resources = new int[4];
 		playerInit();
-		location.x = 0;
-		location.y = 0;
+		location = new Point(0,0);
 	}
 	
 	/**

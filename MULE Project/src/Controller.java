@@ -12,9 +12,8 @@ import javax.swing.*;
 public class Controller {
 	public static Controller controller;
 	private Player[] players;
-	private int playerCount;
-	private int numPlayers;
-	private int difficulty;
+	private static int playerCount, numPlayers, difficulty;
+	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
 	 */
@@ -34,6 +33,8 @@ public class Controller {
 	public void createPlayer(String name, Color color, Race race){
 		if(playerCount < numPlayers){	// checks to make sure you dont add too many players
 			Player newPlayer = new Player(name, color, race);
+			System.out.println("Created player " + (playerCount + 1) + ":\nname " + name + "\ncolor " + color + 
+					"\nand race " + race); 
 			players[playerCount] = newPlayer;
 			playerCount++;
 		}

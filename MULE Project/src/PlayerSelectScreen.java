@@ -20,8 +20,6 @@ import javax.swing.JButton;
  */
 public class PlayerSelectScreen extends Screen {
 	private JTextField txtEnterPlayerName;
-	private Color color;
-	private Race race;
 	private RaceSelectPanel raceSelectPanel;
 	private ColorChooseBox colorChooseBox;
 	private static int players_created =0;
@@ -49,11 +47,11 @@ public class PlayerSelectScreen extends Screen {
 		add(txtEnterPlayerName);
 		txtEnterPlayerName.setColumns(10);
 		
-		RaceSelectPanel raceSelectPanel = new RaceSelectPanel();
+		raceSelectPanel = new RaceSelectPanel();
 		raceSelectPanel.setBounds(634, 276, 432, 320);
 		add(raceSelectPanel);
 		
-		ColorChooseBox colorChooseBox = new ColorChooseBox();
+		colorChooseBox = new ColorChooseBox();
 		colorChooseBox.setBounds(250, 664, 1200, 173);
 		add(colorChooseBox);
 		
@@ -95,7 +93,7 @@ public class PlayerSelectScreen extends Screen {
 				Controller controller = Controller.getController();
 				Iterator iterator = Iterator.getIterator();
 				
-				if(players_created < controller.getNumPlayers())
+				if(players_created <= controller.getNumPlayers())
 				{
 					controller.createPlayer(txtEnterPlayerName.getText(), colorChooseBox.getColorChosen(), raceSelectPanel.getSelectedRace());
 					colorChooseBox.removeColorFromChoices(); //remove the color chosen from the list of options
