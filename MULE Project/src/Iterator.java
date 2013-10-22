@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 /**
@@ -12,6 +13,7 @@ public class Iterator {
 	private static Iterator iterator;
 	private Container contentPane;
 	private JFrame frame;
+	private static int Round = 1;
 	public Screen cur_screen; //holds the current screen being displayed
 
 	/**
@@ -62,8 +64,6 @@ public class Iterator {
 	public Screen getScreen(){
 		return cur_screen;
 	}
-	
-	
 	/**
 	 * 
 	 * @return Instance of Iterator
@@ -72,6 +72,13 @@ public class Iterator {
 	{
 		return iterator;
 	}
+	public void simulateRound(){
+		ArrayList<Player> plArray = Player.getPlArray();
+		for(Player p: plArray){
+			if(){
+				
+			}
+			
+		Round++;
+	}
 }
-
-

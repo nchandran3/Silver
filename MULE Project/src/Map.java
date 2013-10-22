@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /**
  * This class is responsible for creating the map and storing the tileMap, as a 2-D 
  * array, and the players of game, stored in the array players.
@@ -14,6 +16,12 @@ public class Map extends Screen {
 	 * @param numTiles
 	 * @param newPlayers
 	 */
+	public Map(){
+		super();
+	}
+	public Map(Color c){
+		super(c);
+	}
 	public Map(int numTiles, Player[] newPlayers){
 		tileMap = new Tile[numTiles][numTiles];
 		players = newPlayers;
