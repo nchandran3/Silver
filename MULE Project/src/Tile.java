@@ -19,7 +19,7 @@ public class Tile {
 	 * changes the owner of the Tile to the parameter given.
 	 * @param player: new owner of the tile.
 	 */
-	public void TileSold(Player player){
+	public void tileSold(Player player){
 		owner = player;
 		isOwned = true;
 	}
@@ -35,7 +35,7 @@ public class Tile {
 		
 		return tileType;
 	}
-	public boolean getisOwned(){
+	public boolean isOwned(){
 		return isOwned;
 	}
 }

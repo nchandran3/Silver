@@ -74,6 +74,7 @@ public class PlayerSelectScreen extends Screen {
 		players_created++;
 	}
 	
+	
 	/**
 	 * Listener for the Done button. Determines if all options are selected, and if so, will create a new player and bring up 
 	 * another PlayerSelectScreen if needed; otherwise, bring up the map. 
@@ -98,7 +99,7 @@ public class PlayerSelectScreen extends Screen {
 				{
 					controller.createPlayer(txtEnterPlayerName.getText(), colorChooseBox.getColorChosen(), raceSelectPanel.getSelectedRace());
 					colorChooseBox.removeColorFromChoices(); //remove the color chosen from the list of options
-					iterator.switchScreen(new PlayerSelectScreen());
+					iterator.switchScreen("pSS");
 				}
 				
 				else
