@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.ArrayList;
 
 /**
  * This class is responsible for the player's basic information.
@@ -14,6 +15,7 @@ public class Player implements Person {
 	private Color color;
 	private int[] resources;
 	private Point location;
+	private static ArrayList<Player> plArray = new ArrayList<Player>();
 	
 	/**
 	 * This is the constructor for the player class which initializes the player's data. 
