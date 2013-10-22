@@ -29,7 +29,7 @@ public class PlayerSelectScreen extends Screen {
 		super(Color.MAGENTA); //Creates screen with background color Blue
 		setBackground(Color.PINK);
 		setLayout(null);
-		setPreferredSize(new Dimension(1700,900));
+		//setPreferredSize(new Dimension(1700,900));
 		
 		JLabel title = new JLabel("Player Creation");
 		title.setForeground(Color.BLACK);

@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class Screen extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private ImageIcon background;
-	private int width = 1700, height = 900;
+	private int width = 1280, height = 720;
 	private Iterator iterator;
 	private Controller controller;
 	
