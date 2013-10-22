@@ -13,8 +13,8 @@ public class Iterator {
 	private static JPanel cards;
 	private Container contentPane;
 	private JFrame frame;
-	public Screen screen;
-//	private CardLayout c;
+	public Screen screen; //holds the current screen being displayed
+
 	/**
 	 * Constructor that initializes the iterator
 	 */
@@ -29,33 +29,22 @@ public class Iterator {
 		this();
 		frame = frm;
 		contentPane = frame.getContentPane();
-		
-		//make the cards
-		JPanel pSSCard = new PlayerSelectScreen();
-		JPanel menuCard = new Menu_Screen();
-		
-		//create the panel that contains the cards
-		cards = new JPanel(new CardLayout());
-		cards.add(menuCard, "menu");
-		cards.add(pSSCard, "pSS");
-		
-		
-		contentPane.add(cards);
-		
+		Screen menu = new Menu_Screen();
+		screen = menu;
+		contentPane.add(menu);
 		frame.pack();
 		frame.setVisible(true);
 	}
 	/**
-	 * changes the screen displayed on the card layout 
-	 * 
-	 * @param String screen 
+	 * Changes the screen displayed on the frame 
+	 * @param Screen screen the screen to display next
 	 */
-	public void switchScreen(String screen){
-		System.out.println("iterator");
-		System.out.println("Screen to show is: " + screen);
-		
-		CardLayout c = (CardLayout) (cards.getLayout());
-		c.show(cards, screen);
+	public void switchScreen(Screen screen)
+	{
+		contentPane.removeAll();
+		this.screen = screen;
+		contentPane.add(screen);
+		frame.setContentPane(contentPane);
 	}
 	/**
 	 * 

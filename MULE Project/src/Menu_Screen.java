@@ -181,7 +181,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		if(verifyDifficultySelected() != -1)
 		{
 			
-			iterator.switchScreen("pSS");
+			iterator.switchScreen(new PlayerSelectScreen());
 		}
 		
 	}

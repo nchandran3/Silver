@@ -4,7 +4,7 @@
  * @author Michael Carlson
  *
  */
-public class Map {
+public class Map extends Screen {
 	private Tile[][] tileMap;
 	private Player [] players;
 	/**

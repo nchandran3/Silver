@@ -99,12 +99,12 @@ public class PlayerSelectScreen extends Screen {
 				{
 					controller.createPlayer(txtEnterPlayerName.getText(), colorChooseBox.getColorChosen(), raceSelectPanel.getSelectedRace());
 					colorChooseBox.removeColorFromChoices(); //remove the color chosen from the list of options
-					iterator.switchScreen("pSS");
+					iterator.switchScreen(new PlayerSelectScreen());
 				}
 				
 				else
 				{
-					iterator.switchScreen(new JPanel()); //change this to the Map Screen class
+					iterator.switchScreen(new Menu_Screen()); //change this to the Map Screen class
 				}
 			}
 			
