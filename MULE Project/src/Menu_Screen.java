@@ -56,7 +56,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		JLabel title = new JLabel("D.R.A.G.O.N.");
 		title.setFont(new Font("Stencil", Font.PLAIN, 90));
 		title.setForeground(Color.YELLOW);
-		title.setBounds(588, 11, title.getPreferredSize().width, title.getPreferredSize().height);
+		title.setBounds(super.width/2, 11, title.getPreferredSize().width, title.getPreferredSize().height);
 		add(title);
 
 		
