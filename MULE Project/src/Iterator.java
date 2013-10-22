@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 /**
@@ -72,16 +73,12 @@ public class Iterator {
 		return iterator;
 	}
 	public void simulateRound(){
-		Controller controller = new Controller();
-		controller = Controller.getController();
-		int numTurns = controller.getNumPlayers();
-		if(Round)
-			for(int i = 1; i <= numTurns; i++){
+		ArrayList<Player> plArray = Player.getPlArray();
+		for(Player p: plArray){
+			if(){
 				
 			}
+			
 		Round++;
-		
 	}
 }
-
-

@@ -31,6 +31,7 @@ public class Player implements Person {
 		resources = new int[4];
 		playerInit();
 		location = new Point(0,0);
+		plArray.add(this);
 	}
 	
 	/**
@@ -48,6 +49,9 @@ public class Player implements Person {
 	 */
 	public Point getLocation() {
 		return location;
+	}
+	public static ArrayList<Player> getPlArray(){
+		return plArray;
 	}
 
 
