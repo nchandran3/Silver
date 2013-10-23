@@ -17,17 +17,17 @@ import java.io.IOException;
  * @author Michael Carlson
  *
  */
-public class Tile extends JPanel implements ActionListener{
+public abstract class Tile extends JPanel implements ActionListener{
 
 	BufferedImage img;
-	private Player owner;
-	private boolean isOwned;
-	private String tileName;
-	private String directory;
-	private int x;
-	private int y;
-	private JButton button;
-	private TileListener tListener;
+	protected Player owner;
+	protected boolean isOwned;
+	protected String tileName;
+	protected String directory;
+	protected int x;
+	protected int y;
+	protected JButton button;
+	protected TileListener tListener;
 	
 	/*
 	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to 

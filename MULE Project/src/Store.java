@@ -6,11 +6,11 @@
  */
 
 public class Store extends TownScreen{
-	private int dragonFire;
-	private int food;
-	private int gold;
-	private int ore;
-	private int mule;
+	private static int dragonFire;
+	private static int food;
+	private static int gold;
+	private static int ore;
+	private static int mule;
 	
 	public Store(){
 		setUp();
