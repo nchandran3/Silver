@@ -67,7 +67,7 @@ public class PlayerSelectScreen extends Screen {
 		});
 		txtEnterPlayerName.setForeground(Color.WHITE);
 		txtEnterPlayerName.setBackground(Color.BLACK);
-		GTools.positionAndAdd(txtEnterPlayerName, .5, .2,1.5,1.5, this);
+		GTools.positionAndAdd(txtEnterPlayerName, .5, .2, 1.5, 1.5, this);
 		
 		
 		/*
@@ -98,9 +98,9 @@ public class PlayerSelectScreen extends Screen {
 		done.setForeground(Color.WHITE);
 		done.setOpaque(true);
 		done.setBackground(Color.BLACK);
-		GTools.positionAndAdd(done, .5, .97, this);
 		done.addActionListener(new DoneListener());
-		
+		GTools.positionAndAdd(done, .5, .97, this);
+		done.revalidate();
 
 	}
 	

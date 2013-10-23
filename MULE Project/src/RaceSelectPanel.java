@@ -148,7 +148,7 @@ public class RaceSelectPanel extends Screen {
 		public void changePicture(JButton src)
 		{
 			if(src == btnGreyjoy)
-				image.setIcon(new ImageIcon("./Images/dragon.png"));
+				image.setIcon(compress(new ImageIcon("./Images/danaerys.png")));
 			else if (src == btnTargaryen)
 				image.setIcon(compress(new ImageIcon("./Images/targaryen.png")));
 			else if (src == btnBaratheon)

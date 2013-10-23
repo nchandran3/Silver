@@ -20,10 +20,10 @@ import javax.swing.JPanel;
  * @author Naveen Chandran
  *
  */
-public class ColorChooseBox extends JPanel implements ActionListener {
+public class ColorChooseBox extends Screen implements ActionListener {
 	private static Color [] colors = new Color [] {Color.BLUE, Color.YELLOW, Color.RED, Color.MAGENTA, Color.GREEN, Color.CYAN};
 	private static ArrayList <Color> colors_available = new ArrayList <Color>(Arrays.asList(colors));			//Each time a color is chosen, the color will be removed from the ArrayList
-	private int width = 1200, height = 900/5;
+	private int width = super.width, height = super.height/3;
 	private HashMap<JButton, Color> map = new HashMap<>();
 	private Color chosen;
 	/**
@@ -37,7 +37,6 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 
 		for(Color c : colors_available)
 			drawColorBox(c, width);
-	
 	}
 	
 	/**
@@ -53,7 +52,7 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 		box.setBackground(c);
 		box.setBorder(null);
 		box.setForeground(c);
-		box.setMinimumSize(new Dimension(width, height));
+		box.setMinimumSize(new Dimension(width/6, height));
 		box.addActionListener(this);
 		add(box);
 		add(Box.createHorizontalGlue());
@@ -72,7 +71,7 @@ public class ColorChooseBox extends JPanel implements ActionListener {
 		chosen = (map.get(source));
 		Graphics g= getGraphics();
 		g.setColor(chosen);
-		g.fillRect(getWidth()/2-25, 0, 50, 50);
+		g.fillRect(getWidth()/2-25, 20, 50, 50);
 		System.out.println("Color chosen was "  + chosen);
 	}
 	/**
