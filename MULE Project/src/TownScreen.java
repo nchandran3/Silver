@@ -52,15 +52,5 @@ public class TownScreen extends Map {
 	}
 	private
 	*/
-	public static void main(String[]args){
-		Controller controller = new Controller();
-		javax.swing.JFrame frame = new javax.swing.JFrame();
-		frame.getContentPane().setLayout(new java.awt.CardLayout());
-		Iterator iterator = new Iterator(frame);
-		frame.getContentPane().add(new TownScreen());
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocation(new Point(100,0));
-		frame.pack();
-		frame.setVisible(true);
-	}
+
 }

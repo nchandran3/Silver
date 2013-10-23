@@ -14,6 +14,7 @@ public class Iterator {
 	private Container contentPane;
 	private JFrame frame;
 	private static int Round = 1;
+	private Player p;
 	public Screen cur_screen; //holds the current screen being displayed
 
 	/**
@@ -72,21 +73,51 @@ public class Iterator {
 		return iterator;
 	}
 	public void simulateRound(){
+		
+		/*int passed = 0;
 		ArrayList<Player> plArray = Player.getPlArray();
-		Map map = Map.getMap();
+		boolean gamePhase = false;
 		for(Player p: plArray){		//in a priority queue
-			if(Round <= 2){
-				//ability to choose from map tile he wants for free
-				map.drawMap(p);
+			setCurrPlayer(p);
+			switchScreen(new Map());
+			if(gamePhase == false){
+				if(Round <= 2){
+					//ability to choose from map tile he wants for free
+					
+				}
+				else if(Round > 2 && passPassed() == false){
+					//ability to choose from map tile he wants for money or he can pass
+					//map.drawMap(p);
+					//have to decrement the players money
+				}
+				else if(Round > 2 && passPassed() == true){
+					passed++;
+					if(passed == plArray.size()){
+						gamePhase = true;
+						break;
+					}
+				}
 			}
-			else if(Round > 2 && map.pressedPass() != false){
-				//ability to choose from map tile he wants for money or he can pass
-				map.drawMap(p);
-			}
-			else{
+			else{	//gamePhase
 				
 			}
 		}
-		Round++;
+		Round++;*/
+	}
+	public void setCurrPlayer(Player player){
+		Player p = player;
+	}
+	public Player getCurrPlayer(){
+		return p;
+	}
+	public int getRound(){
+		return Round;
+	}
+	public void switchPlayers(){
+		
+	}
+	public boolean veryifyPassed(Player p){
+		//if()
+		return false;
 	}
 }
