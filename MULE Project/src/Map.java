@@ -1,4 +1,14 @@
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.geom.Line2D;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -16,7 +26,9 @@ import java.awt.GridLayout;
 public class Map extends Screen implements KeyListener{
 	private Tile[][] tileMap;
 	//private JButton[][] spotMap;
-	private Player player;
+	private Player currentPlayer;
+	private int playerX, playerY = 0;
+	private Rectangle rec;
 	private int rows;
 	private int columns;
 	
@@ -31,6 +43,7 @@ public class Map extends Screen implements KeyListener{
 	 */
 	public Map(){
 		super();
+		rec = new Rectangle(20, 20);
 	}
 	public Map(Color c){
 		super(c);
@@ -46,12 +59,29 @@ public class Map extends Screen implements KeyListener{
 		columns = tileMap[0].length;
 		setLayout(new GridLayout(rows, columns));
 		
+		//adds the tiles to the Jpanel
 		for(int i = 0; i < rows; i++){
 			for(int j = 0; j < columns; j++){
 				add(tileMap[i][j]);
 			}
 			
 		}
+		
+		//draws the players character on the screen.
+		//player.drawPlayer();
+		
+		
+	}
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		g.setColor(Color.red);
+		g2.fillRect(0, 0, 999999, 999999);
+		g.setColor(Color.BLUE);
+
+//		g.fillRect(playerX, playerY, 20, 20);
+		
 	}
 	
 //	public void drawMap(Player player){
@@ -67,21 +97,42 @@ public class Map extends Screen implements KeyListener{
 		return tileMap;
 	}
 
+	
 	@Override
-	public void keyPressed(KeyEvent arg0) {
+	public void keyPressed(KeyEvent e) {
+		int code = e.getKeyCode();
+		if(code == KeyEvent.VK_DOWN){
+			playerY =+ 2;
+			repaint();
+		}
+		if(code == KeyEvent.VK_UP){
+			playerY =- 2;
+			repaint();
+		}
+		if(code == KeyEvent.VK_DOWN){
+			playerX =+ 2;
+			repaint();
+		}
+		if(code == KeyEvent.VK_UP){
+			playerX =- 2;
+			repaint();
+		}
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
-	public void keyReleased(KeyEvent arg0) {
+	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 	public static void main(String[] args){
 		Map testMap = new Map();
 		GameFrame test = new GameFrame();
