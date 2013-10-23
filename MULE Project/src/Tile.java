@@ -61,13 +61,10 @@ public class Tile extends JPanel implements TileListener{
 	    g.drawImage(img, 0, 0, null);
 	}
 	
-	@Override
-	public Dimension getPreferredSize() {
-	    return new Dimension(imgWidth, imgHeight);
-	}
-	
 	public void buttonPressed(){
-		Controller.buyLand(this);
+		if(Controller.buyLand(this)){
+			System.out.println("You successfully purchased the property");
+		}else System.out.println("Transaction failed");
 	}
 	
 	/**

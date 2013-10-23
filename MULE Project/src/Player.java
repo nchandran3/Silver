@@ -114,5 +114,17 @@ public class Player implements Person {
 		// TODO Auto-generated method stub
 		return race;
 	}
+	
+	public int getGold(){
+		return gold;
+	}
+	
+	public int getDragonFire(){
+		return dragonFire;
+	}
+	
+	public int getFood(){
+		return food;
+	}
 
 }
