@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+import java.awt.event.KeyListener;
 import javax.swing.JButton;
 
 /**
@@ -8,7 +8,7 @@ import javax.swing.JButton;
  * @author Michael Carlson
  *
  */
-public class Map extends Screen {
+public class Map extends Screen implements KeyListener{
 	private Tile[][] tileMap;
 	//private JButton[][] spotMap;
 	private Player player;
