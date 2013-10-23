@@ -14,8 +14,6 @@ public class Screen extends JPanel{
 	private static final long serialVersionUID = 1L;
 	protected ImageIcon background;
 	protected int width = 1280, height = 720;
-	private Iterator iterator;
-	private Controller controller;
 	
 	public Screen()
 	{
@@ -23,8 +21,6 @@ public class Screen extends JPanel{
 		setPreferredSize(new Dimension(width,height));
 		setFocusable(true);
 		requestFocus();
-		iterator = Iterator.getIterator();
-		controller = Controller.getController();
 	}
 	
 	public Screen (Color c)

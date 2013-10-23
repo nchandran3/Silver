@@ -65,6 +65,28 @@ public class Controller {
 		difficulty = num;
 		System.out.println("Difficulty is " + difficulty);
 	}
+	
+	//Don't really know why this is supposed to be static.  In case this causes problems,
+	//This method is called from the Tile buttonPressed() method
+	public static boolean buyLand(Tile tile){
+		Player player = Iterator.getIterator().getCurrPlayer();
+		int landPrice = LandOffice.getLandOffice().getBuyPrice();
+		if(!tile.isOwned()){
+			if(Iterator.getIterator().getRound()<=2){
+				tile.tileSold(player);
+				return true;
+			}else if(player.getGold()>=landPrice){
+				tile.tileSold(player);
+				player.addResources(0, -landPrice, 0);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public int getDifficulty(){
+		return difficulty;
+	}
 	/**
 	 * This returns an instance of the controller. 
 	 * 

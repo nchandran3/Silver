@@ -40,7 +40,7 @@ public class RaceSelectPanel extends Screen {
 	 * reads what the user presses and sets that player's race to what they selected.
 	 */
 	public RaceSelectPanel() {
-		super(Color.BLACK);
+		super(Color.PINK);
 		setLayout(null);
 		setPreferredSize(new Dimension(width,height));
 		
@@ -148,7 +148,7 @@ public class RaceSelectPanel extends Screen {
 		public void changePicture(JButton src)
 		{
 			if(src == btnGreyjoy)
-				image.setIcon(compress(new ImageIcon("./Images/danaerys.png")));
+				image.setIcon(compress(new ImageIcon("./Images/greyjoy.png")));
 			else if (src == btnTargaryen)
 				image.setIcon(compress(new ImageIcon("./Images/targaryen.png")));
 			else if (src == btnBaratheon)

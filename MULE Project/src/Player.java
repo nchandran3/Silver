@@ -13,7 +13,9 @@ public class Player implements Person {
 	private final Race race;
 	private String name;
 	private Color color;
-	private int[] resources;
+	private int dragonFire;
+	private int gold;
+	private int food;
 	private Point location;
 	private static ArrayList<Player> plArray = new ArrayList<Player>();
 	
@@ -28,7 +30,6 @@ public class Player implements Person {
 		this.name = name;
 		this.color = color;
 		this.race = race;
-		resources = new int[4];
 		playerInit();
 		location = new Point(0,0);
 		plArray.add(this);
@@ -60,14 +61,12 @@ public class Player implements Person {
 	/**
 	 * updates the player's resources amount based on transactions that happened while in the auction house.
 	 * 
-	 * @param int[] transaction 
-	 * @return int[] an array of ints each index is a different resource amount.
 	 */
-	public int[] addResources(int[] transaction) {
-		for(int i = 0; i<transaction.length;i++){
-			resources[i]+=transaction[i];
-		}
-		return resources;
+	public void addResources(int dragonFire, int gold, int food) {
+		this.dragonFire+=dragonFire;
+		this.gold+=gold;
+		this.food+=food;
+		
 	}
 	
 	/**
@@ -96,6 +95,14 @@ public class Player implements Person {
 		//		moneyStart == 1600;
 		//	}
 		//}
+		
+		if(Controller.getController().getDifficulty() == 1){
+			food = 8;
+			dragonFire = 4;
+		}else{
+			food = 4;
+			dragonFire = 2;
+		}
 	}
 
 	/**
@@ -106,6 +113,18 @@ public class Player implements Person {
 	public Race getRace() {
 		// TODO Auto-generated method stub
 		return race;
+	}
+	
+	public int getGold(){
+		return gold;
+	}
+	
+	public int getDragonFire(){
+		return dragonFire;
+	}
+	
+	public int getFood(){
+		return food;
 	}
 
 }

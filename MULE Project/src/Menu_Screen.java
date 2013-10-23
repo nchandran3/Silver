@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
@@ -24,7 +26,7 @@ import control.GTools;
  * @author Naveen Chandran 
  *
  */
-public class Menu_Screen extends Screen implements ActionListener {
+public class Menu_Screen extends Screen  {
 
 	private static final long serialVersionUID = 1L;
 	private JComboBox <Integer> comboBox;
@@ -34,7 +36,6 @@ public class Menu_Screen extends Screen implements ActionListener {
 	private JRadioButton royalty;
 	private Controller controller;
 	private Iterator iterator;
-	
 	/*
 	 * Create the panel.
 	 */
@@ -145,9 +146,14 @@ public class Menu_Screen extends Screen implements ActionListener {
 		JButton done = new JButton("START!");
 		done.setBackground(Color.BLACK);
 		done.setForeground(Color.YELLOW);
-		done.addActionListener(this);
 		GTools.positionAndAdd(done, .5, .9, 1.5, 1.5, this);
-		done.addActionListener(this);
+		done.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
+			{
+				clicked();
+			}
+		});
 		
 		
 	}
@@ -157,21 +163,15 @@ public class Menu_Screen extends Screen implements ActionListener {
 	 * other information that was selected and then calls the controller class to start the game and progress to the 
 	 * player select screen. 
 	 * 
-	 * @param ActionEvent e
 	 */
-	public void actionPerformed(ActionEvent e) {
-//		System.out.println("test");
-		
+	public void clicked() {
 		controller = Controller.getController();
 		iterator = Iterator.getIterator();
-		Integer num = (int) comboBox.getSelectedItem();
-		if(num != 1 || num != 2 || num != 3 || num != 4)
-			controller.setNumPlayers(1);
-		else
-			controller.setNumPlayers(num);
 		
 		if(verifyDifficultySelected() != -1)
 		{
+			Integer num = (int) comboBox.getSelectedItem();
+			controller.setNumPlayers(num);
 			
 			iterator.switchScreen(new PlayerSelectScreen());
 		}
@@ -198,6 +198,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		}
 		else
 			JOptionPane.showMessageDialog(null,"You must pick a difficulty!");
+		
 		return difficulty;
 	}
 	public static void main (String [] args)
