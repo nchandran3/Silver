@@ -74,11 +74,20 @@ public class Iterator {
 	}
 	public void simulateRound(){
 		ArrayList<Player> plArray = Player.getPlArray();
-		for(Player p: plArray){
-			if(){
+		Map map = Map.getMap();
+		for(Player p: plArray){		//in a priority queue
+			if(Round <= 2){
+				//ability to choose from map tile he wants for free
+				map.drawMap(p);
+			}
+			else if(Round > 2 && map.pressedPass() != false){
+				//ability to choose from map tile he wants for money or he can pass
+				map.drawMap(p);
+			}
+			else{
 				
 			}
-			
+		}
 		Round++;
 	}
 }
