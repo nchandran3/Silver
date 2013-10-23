@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  */
 
 public class Player {
-	private BufferedImage image;
+	private ImageIcon image;
 	private int score;
 	private final Race race;
 	private String name;
@@ -115,8 +115,8 @@ public class Player {
 		}
 		gold = race.getStartMoney();
 		ore = 0;
-		//image = race.getImage();   reimplement once image array is set up
-		//tintImage(image);
+		image = new ImageIcon("./Images/danny_sprite.png");  
+		//tintImage(image);	 reimplement once image array is set up
 	}
 	
 	
@@ -166,7 +166,7 @@ public class Player {
 		return color;
 	}
 	
-	public BufferedImage getImage()
+	public ImageIcon getImage()
 	{
 		return image;
 	}
