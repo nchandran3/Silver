@@ -74,7 +74,7 @@ public class Iterator {
 		return iterator;
 	}
 	public void simulateRound(){
-		int passed = 0;
+		/*int passed = 0;
 		ArrayList<Player> plArray = Player.getPlArray();
 		boolean gamePhase = false;
 		for(Player p: plArray){		//in a priority queue
@@ -98,11 +98,11 @@ public class Iterator {
 					}
 				}
 			}
-			else{
+			else{	//gamePhase
 				
 			}
 		}
-		Round++;
+		Round++;*/
 	}
 	public void setCurrPlayer(Player player){
 		Player p = player;
