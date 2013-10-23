@@ -29,7 +29,7 @@ public abstract class Tile extends JPanel implements ActionListener{
 	protected JButton button;
 	protected TileListener tListener;
 	
-	/*
+	/**
 	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to 
 	 * mouse clicks.
 	 */

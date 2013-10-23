@@ -75,6 +75,10 @@ public class Iterator {
 	public void startGame(){
 		Controller.getController().createMap();
 	}
+	/**
+	 * This simulates a round of the players by letting each of them have a turn along with checking to see
+	 * if they are in a certain round or not. This also increments the round. 
+	 */
 	public void simulateRound(){
 		
 		ArrayList<Player> plArray = Player.getPlArray();

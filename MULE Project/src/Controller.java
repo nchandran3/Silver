@@ -129,7 +129,10 @@ public class Controller {
 		}
 		return players[playerNum];
 	}
-	
+	/**
+	 * This creates the map based on a 2D array. It makes new instances of the different types of tiles for them to be able 
+	 * to creat a tile with certain properties.
+	 */
 	public void createMap(){
 		Tile [][] tileMap = new Tile[5][9];
 		String[][] makeMap = new String[][]{
