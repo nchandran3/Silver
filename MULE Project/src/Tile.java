@@ -78,7 +78,7 @@ public abstract class Tile extends JPanel implements ActionListener{
 	 * When the covering JButton is pressed, this method is called.  This method attempts to
 	 * purchase the selected tile.
 	 */
-	public void buttonPressed(){
+	protected void buttonPressed(){
 		if(Controller.buyLand(this)){
 			System.out.println("You successfully purchased the property");
 		}else System.out.println("Transaction failed");
