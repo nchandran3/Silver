@@ -69,7 +69,12 @@ public class Controller {
 	//Don't really know why this is supposed to be static.  In case this causes problems,
 	//This method is called from the Tile buttonPressed() method
 	public static void buyLand(Tile tile){
-		
+		Player player = Iterator.getIterator().getCurrPlayer();
+		if(!tile.isOwned()){
+			if(Iterator.getIterator().getRound()<=2){
+				tile.tileSold(player);
+			}else if()
+		}
 	}
 	/**
 	 * This returns an instance of the controller. 

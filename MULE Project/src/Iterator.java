@@ -53,7 +53,6 @@ public class Iterator {
 		contentPane.removeAll(); //remove current screen
 		cur_screen = screen;			//add next screen to display
 		contentPane.add(screen);
-		contentPane.repaint();
 		frame.setContentPane(contentPane);
 		frame.pack();
 	}
