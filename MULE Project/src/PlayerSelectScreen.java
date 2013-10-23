@@ -74,20 +74,21 @@ public class PlayerSelectScreen extends Screen {
 		 * RaceSelectPanel initialization
 		 */
 		raceSelectPanel = new RaceSelectPanel();
-		GTools.positionAndAdd(raceSelectPanel, .5, .3, this);
+		GTools.positionAndAdd(raceSelectPanel, .5, .5, this);
 		
 		/*
 		 * ColorChooseBox initialization
 		 */
 		colorChooseBox = new ColorChooseBox();
-		GTools.positionAndAdd(colorChooseBox, .5, .8, this);
+		GTools.positionAndAdd(colorChooseBox, .5, .9, this);
 		
 		/*
 		 * Choose A Color label
 		 */
 		JLabel lblChooseColor = new JLabel("Choose A Color: ");
 		lblChooseColor.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		GTools.positionAndAdd(lblChooseColor, .5, .7, this);
+		lblChooseColor.setForeground(Color.BLACK);
+		GTools.positionAndAdd(lblChooseColor, .5, .95, this);
 		
 		/*
 		 * Submit Button
@@ -97,9 +98,9 @@ public class PlayerSelectScreen extends Screen {
 		done.setForeground(Color.WHITE);
 		done.setOpaque(true);
 		done.setBackground(Color.BLACK);
-		done.setBounds(805, 866, 115, 34);
+		GTools.positionAndAdd(done, .5, .97, this);
 		done.addActionListener(new DoneListener());
-		add(done);
+		
 
 	}
 	

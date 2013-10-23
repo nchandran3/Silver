@@ -34,7 +34,7 @@ public class RaceSelectPanel extends Screen {
 	private JLabel image;
 	private HashMap <String, ImageIcon> map = new HashMap<>(); //allows calling images by their name
 	private ButtonListener listener = new ButtonListener();
-	private int width = super.width/2, height = super.height/3;
+	private int width = super.width/2, height = super.height/2;
 	/**
 	 * This creates the panel where the races will be displayed on the create player class and
 	 * reads what the user presses and sets that player's race to what they selected.
