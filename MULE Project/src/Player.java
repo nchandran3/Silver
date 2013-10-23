@@ -163,6 +163,10 @@ public class Player {
 		return color;
 	}
 	
+	public BufferedImage getImage()
+	{
+		return image;
+	}
 	/**
 	 * Returns -1 if the player has no mule, 0, 1, or 2 for food, energy, and ore respectively
 	 * @return
