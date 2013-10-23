@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -14,62 +16,92 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
+import control.GTools;
+
 /**
  * @author Naveen Chandran
  * GUI for selecting player name, race, and color
  */
 public class PlayerSelectScreen extends Screen {
 	private JTextField txtEnterPlayerName;
+	private String textPrompt;
 	private RaceSelectPanel raceSelectPanel;
 	private ColorChooseBox colorChooseBox;
-	private static int players_created =0;
+	private static int players_created =1;
 
 	public PlayerSelectScreen()
 	{
-		super(Color.MAGENTA); //Creates screen with background color Blue
-		setBackground(Color.PINK);
+		super(Color.PINK); //Creates screen with background color Blue
 		setLayout(null);
-		//setPreferredSize(new Dimension(1700,900));
+		players_created++;
 		
-		JLabel title = new JLabel("Player Creation");
+		
+		/*
+		 * Title Field
+		 */
+		JLabel title = new JLabel("Player " + players_created + " Creation");
 		title.setForeground(Color.BLACK);
-		title.setFont(new Font("Vivaldi", Font.PLAIN, 90));
-		title.setBounds(605, 11, title.getPreferredSize().width, title.getPreferredSize().height);
-		add(title);
+		title.setFont(new Font("Vivaldi", Font.PLAIN, 70));
+		GTools.positionAndAdd(title, .5, .1, this);
 		
+		
+		/*
+		 * Player name input 
+		 */
 		txtEnterPlayerName = new JTextField();
-		txtEnterPlayerName.setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 20));
+		txtEnterPlayerName.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC, 20));
 		txtEnterPlayerName.setHorizontalAlignment(SwingConstants.CENTER);
-		txtEnterPlayerName.setText("ENTER PLAYER NAME");
+		textPrompt = "ENTER PLAYER NAME";
+		txtEnterPlayerName.setText(textPrompt);
+		txtEnterPlayerName.addMouseListener(new MouseAdapter() //clear prompt when user focuses on textbox, and change text properties
+		{
+			public void mouseClicked(MouseEvent e)
+			{
+				if(txtEnterPlayerName.getText().equals(textPrompt))
+				{
+					txtEnterPlayerName.setText("");
+					txtEnterPlayerName.setFont(new Font("Vivaldi", Font.BOLD, 20));
+					txtEnterPlayerName.setForeground(Color.CYAN);
+				}
+			}
+		});
 		txtEnterPlayerName.setForeground(Color.WHITE);
 		txtEnterPlayerName.setBackground(Color.BLACK);
-		txtEnterPlayerName.setBounds(625, 174, 449, 50);
-		add(txtEnterPlayerName);
-		txtEnterPlayerName.setColumns(10);
+		GTools.positionAndAdd(txtEnterPlayerName, .5, .2, 1.5, 1.5, this);
 		
+		
+		/*
+		 * RaceSelectPanel initialization
+		 */
 		raceSelectPanel = new RaceSelectPanel();
-		raceSelectPanel.setBounds(634, 276, 432, 320);
-		add(raceSelectPanel);
+		GTools.positionAndAdd(raceSelectPanel, .5, .5, this);
 		
+		/*
+		 * ColorChooseBox initialization
+		 */
 		colorChooseBox = new ColorChooseBox();
-		colorChooseBox.setBounds(250, 664, 1200, 173);
-		add(colorChooseBox);
+		GTools.positionAndAdd(colorChooseBox, .5, .9, this);
 		
+		/*
+		 * Choose A Color label
+		 */
 		JLabel lblChooseColor = new JLabel("Choose A Color: ");
 		lblChooseColor.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblChooseColor.setBounds(701, 607, lblChooseColor.getPreferredSize().width, lblChooseColor.getPreferredSize().height);
-		add(lblChooseColor);
+		lblChooseColor.setForeground(Color.BLACK);
+		GTools.positionAndAdd(lblChooseColor, .5, .95, this);
 		
+		/*
+		 * Submit Button
+		 */
 		JButton done = new JButton("Done");
 		done.setFont(new Font("Stencil", Font.PLAIN, 16));
 		done.setForeground(Color.WHITE);
 		done.setOpaque(true);
 		done.setBackground(Color.BLACK);
-		done.setBounds(805, 866, 115, 34);
 		done.addActionListener(new DoneListener());
-		add(done);
-		
-		players_created++;
+		GTools.positionAndAdd(done, .5, .97, this);
+		done.revalidate();
+
 	}
 	
 	
@@ -120,7 +152,7 @@ public class PlayerSelectScreen extends Screen {
 		Controller controller = new Controller();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
-		Iterator iterator = new Iterator(frame);
+		//Iterator iterator = new Iterator(frame);
 		frame.getContentPane().add(new PlayerSelectScreen());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(new Point(100,0));

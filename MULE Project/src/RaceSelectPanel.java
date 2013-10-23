@@ -3,6 +3,7 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,7 +15,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import control.GTools;
 
 /**
  * Race Selection Panel that is a part of the Player Select Screen
@@ -30,6 +34,7 @@ public class RaceSelectPanel extends Screen {
 	private JLabel image;
 	private HashMap <String, ImageIcon> map = new HashMap<>(); //allows calling images by their name
 	private ButtonListener listener = new ButtonListener();
+	private int width = super.width/2, height = super.height/2;
 	/**
 	 * This creates the panel where the races will be displayed on the create player class and
 	 * reads what the user presses and sets that player's race to what they selected.
@@ -37,34 +42,29 @@ public class RaceSelectPanel extends Screen {
 	public RaceSelectPanel() {
 		super(Color.BLACK);
 		setLayout(null);
-		setPreferredSize(new Dimension(430,320));
+		setPreferredSize(new Dimension(width,height));
 		
 		/*
 		 * Button initialization
 		 */
 		btnGreyjoy = new JButton("Greyjoy");
-		btnGreyjoy.setBounds(170, 32, 100, 23);
-		add(btnGreyjoy);
+		GTools.positionAndAdd(btnGreyjoy, .5, 1.0/8, this);
 		buttons.add(btnGreyjoy);
 		
 		btnTargaryen = new JButton("Targaryen");
-		btnTargaryen.setBounds(331, 130, 100, 23);
-		add(btnTargaryen);
+		GTools.positionAndAdd(btnTargaryen, 1.0/6, 3.0/8, this);
 		buttons.add(btnTargaryen);
 		
 		btnBaratheon = new JButton("Baratheon");
-		btnBaratheon.setBounds(84, 261, 100, 23);
-		add(btnBaratheon);
+		GTools.positionAndAdd(btnBaratheon, 5.0/6, 3.0/8, this);
 		buttons.add(btnBaratheon);
 		
 		btnStark = new JButton("Stark");
-		btnStark.setBounds(257, 261, 100, 23);
-		add(btnStark);
+		GTools.positionAndAdd(btnStark, 2.0/6, 7.0/8, this);
 		buttons.add(btnStark);
 		
 		btnLannister = new JButton("Lannister");
-		btnLannister.setBounds(10, 130, 100, 23);
-		add(btnLannister);
+		GTools.positionAndAdd(btnLannister, 4.0/6, 7.0/8, this);
 		buttons.add(btnLannister);
 		
 		try
@@ -73,8 +73,7 @@ public class RaceSelectPanel extends Screen {
 			Image icon2 = icon.getImage().getScaledInstance(148, 148, Image.SCALE_FAST);
 			icon = new ImageIcon(icon2);
 			image = new JLabel(icon);
-			image.setBounds(141, 79, 148, 148);
-			add(image);
+			GTools.positionAndAdd(image, .5, .5, this);;
 		}
 		catch (MalformedURLException e)
 		{
@@ -104,6 +103,16 @@ public class RaceSelectPanel extends Screen {
 	public Race getSelectedRace()
 	{
 		return selected;
+	}
+	
+	public int getWidth()
+	{
+		return width;
+	}
+	
+	public int getHeight()
+	{
+		return height;
 	}
 	/**
 	 * Listener for race buttons
@@ -139,16 +148,29 @@ public class RaceSelectPanel extends Screen {
 		public void changePicture(JButton src)
 		{
 			if(src == btnGreyjoy)
-				image.setIcon(new ImageIcon("dragon.png"));
+				image.setIcon(compress(new ImageIcon("./Images/danaerys.png")));
 			else if (src == btnTargaryen)
-				image.setIcon(compress(new ImageIcon("targaryen.png")));
+				image.setIcon(compress(new ImageIcon("./Images/targaryen.png")));
 			else if (src == btnBaratheon)
-				image.setIcon(compress(new ImageIcon("baratheon.png")));
+				image.setIcon(compress(new ImageIcon("./Images/baratheon.png")));
 			else if (src == btnStark)
-				image.setIcon(compress(new ImageIcon("stark.png")));
+				image.setIcon(compress(new ImageIcon("./Images/stark.png")));
 			else if (src == btnLannister)
-				image.setIcon(compress(new ImageIcon("lannister.png")));
+				image.setIcon(compress(new ImageIcon("./Images/lannister.png")));
 		}
 		
+	}
+	
+	public static void main (String [] args)
+	{
+		Controller controller = new Controller();
+		javax.swing.JFrame frame = new javax.swing.JFrame();
+		frame.getContentPane().setLayout(new java.awt.CardLayout());
+		//Iterator iterator = new Iterator(frame);
+		frame.getContentPane().add(new RaceSelectPanel());
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocation(new Point(100,0));
+		frame.pack();
+		frame.setVisible(true);
 	}
 }

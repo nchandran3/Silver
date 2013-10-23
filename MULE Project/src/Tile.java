@@ -1,4 +1,8 @@
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 /**
  * This class represents a Tile on the Map. It stores the tileType(int), owner(Player), and isOwned(boolean).
  * There are 6 different types of tiles that are given in the constructor. The owner is set with the TileSold
@@ -6,11 +10,18 @@
  * @author Michael Carlson
  *
  */
-public class Tile{
+public class Tile extends JButton implements MouseListener{
 
+	BufferedImage image;
 	private int tileType; //make a char?
 	private Player owner;
 	private boolean isOwned;
+	
+	public Tile(){
+		if(){
+			
+		}
+	}
 	
 	public Tile(int newTileType){
 		tileType = newTileType;
