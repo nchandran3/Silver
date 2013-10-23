@@ -17,7 +17,7 @@ import java.io.IOException;
  * @author Michael Carlson
  *
  */
-public abstract class Tile extends JPanel implements ActionListener{
+public abstract class Tile extends JButton implements ActionListener{
 
 	ImageIcon img;
 	protected Player owner;
@@ -35,43 +35,44 @@ public abstract class Tile extends JPanel implements ActionListener{
 	 */
 	public Tile(){
 		super();
-		setLayout(new BorderLayout());
+		//setLayout(new BorderLayout());
 		setFocusable(true);
 		requestFocus();
 		//Change the tileName to match the name of the corresponding png file
-		this.tileName = "danaerys";
+		//this.tileName = "danaerys";
 		//Not really sure why this . is needed
 		this.directory = "./Images/";
 		isOwned = false;        //set all new tiles to have no owners
 		tListener = new TileListener();
-		setUp();
-		button = new JButton((Icon)img);
+		/*button = new JButton((Icon)img);
 		button.setBackground(Color.BLACK);
-		add(button, BorderLayout.CENTER);
+		add(button);*/
 		//This is some shitty code, but I can't really figure out how to get around it.
 		//Theoretically calls buttonPressed() in the case that the covering JButton is pressed.
-		button.addActionListener(new ActionListener() { 
+		addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 			    buttonPressed();
 			  } 
 			} );
-		button.addMouseListener(tListener);
+		addMouseListener(tListener);
+		//button.addMouseListener(tListener);
 	}
 	
 	/**
 	 * This attempts to retrieve the image file from the Images folder and save it to the tile's
 	 * img variable.
 	 */
-	public void setUp(){
+	public void setUp(String directory){
 
-	        img = new ImageIcon(directory + tileName + ".png");
+	        img = new ImageIcon(directory);
+	        setIcon(img);
 	   
 	}
 	
 	@Override
 	protected void paintComponent(Graphics g) {
 	    super.paintComponent(g);
-	    g.drawImage(img, 0, 0, null);
+	    g.drawImage(img.getImage(), 0, 0, null);
 	}
 	
 	/**

@@ -13,6 +13,7 @@ public class Controller {
 	public static Controller controller;
 	private Player[] players;
 	private static int playerCount, numPlayers, difficulty;
+	private Tile[][] tileMap;
 	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
@@ -131,6 +132,7 @@ public class Controller {
 	}
 	
 	public void createMap(){
+		Tile[][] tileMap = new Tile[5][9];
 		String[][] makeMap = new String[][]{
 			{"P","P","M","P","R","P","M","P","P"}, 
 			{"P","M","P","P","R","P","P","P","M"}, 
@@ -142,18 +144,23 @@ public class Controller {
 			for(int j = 0; j < 9; j++){
 				if(makeMap[i][j].equalsIgnoreCase("P")){
 					System.out.println("Hep");
-					new Plain();
+					tileMap[i][j] = new Plain();
 				}
 				else if(makeMap[i][j].equalsIgnoreCase("R")){
-					new River();
+					tileMap[i][j] = new River();
 				}
 				else if(makeMap[i][j].equalsIgnoreCase("m")){
-					new Mountain();
+					tileMap[i][j] = new Mountain();
 				}
 				else{
-					new Town();
+					tileMap[i][j] = new Town();
 				}
 			}
-		}	
+		}
+		this.tileMap = tileMap;
+	}
+	
+	public Tile[][] getTileMap(){
+		return tileMap;
 	}
 }

@@ -1,7 +1,11 @@
 
 public class River extends Tile{
 
+String directory;
+	
 	public River(){
-		this.tileName = "river";
+		
+		this.directory = "./Images/river.png";
+		setUp(directory);
 	}
 }

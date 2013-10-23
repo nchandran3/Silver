@@ -1,7 +1,11 @@
 
 public class Mountain extends Tile{
 	
+String directory;
+	
 	public Mountain(){
-		this.tileName = "mountain";
+		
+		this.directory = "./Images/mountain.png";
+		setUp(directory);
 	}
 }

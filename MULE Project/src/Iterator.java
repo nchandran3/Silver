@@ -15,6 +15,7 @@ public class Iterator {
 	private JFrame frame;
 	private static int Round = 1;
 	private Player p;
+	private Map map;
 	public Screen cur_screen; //holds the current screen being displayed
 
 	/**
@@ -73,7 +74,7 @@ public class Iterator {
 		return iterator;
 	}
 	public void startGame(){
-		Controller.getController().createMap();
+		map = new Map();
 	}
 	public void simulateRound(){
 		
