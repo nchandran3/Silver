@@ -31,6 +31,7 @@ public class Map extends Screen implements KeyListener{
 	private Rectangle rec;
 	private int rows;
 	private int columns;
+	private static Map map;
 	
 	
 	
@@ -55,6 +56,7 @@ public class Map extends Screen implements KeyListener{
  */
 	public Map(Tile[][] tileMap){
 		this.tileMap = tileMap;
+		map = this;
 		rows = tileMap.length;
 		columns = tileMap[0].length;
 		setLayout(new GridLayout(rows, columns));
@@ -73,11 +75,15 @@ public class Map extends Screen implements KeyListener{
 		
 	}
 	
+	public static Map getMap(){
+		return map;
+	}
+	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		g.setColor(Color.red);
-		g2.fillRect(0, 0, 999999, 999999);
+		//g.setColor(Color.BLACK);
+		//g2.fillRect(0, 0, 999999, 999999);
 		g.setColor(Color.BLUE);
 
 //		g.fillRect(playerX, playerY, 20, 20);
@@ -99,7 +105,7 @@ public class Map extends Screen implements KeyListener{
 
 	
 	@Override
-	public void keyPressed(KeyEvent e) {
+/*	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
 		if(code == KeyEvent.VK_DOWN){
 			playerY =+ 2;
@@ -132,7 +138,7 @@ public class Map extends Screen implements KeyListener{
 		
 	}
 	
-	
+*/	
 	public static void main(String[] args){
 		Map testMap = new Map();
 		GameFrame test = new GameFrame();
