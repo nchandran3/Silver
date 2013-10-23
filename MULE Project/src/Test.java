@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,8 +22,21 @@ public class Test extends JPanel{
 		for(int i =0; i< 100; i++)
 		{
 			JButton button = new JButton(""+ i);
-			if((int) (Math.random()*10) < 3)
-				button.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
+			int rand = (int) (Math.random()*10);
+			if(rand < 1)
+				button.setBorder(BorderFactory.createLineBorder(Color.BLUE, 3));
+			else if (rand <2)
+				button.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 3));
+			else if (rand <3)
+				button.setBorder(BorderFactory.createLineBorder(Color.MAGENTA, 3));
+
+
+			if(rand >7)
+				button.setIcon(new ImageIcon("./Images/mountain.png"));
+			else if (rand > 5)
+				button.setIcon(new ImageIcon("./Images/river.png"));
+			else
+				button.setIcon(new ImageIcon("./Images/plain.png"));
 			add(button);
 		}
 	}
@@ -49,7 +63,8 @@ public class Test extends JPanel{
 		
 		public void paintComponent(Graphics g)
 		{
-			g.fillRect(x, y, 200, 200);
+			g.setColor(Color.RED);
+			g.fillRect(x, y, 40, 40);
 		}
 
 		@Override
