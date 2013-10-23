@@ -1,9 +1,11 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,10 +19,12 @@ public class Test extends JPanel{
 		setPreferredSize(new Dimension(720,720));
 		setLayout(new GridLayout(10,10));
 		for(int i =0; i< 100; i++)
-		add(new JButton("" + i));
-		
-		test2 = new Test2();
-		add(test2);
+		{
+			JButton button = new JButton(""+ i);
+			if((int) (Math.random()*10) < 3)
+				button.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
+			add(button);
+		}
 	}
 	
 	public JPanel getTest2()
@@ -53,24 +57,24 @@ public class Test extends JPanel{
 //				System.out.println("down");
 				int code = e.getKeyCode();
 				if(code == KeyEvent.VK_DOWN){
-					y++;
+					y+=5;
 					System.out.println("down");
 //					playerY =+ 2;
 //					repaint();
 					
 				}
 				if(code == KeyEvent.VK_UP){
-					y--;
+					y-=5;
 //					playerY =- 2;
 //					repaint();
 				}
 				if(code == KeyEvent.VK_LEFT){
-					x--;
+					x-=5;
 //					playerX =+ 2;
 //					repaint();
 				}
 				if(code == KeyEvent.VK_RIGHT){
-					x++;
+					x+=5;
 //					playerX =- 2;
 //					repaint();
 				}
