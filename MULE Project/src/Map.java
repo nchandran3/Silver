@@ -78,7 +78,7 @@ public class Map extends Screen implements KeyListener{
 	public static Map getMap(){
 		return map;
 	}
-	
+	//kl
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
