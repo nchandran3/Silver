@@ -73,6 +73,7 @@ public class Iterator {
 		return iterator;
 	}
 	public void simulateRound(){
+		
 		/*int passed = 0;
 		ArrayList<Player> plArray = Player.getPlArray();
 		boolean gamePhase = false;
