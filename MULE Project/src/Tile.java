@@ -82,7 +82,7 @@ public abstract class Tile extends JButton implements ActionListener{
 	 */
 	protected void buttonPressed(){
 		if(Controller.buyLand(this)){
-			System.out.println("You successfully purchased the property");
+			//this.setBorder(BorderFactory.createLineBorder(Iterator.getIterator().getCurrPlayer().getColor()));
 		}else System.out.println("Transaction failed");
 	}
 	
@@ -94,8 +94,8 @@ public abstract class Tile extends JButton implements ActionListener{
 	public void tileSold(Player player){
 		owner = player;
 		isOwned = true;
-		button.setBorder(new LineBorder(player.getColor(),2));
-		repaint();
+		setBorder(new LineBorder(player.getColor(),10));
+		//repaint();
 	}
 	
 	public Player getOwner(){

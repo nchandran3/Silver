@@ -74,6 +74,7 @@ public class Iterator {
 		return iterator;
 	}
 	public void startGame(){
+		LandOffice landOffice = new LandOffice();
 		map = new Map();
 	}
 	public void simulateRound(){
