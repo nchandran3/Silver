@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -17,11 +19,18 @@ import javax.swing.JPanel;
  *
  */
 public class MapGlassPane extends Screen implements KeyListener {
-	private ImageIcon sprite;
-	
+	private Image sprite;
+	private Iterator iterator;
+	private Player currPlayer;
+	private Point location;
+	private int image_width, image_height;
 	public MapGlassPane(){
 		
-		sprite = Iterator.getIterator().getCurrPlayer().g
+		init();		//initialize all variables
+		
+		/*
+		 * set up Glass Pane
+		 */
 		this.setOpaque(false);
 		this.setVisible(true);
 		
@@ -31,55 +40,66 @@ public class MapGlassPane extends Screen implements KeyListener {
 		 
 	}
 
+	public void init()
+	{
+		iterator = Iterator.getIterator();
+		currPlayer = iterator.getCurrPlayer();
+		sprite = currPlayer.getImage();
+		location = new Point(getWidth()/2, getHeight()/2); //begin player in the center of the screen
+		currPlayer.move(location);
+		image_width = (int) (getWidth()*.05);
+		image_height = (int) (getHeight()*.05);
+	}
+	
+	
+	/**
+	 * Paints the player sprite on the map
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		
-		Graphics2D g2 = (Graphics2D) g;
-		g.setColor(Color.red);
-//		g2.fillRect(0, 0, 999999, 999999);
-		g.setColor(Color.BLUE);
-		g2.fill(rec);
+		g.drawImage(sprite, location.x - image_width/2, location.y - image_height/2,
+				image_width, image_height, null); //center the image drawn
 		
 	}
+	
+	
+	/**
+	 * Listener method to determine what to do on a Key Press
+	 */
 	public void keyPressed(KeyEvent e) {
-//		System.out.println("down");
-		int code = e.getKeyCode();
-		if(code == KeyEvent.VK_DOWN){
-			rec.setLocation(rec.x, rec.y + 2);
-			System.out.println("down");
-			playerY =+ 2;
-
-		}
-		if(code == KeyEvent.VK_UP){
-			rec.setLocation(rec.x, rec.y - 2);
-//			playerY =- 2;
-
-		}
-		if(code == KeyEvent.VK_LEFT){
-			rec.setLocation(rec.x - 2, rec.y);
-//			playerX =+ 2;
-
-		}
-		if(code == KeyEvent.VK_RIGHT){
-			rec.setLocation(rec.x + 2, rec.y);
-//			playerX =- 2;
-
-		}
+		
+		doKeyAction(e);
 		repaint();
 		
 	}
 
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
+	
+	public void doKeyAction(KeyEvent e)
+	{
+		int code = e.getKeyCode();
 		
+		if(code == KeyEvent.VK_DOWN){
+			location.y += 2;
+		}
+		if(code == KeyEvent.VK_UP){
+			location.y -= 2;
+		}
+		if(code == KeyEvent.VK_LEFT){
+			location.x += 2;
+		}
+		if(code == KeyEvent.VK_RIGHT){
+			location.x=- 2;
+		}
+		
+		currPlayer.move(location);	//update player location
+		
+		repaint();
 	}
+	@Override
+	public void keyReleased(KeyEvent arg0) {}
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyTyped(KeyEvent arg0) {}
 	
 	public static void main(String[] args){
 		JFrame frame = new JFrame();
