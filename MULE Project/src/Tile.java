@@ -6,7 +6,7 @@
  * @author Michael Carlson
  *
  */
-public class Tile {
+public class Tile{
 
 	private int tileType; //make a char?
 	private Player owner;
@@ -14,6 +14,7 @@ public class Tile {
 	
 	public Tile(int newTileType){
 		tileType = newTileType;
+		isOwned = false;        //set all new tiles to have no owners
 	}
 	/**
 	 * changes the owner of the Tile to the parameter given.

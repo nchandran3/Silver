@@ -72,7 +72,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		comboBox.setForeground(new Color(255, 51, 153));
 		comboBox.setModel(new DefaultComboBoxModel<Integer>(new Integer[] {1, 2, 3, 4}));
 		comboBox.setSelectedIndex(0);
-		GTools.positionAndAdd(comboBox, 3.0/4, 5.0/12, 2, 1, this);
+		GTools.positionAndAdd(comboBox, 2.6/4, 5.0/12, 2, 1, this);
 		
 
 		/*
@@ -83,7 +83,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		lblNumberOfNobles.setForeground(new Color(255, 51, 204));
 		lblNumberOfNobles.setFont(new Font("Vivaldi", Font.BOLD, 40));
 		lblNumberOfNobles.setBackground(Color.BLUE);
-		GTools.positionAndAdd(lblNumberOfNobles, 1.0/4, 5.0/12, this);
+		GTools.positionAndAdd(lblNumberOfNobles, 1.4/4, 5.0/12, this);
 		
 
 		/*
@@ -93,7 +93,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		JLabel difficultylbl = new JLabel("DIFFICULTY");
 		difficultylbl.setForeground(Color.CYAN);
 		difficultylbl.setFont(new Font("Onyx", Font.PLAIN, 70));
-		GTools.positionAndAdd(difficultylbl, .5, .6, this);
+		GTools.positionAndAdd(difficultylbl, .5, .55, this);
 		
 		
 		/*
@@ -105,19 +105,19 @@ public class Menu_Screen extends Screen implements ActionListener {
 		plebian.setOpaque(false);
 		plebian.setForeground(Color.YELLOW);
 		plebian.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		GTools.positionAndAdd(plebian, 1.0/6, .8, this);
+		GTools.positionAndAdd(plebian, 1.0/6, .67, this);
 		
 		bourg = new JRadioButton("Bourgeoisie");
 		bourg.setOpaque(false);
 		bourg.setForeground(Color.YELLOW);
 		bourg.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		GTools.positionAndAdd(bourg, 3.0/6, .8, this);
+		GTools.positionAndAdd(bourg, 3.0/6, .67, this);
 		
 		royalty = new JRadioButton("Royalty");
 		royalty.setOpaque(false);
 		royalty.setForeground(Color.YELLOW);
 		royalty.setFont(new Font("Vivaldi", Font.BOLD, 30));
-		GTools.positionAndAdd(royalty, 5.0/6, .8, this);
+		GTools.positionAndAdd(royalty, 5.0/6, .67, this);
 		
 		difgroup = new ButtonGroup();
 		difgroup.add(plebian);
@@ -134,7 +134,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		map.setForeground(Color.YELLOW);
 		map.setOpaque(false);
 		map.setToolTipText("Randomly generate the tiles of the map");
-		GTools.positionAndAdd(map, .5, .88, this);
+		GTools.positionAndAdd(map, .5, .78, this);
 		
 		
 		/*
@@ -146,7 +146,7 @@ public class Menu_Screen extends Screen implements ActionListener {
 		done.setBackground(Color.BLACK);
 		done.setForeground(Color.YELLOW);
 		done.addActionListener(this);
-		GTools.positionAndAdd(done, .5, .97, this);
+		GTools.positionAndAdd(done, .5, .9, 1.5, 1.5, this);
 		done.addActionListener(this);
 		
 		
