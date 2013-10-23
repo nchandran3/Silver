@@ -27,8 +27,7 @@ public class PlayerSelectScreen extends Screen {
 	private String textPrompt;
 	private RaceSelectPanel raceSelectPanel;
 	private ColorChooseBox colorChooseBox;
-	private static int players_created =1;
-
+	private static int players_created = 0; 
 	public PlayerSelectScreen()
 	{
 		super(Color.PINK); //Creates screen with background color Blue
@@ -88,7 +87,7 @@ public class PlayerSelectScreen extends Screen {
 		JLabel lblChooseColor = new JLabel("Choose A Color: ");
 		lblChooseColor.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		lblChooseColor.setForeground(Color.BLACK);
-		GTools.positionAndAdd(lblChooseColor, .5, .95, this);
+		GTools.positionAndAdd(lblChooseColor, .5, .92, this);
 		
 		/*
 		 * Submit Button
@@ -100,7 +99,6 @@ public class PlayerSelectScreen extends Screen {
 		done.setBackground(Color.BLACK);
 		done.addActionListener(new DoneListener());
 		GTools.positionAndAdd(done, .5, .97, this);
-		done.revalidate();
 
 	}
 	
@@ -125,10 +123,11 @@ public class PlayerSelectScreen extends Screen {
 				Controller controller = Controller.getController();
 				Iterator iterator = Iterator.getIterator();
 				
-				if(players_created <= controller.getNumPlayers())
+				controller.createPlayer(txtEnterPlayerName.getText(), colorChooseBox.getColorChosen(), raceSelectPanel.getSelectedRace());
+				colorChooseBox.removeColorFromChoices(); //remove the color chosen from the list of options
+				
+				if(players_created < controller.getNumPlayers())	//if it is the last player that needs to be created, switch to Map
 				{
-					controller.createPlayer(txtEnterPlayerName.getText(), colorChooseBox.getColorChosen(), raceSelectPanel.getSelectedRace());
-					colorChooseBox.removeColorFromChoices(); //remove the color chosen from the list of options
 					iterator.switchScreen(new PlayerSelectScreen());
 				}
 				
