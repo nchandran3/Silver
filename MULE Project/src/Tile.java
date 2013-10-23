@@ -47,6 +47,7 @@ public abstract class Tile extends JPanel implements ActionListener{
 		setUp();
 		button = new JButton((Icon)img);
 		button.setBackground(Color.BLACK);
+		//button.setForeground(Color.YELLOW);
 		add(button, BorderLayout.CENTER);
 		//This is some shitty code, but I can't really figure out how to get around it.
 		//Theoretically calls buttonPressed() in the case that the covering JButton is pressed.
