@@ -96,7 +96,6 @@ public class Tile extends JPanel implements TileListener{
 		this.y=y;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
