@@ -2,6 +2,7 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -14,37 +15,34 @@ import java.io.IOException;
  * @author Michael Carlson
  *
  */
-public class Tile extends JPanel implements ActionListener{
+public class Tile extends JPanel implements TileListener{
 
 	BufferedImage img;
 	private Player owner;
 	private boolean isOwned;
 	private String tileName;
 	private String directory;
-	private int imgWidth;
-	private int imgHeight;
+	private int x;
+	private int y;
 	private JButton button;
 	
 	//Load the images inside the constructor, so we only have to load them once
 	public Tile(){
 		super();
-		setPreferredSize(new Dimension(imgWidth,imgHeight));
-		//WTF? setLayout(BorderLayout);
 		setFocusable(true);
 		requestFocus();
 		//Change the tileName to match the name of the corresponding png file
 		this.tileName = "danaerys";
 		//Not really sure why this . is needed
 		this.directory = "./Images/";
-		this.imgHeight = 50;
-		this.imgWidth = 50;
 		isOwned = false;        //set all new tiles to have no owners
 		setUp();
 		button = new JButton((Icon)img);
 		add(button, BorderLayout.CENTER);
+		//This is some shitty code, but I can't really figure out how to get around it.
 		button.addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
-			    selectionButtonPressed();
+			    buttonPressed();
 			  } 
 			} );
 	}
@@ -68,6 +66,10 @@ public class Tile extends JPanel implements ActionListener{
 	    return new Dimension(imgWidth, imgHeight);
 	}
 	
+	public void buttonPressed(){
+		Controller.buyLand(this);
+	}
+	
 	/**
 	 * changes the owner of the Tile to the parameter given.
 	 * @param player: new owner of the tile.
@@ -87,5 +89,19 @@ public class Tile extends JPanel implements ActionListener{
 
 	public boolean isOwned(){
 		return isOwned;
+	}
+	
+	public void setX(int x){
+		this.x = x;
+	}
+	
+	public void setY(int y){
+		this.y=y;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
