@@ -40,7 +40,7 @@ public class RaceSelectPanel extends Screen {
 	 * reads what the user presses and sets that player's race to what they selected.
 	 */
 	public RaceSelectPanel() {
-		super(Color.BLACK);
+		super(Color.PINK);
 		setLayout(null);
 		setPreferredSize(new Dimension(width,height));
 		
