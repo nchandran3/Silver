@@ -19,7 +19,7 @@ import java.io.IOException;
  */
 public abstract class Tile extends JPanel implements ActionListener{
 
-	BufferedImage img;
+	ImageIcon img;
 	protected Player owner;
 	protected boolean isOwned;
 	protected String tileName;
@@ -61,11 +61,9 @@ public abstract class Tile extends JPanel implements ActionListener{
 	 * img variable.
 	 */
 	public void setUp(){
-		try {
-	        img = ImageIO.read(new File(directory + tileName + ".png"));
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
+
+	        img = new ImageIcon(directory + tileName + ".png");
+	   
 	}
 	
 	@Override
