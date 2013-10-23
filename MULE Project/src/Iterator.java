@@ -74,6 +74,8 @@ public class Iterator {
 	}
 	public void simulateRound(){
 		
+		ArrayList<Player> plArray = Player.getPlArray();
+		switchScreen(new Map());
 		/*int passed = 0;
 		ArrayList<Player> plArray = Player.getPlArray();
 		boolean gamePhase = false;
@@ -103,6 +105,7 @@ public class Iterator {
 			}
 		}
 		Round++;*/
+		Round++;
 	}
 	public void setCurrPlayer(Player player){
 		Player p = player;

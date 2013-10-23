@@ -2,14 +2,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
-
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import java.awt.geom.Line2D;
+import java.awt.Image;
+import control.GTools;
 
 
 public class TownScreen extends Map {
@@ -25,12 +19,13 @@ public class TownScreen extends Map {
 	}
 	public void paintComponent(Graphics g){  
 		Graphics2D g2 = (Graphics2D) g;
-	/*	g2.drawImage(storeImage, 0, 0, super.width/4, super.height/3, null);
+		
+		g2.drawImage(store , 0, 0, super.width/4, super.height/3, null);
 		g2.drawImage(assayImage, super.width/4, 0, super.width/4, super.height/3, null);
 		g2.drawImage(officeImage, super.width/2, 0, super.width/4, super.height/3, null);
 		g2.drawImage(pubImage, super.width/4 * 3, 0, super.width/4, super.height/3, null);*/
 	}
-/*
+
   	public int getX(){
 		
 		return Xcord;
@@ -44,13 +39,10 @@ public class TownScreen extends Map {
 	}
 	public boolean checkCollision(int x, int y){
 		if(y <= super.height/3){
-			
+			return false;
 		}
 		else{
 			return false;
 		}
 	}
-	private
-	*/
-
 }
