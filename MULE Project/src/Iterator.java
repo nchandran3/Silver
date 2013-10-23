@@ -73,21 +73,33 @@ public class Iterator {
 		return iterator;
 	}
 	public void simulateRound(){
+
+		int passed = 0;
 		ArrayList<Player> plArray = Player.getPlArray();
-		Map map = Map.getMap();
 		for(Player p: plArray){		//in a priority queue
+			switchScreen(new Map());
+			//verifyPassed(p);
 			if(Round <= 2){
 				//ability to choose from map tile he wants for free
-				map.drawMap(p);
-			}
-			else if(Round > 2 && map.pressedPass() != false){
-				//ability to choose from map tile he wants for money or he can pass
-				map.drawMap(p);
-			}
-			else{
 				
 			}
+			else if(Round > 2){// && pressedPass() == false){
+				//ability to choose from map tile he wants for money or he can pass
+				//map.drawMap(p);
+				//have to decrement the players money
+			}
+			else if(Round > 2){// && pressedPass() == true){
+				passed++;
+				if(passed == plArray.size()){
+					break;
+				}
+			}
+			
 		}
 		Round++;
+	}
+	public boolean veryifyPassed(Player p){
+		//if()
+		return false;
 	}
 }
