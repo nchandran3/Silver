@@ -1,6 +1,8 @@
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +17,7 @@ import java.io.IOException;
  * @author Michael Carlson
  *
  */
-public class Tile extends JPanel implements TileListener{
+public class Tile extends JPanel implements ActionListener{
 
 	BufferedImage img;
 	private Player owner;
@@ -25,6 +27,7 @@ public class Tile extends JPanel implements TileListener{
 	private int x;
 	private int y;
 	private JButton button;
+	private TileListener tListener;
 	
 	//Load the images inside the constructor, so we only have to load them once
 	public Tile(){
@@ -36,6 +39,7 @@ public class Tile extends JPanel implements TileListener{
 		//Not really sure why this . is needed
 		this.directory = "./Images/";
 		isOwned = false;        //set all new tiles to have no owners
+		tListener = new TileListener();
 		setUp();
 		button = new JButton((Icon)img);
 		add(button, BorderLayout.CENTER);
@@ -45,6 +49,7 @@ public class Tile extends JPanel implements TileListener{
 			    buttonPressed();
 			  } 
 			} );
+		button.addMouseListener(tListener);
 	}
 	
 	public void setUp(){
@@ -74,6 +79,8 @@ public class Tile extends JPanel implements TileListener{
 	public void tileSold(Player player){
 		owner = player;
 		isOwned = true;
+		button.setBorder(new LineBorder(player.getColor(),2));
+		repaint();
 	}
 	
 	public Player getOwner(){
@@ -82,6 +89,8 @@ public class Tile extends JPanel implements TileListener{
 	
 	public void setOwner(Player newOwner){
 		owner = newOwner;
+		button.setBorder(new LineBorder(newOwner.getColor(),2));
+		repaint();
 	}
 
 	public boolean isOwned(){

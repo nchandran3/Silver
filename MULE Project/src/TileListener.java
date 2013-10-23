@@ -1,12 +1,21 @@
+import java.awt.Color;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 
 
-public interface TileListener extends ActionListener{
+public class TileListener extends MouseAdapter{
 	
-	@Override
-	public void actionPerformed(ActionEvent e);
+	public TileListener(){
+		
+	}
+	
+	public void mouseOver(MouseEvent e){
+		JButton source = (JButton) e.getSource();
+		//source.setBorder(new LineBorder(Color.GRAY, 10));
+		source.setBackground(Color.BLACK);
+	}
 
 }

@@ -139,5 +139,9 @@ public class Player implements Person {
 	public void setScore(int score){
 		this.score = score;
 	}
+	
+	public Color getColor(){
+		return color;
+	}
 
 }
