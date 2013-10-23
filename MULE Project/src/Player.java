@@ -9,13 +9,10 @@ import java.util.ArrayList;
  * @author Hamilton Greene
  *
  */
-<<<<<<< HEAD
-public class Player implements Person {
+
+public class Player {
 	private BufferedImage image;
-=======
-public class Player{
-	
->>>>>>> branch 'master' of https://github.com/nchandran3/Silver.git
+
 	private int score;
 	private final Race race;
 	private String name;

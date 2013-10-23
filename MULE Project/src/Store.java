@@ -1,4 +1,10 @@
 
+/**
+ * The store allows players to purchase certain supplies with their hard-earned gold.
+ * @author Hamilton Greene
+ *
+ */
+
 public class Store extends TownScreen{
 	private int dragonFire;
 	private int food;
@@ -10,6 +16,9 @@ public class Store extends TownScreen{
 		setUp();
 	}
 	
+	/**
+	 * Stocks the store according to the chosen difficulty.
+	 */
 	private void setUp(){
 		if(Controller.getController().getDifficulty()==1){
 			food = 16;
@@ -24,6 +33,11 @@ public class Store extends TownScreen{
 		}
 	}
 	
+	/**
+	 * Checks validity of player's food transaction request.
+	 * @param foodReq number of food units desired
+	 * @return
+	 */
 	public boolean buyFood(int foodReq){
 		Player player = Iterator.getIterator().getCurrPlayer();
 		if(foodReq<=food){
@@ -36,6 +50,11 @@ public class Store extends TownScreen{
 		return false;
 	}
 	
+	/**
+	 * Checks validity of player's dragonFire transaction request
+	 * @param dragonReq number of dragonFire units desired
+	 * @return
+	 */
 	public boolean buyDragonFire(int dragonReq){
 		Player player = Iterator.getIterator().getCurrPlayer();
 		if(dragonReq<=dragonFire){
@@ -48,6 +67,11 @@ public class Store extends TownScreen{
 		return false;
 	}
 	
+	/**
+	 * Checks validity of player's ore transaction request
+	 * @param oreReq number of ore units required
+	 * @return
+	 */
 	public boolean buyOre(int oreReq){
 		Player player = Iterator.getIterator().getCurrPlayer();
 		if(oreReq<=ore){
