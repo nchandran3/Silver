@@ -31,8 +31,12 @@ public class Test extends JPanel{
 				button.setBorder(BorderFactory.createLineBorder(Color.MAGENTA, 3));
 
 
-			
-			button.setIcon(new ImageIcon("./Images/mountain.png"));
+			if(rand >7)
+				button.setIcon(new ImageIcon("./Images/mountain.png"));
+			else if (rand > 5)
+				button.setIcon(new ImageIcon("./Images/river.png"));
+			else
+				button.setIcon(new ImageIcon("./Images/plain.png"));
 			add(button);
 		}
 	}
@@ -59,7 +63,8 @@ public class Test extends JPanel{
 		
 		public void paintComponent(Graphics g)
 		{
-			g.fillRect(x, y, 200, 200);
+			g.setColor(Color.RED);
+			g.fillRect(x, y, 40, 40);
 		}
 
 		@Override
