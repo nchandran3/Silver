@@ -68,6 +68,12 @@ public class Controller {
 	
 	//Don't really know why this is supposed to be static.  In case this causes problems,
 	//This method is called from the Tile buttonPressed() method
+	/**
+	 * Determines the price of the piece of land the current player is trying to buy then
+	 * checks the viability of the transaction against the player's available resources.
+	 * @param tile
+	 * @return true if land acquisition was successful
+	 */
 	public static boolean buyLand(Tile tile){
 		Player player = Iterator.getIterator().getCurrPlayer();
 		int landPrice = LandOffice.getLandOffice().getBuyPrice();
@@ -77,7 +83,7 @@ public class Controller {
 				return true;
 			}else if(player.getGold()>=landPrice){
 				tile.tileSold(player);
-				player.addResources(0, -landPrice, 0);
+				player.addResources(0, -landPrice, 0,0);
 				return true;
 			}
 		}
@@ -95,6 +101,33 @@ public class Controller {
 	public static Controller getController()
 	{
 		return controller;
+	}
+	
+	/**
+	 * Calculate the given player's score.  Not quite sure how this is supposed to be calculated
+	 * at the moment, but will be changed to reflect intended values once clarified.
+	 * @param player
+	 * @return player's score
+	 */
+	public int calculateScore(Player player){
+		return player.getDragonFire() + player.getFood() + player.getGold();
+	}
+	
+	/**
+	 * This method goes through each of the players in the players[] and finds the player
+	 * with the smallest score.
+	 * @return Player in last place
+	 */
+	public Player getLastPlayer(){
+		int lowestScore = calculateScore(players[0]);
+		int playerNum = 0;
+		for(int i = 0; i<players.length;i++){
+			if(calculateScore(players[i])<lowestScore){
+				lowestScore = calculateScore(players[i]);
+				playerNum = i;
+			}
+		}
+		return players[playerNum];
 	}
 	
 }
