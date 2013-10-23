@@ -10,12 +10,14 @@ import java.util.ArrayList;
  */
 public class Player implements Person {
 	
+	private int score;
 	private final Race race;
 	private String name;
 	private Color color;
 	private int dragonFire;
 	private int gold;
 	private int food;
+	private int ore;
 	private Point location;
 	private static ArrayList<Player> plArray = new ArrayList<Player>();
 	
@@ -62,10 +64,11 @@ public class Player implements Person {
 	 * updates the player's resources amount based on transactions that happened while in the auction house.
 	 * 
 	 */
-	public void addResources(int dragonFire, int gold, int food) {
+	public void addResources(int dragonFire, int gold, int food, int ore) {
 		this.dragonFire+=dragonFire;
 		this.gold+=gold;
 		this.food+=food;
+		this.ore+=ore;
 		
 	}
 	
@@ -103,6 +106,8 @@ public class Player implements Person {
 			food = 4;
 			dragonFire = 2;
 		}
+		gold = race.getStartMoney();
+		ore = 0;
 	}
 
 	/**
@@ -125,6 +130,14 @@ public class Player implements Person {
 	
 	public int getFood(){
 		return food;
+	}
+	
+	public int getScore(){
+		return score;
+	}
+	
+	public void setScore(int score){
+		this.score = score;
 	}
 
 }

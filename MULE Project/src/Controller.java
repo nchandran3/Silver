@@ -77,7 +77,7 @@ public class Controller {
 				return true;
 			}else if(player.getGold()>=landPrice){
 				tile.tileSold(player);
-				player.addResources(0, -landPrice, 0);
+				player.addResources(0, -landPrice, 0,0);
 				return true;
 			}
 		}
@@ -95,6 +95,27 @@ public class Controller {
 	public static Controller getController()
 	{
 		return controller;
+	}
+	
+	/**
+	 * Calculate the given player's score.
+	 * @param player
+	 * @return
+	 */
+	public int calculateScore(Player player){
+		return player.getDragonFire() + player.getFood() + player.getGold();
+	}
+	
+	public Player getLastPlayer(){
+		int lowestScore = calculateScore(players[0]);
+		int playerNum = 0;
+		for(int i = 0; i<players.length;i++){
+			if(calculateScore(players[i])<lowestScore){
+				lowestScore = calculateScore(players[i]);
+				playerNum = i;
+			}
+		}
+		return players[playerNum];
 	}
 	
 }
