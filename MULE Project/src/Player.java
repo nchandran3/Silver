@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class Player {
 	private BufferedImage image;
-
 	private int score;
 	private final Race race;
 	private String name;
@@ -113,10 +112,23 @@ public class Player {
 		}
 		gold = race.getStartMoney();
 		ore = 0;
+		image = race.getImage();
+		tintImage(image);
 	}
 	
 	
-
+/**
+ * Tints the sprite image to the player's designated color.
+ * @param image the sprite of the player
+ */
+	public void tintImage(BufferedImage image)
+	{
+		for (int x = 0; x < image.getWidth(); x++) {
+	        for (int y = 0; y < image.getHeight(); y++) {
+	        	image.setRGB(x, y, color.getRGB());
+	        }
+		}
+	}
 	/**
 	 * Getter for race
 	 * 
