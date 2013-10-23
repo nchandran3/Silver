@@ -65,6 +65,12 @@ public class Controller {
 		difficulty = num;
 		System.out.println("Difficulty is " + difficulty);
 	}
+	
+	//Don't really know why this is supposed to be static.  In case this causes problems,
+	//This method is called from the Tile buttonPressed() method
+	public static void buyLand(Tile tile){
+		
+	}
 	/**
 	 * This returns an instance of the controller. 
 	 * 
