@@ -130,4 +130,30 @@ public class Controller {
 		return players[playerNum];
 	}
 	
+	public void createMap(){
+		String[][] makeMap = new String[][]{
+			{"P","P","M","P","R","P","M","P","P"}, 
+			{"P","M","P","P","R","P","P","P","M"}, 
+			{"M","P","P","P","Town","P","P","P","M"}, 
+			{"P","M","P","P","R","P","M","P","P"}, 
+			{"P","P","M","P","R","P","P","P","M"}
+		};	
+		for(int i = 0; i < 5; i++){
+			for(int j = 0; j < 9; j++){
+				if(makeMap[i][j].equalsIgnoreCase("P")){
+					System.out.println("Hep");
+					new Plain();
+				}
+				else if(makeMap[i][j].equalsIgnoreCase("R")){
+					new River();
+				}
+				else if(makeMap[i][j].equalsIgnoreCase("m")){
+					new Mountain();
+				}
+				else{
+					new Town();
+				}
+			}
+		}	
+	}
 }

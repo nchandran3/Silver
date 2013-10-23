@@ -1,27 +1,27 @@
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
-import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 import control.GTools;
 
-
+/**
+ * 
+ * @author Andrew Ford
+ *
+ */
 public class TownScreen extends Map {
 //	int Xcord = 0;
-	//int Ycord = 0;
+//	int Ycord = 0;
 	int step_size = 10;
 	public TownScreen(){
 		super();
-		setBackground(new Color(255, 200, 0));
+		this.setBackground(new Color(255, 200, 0));
 		//super(Color.YELLOW);
 		setLayout(null);
 	}
@@ -29,10 +29,14 @@ public class TownScreen extends Map {
 	public void paintComponent(Graphics g){  
 		Graphics2D g2 = (Graphics2D) g;
 		//Image store = GTools.compress(new ImageIcon("./Images/store.png"), 80, 80).getImage();
+		//super.paintComponent(g);
+		g.setColor(Color.ORANGE);
+		g2.fillRect(0, 0, 999999, 999999);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));
 		Image store = new ImageIcon("./Images/store.png").getImage();
 		g2.drawImage(store , 0, 40, super.getWidth()/4, super.getHeight()/3, null);
+		g2.setColor(Color.BLACK);
 		g2.drawString("STORE", 10, 30);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));
@@ -43,8 +47,12 @@ public class TownScreen extends Map {
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));	
 		Image officeImage = new ImageIcon("./Images/auction.png").getImage();
 		g2.drawImage(officeImage, super.width/2, 40, super.width/4, super.height/3, null);
-		g2.drawString("Store", super.width/2, 30);
-//		g2.drawImage(pub, super.width/4 * 3, 0, super.width/4, super.height/3, null);
+		g2.drawString("AUCTION HOUSE", super.width/2, 30);
+		
+		g2.setFont(new Font("Stencil", Font.BOLD, 30));	
+		Image assay = new ImageIcon("./Images/assay.png").getImage();
+		g2.drawImage(assay, super.width/4 * 3, 40, super.width/4, super.height/3, null);
+		g2.drawString("ASSAY", super.width/4 *3, 30);
 	}
 /*
   	public int getX(){

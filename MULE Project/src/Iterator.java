@@ -72,6 +72,9 @@ public class Iterator {
 	{
 		return iterator;
 	}
+	public void startGame(){
+		Controller.getController().createMap();
+	}
 	public void simulateRound(){
 		
 		ArrayList<Player> plArray = Player.getPlArray();
