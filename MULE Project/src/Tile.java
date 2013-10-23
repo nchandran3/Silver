@@ -66,6 +66,7 @@ public abstract class Tile extends JButton implements ActionListener{
 
 	        img = new ImageIcon(directory);
 	        setIcon(img);
+	        setVisible(true);
 	   
 	}
 	
