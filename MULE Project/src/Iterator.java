@@ -111,7 +111,7 @@ public class Iterator {
 		Round++;
 	}
 	public void setCurrPlayer(Player player){
-		Player p = player;
+		p = player;
 	}
 	public Player getCurrPlayer(){
 		return p;
