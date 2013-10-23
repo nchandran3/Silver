@@ -133,7 +133,7 @@ public class PlayerSelectScreen extends Screen {
 				
 				else
 				{
-					iterator.switchScreen(new Menu_Screen()); //change this to the Map Screen class
+					iterator.switchScreen(new Map()); //change this to the Map Screen class
 				}
 			}
 			

@@ -6,11 +6,8 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Line2D;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 
-
-import javax.swing.JPanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -46,12 +43,7 @@ public class Map extends Screen implements KeyListener{
 	 */
 	public Map(){
 		super();
-		setLayout(new GridLayout(100,100));
-		rec = new Rectangle(100, 100, 20, 20);
-		JButton butt = new JButton("bloop");
-		add(butt);
-		add(new JButton("blah"));
-		this.addKeyListener(this);
+		rec = new Rectangle(20, 20);
 	}
 	public Map(Color c){
 		super(c);
@@ -72,6 +64,7 @@ public class Map extends Screen implements KeyListener{
 			for(int j = 0; j < columns; j++){
 				add(tileMap[i][j]);
 			}
+			
 		}
 		
 		//draws the players character on the screen.
@@ -80,18 +73,13 @@ public class Map extends Screen implements KeyListener{
 		
 	}
 	
-	public void addNotify() {
-        super.addNotify();
-        requestFocus();
-    }
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		setSize(5000, 5000);
 		Graphics2D g2 = (Graphics2D) g;
 		g.setColor(Color.red);
 		g2.fillRect(0, 0, 999999, 999999);
 		g.setColor(Color.BLUE);
-		g2.fill(rec);
+
 //		g.fillRect(playerX, playerY, 20, 20);
 		
 	}
@@ -112,30 +100,23 @@ public class Map extends Screen implements KeyListener{
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-//		System.out.println("down");
 		int code = e.getKeyCode();
 		if(code == KeyEvent.VK_DOWN){
-			rec.setLocation(rec.x, rec.y + 2);
-			System.out.println("down");
-//			playerY =+ 2;
-//			repaint();
+			playerY =+ 2;
+			repaint();
 		}
 		if(code == KeyEvent.VK_UP){
-			rec.setLocation(rec.x, rec.y - 2);
-//			playerY =- 2;
-//			repaint();
+			playerY =- 2;
+			repaint();
 		}
-		if(code == KeyEvent.VK_LEFT){
-			rec.setLocation(rec.x - 2, rec.y);
-//			playerX =+ 2;
-//			repaint();
+		if(code == KeyEvent.VK_DOWN){
+			playerX =+ 2;
+			repaint();
 		}
-		if(code == KeyEvent.VK_RIGHT){
-			rec.setLocation(rec.x + 2, rec.y);
-//			playerX =- 2;
-//			repaint();
+		if(code == KeyEvent.VK_UP){
+			playerX =- 2;
+			repaint();
 		}
-		repaint();
 		
 	}
 
@@ -155,16 +136,9 @@ public class Map extends Screen implements KeyListener{
 	public static void main(String[] args){
 		Map testMap = new Map();
 		GameFrame test = new GameFrame();
-		test.add(testMap);
-//		test.setLayout(new GridLayout());
-//		JPanel testPanel = new JPanel();
-//		testPanel.setBackground(Color.black);
-//		testPanel.setOpaque(false);
-//		testPanel.add(new JButton("poop"));
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test.setVisible(true);
-		
-//		test.add(testPanel);
+		test.add(testMap);
 		test.pack();
 	}
 }

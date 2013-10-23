@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 /**
  * This class is responsible for the player's basic information.
  * @author Hamilton Greene
@@ -23,6 +25,7 @@ public class Player {
 	private int muleType;
 	private Point location;
 	private static ArrayList<Player> plArray = new ArrayList<Player>();
+	private static ArrayList<ImageIcon> sprites;
 	
 	/**
 	 * This is the constructor for the player class which initializes the player's data. 
@@ -112,8 +115,8 @@ public class Player {
 		}
 		gold = race.getStartMoney();
 		ore = 0;
-		image = race.getImage();
-		tintImage(image);
+		//image = race.getImage();   reimplement once image array is set up
+		//tintImage(image);
 	}
 	
 	
