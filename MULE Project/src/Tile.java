@@ -35,6 +35,7 @@ public abstract class Tile extends JPanel implements ActionListener{
 	 */
 	public Tile(){
 		super();
+		setLayout(new BorderLayout());
 		setFocusable(true);
 		requestFocus();
 		//Change the tileName to match the name of the corresponding png file
@@ -45,6 +46,7 @@ public abstract class Tile extends JPanel implements ActionListener{
 		tListener = new TileListener();
 		setUp();
 		button = new JButton((Icon)img);
+		button.setBackground(Color.BLACK);
 		add(button, BorderLayout.CENTER);
 		//This is some shitty code, but I can't really figure out how to get around it.
 		//Theoretically calls buttonPressed() in the case that the covering JButton is pressed.
