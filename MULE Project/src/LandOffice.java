@@ -19,10 +19,10 @@ public class LandOffice {
 	}
 	
 	public int getBuyPrice(){
-		return 300 + Controller.getController().getRound()*rand.nextInt(100);
+		return 300 + Iterator.getIterator().getRound()*rand.nextInt(100);
 	}
 	
 	public int getSellPrice(){
-		return 400 + Controller.getController().getRound()*rand.nextInt(200);
+		return 400 + Iterator.getIterator().getRound()*rand.nextInt(200);
 	}
 }
