@@ -6,10 +6,16 @@ import java.util.Random;
  *
  */
 public class LandOffice {
-	Random rand;
+	private Random rand;
+	public static LandOffice landOffice;
 	
 	public LandOffice(){
 		rand = new Random();
+		landOffice = this;
+	}
+	
+	public static LandOffice getLandOffice(){
+		return landOffice;
 	}
 	
 	public int getBuyPrice(){
