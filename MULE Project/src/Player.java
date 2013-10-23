@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Hamilton Greene
  *
  */
-public class Player implements Person {
+public class Player{
 	
 	private int score;
 	private final Race race;
@@ -18,6 +18,7 @@ public class Player implements Person {
 	private int gold;
 	private int food;
 	private int ore;
+	private int muleType;
 	private Point location;
 	private static ArrayList<Player> plArray = new ArrayList<Player>();
 	
@@ -41,7 +42,6 @@ public class Player implements Person {
 	 * Moves the player's location to the point given.  Returns
 	 * the point the player ends up at.
 	 */
-	@Override
 	public Point move(Point p) {
 		location.move(p.x, p.y);
 		return location;
@@ -78,6 +78,7 @@ public class Player implements Person {
 	 * resources based on map chosen, difficulty, and selected race.
 	 */
 	public void playerInit(){
+		//This code is to be implemented if/when additional map types are introduced
 		//map = Map.getMapType();
 		//resources[x] moneyStart = 1000;
 		//(where x is chosen slot for money)
@@ -110,6 +111,8 @@ public class Player implements Person {
 		gold = race.getStartMoney();
 		ore = 0;
 	}
+	
+	
 
 	/**
 	 * Getter for race
@@ -143,6 +146,18 @@ public class Player implements Person {
 	
 	public Color getColor(){
 		return color;
+	}
+	
+	/**
+	 * Returns -1 if the player has no mule, 0, 1, or 2 for food, energy, and ore respectively
+	 * @return
+	 */
+	public int getMule(){
+		return muleType;
+	}
+	
+	public void setMule(int muleType){
+		this.muleType = muleType;
 	}
 
 }
