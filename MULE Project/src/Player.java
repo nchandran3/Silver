@@ -61,7 +61,8 @@ public class Player implements Person {
 
 
 	/**
-	 * updates the player's resources amount based on transactions that happened while in the auction house.
+	 * updates the player's resources amount based on transactions that happen in-game.  Negative
+	 * integers will deplete the player's resources.
 	 * 
 	 */
 	public void addResources(int dragonFire, int gold, int food, int ore) {
@@ -74,7 +75,7 @@ public class Player implements Person {
 	
 	/**
 	 * This method will set the player's attributes and starting 
-	 * resources based on map chosen and selected race.
+	 * resources based on map chosen, difficulty, and selected race.
 	 */
 	public void playerInit(){
 		//map = Map.getMapType();

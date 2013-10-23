@@ -29,7 +29,10 @@ public class Tile extends JPanel implements ActionListener{
 	private JButton button;
 	private TileListener tListener;
 	
-	//Load the images inside the constructor, so we only have to load them once
+	/*
+	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to 
+	 * mouse clicks.
+	 */
 	public Tile(){
 		super();
 		setFocusable(true);
@@ -44,6 +47,7 @@ public class Tile extends JPanel implements ActionListener{
 		button = new JButton((Icon)img);
 		add(button, BorderLayout.CENTER);
 		//This is some shitty code, but I can't really figure out how to get around it.
+		//Theoretically calls buttonPressed() in the case that the covering JButton is pressed.
 		button.addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 			    buttonPressed();
@@ -52,6 +56,10 @@ public class Tile extends JPanel implements ActionListener{
 		button.addMouseListener(tListener);
 	}
 	
+	/**
+	 * This attempts to retrieve the image file from the Images folder and save it to the tile's
+	 * img variable.
+	 */
 	public void setUp(){
 		try {
 	        img = ImageIO.read(new File(directory + tileName + ".png"));
@@ -66,6 +74,10 @@ public class Tile extends JPanel implements ActionListener{
 	    g.drawImage(img, 0, 0, null);
 	}
 	
+	/**
+	 * When the covering JButton is pressed, this method is called.  This method attempts to
+	 * purchase the selected tile.
+	 */
 	public void buttonPressed(){
 		if(Controller.buyLand(this)){
 			System.out.println("You successfully purchased the property");
@@ -73,7 +85,8 @@ public class Tile extends JPanel implements ActionListener{
 	}
 	
 	/**
-	 * changes the owner of the Tile to the parameter given.
+	 * changes the owner of the Tile to the parameter given.  Sets the border of the tile
+	 * to the color of the player.  Repaints.
 	 * @param player: new owner of the tile.
 	 */
 	public void tileSold(Player player){

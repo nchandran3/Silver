@@ -14,6 +14,9 @@ public class RandomEventGenerator {
 		rand = new Random();
 	}
 	
+	/**
+	 * Rolls for a random event for the current player and dishes out the consequences 
+	 */
 	public void createRandomEvent(){
 		Player player = Iterator.getIterator().getCurrPlayer();
 		if(player!=Controller.getController().getLastPlayer()){
