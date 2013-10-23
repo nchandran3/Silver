@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  *
  */
 public class Player implements Person {
-	
+	private BufferedImage image;
 	private int score;
 	private final Race race;
 	private String name;
