@@ -18,8 +18,8 @@ public class Test extends Screen{
 	public Test()
 	{
 		setPreferredSize(new Dimension(720,720));
-		setLayout(new GridLayout(10,10));
-		for(int i =0; i< 100; i++)
+		setLayout(new GridLayout(5,9));
+		for(int i =0; i< 45; i++)
 		{
 			JButton button = new JButton(""+ i);
 			int rand = (int) (Math.random()*10);
@@ -35,10 +35,13 @@ public class Test extends Screen{
 				button.setIcon(new ImageIcon("./Images/mountain.png"));
 			else if (rand > 5)
 				button.setIcon(new ImageIcon("./Images/river.png"));
+			else if (i == 22)
+				button.setIcon(new ImageIcon("./Images/town.png"));
 			else
 				button.setIcon(new ImageIcon("./Images/plain.png"));
 			add(button);
 		}
+		
 	}
 	
 	public JPanel getTest2()
@@ -63,6 +66,7 @@ public class Test extends Screen{
 		
 		public void paintComponent(Graphics g)
 		{
+			super.paintComponent(g);
 			g.setColor(Color.RED);
 			g.fillRect(x, y, 40, 40);
 		}
