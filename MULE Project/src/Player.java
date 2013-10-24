@@ -23,6 +23,7 @@ public class Player {
 	private int food;
 	private int ore;
 	private int muleType;
+	private int tilesOwned;
 	private Point location;
 	private static ArrayList<Player> plArray = new ArrayList<Player>();
 	private static ArrayList<ImageIcon> sprites;
@@ -115,6 +116,7 @@ public class Player {
 		}
 		gold = race.getStartMoney();
 		ore = 0;
+		tilesOwned = 0;
 		image = new ImageIcon("./Images/danny_sprite.png");  
 		//tintImage(image);	 reimplement once image array is set up
 	}

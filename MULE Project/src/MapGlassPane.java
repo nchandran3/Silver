@@ -24,6 +24,8 @@ public class MapGlassPane extends Screen implements KeyListener {
 	private Player currPlayer;
 	private Point location;
 	private int image_width, image_height;
+	private Controller controller;
+	
 	public MapGlassPane(){
 		
 		init();		//initialize all variables
@@ -42,6 +44,7 @@ public class MapGlassPane extends Screen implements KeyListener {
 
 	public void init()
 	{
+		controller = Controller.getController();
 		iterator = Iterator.getIterator();
 		currPlayer = iterator.getCurrPlayer();
 		sprite = currPlayer.getImage().getImage();
@@ -81,19 +84,27 @@ public class MapGlassPane extends Screen implements KeyListener {
 		if(code == KeyEvent.VK_DOWN){
 			location.y += 2;
 		}
-		if(code == KeyEvent.VK_UP){
+		else if(code == KeyEvent.VK_UP){
 			location.y -= 2;
 		}
-		if(code == KeyEvent.VK_LEFT){
+		else if(code == KeyEvent.VK_LEFT){
 			location.x += 2;
 		}
-		if(code == KeyEvent.VK_RIGHT){
+		else if(code == KeyEvent.VK_RIGHT){
 			location.x=- 2;
 		}
-		
+		if (code == KeyEvent.VK_SPACE)
+		{
+			selection();
+		}
 		currPlayer.move(location);	//update player location
 		
 		repaint();
+	}
+	
+	public void selection()
+	{
+		controller.getTileByCoordinate();
 	}
 	@Override
 	public void keyReleased(KeyEvent arg0) {}
