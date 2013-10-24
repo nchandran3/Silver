@@ -101,10 +101,15 @@ public class MapGlassPane extends Screen implements KeyListener {
 		
 		repaint();
 	}
-	
+	/**
+	 * Lets the MapGlassPane know what tile the player selected.
+	 */
 	public void selection()
 	{
-		controller.getTileByCoordinate();
+		Tile result = controller.getTileFromCoord(location);
+		//controller.buyLand(result);
+		
+			
 	}
 	@Override
 	public void keyReleased(KeyEvent arg0) {}

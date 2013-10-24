@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Point;
 
 import javax.swing.*;
 
@@ -11,9 +12,11 @@ import javax.swing.*;
  */
 public class Controller {
 	public static Controller controller;
+	private Iterator iterator = Iterator.getIterator();
 	private Player[] players;
 	private static int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
+	private String[][] makeMap;
 	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
@@ -53,7 +56,13 @@ public class Controller {
 		players = new Player[numPlayers];
 
 	}
-	
+	public void startGame(){
+		Iterator iterator = Iterator.getIterator();
+		iterator.setCurrPlayer(getLastPlayer());
+		LandOffice landOffice = new LandOffice();
+		iterator.switchScreen(new Map());
+		
+	}
 	public int getNumPlayers()
 	{
 		return numPlayers;
@@ -133,13 +142,14 @@ public class Controller {
 	
 	public void createMap(){
 		Tile[][] tileMap = new Tile[5][9];
-		String[][] makeMap = new String[][]{
+		makeMap = new String[][]{
 			{"P","P","M","P","R","P","M","P","P"}, 
 			{"P","M","P","P","R","P","P","P","M"}, 
 			{"M","P","P","P","Town","P","P","P","M"}, 
 			{"P","M","P","P","R","P","M","P","P"}, 
 			{"P","P","M","P","R","P","P","P","M"}
 		};	
+		setMap(makeMap);
 		for(int i = 0; i < 5; i++){
 			for(int j = 0; j < 9; j++){
 				if(makeMap[i][j].equalsIgnoreCase("P")){
@@ -160,7 +170,41 @@ public class Controller {
 		this.tileMap = tileMap;
 	}
 	
+	private void setMap(String[][] makeMap) {
+		this.makeMap = makeMap;
+		
+	}
+	public String getTileName(int x, int y){
+		return makeMap[x][y];
+	}
 	public Tile[][] getTileMap(){
 		return tileMap;
+	}
+	public Tile getTileFromCoord(Point point){
+		//Tile tile;
+		int row = (int) Math.round(point.x/142.22);
+		int column = (int)Math.round(point.y/144);
+		if(getTileName(row, column).equalsIgnoreCase("Town")){
+			//tileMap[row][column];//.setOwner(iterator.getCurrPlayer());
+			iterator.switchScreen(new TownScreen());
+			return tileMap[row][column];
+		}
+		else if(getTileName(row, column).equalsIgnoreCase("R")){
+			//tileMap[row][column];//.setOwner(iterator.getCurrPlayer());
+			return tileMap[row][column];
+		}
+		else if(getTileName(row, column).equalsIgnoreCase("P")){
+			//tileMap[row][column];//.setOwner(iterator.getCurrPlayer());
+			return tileMap[row][column];
+		}
+		else if(getTileName(row, column).equalsIgnoreCase("M")){
+			//tileMap[row][column];//.setOwner(iterator.getCurrPlayer());
+			return tileMap[row][column];
+		}
+		else{
+			System.out.println("Invalid Coordinate");
+			return null;
+			//throw exception
+		}
 	}
 }
