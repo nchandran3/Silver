@@ -74,8 +74,9 @@ public class Iterator {
 		return iterator;
 	}
 	public void startGame(){
+		setCurrPlayer(Controller.getController().getLastPlayer());
 		LandOffice landOffice = new LandOffice();
-		map = new Map();
+		switchScreen(new Map());
 	}
 	public void simulateRound(){
 		
