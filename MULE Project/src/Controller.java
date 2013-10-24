@@ -13,6 +13,7 @@ public class Controller {
 	public static Controller controller;
 	private Player[] players;
 	private static int playerCount, numPlayers, difficulty;
+	private Tile[][] tileMap;
 	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
@@ -68,6 +69,12 @@ public class Controller {
 	
 	//Don't really know why this is supposed to be static.  In case this causes problems,
 	//This method is called from the Tile buttonPressed() method
+	/**
+	 * Determines the price of the piece of land the current player is trying to buy then
+	 * checks the viability of the transaction against the player's available resources.
+	 * @param tile
+	 * @return true if land acquisition was successful
+	 */
 	public static boolean buyLand(Tile tile){
 		Player player = Iterator.getIterator().getCurrPlayer();
 		int landPrice = LandOffice.getLandOffice().getBuyPrice();
@@ -98,14 +105,20 @@ public class Controller {
 	}
 	
 	/**
-	 * Calculate the given player's score.
+	 * Calculate the given player's score.  Not quite sure how this is supposed to be calculated
+	 * at the moment, but will be changed to reflect intended values once clarified.
 	 * @param player
-	 * @return
+	 * @return player's score
 	 */
 	public int calculateScore(Player player){
 		return player.getDragonFire() + player.getFood() + player.getGold();
 	}
 	
+	/**
+	 * This method goes through each of the players in the players[] and finds the player
+	 * with the smallest score.
+	 * @return Player in last place
+	 */
 	public Player getLastPlayer(){
 		int lowestScore = calculateScore(players[0]);
 		int playerNum = 0;
@@ -118,4 +131,36 @@ public class Controller {
 		return players[playerNum];
 	}
 	
+	public void createMap(){
+		Tile[][] tileMap = new Tile[5][9];
+		String[][] makeMap = new String[][]{
+			{"P","P","M","P","R","P","M","P","P"}, 
+			{"P","M","P","P","R","P","P","P","M"}, 
+			{"M","P","P","P","Town","P","P","P","M"}, 
+			{"P","M","P","P","R","P","M","P","P"}, 
+			{"P","P","M","P","R","P","P","P","M"}
+		};	
+		for(int i = 0; i < 5; i++){
+			for(int j = 0; j < 9; j++){
+				if(makeMap[i][j].equalsIgnoreCase("P")){
+					System.out.println("Hep");
+					tileMap[i][j] = new Plain();
+				}
+				else if(makeMap[i][j].equalsIgnoreCase("R")){
+					tileMap[i][j] = new River();
+				}
+				else if(makeMap[i][j].equalsIgnoreCase("m")){
+					tileMap[i][j] = new Mountain();
+				}
+				else{
+					tileMap[i][j] = new Town();
+				}
+			}
+		}
+		this.tileMap = tileMap;
+	}
+	
+	public Tile[][] getTileMap(){
+		return tileMap;
+	}
 }

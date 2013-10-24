@@ -1,15 +1,19 @@
 
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 
 /**
  * This class is responsible for the player's basic information.
  * @author Hamilton Greene
  *
  */
-public class Player implements Person {
-	
+
+public class Player {
+	private ImageIcon image;
 	private int score;
 	private final Race race;
 	private String name;
@@ -18,8 +22,11 @@ public class Player implements Person {
 	private int gold;
 	private int food;
 	private int ore;
+	private int muleType;
+	private int tilesOwned;
 	private Point location;
 	private static ArrayList<Player> plArray = new ArrayList<Player>();
+	private static ArrayList<ImageIcon> sprites;
 	
 	/**
 	 * This is the constructor for the player class which initializes the player's data. 
@@ -41,7 +48,6 @@ public class Player implements Person {
 	 * Moves the player's location to the point given.  Returns
 	 * the point the player ends up at.
 	 */
-	@Override
 	public Point move(Point p) {
 		location.move(p.x, p.y);
 		return location;
@@ -61,7 +67,8 @@ public class Player implements Person {
 
 
 	/**
-	 * updates the player's resources amount based on transactions that happened while in the auction house.
+	 * updates the player's resources amount based on transactions that happen in-game.  Negative
+	 * integers will deplete the player's resources.
 	 * 
 	 */
 	public void addResources(int dragonFire, int gold, int food, int ore) {
@@ -74,9 +81,10 @@ public class Player implements Person {
 	
 	/**
 	 * This method will set the player's attributes and starting 
-	 * resources based on map chosen and selected race.
+	 * resources based on map chosen, difficulty, and selected race.
 	 */
 	public void playerInit(){
+		//This code is to be implemented if/when additional map types are introduced
 		//map = Map.getMapType();
 		//resources[x] moneyStart = 1000;
 		//(where x is chosen slot for money)
@@ -108,8 +116,24 @@ public class Player implements Person {
 		}
 		gold = race.getStartMoney();
 		ore = 0;
+		tilesOwned = 0;
+		image = new ImageIcon("./Images/danny_sprite.png");  
+		//tintImage(image);	 reimplement once image array is set up
 	}
-
+	
+	
+/**
+ * Tints the sprite image to the player's designated color.
+ * @param image the sprite of the player
+ */
+	public void tintImage(BufferedImage image)
+	{
+		for (int x = 0; x < image.getWidth(); x++) {
+	        for (int y = 0; y < image.getHeight(); y++) {
+	        	image.setRGB(x, y, color.getRGB());
+	        }
+		}
+	}
 	/**
 	 * Getter for race
 	 * 
@@ -138,6 +162,26 @@ public class Player implements Person {
 	
 	public void setScore(int score){
 		this.score = score;
+	}
+	
+	public Color getColor(){
+		return color;
+	}
+	
+	public ImageIcon getImage()
+	{
+		return image;
+	}
+	/**
+	 * Returns -1 if the player has no mule, 0, 1, or 2 for food, energy, and ore respectively
+	 * @return
+	 */
+	public int getMule(){
+		return muleType;
+	}
+	
+	public void setMule(int muleType){
+		this.muleType = muleType;
 	}
 
 }

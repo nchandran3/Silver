@@ -98,6 +98,7 @@ public class PlayerSelectScreen extends Screen {
 		done.setOpaque(true);
 		done.setBackground(Color.BLACK);
 		done.addActionListener(new DoneListener());
+		done.setVisible(true);
 		GTools.positionAndAdd(done, .5, .97, this);
 
 	}
@@ -133,7 +134,9 @@ public class PlayerSelectScreen extends Screen {
 				
 				else
 				{
-					iterator.switchScreen(new Menu_Screen()); //change this to the Map Screen class
+					//Controller.getController().createMap();
+					iterator.startGame();
+					//iterator.switchScreen(new Map()); //change this to the Map Screen class
 				}
 			}
 			

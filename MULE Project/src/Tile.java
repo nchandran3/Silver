@@ -1,6 +1,8 @@
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,65 +17,85 @@ import java.io.IOException;
  * @author Michael Carlson
  *
  */
-public class Tile extends JPanel implements TileListener{
+public abstract class Tile extends JButton implements ActionListener{
 
-	BufferedImage img;
-	private Player owner;
-	private boolean isOwned;
-	private String tileName;
-	private String directory;
-	private int x;
-	private int y;
-	private JButton button;
+	ImageIcon img;
+	protected Player owner;
+	protected boolean isOwned;
+	protected String tileName;
+	protected String directory;
+	protected int x;
+	protected int y;
+	protected JButton button;
+	protected TileListener tListener;
 	
-	//Load the images inside the constructor, so we only have to load them once
+	/*
+	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to 
+	 * mouse clicks.
+	 */
 	public Tile(){
 		super();
+		//setLayout(new BorderLayout());
 		setFocusable(true);
 		requestFocus();
 		//Change the tileName to match the name of the corresponding png file
-		this.tileName = "danaerys";
+		//this.tileName = "danaerys";
 		//Not really sure why this . is needed
 		this.directory = "./Images/";
 		isOwned = false;        //set all new tiles to have no owners
-		setUp();
-		button = new JButton((Icon)img);
-		add(button, BorderLayout.CENTER);
+		tListener = new TileListener();
+		/*button = new JButton((Icon)img);
+		button.setBackground(Color.BLACK);
+		add(button);*/
 		//This is some shitty code, but I can't really figure out how to get around it.
-		button.addActionListener(new ActionListener() { 
+		//Theoretically calls buttonPressed() in the case that the covering JButton is pressed.
+		addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 			    buttonPressed();
 			  } 
 			} );
+		addMouseListener(tListener);
+		//button.addMouseListener(tListener);
 	}
 	
-	public void setUp(){
-		try {
-	        img = ImageIO.read(new File(directory + tileName + ".png"));
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
+	/**
+	 * This attempts to retrieve the image file from the Images folder and save it to the tile's
+	 * img variable.
+	 */
+	public void setUp(String directory){
+
+	        img = new ImageIcon(directory);
+	        setIcon(img);
+	        setVisible(true);
+	   
 	}
 	
 	@Override
 	protected void paintComponent(Graphics g) {
 	    super.paintComponent(g);
-	    g.drawImage(img, 0, 0, null);
+	    g.drawImage(img.getImage(), 0, 0, null);
 	}
 	
-	public void buttonPressed(){
+	/**
+	 * When the covering JButton is pressed, this method is called.  This method attempts to
+	 * purchase the selected tile.
+	 */
+	protected void buttonPressed(){
 		if(Controller.buyLand(this)){
-			System.out.println("You successfully purchased the property");
+			//this.setBorder(BorderFactory.createLineBorder(Iterator.getIterator().getCurrPlayer().getColor()));
 		}else System.out.println("Transaction failed");
 	}
 	
 	/**
-	 * changes the owner of the Tile to the parameter given.
+	 * changes the owner of the Tile to the parameter given.  Sets the border of the tile
+	 * to the color of the player.  Repaints.
 	 * @param player: new owner of the tile.
 	 */
 	public void tileSold(Player player){
 		owner = player;
 		isOwned = true;
+		setBorder(new LineBorder(player.getColor(),10));
+		//repaint();
 	}
 	
 	public Player getOwner(){
@@ -82,6 +104,8 @@ public class Tile extends JPanel implements TileListener{
 	
 	public void setOwner(Player newOwner){
 		owner = newOwner;
+		button.setBorder(new LineBorder(newOwner.getColor(),2));
+		repaint();
 	}
 
 	public boolean isOwned(){

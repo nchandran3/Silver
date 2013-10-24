@@ -13,8 +13,9 @@ public class Iterator {
 	private static Iterator iterator;
 	private Container contentPane;
 	private JFrame frame;
-	private static int Round = 1;
+	private static int round = 1;
 	private Player p;
+	private Map map;
 	public Screen cur_screen; //holds the current screen being displayed
 
 	/**
@@ -72,8 +73,15 @@ public class Iterator {
 	{
 		return iterator;
 	}
+	public void startGame(){
+		setCurrPlayer(Controller.getController().getLastPlayer());
+		LandOffice landOffice = new LandOffice();
+		switchScreen(new Map());
+	}
 	public void simulateRound(){
 		
+		ArrayList<Player> plArray = Player.getPlArray();
+		switchScreen(new Map());
 		/*int passed = 0;
 		ArrayList<Player> plArray = Player.getPlArray();
 		boolean gamePhase = false;
@@ -103,15 +111,16 @@ public class Iterator {
 			}
 		}
 		Round++;*/
+		round++;
 	}
 	public void setCurrPlayer(Player player){
-		Player p = player;
+		p = player;
 	}
 	public Player getCurrPlayer(){
 		return p;
 	}
 	public int getRound(){
-		return Round;
+		return round;
 	}
 	public void switchPlayers(){
 		
