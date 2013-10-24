@@ -17,7 +17,7 @@ import java.io.IOException;
  * @author Michael Carlson
  *
  */
-public abstract class Tile extends JButton implements ActionListener{
+public abstract class Tile extends JPanel implements ActionListener{
 
 	ImageIcon img;
 	protected Player owner;
@@ -29,51 +29,50 @@ public abstract class Tile extends JButton implements ActionListener{
 	protected JButton button;
 	protected TileListener tListener;
 	
-	/*
+	/**
 	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to 
 	 * mouse clicks.
 	 */
 	public Tile(){
 		super();
-		//setLayout(new BorderLayout());
+		setLayout(new BorderLayout());
 		setFocusable(true);
 		requestFocus();
 		//Change the tileName to match the name of the corresponding png file
-		//this.tileName = "danaerys";
+		this.tileName = "danaerys";
 		//Not really sure why this . is needed
 		this.directory = "./Images/";
 		isOwned = false;        //set all new tiles to have no owners
 		tListener = new TileListener();
-		/*button = new JButton((Icon)img);
+		setUp();
+		button = new JButton((Icon)img);
 		button.setBackground(Color.BLACK);
-		add(button);*/
+		//button.setForeground(Color.YELLOW);
+		add(button, BorderLayout.CENTER);
 		//This is some shitty code, but I can't really figure out how to get around it.
 		//Theoretically calls buttonPressed() in the case that the covering JButton is pressed.
-		addActionListener(new ActionListener() { 
+		button.addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 			    buttonPressed();
 			  } 
 			} );
-		addMouseListener(tListener);
-		//button.addMouseListener(tListener);
+		button.addMouseListener(tListener);
 	}
 	
 	/**
 	 * This attempts to retrieve the image file from the Images folder and save it to the tile's
 	 * img variable.
 	 */
-	public void setUp(String directory){
+	public void setUp(){
 
-	        img = new ImageIcon(directory);
-	        setIcon(img);
-	        setVisible(true);
+	        img = new ImageIcon(directory + tileName + ".png");
 	   
 	}
 	
 	@Override
 	protected void paintComponent(Graphics g) {
 	    super.paintComponent(g);
-	    g.drawImage(img.getImage(), 0, 0, null);
+	    g.drawImage(img, 0, 0, null);
 	}
 	
 	/**
@@ -82,7 +81,7 @@ public abstract class Tile extends JButton implements ActionListener{
 	 */
 	protected void buttonPressed(){
 		if(Controller.buyLand(this)){
-			//this.setBorder(BorderFactory.createLineBorder(Iterator.getIterator().getCurrPlayer().getColor()));
+			System.out.println("You successfully purchased the property");
 		}else System.out.println("Transaction failed");
 	}
 	
@@ -94,8 +93,8 @@ public abstract class Tile extends JButton implements ActionListener{
 	public void tileSold(Player player){
 		owner = player;
 		isOwned = true;
-		setBorder(new LineBorder(player.getColor(),10));
-		//repaint();
+		button.setBorder(new LineBorder(player.getColor(),2));
+		repaint();
 	}
 	
 	public Player getOwner(){
