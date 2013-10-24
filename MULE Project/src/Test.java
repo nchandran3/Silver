@@ -17,7 +17,7 @@ public class Test extends Screen{
 	Test2 test2;
 	public Test()
 	{
-		setPreferredSize(new Dimension(720,720));
+		setPreferredSize(new Dimension(1280,720));
 		setLayout(new GridLayout(5,9));
 		for(int i =0; i< 45; i++)
 		{
