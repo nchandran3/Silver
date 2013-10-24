@@ -23,14 +23,15 @@ import java.awt.GridLayout;
  * @author Michael Carlson
  *
  */
-public class Map extends Screen {
+public class Map extends Screen implements KeyListener{
 	private Tile[][] tileMap;
+	private static Map map;
 	//private JButton[][] spotMap;
 	private Player currentPlayer;
-	private int playerX =0, playerY = 0;
+	private int playerX, playerY = 0;
+	private Rectangle rec;
 	private int rows;
 	private int columns;
-	private static Map map;
 	
 	
 	
@@ -43,18 +44,36 @@ public class Map extends Screen {
 	 */
 	public Map(){
 		super();
-		map = this;
+		Controller.getController().createMap();
+		this.tileMap = Controller.getController().getTileMap();
+		this.rows = tileMap.length;
+		this.columns = tileMap[0].length;
+		setLayout(new GridLayout(rows, columns));
+		for(int i = 0; i < rows; i++){
+			for(int j = 0; j < columns; j++){
+				//Class c = tileMap[i][j].getClass();
+				//tileMap[i][j] = tileMap[i][j].getClass().newInstance();
+				//JButton button = new JButton("" + i);
+				add(tileMap[i][j]);
+			}
+		}
+		
 	}
 	public Map(Color c){
 		super(c);
 	}
 	
+	public Map getMap(){
+		return map;
+	}
+	
 /**
  * this takes in a 2d array of Tiles from Controller filled with tile pieces.
  * @param tileMap
+ * @throws IllegalAccessException 
+ * @throws InstantiationException 
  */
 	public Map(Tile[][] tileMap){
-		super();
 		this.tileMap = tileMap;
 		rows = tileMap.length;
 		columns = tileMap[0].length;
@@ -63,7 +82,10 @@ public class Map extends Screen {
 		//adds the tiles to the Jpanel
 		for(int i = 0; i < rows; i++){
 			for(int j = 0; j < columns; j++){
-				add(tileMap[i][j]);
+				//Class c = tileMap[i][j].getClass();
+				//tileMap[i][j] = tileMap[i][j].getClass().newInstance();
+				JButton button = new JButton("" + i);
+				add(button);
 			}
 			
 		}
@@ -74,20 +96,16 @@ public class Map extends Screen {
 		
 	}
 	
-	public static Map getMap(){
-		return map;
-	}
-	//kl
-	public void paintComponent(Graphics g){
+	/*public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		//g.setColor(Color.BLACK);
-		//g2.fillRect(0, 0, 999999, 999999);
-		g.setColor(Color.BLUE);
+		g.setColor(Color.red);
+		g2.fillRect(0, 0, 999999, 999999);
+		g.setColor(Color.BLUE);*/
 
 //		g.fillRect(playerX, playerY, 20, 20);
 		
-	}
+	//}
 	
 //	public void drawMap(Player player){
 //		for(int i=0; i<rows; i++){
@@ -104,7 +122,7 @@ public class Map extends Screen {
 
 	
 	@Override
-/*	public void keyPressed(KeyEvent e) {
+	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
 		if(code == KeyEvent.VK_DOWN){
 			playerY =+ 2;
@@ -137,13 +155,13 @@ public class Map extends Screen {
 		
 	}
 	
-*/	
-	public static void main(String[] args){
+	
+	/*public static void main(String[] args){
 		Map testMap = new Map();
 		GameFrame test = new GameFrame();
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test.setVisible(true);
 		test.add(testMap);
 		test.pack();
-	}
+	}*/
 }
