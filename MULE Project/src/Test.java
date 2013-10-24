@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class Test extends JPanel{
+public class Test extends Screen{
 
 	Test2 test2;
 	public Test()
