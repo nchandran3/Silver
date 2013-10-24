@@ -177,10 +177,7 @@ public class Menu_Screen extends Screen  {
 		}
 		
 	}
-	/**
-	 * This returns the level of difficulty selected and sets up the game accordingly.
-	 * @return difficulty selected
-	 */
+
 	public int verifyDifficultySelected()
 	{
 		int difficulty = -1;

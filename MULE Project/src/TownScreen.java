@@ -11,8 +11,7 @@ import javax.swing.JFrame;
 import control.GTools;
 
 /**
- * This class builds the town screen view. It allows the player to see the buildings and eventually ill interact 
- * with them. 
+ * 
  * @author Andrew Ford
  *
  */
@@ -26,10 +25,7 @@ public class TownScreen extends Map {
 		//super(Color.YELLOW);
 		setLayout(null);
 	}
-	/**
-	 * This paints the background and the new images. 
-	 * @param Graphics g
-	 */
+
 	public void paintComponent(Graphics g){  
 		Graphics2D g2 = (Graphics2D) g;
 		//Image store = GTools.compress(new ImageIcon("./Images/store.png"), 80, 80).getImage();

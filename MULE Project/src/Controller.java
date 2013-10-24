@@ -13,6 +13,7 @@ public class Controller {
 	public static Controller controller;
 	private Player[] players;
 	private static int playerCount, numPlayers, difficulty;
+	private Tile[][] tileMap;
 	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
@@ -129,12 +130,9 @@ public class Controller {
 		}
 		return players[playerNum];
 	}
-	/**
-	 * This creates the map based on a 2D array. It makes new instances of the different types of tiles for them to be able 
-	 * to creat a tile with certain properties.
-	 */
+	
 	public void createMap(){
-		Tile [][] tileMap = new Tile[5][9];
+		Tile[][] tileMap = new Tile[5][9];
 		String[][] makeMap = new String[][]{
 			{"P","P","M","P","R","P","M","P","P"}, 
 			{"P","M","P","P","R","P","P","P","M"}, 
@@ -159,6 +157,10 @@ public class Controller {
 				}
 			}
 		}
-		Map map = new Map(tileMap);
+		this.tileMap = tileMap;
+	}
+	
+	public Tile[][] getTileMap(){
+		return tileMap;
 	}
 }

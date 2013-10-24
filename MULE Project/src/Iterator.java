@@ -13,8 +13,9 @@ public class Iterator {
 	private static Iterator iterator;
 	private Container contentPane;
 	private JFrame frame;
-	private static int Round = 1;
+	private static int round = 1;
 	private Player p;
+	private Map map;
 	public Screen cur_screen; //holds the current screen being displayed
 
 	/**
@@ -73,12 +74,10 @@ public class Iterator {
 		return iterator;
 	}
 	public void startGame(){
-		Controller.getController().createMap();
+		setCurrPlayer(Controller.getController().getLastPlayer());
+		LandOffice landOffice = new LandOffice();
+		switchScreen(new Map());
 	}
-	/**
-	 * This simulates a round of the players by letting each of them have a turn along with checking to see
-	 * if they are in a certain round or not. This also increments the round. 
-	 */
 	public void simulateRound(){
 		
 		ArrayList<Player> plArray = Player.getPlArray();
@@ -112,7 +111,7 @@ public class Iterator {
 			}
 		}
 		Round++;*/
-		Round++;
+		round++;
 	}
 	public void setCurrPlayer(Player player){
 		p = player;
@@ -121,7 +120,7 @@ public class Iterator {
 		return p;
 	}
 	public int getRound(){
-		return Round;
+		return round;
 	}
 	public void switchPlayers(){
 		

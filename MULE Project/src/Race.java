@@ -4,11 +4,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-/**
- * This is an enumeration class that sets each race with their starting amount of money.
- * @author Naveen Chandran
- *
- */
+
 public enum Race {
 	
 	/*

@@ -1,12 +1,11 @@
-/**
- * This is just a basic class Mountain that extends tile 
- * @author Andrew Ford
- *
- */
+
 public class Mountain extends Tile{
 	
+String directory;
+	
 	public Mountain(){
-		this.tileName = "mountain";
-		//System.out.println("IN MOuntain");
+		
+		this.directory = "./Images/mountain.png";
+		setUp(directory);
 	}
 }

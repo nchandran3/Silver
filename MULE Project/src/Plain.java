@@ -1,11 +1,10 @@
-/**
- * This is just a basic class Plain that extends tile 
- * @author Andrew Ford
- *
- */
+
 public class Plain extends Tile{
+	String directory;
 	
 	public Plain(){
-		this.tileName = "plain";
+		
+		this.directory = "./Images/plain.png";
+		setUp(directory);
 	}
 }

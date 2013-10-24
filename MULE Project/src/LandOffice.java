@@ -25,4 +25,5 @@ public class LandOffice {
 	public int getSellPrice(){
 		return 400 + Iterator.getIterator().getRound()*rand.nextInt(200);
 	}
+	
 }

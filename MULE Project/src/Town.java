@@ -5,8 +5,12 @@
  */
 public class Town extends Tile{
 	
+String directory;
+	
 	public Town(){
-		this.tileName="town";
+		
+		this.directory = "./Images/town.png";
+		setUp(directory);
 	}
 	
 	@Override

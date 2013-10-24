@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,31 +16,15 @@ public class Test extends Screen{
 	Test2 test2;
 	public Test()
 	{
-		setPreferredSize(new Dimension(1280,720));
-		setLayout(new GridLayout(5,9));
-		for(int i =0; i< 45; i++)
+		setPreferredSize(new Dimension(720,720));
+		setLayout(new GridLayout(10,10));
+		for(int i =0; i< 100; i++)
 		{
 			JButton button = new JButton(""+ i);
-			int rand = (int) (Math.random()*10);
-			if(rand < 1)
-				button.setBorder(BorderFactory.createLineBorder(Color.BLUE, 3));
-			else if (rand <2)
-				button.setBorder(BorderFactory.createLineBorder(Color.ORANGE, 3));
-			else if (rand <3)
-				button.setBorder(BorderFactory.createLineBorder(Color.MAGENTA, 3));
-
-
-			if(rand >7)
-				button.setIcon(new ImageIcon("./Images/mountain.png"));
-			else if (rand > 5)
-				button.setIcon(new ImageIcon("./Images/river.png"));
-			else if (i == 22)
-				button.setIcon(new ImageIcon("./Images/town.png"));
-			else
-				button.setIcon(new ImageIcon("./Images/plain.png"));
+			if((int) (Math.random()*10) < 3)
+				button.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
 			add(button);
 		}
-		
 	}
 	
 	public JPanel getTest2()
@@ -66,9 +49,7 @@ public class Test extends Screen{
 		
 		public void paintComponent(Graphics g)
 		{
-			super.paintComponent(g);
-			g.setColor(Color.RED);
-			g.fillRect(x, y, 40, 40);
+			g.fillRect(x, y, 200, 200);
 		}
 
 		@Override
