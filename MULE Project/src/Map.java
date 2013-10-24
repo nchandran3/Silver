@@ -23,12 +23,11 @@ import java.awt.GridLayout;
  * @author Michael Carlson
  *
  */
-public class Map extends Screen implements KeyListener{
+public class Map extends Screen {
 	private Tile[][] tileMap;
 	//private JButton[][] spotMap;
 	private Player currentPlayer;
-	private int playerX, playerY = 0;
-	private Rectangle rec;
+	private int playerX =0, playerY = 0;
 	private int rows;
 	private int columns;
 	private static Map map;
@@ -44,7 +43,7 @@ public class Map extends Screen implements KeyListener{
 	 */
 	public Map(){
 		super();
-		rec = new Rectangle(20, 20);
+		map = this;
 	}
 	public Map(Color c){
 		super(c);
@@ -55,8 +54,8 @@ public class Map extends Screen implements KeyListener{
  * @param tileMap
  */
 	public Map(Tile[][] tileMap){
+		super();
 		this.tileMap = tileMap;
-		map = this;
 		rows = tileMap.length;
 		columns = tileMap[0].length;
 		setLayout(new GridLayout(rows, columns));
