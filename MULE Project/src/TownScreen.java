@@ -19,7 +19,7 @@ import control.GTools;
  * @author Andrew Ford
  *
  */
-public class TownScreen extends Map implements MouseListener{
+public class TownScreen extends Screen implements MouseListener{
 //	int Xcord = 0;
 //	int Ycord = 0;
 	int step_size = 10;
@@ -31,7 +31,8 @@ public class TownScreen extends Map implements MouseListener{
 		setLayout(null);
 	}
 
-	public void paintComponent(Graphics g){  
+	public void paintComponent(Graphics g){ 
+		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		//Image store = GTools.compress(new ImageIcon("./Images/store.png"), 80, 80).getImage();
 		//super.paintComponent(g);
