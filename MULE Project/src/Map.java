@@ -85,6 +85,7 @@ public class Map extends Screen implements KeyListener{
 				//Class c = tileMap[i][j].getClass();
 				//tileMap[i][j] = tileMap[i][j].getClass().newInstance();
 				JButton button = new JButton("" + i);
+				
 				add(button);
 			}
 			
