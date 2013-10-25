@@ -15,7 +15,7 @@ public class Controller {
 	public static Controller controller;
 	private ArrayList<Player> players;
 	private static Player currPlayer;
-	private int playerInd;
+	private static int playerInd;
 	private static int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
 	private String[][] makeMap;
@@ -100,6 +100,7 @@ public class Controller {
 			}else if(player.getGold()>=landPrice){
 				tile.tileSold(player);
 				player.addResources(0, -landPrice, 0,0);
+				System.out.println(player.toString() + "'s new Balance is:" + player.getGold());
 				return true;
 			}
 		}
