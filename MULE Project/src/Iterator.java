@@ -115,6 +115,9 @@ public class Iterator {
 	public int getRound(){
 		return round;
 	}
+	public void incrementRound(){
+		round++;
+	}
 	public void switchPlayers(){
 		
 	}

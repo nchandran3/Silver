@@ -13,21 +13,19 @@ import javax.swing.*;
  */
 public class Controller {
 	public static Controller controller;
-	private Iterator iterator = Iterator.getIterator();
-	private Player[] players;
+	private ArrayList<Player> players;
 	private static Player currPlayer;
 	private int playerInd;
 	private static int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
 	private String[][] makeMap;
-	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
 	 */
 	public Controller(){
 		controller=this;
 		playerCount = 0;
-	 	players = new Player[numPlayers];
+	 	players = new ArrayList<Player>(numPlayers);
 	}
 	/**
 	 * This creates new players by calling the player class to set up each player's instance variables 
@@ -42,7 +40,7 @@ public class Controller {
 			Player newPlayer = new Player(name, color, race);
 			System.out.println("Created player " + (playerCount + 1) + ":\nname " + name + "\ncolor " + color + 
 					"\nand race " + race); 
-			players[playerCount] = newPlayer;
+			players.add(newPlayer);
 			playerCount++;
 		}
 	/*	else
@@ -56,12 +54,12 @@ public class Controller {
 	public void setNumPlayers(int num){
 		numPlayers = num;
 		System.out.println("Set number of players to: "  + num);
-		players = new Player[numPlayers];
+		players = new ArrayList<Player>(numPlayers);
 
 	}
 	public void startGame(){
 		Iterator iterator = Iterator.getIterator();
-		currPlayer = players[0];
+		currPlayer = players.get(0);
 		playerInd = 0;
 		LandOffice landOffice = new LandOffice();
 		iterator.switchScreen(new Map());
@@ -133,15 +131,15 @@ public class Controller {
 	 * @return Player in last place
 	 */
 	public Player getLastPlayer(){
-		int lowestScore = calculateScore(players[0]);
+		int lowestScore = calculateScore(players.get(0));
 		int playerNum = 0;
-		for(int i = 0; i<players.length;i++){
-			if(calculateScore(players[i])<lowestScore){
-				lowestScore = calculateScore(players[i]);
+		for(int i = 0; i<players.size();i++){
+			if(calculateScore(players.get(i))<lowestScore){
+				lowestScore = calculateScore(players.get(i));
 				playerNum = i;
 			}
 		}
-		return players[playerNum];
+		return players.get(playerNum);
 	}
 	
 	public void createMap(){
@@ -203,6 +201,7 @@ public class Controller {
 		int column = (int)Math.round(point.y/144);
 		if(getTileName(row, column).equalsIgnoreCase("Town")){
 			//tileMap[row][column];//.setOwner(iterator.getCurrPlayer());
+			Iterator iterator = Iterator.getIterator();
 			iterator.switchScreen(new TownScreen());
 			return tileMap[row][column];
 		}
@@ -225,18 +224,18 @@ public class Controller {
 		}
 	}
 	
-	public Player[] setPlayerOrder() {
-		Player[] temp = players;
-		Player[] order = new Player[numPlayers];
-		int lowestScore = calculateScore(players[0]);
+	public ArrayList<Player> setPlayerOrder() {
+		ArrayList<Player> temp = players;
+		ArrayList<Player> order = new ArrayList<Player>(numPlayers);
+		int lowestScore = calculateScore(players.get(0));
 		int j = 0;
 		while(temp != null) {
-			for(int i = 0; i<temp.length;i++) {
-				if(temp[i] != null) {
-					if(calculateScore(temp[i])<lowestScore) {
-						lowestScore = calculateScore(temp[i]);
-						order[j] = temp[i];
-						temp[i] = null;
+			for(int i = 0; i<temp.size();i++) {
+				if(temp.get(i) != null) {
+					if(calculateScore(temp.get(i))<lowestScore) {
+						lowestScore = calculateScore(temp.get(i));
+						order.set(j, temp.get(i));
+						temp.set(i, null);
 						j++;
 					}
 				}
@@ -246,7 +245,7 @@ public class Controller {
 		return order;
 	}
 	public void getNextPlayer(Player player){
-		Controller controller = Controller.getController();
+		//Controller controller = Controller.getController();
 		Player currPlayer = controller.getCurrentPlayer();
 		ArrayList<Player> plArr = Player.getPlArray();
 		int currPlayerIndex = controller.getPlayerIndex();
@@ -254,6 +253,10 @@ public class Controller {
 			currPlayerIndex++;
 			controller.setPlayerIndex(currPlayerIndex);
 			currPlayer = controller.getCurrentPlayer();
+		}
+		else{
+			Iterator iterator = Iterator.getIterator();
+			iterator.incrementRound();
 		}
 	}
 }
