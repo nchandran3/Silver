@@ -66,7 +66,6 @@ public class TownScreen extends Map implements MouseListener{
 			{		
 				Iterator iterator = Iterator.getIterator();
 				iterator.switchScreen(Map.getMap());
-				
 			}
 		});
 		GTools.positionAndAdd(back, .5, .9, this);

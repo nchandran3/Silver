@@ -62,6 +62,7 @@ public class Map extends Screen implements KeyListener{
 		
 		tile_width = tileMap[0][0].getWidth();	//for use with MapGlassPane and the controller method 
 		tile_height = tileMap[0][0].getHeight();// to return the tile given a coordinate. 
+		map = this;
 	}
 	public Map(Color c){
 		super(c);
