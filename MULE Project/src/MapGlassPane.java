@@ -107,6 +107,7 @@ public class MapGlassPane extends Screen implements KeyListener {
 	public void selection()
 	{
 		Tile result = controller.getTileFromCoord(location);
+		result.setOwner(currPlayer);
 		//controller.buyLand(result);
 		
 			

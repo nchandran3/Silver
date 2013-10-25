@@ -24,7 +24,7 @@ public class Controller {
 	public Controller(){
 		controller=this;
 		playerCount = 0;
-	//	players = new Player[numPlayers];
+	 	players = new Player[numPlayers];
 	}
 	/**
 	 * This creates new players by calling the player class to set up each player's instance variables 
@@ -35,7 +35,7 @@ public class Controller {
 	 * @param race
 	 */
 	public void createPlayer(String name, Color color, Race race){
-		if(playerCount < numPlayers){	// checks to make sure you dont add too many players
+		if(playerCount < numPlayers){	// checks to make sure you don't add too many players
 			Player newPlayer = new Player(name, color, race);
 			System.out.println("Created player " + (playerCount + 1) + ":\nname " + name + "\ncolor " + color + 
 					"\nand race " + race); 
@@ -206,5 +206,26 @@ public class Controller {
 			return null;
 			//throw exception
 		}
+	}
+	
+	public Player[] setPlayerOrder() {
+		Player[] temp = players;
+		Player[] order = new Player[numPlayers];
+		int lowestScore = calculateScore(players[0]);
+		int j = 0;
+		while(temp != null) {
+			for(int i = 0; i<temp.length;i++) {
+				if(temp[i] != null) {
+					if(calculateScore(temp[i])<lowestScore) {
+						lowestScore = calculateScore(temp[i]);
+						order[j] = temp[i];
+						temp[i] = null;
+						j++;
+					}
+				}
+			}
+		}	
+		order = temp;
+		return order;
 	}
 }
