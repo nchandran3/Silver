@@ -46,15 +46,11 @@ public class MapGlassPane extends Screen implements KeyListener {
 	public void init()
 	{
 		controller = Controller.getController();
-<<<<<<< HEAD
 		iterator = Iterator.getIterator();
-		currPlayer = iterator.getCurrPlayer();
-		sprite = currPlayer.getImage();
-=======
+		
 		currPlayer = controller.getCurrentPlayer();
-		sprite = currPlayer.getImage().getImage();
+		sprite = currPlayer.getImage();
 		ind = controller.getPlayerIndex();
->>>>>>> branch 'master' of https://github.com/nchandran3/Silver.git
 		location = new Point(getWidth()/2, getHeight()/2); //begin player in the center of the screen
 		currPlayer.move(location);
 		image_width = (int) (getWidth()*.05);
