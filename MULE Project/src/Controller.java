@@ -241,7 +241,6 @@ public class Controller {
 				}
 			}
 		}	
-		order = temp;
 		return order;
 	}
 	public void getNextPlayer(Player player){
