@@ -58,6 +58,9 @@ public class Controller {
 
 	}
 	
+	/**
+	 * Called after the player selection screen to instatiate all the next screens.
+	 */
 	public void startGame(){
 		Iterator iterator = Iterator.getIterator();
 		currPlayer = players.get(0);
@@ -147,6 +150,9 @@ public class Controller {
 		return players.get(playerNum);
 	}
 	
+	/**
+	 * Creates a tile array representing the tiles on the map, by using the default configuration
+	 */
 	public void createMap(){
 		Tile[][] tileMap = new Tile[5][9];
 		makeMap = new String[][]{
@@ -192,6 +198,10 @@ public class Controller {
 		return currPlayer;
 	}
 	
+	/**
+	 * Sets the player index to point at a certain index of the player array
+	 * @param num the index to point at
+	 */
 	public void setPlayerIndex(int num) {
 		playerInd = num;
 	}
@@ -200,6 +210,11 @@ public class Controller {
 		return playerInd;
 	}
 	
+	/**
+	 * Returns the tile corresponding to the location of the player. For use with glass pane
+	 * @param point the player's location
+	 * @return the tile that the player is on
+	 */
 	public Tile getTileFromCoord(Point point){
 		//Tile tile;
 		int row = (int) Math.round(point.x/142.22);
@@ -229,6 +244,10 @@ public class Controller {
 		}
 	}
 	
+	/**
+	 * Calculates the net worth of each player and orders them accordingly
+	 * @return the ordered arraylist of players
+	 */
 	public ArrayList<Player> setPlayerOrder() {
 		ArrayList<Player> temp = players;
 		ArrayList<Player> order = new ArrayList<Player>(numPlayers);
@@ -249,6 +268,10 @@ public class Controller {
 		return order;
 	}
 	
+	/**
+	 * Increments the player index pointer to get the next player. If it is the last player, it will return null and reset the pointer
+	 * @return the player at the incremented index. Null if it is the last player
+	 */
 	public Player incrementCurrentPlayer()
 	{
 		ArrayList <Player> array = Player.getPlArray();
