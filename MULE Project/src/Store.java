@@ -39,7 +39,7 @@ public class Store extends TownScreen{
 	 * @return
 	 */
 	public boolean buyFood(int foodReq){
-		Player player = Iterator.getIterator().getCurrPlayer();
+		Player player =Controller.getController().getCurrentPlayer();
 		if(foodReq<=food){
 			if(foodReq*30<= player.getGold()){
 				player.addResources(0, -30*foodReq, foodReq, 0);
@@ -56,7 +56,7 @@ public class Store extends TownScreen{
 	 * @return
 	 */
 	public boolean buyDragonFire(int dragonReq){
-		Player player = Iterator.getIterator().getCurrPlayer();
+		Player player = Controller.getController().getCurrentPlayer();
 		if(dragonReq<=dragonFire){
 			if(dragonReq*25<= player.getGold()){
 				player.addResources(dragonReq, -25*dragonReq, 0, 0);
@@ -73,7 +73,7 @@ public class Store extends TownScreen{
 	 * @return
 	 */
 	public boolean buyOre(int oreReq){
-		Player player = Iterator.getIterator().getCurrPlayer();
+		Player player = Controller.getController().getCurrentPlayer();
 		if(oreReq<=ore){
 			if(oreReq*50<= player.getGold()){
 				player.addResources(0, -50*oreReq, 0, oreReq);
@@ -92,7 +92,7 @@ public class Store extends TownScreen{
 	 * @return
 	 */
 	public boolean buyMule(int muleType){
-		Player player = Iterator.getIterator().getCurrPlayer();
+		Player player = Controller.getController().getCurrentPlayer();
 		
 		int fee = 0;
 		switch(muleType){

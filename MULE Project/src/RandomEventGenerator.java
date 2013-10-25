@@ -18,7 +18,7 @@ public class RandomEventGenerator {
 	 * Rolls for a random event for the current player and dishes out the consequences 
 	 */
 	public void createRandomEvent(){
-		Player player = Iterator.getIterator().getCurrPlayer();
+		Player player = Controller.getController().getCurrentPlayer();
 		if(player!=Controller.getController().getLastPlayer()){
 			if(rand.nextInt(99)<27){
 				int round = Iterator.getIterator().getRound();
