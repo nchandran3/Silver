@@ -83,9 +83,17 @@ public abstract class Tile extends JButton{
 	 */
 	protected void buttonPressed(){
 		if(Controller.buyLand(this)){
-			new Announcement("Current player is now " + Controller.getController().getCurrentPlayer());
-			Player result = Controller.getController().getNextPlayer(Controller.getController().getCurrentPlayer());
-			System.out.println(result.toString());
+			Controller controller = Controller.getController();
+			if(controller.incrementCurrentPlayer() != null)
+			{
+				new Announcement("Current player is now " + controller.getCurrentPlayer());
+			}
+			else
+			{
+				Iterator iterator = Iterator.getIterator();
+				iterator.incrementRound();
+				new Announcement("Round has changed to " + iterator.getRound());
+			}
 			//this.setBorder(BorderFactory.createLineBorder(Iterator.getIterator().getCurrPlayer().getColor()));
 		}else{System.out.println("Transaction failed");
 			//nextPlayer();

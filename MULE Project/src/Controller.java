@@ -247,25 +247,18 @@ public class Controller {
 		}	
 		return order;
 	}
-	public Player getNextPlayer(Player player){
-		System.out.println(players.toString());
-		System.out.println(Controller.getController().getCurrentPlayer().toString());
-		
-		Player currPlayer = getCurrentPlayer();
-		ArrayList<Player> plArr = Player.getPlArray();
-		int currPlayerIndex = getPlayerIndex();
-		
-		if(plArr.lastIndexOf(currPlayer) != plArr.size()-1){
-			currPlayerIndex++;
-			setCurrentPlayer(players.get(currPlayerIndex));
-			return currPlayer;
-		}
-		else{
-			Iterator iterator = Iterator.getIterator();
-			iterator.incrementRound();
-			currPlayerIndex = 0;
-			System.out.println("here");
+	
+	public Player incrementCurrentPlayer()
+	{
+		ArrayList <Player> array = Player.getPlArray();
+		playerInd++;
+		if(playerInd >= numPlayers)
+		{
+			playerInd =0;
+			setCurrentPlayer(array.get(playerInd));
 			return null;
 		}
+		setCurrentPlayer(array.get(playerInd));
+		return currPlayer;
 	}
 }
