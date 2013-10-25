@@ -64,9 +64,8 @@ public class TownScreen extends Map implements MouseListener{
 		{
 			public void mouseClicked(MouseEvent e)
 			{		
-				Map map = Map.getMap();
 				Iterator iterator = Iterator.getIterator();
-				iterator.switchScreen(map.getMap());
+				iterator.switchScreen(Map.getMap());
 				
 			}
 		});
