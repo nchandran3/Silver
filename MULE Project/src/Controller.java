@@ -157,7 +157,7 @@ public class Controller {
 		for(int i = 0; i < 5; i++){
 			for(int j = 0; j < 9; j++){
 				if(makeMap[i][j].equalsIgnoreCase("P")){
-					System.out.println("Hep");
+					//System.out.println("Hep");
 					tileMap[i][j] = new Plain();
 				}
 				else if(makeMap[i][j].equalsIgnoreCase("R")){
