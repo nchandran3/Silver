@@ -17,7 +17,7 @@ import java.io.IOException;
  * @author Michael Carlson
  *
  */
-public abstract class Tile extends JButton implements ActionListener{
+public abstract class Tile extends JButton{
 
 	ImageIcon img;
 	protected Player owner;
@@ -120,8 +120,4 @@ public abstract class Tile extends JButton implements ActionListener{
 		this.y=y;
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }
