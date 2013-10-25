@@ -14,6 +14,8 @@ public class Controller {
 	public static Controller controller;
 	private Iterator iterator = Iterator.getIterator();
 	private Player[] players;
+	private static Player currPlayer;
+	private int playerInd;
 	private static int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
 	private String[][] makeMap;
@@ -58,7 +60,8 @@ public class Controller {
 	}
 	public void startGame(){
 		Iterator iterator = Iterator.getIterator();
-		iterator.setCurrPlayer(getLastPlayer());
+		currPlayer = players[0];
+		playerInd = 0;
 		LandOffice landOffice = new LandOffice();
 		iterator.switchScreen(new Map());
 		
@@ -85,7 +88,7 @@ public class Controller {
 	 * @return true if land acquisition was successful
 	 */
 	public static boolean buyLand(Tile tile){
-		Player player = Iterator.getIterator().getCurrPlayer();
+		Player player = currPlayer;
 		int landPrice = LandOffice.getLandOffice().getBuyPrice();
 		if(!tile.isOwned()){
 			if(Iterator.getIterator().getRound()<=2){
@@ -180,6 +183,19 @@ public class Controller {
 	public Tile[][] getTileMap(){
 		return tileMap;
 	}
+	
+	public Player getCurrentPlayer() {
+		return currPlayer;
+	}
+	
+	public void setPlayerIndex(int num) {
+		playerInd = num;
+	}
+	
+	public int getPlayerIndex() {
+		return playerInd;
+	}
+	
 	public Tile getTileFromCoord(Point point){
 		//Tile tile;
 		int row = (int) Math.round(point.x/142.22);

@@ -109,12 +109,9 @@ public class Iterator {
 		Round++;*/
 		round++;
 	}
-	public void setCurrPlayer(Player player){
-		p = player;
-	}
-	public Player getCurrPlayer(){
-		return p;
-	}
+	
+	
+	
 	public int getRound(){
 		return round;
 	}

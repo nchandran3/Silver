@@ -22,6 +22,7 @@ public class MapGlassPane extends Screen implements KeyListener {
 	private Image sprite;
 	private Iterator iterator;
 	private Player currPlayer;
+	private int ind;
 	private Point location;
 	private int image_width, image_height;
 	private Controller controller;
@@ -45,9 +46,9 @@ public class MapGlassPane extends Screen implements KeyListener {
 	public void init()
 	{
 		controller = Controller.getController();
-		iterator = Iterator.getIterator();
-		currPlayer = iterator.getCurrPlayer();
+		currPlayer = controller.getCurrentPlayer();
 		sprite = currPlayer.getImage().getImage();
+		ind = controller.getPlayerIndex();
 		location = new Point(getWidth()/2, getHeight()/2); //begin player in the center of the screen
 		currPlayer.move(location);
 		image_width = (int) (getWidth()*.05);
@@ -108,6 +109,8 @@ public class MapGlassPane extends Screen implements KeyListener {
 	{
 		Tile result = controller.getTileFromCoord(location);
 		result.setOwner(currPlayer);
+		//if(ind != controller.getNumPlayers())
+			//controller.setPlayerIndex(ind+1);
 		//controller.buyLand(result);
 		
 			
