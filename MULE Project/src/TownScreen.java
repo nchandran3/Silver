@@ -30,7 +30,10 @@ public class TownScreen extends Screen implements MouseListener{
 		//super(Color.YELLOW);
 		setLayout(null);
 	}
-
+	/**
+	 * Draws the town screen and all its components
+	 * @param Graphics G
+	 */
 	public void paintComponent(Graphics g){ 
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;

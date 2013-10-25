@@ -3,7 +3,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.*;
-
+/**
+ * Puts the game into the land selection phase where players can buy property and see their recent purchases. 
+ * @author Andrew Ford
+ *
+ */
 public class LandSelection extends Screen {
 	private JButton pass;
 	private Iterator iterator;
