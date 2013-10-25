@@ -4,8 +4,12 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import control.GTools;
@@ -15,10 +19,11 @@ import control.GTools;
  * @author Andrew Ford
  *
  */
-public class TownScreen extends Map {
+public class TownScreen extends Map implements MouseListener{
 //	int Xcord = 0;
 //	int Ycord = 0;
 	int step_size = 10;
+	
 	public TownScreen(){
 		super();
 		this.setBackground(new Color(255, 200, 0));
@@ -53,6 +58,19 @@ public class TownScreen extends Map {
 		Image assay = new ImageIcon("./Images/assay.png").getImage();
 		g2.drawImage(assay, super.width/4 * 3, 40, super.width/4, super.height/3, null);
 		g2.drawString("ASSAY", super.width/4 *3, 30);
+		
+		JButton back = new JButton("Back");
+		back.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
+			{		
+				Map map = Map.getMap();
+				Iterator iterator = Iterator.getIterator();
+				iterator.switchScreen(map.getMap());
+				
+			}
+		});
+		GTools.positionAndAdd(back, .5, .9, this);
 	}
 /*
   	public int getX(){
@@ -108,5 +126,35 @@ public class TownScreen extends Map {
 		frame.setLocation(new Point(100,0));
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

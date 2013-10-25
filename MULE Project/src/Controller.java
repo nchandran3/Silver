@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Point;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -243,5 +244,16 @@ public class Controller {
 		}	
 		order = temp;
 		return order;
+	}
+	public void getNextPlayer(Player player){
+		Controller controller = Controller.getController();
+		Player currPlayer = controller.getCurrentPlayer();
+		ArrayList<Player> plArr = Player.getPlArray();
+		int currPlayerIndex = controller.getPlayerIndex();
+		if(plArr.lastIndexOf(currPlayer) != plArr.size()){
+			currPlayerIndex++;
+			controller.setPlayerIndex(currPlayerIndex);
+			currPlayer = controller.getCurrentPlayer();
+		}
 	}
 }

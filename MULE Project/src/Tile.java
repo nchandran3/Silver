@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * This class represents a Tile on the Map. It stores the tileType(int), owner(Player), and isOwned(boolean).
@@ -82,8 +83,13 @@ public abstract class Tile extends JButton{
 	 */
 	protected void buttonPressed(){
 		if(Controller.buyLand(this)){
+			System.out.println("next PLayer");
+			//nextPlayer();
 			//this.setBorder(BorderFactory.createLineBorder(Iterator.getIterator().getCurrPlayer().getColor()));
-		}else System.out.println("Transaction failed");
+		}else{System.out.println("Transaction failed");
+			//nextPlayer();
+		}
+		//nextPlayer();
 	}
 	
 	/**

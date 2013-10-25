@@ -63,7 +63,7 @@ public class Map extends Screen implements KeyListener{
 		super(c);
 	}
 	
-	public Map getMap(){
+	public static Map getMap(){
 		return map;
 	}
 	
