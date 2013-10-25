@@ -57,6 +57,7 @@ public class Controller {
 		players = new ArrayList<Player>(numPlayers);
 
 	}
+	
 	public void startGame(){
 		Iterator iterator = Iterator.getIterator();
 		currPlayer = players.get(0);
@@ -64,6 +65,9 @@ public class Controller {
 		LandOffice landOffice = new LandOffice();
 		iterator.switchScreen(new Map());
 		
+	}
+	public void setCurrentPlayer(Player player){
+		currPlayer = player;
 	}
 	public int getNumPlayers()
 	{
@@ -243,19 +247,25 @@ public class Controller {
 		}	
 		return order;
 	}
-	public void getNextPlayer(Player player){
-		//Controller controller = Controller.getController();
-		Player currPlayer = controller.getCurrentPlayer();
+	public Player getNextPlayer(Player player){
+		System.out.println(players.toString());
+		System.out.println(Controller.getController().getCurrentPlayer().toString());
+		
+		Player currPlayer = getCurrentPlayer();
 		ArrayList<Player> plArr = Player.getPlArray();
-		int currPlayerIndex = controller.getPlayerIndex();
-		if(plArr.lastIndexOf(currPlayer) != plArr.size()){
+		int currPlayerIndex = getPlayerIndex();
+		
+		if(plArr.lastIndexOf(currPlayer) != plArr.size()-1){
 			currPlayerIndex++;
-			controller.setPlayerIndex(currPlayerIndex);
-			currPlayer = controller.getCurrentPlayer();
+			setCurrentPlayer(players.get(currPlayerIndex));
+			return currPlayer;
 		}
 		else{
 			Iterator iterator = Iterator.getIterator();
 			iterator.incrementRound();
+			currPlayerIndex = 0;
+			System.out.println("here");
+			return null;
 		}
 	}
 }
