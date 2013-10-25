@@ -32,7 +32,8 @@ public class Map extends Screen implements KeyListener{
 	private Rectangle rec;
 	private int rows;
 	private int columns;
-	
+	private int tile_width, tile_height;
+	private Controller controller;
 	
 	
 	/**
@@ -44,20 +45,23 @@ public class Map extends Screen implements KeyListener{
 	 */
 	public Map(){
 		super();
-		Controller.getController().createMap();
-		this.tileMap = Controller.getController().getTileMap();
+		controller = Controller.getController();
+		controller.createMap();
+		this.tileMap = controller.getTileMap()
+				;
 		this.rows = tileMap.length;
 		this.columns = tileMap[0].length;
+		
 		setLayout(new GridLayout(rows, columns));
-		for(int i = 0; i < rows; i++){
+		
+		for(int i = 0; i < rows; i++){			//add tiles to screen
 			for(int j = 0; j < columns; j++){
-				//Class c = tileMap[i][j].getClass();
-				//tileMap[i][j] = tileMap[i][j].getClass().newInstance();
-				//JButton button = new JButton("" + i);
 				add(tileMap[i][j]);
 			}
 		}
 		
+		tile_width = tileMap[0][0].getWidth();	//for use with MapGlassPane and the controller method 
+		tile_height = tileMap[0][0].getHeight();// to return the tile given a coordinate. 
 	}
 	public Map(Color c){
 		super(c);

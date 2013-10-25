@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  *
  */
 public class MapGlassPane extends Screen implements KeyListener {
-	private Image sprite;
+	private ImageIcon sprite;
 	private Iterator iterator;
 	private Player currPlayer;
 	private int ind;
@@ -46,9 +46,15 @@ public class MapGlassPane extends Screen implements KeyListener {
 	public void init()
 	{
 		controller = Controller.getController();
+<<<<<<< HEAD
+		iterator = Iterator.getIterator();
+		currPlayer = iterator.getCurrPlayer();
+		sprite = currPlayer.getImage();
+=======
 		currPlayer = controller.getCurrentPlayer();
 		sprite = currPlayer.getImage().getImage();
 		ind = controller.getPlayerIndex();
+>>>>>>> branch 'master' of https://github.com/nchandran3/Silver.git
 		location = new Point(getWidth()/2, getHeight()/2); //begin player in the center of the screen
 		currPlayer.move(location);
 		image_width = (int) (getWidth()*.05);
@@ -61,7 +67,7 @@ public class MapGlassPane extends Screen implements KeyListener {
 	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.drawImage(sprite, location.x - image_width/2, location.y - image_height/2,
+		g.drawImage(sprite.getImage(), location.x - image_width/2, location.y - image_height/2,
 				image_width, image_height, null); //center the image drawn
 		
 	}
@@ -125,6 +131,7 @@ public class MapGlassPane extends Screen implements KeyListener {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(new JButton("hello"));
+		Iterator iterator = new Iterator();
 		MapGlassPane gp = new MapGlassPane();
 		JPanel glass = (JPanel) frame.getGlassPane();
 		glass.setVisible(true);

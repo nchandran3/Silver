@@ -15,6 +15,6 @@ String directory;
 	
 	@Override
 	protected void buttonPressed(){
-		TownScreen town = new TownScreen();
+		Iterator.getIterator().switchScreen(new TownScreen());
 	}
 }
