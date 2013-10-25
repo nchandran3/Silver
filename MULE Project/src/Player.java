@@ -183,5 +183,11 @@ public class Player {
 	public void setMule(int muleType){
 		this.muleType = muleType;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return name;
+	}
 
 }

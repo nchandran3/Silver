@@ -83,7 +83,7 @@ public abstract class Tile extends JButton{
 	 */
 	protected void buttonPressed(){
 		if(Controller.buyLand(this)){
-			System.out.println("next PLayer");
+			new Announcement("Current player is now " + Controller.getController().getCurrentPlayer());
 			//nextPlayer();
 			//this.setBorder(BorderFactory.createLineBorder(Iterator.getIterator().getCurrPlayer().getColor()));
 		}else{System.out.println("Transaction failed");
