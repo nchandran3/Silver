@@ -24,9 +24,8 @@ import java.awt.GridLayout;
  *
  */
 public class Map extends Screen implements KeyListener{
-	private Tile[][] tileMap;
+	private static Tile[][] tileMap;
 	private static Map map;
-	//private JButton[][] spotMap;
 	private Player currentPlayer;
 	private int playerX, playerY = 0;
 	private Rectangle rec;
@@ -47,8 +46,8 @@ public class Map extends Screen implements KeyListener{
 		super();
 		controller = Controller.getController();
 		controller.createMap();
-		this.tileMap = controller.getTileMap()
-				;
+		this.tileMap = controller.getTileMap();
+		
 		this.rows = tileMap.length;
 		this.columns = tileMap[0].length;
 		
@@ -62,7 +61,8 @@ public class Map extends Screen implements KeyListener{
 		
 		tile_width = tileMap[0][0].getWidth();	//for use with MapGlassPane and the controller method 
 		tile_height = tileMap[0][0].getHeight();// to return the tile given a coordinate. 
-		map = this;
+		
+		map = this;								//there is only one map!
 	}
 	public Map(Color c){
 		super(c);
@@ -87,8 +87,6 @@ public class Map extends Screen implements KeyListener{
 		//adds the tiles to the Jpanel
 		for(int i = 0; i < rows; i++){
 			for(int j = 0; j < columns; j++){
-				//Class c = tileMap[i][j].getClass();
-				//tileMap[i][j] = tileMap[i][j].getClass().newInstance();
 				JButton button = new JButton("" + i);
 				
 				add(button);
@@ -96,31 +94,9 @@ public class Map extends Screen implements KeyListener{
 			
 		}
 		
-		//draws the players character on the screen.
-		//player.drawPlayer();
-		
-		
 	}
 	
-	/*public void paintComponent(Graphics g){
-		super.paintComponent(g);
-		Graphics2D g2 = (Graphics2D) g;
-		g.setColor(Color.red);
-		g2.fillRect(0, 0, 999999, 999999);
-		g.setColor(Color.BLUE);*/
 
-//		g.fillRect(playerX, playerY, 20, 20);
-		
-	//}
-	
-//	public void drawMap(Player player){
-//		for(int i=0; i<rows; i++){
-//			for(int j = 0; j<columns; j++){
-//				tileMap[i][j] = (Tile) new JButton();
-//			}
-//			
-//		}
-//	}
 	
 	public Tile[][] getTileMap(){
 		return tileMap;
