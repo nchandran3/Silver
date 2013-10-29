@@ -134,6 +134,7 @@ public class Player {
 	        }
 		}
 	}
+	
 	/**
 	 * Getter for race
 	 * 
@@ -156,12 +157,13 @@ public class Player {
 		return food;
 	}
 	
+	/**
+	 * Calculates the player's current score.
+	 * Score calculation = sum of resources * properties owned
+	 * @return
+	 */
 	public int getScore(){
-		return score;
-	}
-	
-	public void setScore(int score){
-		this.score = score;
+		return (getFood() + getDragonFire() + getGold())*getProperties();
 	}
 	
 	public Color getColor(){
@@ -182,6 +184,18 @@ public class Player {
 	
 	public void setMule(int muleType){
 		this.muleType = muleType;
+	}
+	
+	public void addProperty(){
+		tilesOwned++;
+	}
+	
+	public void removeProperty(){
+		tilesOwned--;
+	}
+	
+	public int getProperties(){
+		return tilesOwned;
 	}
 	
 	@Override
