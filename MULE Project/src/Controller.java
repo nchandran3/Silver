@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 import javax.swing.*;
 
@@ -19,6 +20,7 @@ public class Controller {
 	private static int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
 	private String[][] makeMap;
+	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
 	 */
@@ -124,6 +126,19 @@ public class Controller {
 	}
 	
 	/**
+	 * This calculates player order based on each player's respective score.  Lowest score first.
+	 * Really not sure if this code works.  Should probably be checked.
+	 * @return
+	 */
+	public ArrayList<Player> getPlayerOrder(){
+		PriorityQueue<Player> playOrder = new PriorityQueue<Player>(players.size(), PlayerComparator.INSTANCE);
+		playOrder.addAll(players);
+		players.clear();
+		players.addAll(playOrder);
+		return players;
+	}
+	
+	/**
 	 * Calculate the given player's score.  Not quite sure how this is supposed to be calculated
 	 * at the moment, but will be changed to reflect intended values once clarified.
 	 * @param player
@@ -133,9 +148,11 @@ public class Controller {
 		return player.getDragonFire() + player.getFood() + player.getGold();
 	}
 	
+	//This method may be out of date please check (*)&)&^&^&%&$%&^(*)*%*()_*()&*()&
 	/**
 	 * This method goes through each of the players in the players[] and finds the player
 	 * with the smallest score.
+	 * Really not sure if we want this right now
 	 * @return Player in last place
 	 */
 	public Player getLastPlayer(){
