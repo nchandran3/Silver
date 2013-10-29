@@ -11,6 +11,9 @@ import java.util.Comparator;
  */
 public class PlayerComparator implements Comparator<Player> {
 
+	public final static PlayerComparator INSTANCE = new PlayerComparator();
+	private PlayerComparator() {}
+	
 	@Override
 	public int compare(Player p1, Player p2) {
 		int score1 = p1.getScore();
