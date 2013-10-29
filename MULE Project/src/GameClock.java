@@ -1,32 +1,41 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.Rectangle;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  * This class keeps track of the game and turn time.
- * @author Hamilton Greene
+ * @author Hamilton Greene and Michael Carlson
  *
  */
-public class GameClock {
+public class GameClock extends JPanel{
 	private static long time;
 	private long startTime;
 	private boolean running;
+	private Rectangle rectangle;
 	
 	public GameClock(){
 		time = System.currentTimeMillis();
+		rectangle = new Rectangle(10,10,20,50);
 	}
 	
-	/**
-	 * Starts tracking for a player's turn, starting the time
-	 * then returning false once the player's turn is over.
-	 * @return
-	 * @throws InterruptedException
-	 */
-	public boolean startTurn() throws InterruptedException{
-		if(!running){
-			startTime();
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		g.setColor(Color.yellow);
+		g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+	}
+	
+	public void startCountdown() throws InterruptedException{
+		for(int i = 50;i > 0; i--){
+			rectangle.y++;
+			rectangle.height--;
+			repaint();
+			Thread.sleep(1000);
 		}
-		while(elapsedTime(startTime)<30000){
-			wait(10,1000);
-		}
-		running=false;
-		return false;
 	}
 	
 	/**
@@ -36,8 +45,11 @@ public class GameClock {
 		startTime = System.currentTimeMillis();
 		running = true;
 	}
-	
-	public long gameEnd(){
+	/**
+	 * 
+	 * @return time returns elapsed time from beginning of game
+	 */
+	public long gameTime(){
 		return elapsedTime(time);
 	}
 	
@@ -50,4 +62,26 @@ public class GameClock {
 	public long elapsedTime(long time){
 		return System.currentTimeMillis() - time;
 	}
+	public static void main(String [] args) throws InterruptedException{
+		GameClock clock = new GameClock();
+		clock.startTime();
+//		Thread.sleep(2000);
+//		System.out.println(clock.elapsedTime(clock.startTime));
+//		Thread.sleep(5000);
+//		System.out.println(clock.gameTime());
+		javax.swing.JFrame frame = new javax.swing.JFrame();
+//		frame.setLayout(new BorderLayout());
+		frame.setSize(300, 200);
+//		frame.setResizable(false);
+		frame.getContentPane().add(clock);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocation(new Point(100,0));
+		frame.pack();
+		frame.setVisible(true);
+		clock.startCountdown();
+
+	}
+	
+	
 }
+
