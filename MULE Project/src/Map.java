@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,14 +7,24 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.geom.Line2D;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
+
+
+
+
+
 
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import control.GTools;
 
 import java.awt.GridLayout;
 
@@ -44,6 +55,8 @@ public class Map extends Screen implements KeyListener{
 	 */
 	public Map(){
 		super();
+		//BorderLayout bd = new BorderLayout();
+		
 		controller = Controller.getController();
 		controller.createMap();
 		this.tileMap = controller.getTileMap();
@@ -93,7 +106,18 @@ public class Map extends Screen implements KeyListener{
 			}
 			
 		}
-		
+	/*	JButton pass = new JButton("PASS");
+		pass.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
+			{		
+				Iterator iterator = Iterator.getIterator();
+				
+				iterator.switchScreen(Map.getMap());
+			}
+		});
+		GTools.positionAndAdd(pass, .5, .9, this);
+		*/
 	}
 	
 
@@ -137,13 +161,17 @@ public class Map extends Screen implements KeyListener{
 		
 	}
 	
-	
-	/*public static void main(String[] args){
-		Map testMap = new Map();
-		GameFrame test = new GameFrame();
-		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		test.setVisible(true);
-		test.add(testMap);
-		test.pack();
-	}*/
+	public static void main (String [] args)
+	{
+		
+		Controller controller = new Controller();
+		javax.swing.JFrame frame = new javax.swing.JFrame();
+		frame.getContentPane().setLayout(new java.awt.CardLayout());
+		//Iterator iterator = new Iterator(frame);
+		frame.getContentPane().add(new Map());
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocation(new Point(100,0));
+		frame.pack();
+		frame.setVisible(true);
+	}
 }
