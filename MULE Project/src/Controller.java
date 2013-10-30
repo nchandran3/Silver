@@ -311,4 +311,12 @@ public class Controller {
 		setCurrentPlayer(array.get(playerInd));
 		return currPlayer;
 	}
+	
+	public void endTurn()
+	{
+		if(incrementCurrentPlayer() == null) //if the last player has gone, then switch to the next phase.
+		{
+			Iterator.getIterator().switchToNextPhase(); 
+		}
+	}
 }
