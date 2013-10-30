@@ -77,6 +77,13 @@ public class TownScreen extends Screen implements MouseListener{
 		GTools.positionAndAdd(back, .5, .9, this);
 		
 		JButton pubButton = new JButton("Pub");
+		pubButton.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
+			{		
+				Controller.controller.endTurn();
+			}
+		});
 		GTools.positionAndAdd(pubButton, 0.35, 0.03, this);
 		
 		JButton storeButton = new JButton("Store");
