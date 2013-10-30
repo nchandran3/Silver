@@ -74,6 +74,7 @@ public class Controller {
 		playerInd = 0;
 		LandOffice landOffice = new LandOffice();
 		new Map(); //initialize the map
+		new GameClock(); //initialize the game clock 
 		iterator.setCurrentPhase(1);
 		iterator.switchScreen(new LandSelection());
 	}

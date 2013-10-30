@@ -1,11 +1,13 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  * This class keeps track of the game and turn time.
@@ -21,6 +23,13 @@ public class GameClock extends JPanel{
 	private int timeForTurn;
 	private int totalTime;
 	
+	double y;
+	private double rate;
+	private int height = 800;
+	private final double FLOW = .1;
+	private Timer timer;
+	private int time2, currTime, remainingTime;
+	
 	public GameClock(int timeForTurn){
 		clock = this;
 		time = (int) System.currentTimeMillis();
@@ -28,6 +37,7 @@ public class GameClock extends JPanel{
 		rectangle = new Rectangle(10,10,20,timeForTurn * 2);
 		this.timeForTurn = timeForTurn * 2;
 		totalTime = startTime + (timeForTurn * 1000);
+		setPreferredSize(new Dimension(100,100));
 	}
 	
 	public GameClock(){
@@ -40,7 +50,7 @@ public class GameClock extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.YELLOW);
-		g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+		g.fillRect(0, 0, getWidth(), getHeight()-rectangle.y*totalTime);
 	}
 	
 	/**

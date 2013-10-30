@@ -12,10 +12,12 @@ public class LandSelection extends Screen {
 	private JButton pass;
 	private Iterator iterator;
 	private Controller controller;
+	private TestTimer clock;
 	public LandSelection() {
 		super();
 		controller = Controller.getController();
 		iterator = Iterator.getIterator();
+		clock = new TestTimer(10);
 		setLayout(new BorderLayout());
 		enableTiles();
 		add(Map.getMap(), BorderLayout.CENTER);
@@ -25,9 +27,8 @@ public class LandSelection extends Screen {
 			LandOffice.getLandOffice().setPrice(); //tiles now cost money to players if the round is greater than 2
 		}
 		
-		pass = new JButton("Pass");
-		pass.addMouseListener(new PassListener());
-		add(pass, BorderLayout.EAST);
+		add(clock, BorderLayout.WEST);
+		//clock.resetClock(10);
 	}
 	
 	

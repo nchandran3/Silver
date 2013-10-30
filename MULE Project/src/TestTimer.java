@@ -19,6 +19,7 @@ public class TestTimer extends Screen implements ActionListener{
 	double y;
 	private double rate;
 	private int height = super.height;
+	private int width = super.width/64;
 	private final double FLOW = .01;
 	private Timer timer;
 	boolean paused;
@@ -26,7 +27,7 @@ public class TestTimer extends Screen implements ActionListener{
 	public TestTimer(int time)
 	{
 		super();
-		setPreferredSize(new Dimension(super.width/8,height));
+		setPreferredSize(new Dimension(width,height));
 		setBackground(Color.BLACK);
 		
 		paused = false;
@@ -34,7 +35,7 @@ public class TestTimer extends Screen implements ActionListener{
 		this.time = time;
 		rate = (height/time*FLOW); //how much to take off the rectangle in order to get blank at the end
 		timer = new Timer((int)(FLOW*1000), this);
-		JButton button = new JButton ("Pause");
+		/*JButton button = new JButton ("Pause");
 		button.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
@@ -52,14 +53,15 @@ public class TestTimer extends Screen implements ActionListener{
 				}
 			}
 		});
-		GTools.positionAndAdd(button, .9, .2, this);
+		GTools.positionAndAdd(button, .9, .2, this);*/
+		start();
 	}
 	
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
 		g.setColor(Color.YELLOW);
-		g.fillRect(0, (int)y, 100, height);
+		g.fillRect(0, (int)y, width, height);
 	}
 
 	public void start()
@@ -79,6 +81,10 @@ public class TestTimer extends Screen implements ActionListener{
 	{
 		return time - (int)(y/height * time);
 	}
+	
+	/**
+	 * Logic behind drawing the timer. If the timer runs out, it ends the current player's turn
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		if(y< height)
@@ -90,6 +96,7 @@ public class TestTimer extends Screen implements ActionListener{
 		{
 			timer.stop();
 			Controller.getController().endTurn();
+			
 		}
 	}
 	public static void main(String[] args) {
