@@ -105,12 +105,14 @@ public abstract class Tile extends JButton{
 	 * @param player: new owner of the tile.
 	 */
 	public void tileSold(Player player){
-		owner.removeProperty();
+		if(isOwned == true)
+		{
+			owner.removeProperty();
+		}
 		owner = player;
-		owner.addProperty();
+		player.addProperty();
 		isOwned = true;
 		setBorder(new LineBorder(player.getColor(),10));
-		//repaint();
 	}
 	
 	public Player getOwner(){

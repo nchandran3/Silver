@@ -34,7 +34,7 @@ import java.awt.GridLayout;
  * @author Michael Carlson
  *
  */
-public class Map extends Screen implements KeyListener{
+public final class Map extends Screen{
 	private static Tile[][] tileMap;
 	private static Map map;
 	private Player currentPlayer;
@@ -77,89 +77,15 @@ public class Map extends Screen implements KeyListener{
 		
 		map = this;								//there is only one map!
 	}
-	public Map(Color c){
-		super(c);
-	}
 	
+	/**
+	 * Returns the instance of the Map
+	 * @return
+	 */
 	public static Map getMap(){
 		return map;
 	}
 	
-/**
- * this takes in a 2d array of Tiles from Controller filled with tile pieces.
- * @param tileMap
- * @throws IllegalAccessException 
- * @throws InstantiationException 
- */
-	public Map(Tile[][] tileMap){
-		this.tileMap = tileMap;
-		rows = tileMap.length;
-		columns = tileMap[0].length;
-		setLayout(new GridLayout(rows, columns));
-		
-		//adds the tiles to the Jpanel
-		for(int i = 0; i < rows; i++){
-			for(int j = 0; j < columns; j++){
-				JButton button = new JButton("" + i);
-				
-				add(button);
-			}
-			
-		}
-	/*	JButton pass = new JButton("PASS");
-		pass.addMouseListener(new MouseAdapter()
-		{
-			public void mouseClicked(MouseEvent e)
-			{		
-				Iterator iterator = Iterator.getIterator();
-				
-				iterator.switchScreen(Map.getMap());
-			}
-		});
-		GTools.positionAndAdd(pass, .5, .9, this);
-		*/
-	}
-	
-
-	
-	public Tile[][] getTileMap(){
-		return tileMap;
-	}
-
-	
-	@Override
-	public void keyPressed(KeyEvent e) {
-		int code = e.getKeyCode();
-		if(code == KeyEvent.VK_DOWN){
-			playerY =+ 2;
-			repaint();
-		}
-		if(code == KeyEvent.VK_UP){
-			playerY =- 2;
-			repaint();
-		}
-		if(code == KeyEvent.VK_DOWN){
-			playerX =+ 2;
-			repaint();
-		}
-		if(code == KeyEvent.VK_UP){
-			playerX =- 2;
-			repaint();
-		}
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public static void main (String [] args)
 	{
