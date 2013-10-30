@@ -27,14 +27,8 @@ public class AfterSelectionMap extends Screen{
 		Map map = Map.getMap();
 		setLayout(new BorderLayout());
 		
-		//set all buttons of the map disabled, except for the town
-		Tile[][] tileMap = Controller.getController().getTileMap();
-		for(int i = 0; i < tileMap.length; i++){
-			for(int j = 0; j < tileMap[0].length;j++)
-			if(!tileMap[i][j].equals(tileMap[2][4])){
-				tileMap[i][j].setEnabled(false);
-			}
-		}
+		disableTiles();
+		
 		add(map, BorderLayout.CENTER);
 		JButton pub = new JButton("Pub");
 		//GTools.positionAndAdd(pub, .5, 1.01, this);
@@ -54,6 +48,19 @@ public class AfterSelectionMap extends Screen{
 		new Announcement("Player Turns start now");
 	}
 	
+	/**
+	 * Disable all tiles from being clicked, except the Town tile
+	 */
+	public void disableTiles()
+	{
+		//set all buttons of the map disabled, except for the town
+				Tile[][] tiles = Controller.getController().getTileMap();
+				for(Tile [] x : tiles)
+					for(Tile t: x)
+						t.setEnabled(false);
+				
+				tiles[2][4].setEnabled(true); //set town tile to enabled
+	}
 	public static void main (String [] args)
 	{
 		Controller controller = new Controller();
