@@ -88,6 +88,11 @@ public class Iterator {
 	 *            PHASE Methods
 	 **********************************************/
 	 
+	
+	public int getCurrentPhase()
+	{
+		return currPhase;
+	}
 /**
  * Increments the phase index. It can only vary from 1-3. If it reaches 3, it goes back to 1.
  */
