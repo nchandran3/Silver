@@ -311,10 +311,8 @@ public class Controller {
 	
 	public void endTurn()
 	{
-		new Announcement("End turn called");
 		if(incrementCurrentPlayer() == null) //if the last player has gone, then switch to the next phase.
 		{
-			new Announcement("Reached end of players");
 			Iterator.getIterator().switchToNextPhase(); 
 		}
 		new Announcement("Current player is now " + currPlayer);
