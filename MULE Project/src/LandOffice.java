@@ -8,10 +8,25 @@ import java.util.Random;
 public class LandOffice {
 	private Random rand;
 	public static LandOffice landOffice;
+	private int buyPrice;
+	private int sellPrice;
 	
 	public LandOffice(){
 		rand = new Random();
 		landOffice = this;
+	}
+	
+	/**
+	 * This sets the purchase price of land based on the game phase.  This should be called 
+	 * following every land purchase.
+	 */
+	public void setPrice(){
+		if(Iterator.getIterator().getFirstLandPhase()){
+			buyPrice = 300;
+		}else{
+			buyPrice = 300 + Iterator.getIterator().getRound()*rand.nextInt(100);
+		}
+		sellPrice = 400 + rand.nextInt(200);
 	}
 	
 	public static LandOffice getLandOffice(){
@@ -19,11 +34,11 @@ public class LandOffice {
 	}
 	
 	public int getBuyPrice(){
-		return 300 + Iterator.getIterator().getRound()*rand.nextInt(100);
+		return buyPrice;
 	}
 	
 	public int getSellPrice(){
-		return 400 + Iterator.getIterator().getRound()*rand.nextInt(200);
+		return sellPrice;
 	}
 	
 }

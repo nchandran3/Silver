@@ -17,6 +17,7 @@ public class Iterator {
 	private Player p;
 	private Map map;
 	public Screen cur_screen; //holds the current screen being displayed
+	private boolean firstLandPhase;
 
 	/**
 	 * Constructor that initializes the iterator
@@ -78,6 +79,7 @@ public class Iterator {
 		
 		ArrayList<Player> plArray = Player.getPlArray();
 		switchScreen(new Map());
+		firstLandPhase = true;
 		/*int passed = 0;
 		ArrayList<Player> plArray = Player.getPlArray();
 		boolean gamePhase = false;
@@ -124,5 +126,9 @@ public class Iterator {
 	public boolean veryifyPassed(Player p){
 		//if()
 		return false;
+	}
+	
+	public boolean getFirstLandPhase(){
+		return firstLandPhase;
 	}
 }

@@ -14,7 +14,6 @@ public class LandSelection extends Screen {
 	private Controller controller;
 	public LandSelection() {
 		super();
-		
 		controller = Controller.getController();
 		iterator = Iterator.getIterator();
 		setLayout(new BorderLayout());
@@ -49,4 +48,5 @@ public class LandSelection extends Screen {
 		frame.pack();
 		frame.setVisible(true);
 	}
+	
 }
