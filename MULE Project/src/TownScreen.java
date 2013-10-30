@@ -23,12 +23,14 @@ public class TownScreen extends Screen implements MouseListener{
 //	int Xcord = 0;
 //	int Ycord = 0;
 	int step_size = 10;
+	private Iterator iterator;
 	
 	public TownScreen(){
 		super();
 		this.setBackground(new Color(255, 200, 0));
 		//super(Color.YELLOW);
 		setLayout(null);
+		iterator = Iterator.getIterator();
 	}
 	/**
 	 * Draws the town screen and all its components
@@ -69,7 +71,7 @@ public class TownScreen extends Screen implements MouseListener{
 			public void mouseClicked(MouseEvent e)
 			{		
 				Iterator iterator = Iterator.getIterator();
-				iterator.switchScreen(Map.getMap());
+				iterator.switchScreen(new AfterSelectionMap());
 			}
 		});
 		GTools.positionAndAdd(back, .5, .9, this);
@@ -142,10 +144,6 @@ public class TownScreen extends Screen implements MouseListener{
 		frame.setVisible(true);
 	}
 	
-	public void back(){
-		if(Iterator.getIterator().)
-	}
-
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
