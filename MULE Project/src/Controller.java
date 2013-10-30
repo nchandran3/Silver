@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class Controller {
 	private static int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
 	private String[][] makeMap;
+	private LinkedList<RoundPhase> phaseList;
 	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
@@ -28,6 +30,9 @@ public class Controller {
 		controller=this;
 		playerCount = 0;
 	 	players = new ArrayList<Player>(numPlayers);
+//	 	phaseList.add(LandSelectionPhase);
+//	 	phaseList.add(AfterSelectionPhase);
+//	 	phaseList.add(AuctionPhase);
 	}
 	/**
 	 * This creates new players by calling the player class to set up each player's instance variables 

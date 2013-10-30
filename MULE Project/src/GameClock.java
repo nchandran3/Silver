@@ -17,10 +17,12 @@ public class GameClock extends JPanel{
 	private long startTime;
 	private boolean running;
 	private Rectangle rectangle;
+	private int timeForTurn;
 	
-	public GameClock(){
+	public GameClock(int timeForTurn){
 		time = System.currentTimeMillis();
-		rectangle = new Rectangle(10,10,20,50);
+		rectangle = new Rectangle(10,10,20,timeForTurn * 2);
+		this.timeForTurn = timeForTurn * 2;
 	}
 	
 	public void paintComponent(Graphics g){
@@ -29,17 +31,23 @@ public class GameClock extends JPanel{
 		g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
 	}
 	
+	/**
+	 * Reduces the yellow rectangle that represents the time left.
+	 * @throws InterruptedException
+	 */
 	public void startCountdown() throws InterruptedException{
-		for(int i = 50;i > 0; i--){
+		for(int i = timeForTurn;i > 0; i--){
 			rectangle.y++;
 			rectangle.height--;
 			repaint();
-			Thread.sleep(1000);
+			Thread.sleep(500);
 		}
+//		Controller.controller.endTurn();
+		System.out.println("time up");
 	}
 	
 	/**
-	 * Starts clock.
+	 * Starts clock, and sets running to true.
 	 */
 	public void startTime(){
 		startTime = System.currentTimeMillis();
@@ -55,7 +63,7 @@ public class GameClock extends JPanel{
 	
 	/**
 	 * Returns the amount of time that passed since startTime
-	 * was called
+	 * was called initially.
 	 * @param time
 	 * @return
 	 */
@@ -63,7 +71,7 @@ public class GameClock extends JPanel{
 		return System.currentTimeMillis() - time;
 	}
 	public static void main(String [] args) throws InterruptedException{
-		GameClock clock = new GameClock();
+		GameClock clock = new GameClock(10);
 		clock.startTime();
 //		Thread.sleep(2000);
 //		System.out.println(clock.elapsedTime(clock.startTime));
