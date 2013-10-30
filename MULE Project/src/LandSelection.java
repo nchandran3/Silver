@@ -19,11 +19,15 @@ public class LandSelection extends Screen {
 		setLayout(new BorderLayout());
 		enableTiles();
 		add(Map.getMap(), BorderLayout.CENTER);
-		//if(iterator.getRound() > 2) {
-			pass = new JButton("Pass");
-			pass.addMouseListener(new PassListener());
-		//}
-			add(pass, BorderLayout.EAST);
+		
+		
+		if(iterator.getRound() > 2) {
+			LandOffice.getLandOffice().setPrice(); //tiles now cost money to players if the round is greater than 2
+		}
+		
+		pass = new JButton("Pass");
+		pass.addMouseListener(new PassListener());
+		add(pass, BorderLayout.EAST);
 	}
 	
 	

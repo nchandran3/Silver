@@ -318,5 +318,6 @@ public class Controller {
 		{
 			Iterator.getIterator().switchToNextPhase(); 
 		}
+		new Announcement("Current player is now " + currPlayer);
 	}
 }
