@@ -66,7 +66,7 @@ public class Player {
 
 	public int calculateTime(){
 		
-		return 0;
+		return 15;
 	}
 
 	/**
