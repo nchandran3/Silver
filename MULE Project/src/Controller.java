@@ -316,6 +316,25 @@ public class Controller {
 		{
 			Iterator.getIterator().switchToNextPhase(); 
 		}
+		else
+		{
+			resetClock();
+		}
 		new Announcement("Current player is now " + currPlayer);
+	}
+	
+	private void resetClock()
+	{
+		int phase = Iterator.getIterator().getCurrentPhase();
+		GameTimer timer = GameTimer.getTimer();
+		if(phase == 1) //Land Selection Phase
+		{
+			timer.pause();
+			timer.reset(10);
+		}
+		else if (phase == 2)
+		{
+			timer.reset(getCurrentPlayer().getProperties());
+		}
 	}
 }

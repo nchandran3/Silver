@@ -112,7 +112,6 @@ public class GameTimer extends Screen implements ActionListener{
 		{
 			actionTimer.stop();
 			Controller.getController().endTurn();
-			init(time);
 		}
 	}
 	public static void main(String[] args) {
