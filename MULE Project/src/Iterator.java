@@ -16,8 +16,8 @@ public class Iterator {
 	private static int round = 1;
 	private Player p;
 	private Map map;
-	public Screen cur_screen; //holds the current screen being displayed
-	private boolean firstLandPhase;
+	private int currPhase;
+	private Screen cur_screen; //holds the current screen being displayed
 
 	/**
 	 * Constructor that initializes the iterator
@@ -75,60 +75,49 @@ public class Iterator {
 		return iterator;
 	}
 
-	public void simulateRound(){
-		
-		ArrayList<Player> plArray = Player.getPlArray();
-		switchScreen(new Map());
-		firstLandPhase = true;
-		/*int passed = 0;
-		ArrayList<Player> plArray = Player.getPlArray();
-		boolean gamePhase = false;
-		for(Player p: plArray){		//in a priority queue
-			setCurrPlayer(p);
-			switchScreen(new Map());
-			if(gamePhase == false){
-				if(Round <= 2){
-					//ability to choose from map tile he wants for free
-					
-				}
-				else if(Round > 2 && passPassed() == false){
-					//ability to choose from map tile he wants for money or he can pass
-					//map.drawMap(p);
-					//have to decrement the players money
-				}
-				else if(Round > 2 && passPassed() == true){
-					passed++;
-					if(passed == plArray.size()){
-						gamePhase = true;
-						break;
-					}
-				}
-			}
-			else{	//gamePhase
-				
-			}
-		}
-		Round++;*/
-		round++;
-	}
-	
-	
-	
+
 	public int getRound(){
 		return round;
 	}
 	public void incrementRound(){
 		round++;
 	}
-	public void switchPlayers(){
-		
+	
+	
+	/**********************************************
+	 *            PHASE Methods
+	 **********************************************/
+	 
+	
+	public int getCurrentPhase()
+	{
+		return currPhase;
 	}
-	public boolean veryifyPassed(Player p){
-		//if()
-		return false;
+/**
+ * Increments the phase index. It can only vary from 1-3. If it reaches 3, it goes back to 1.
+ */
+	public void incrementPhase()
+	{
+		currPhase =  (currPhase % 3) + 1; // ensures that currPhase cycles between 1, 2, or 3.
 	}
 	
-	public boolean getFirstLandPhase(){
-		return firstLandPhase;
+	/**
+	 * Switches the screen to the next phase.
+	 * [Ensure that the last player has gone]
+	 */
+	public void switchToNextPhase()
+	{
+		incrementPhase();
+		switch (currPhase) {
+		case 1:
+			switchScreen(new LandSelection());
+			break;
+		case 2:
+			switchScreen(new AfterSelectionMap());
+			break;
+		case 3:
+			switchScreen(new Menu_Screen()); //switch this to Auction after it is implemented
+			break;
+		}
 	}
 }

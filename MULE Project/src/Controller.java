@@ -98,6 +98,9 @@ public class Controller {
 	/**
 	 * Determines the price of the piece of land the current player is trying to buy then
 	 * checks the viability of the transaction against the player's available resources.
+	 * Round<2 -> landPrice = free
+	 * Round>2 && first land selection phase -> landPrice = 300
+	 * Round>2 && !first land selection phase -> landPrice = found in LandOffice
 	 * @param tile
 	 * @return true if land acquisition was successful
 	 */
@@ -307,5 +310,13 @@ public class Controller {
 		}
 		setCurrentPlayer(array.get(playerInd));
 		return currPlayer;
+	}
+	
+	public void endTurn()
+	{
+		if(incrementCurrentPlayer() == null) //if the last player has gone, then switch to the next phase.
+		{
+			Iterator.getIterator().switchToNextPhase(); 
+		}
 	}
 }
