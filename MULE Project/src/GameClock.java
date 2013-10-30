@@ -28,6 +28,10 @@ public class GameClock extends JPanel{
 		this.timeForTurn = timeForTurn * 2;
 		totalTime = startTime + (timeForTurn * 1000);
 	}
+	
+	public GameClock(){
+		this(10);
+	}
 	/**
 	 * Paints the yellow box representing the time left.
 	 * 
