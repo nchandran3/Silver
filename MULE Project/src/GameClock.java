@@ -13,14 +13,14 @@ import javax.swing.JPanel;
  *
  */
 public class GameClock extends JPanel{
-	private static long time;
-	private long startTime;
+	private static int time;
+	private int startTime;
 	private boolean running;
 	private Rectangle rectangle;
 	private int timeForTurn;
 	
 	public GameClock(int timeForTurn){
-		time = System.currentTimeMillis();
+		time = (int) System.currentTimeMillis();
 		rectangle = new Rectangle(10,10,20,timeForTurn * 2);
 		this.timeForTurn = timeForTurn * 2;
 	}
@@ -50,14 +50,14 @@ public class GameClock extends JPanel{
 	 * Starts clock, and sets running to true.
 	 */
 	public void startTime(){
-		startTime = System.currentTimeMillis();
+		startTime = (int) System.currentTimeMillis();
 		running = true;
 	}
 	/**
 	 * 
 	 * @return time returns elapsed time from beginning of game
 	 */
-	public long gameTime(){
+	public int gameTime(){
 		return elapsedTime(time);
 	}
 	
@@ -67,16 +67,16 @@ public class GameClock extends JPanel{
 	 * @param time
 	 * @return
 	 */
-	public long elapsedTime(long time){
-		return System.currentTimeMillis() - time;
+	public int elapsedTime(int time){
+		return (int) System.currentTimeMillis() - time;
 	}
 	public static void main(String [] args) throws InterruptedException{
 		GameClock clock = new GameClock(10);
 		clock.startTime();
-//		Thread.sleep(2000);
-//		System.out.println(clock.elapsedTime(clock.startTime));
-//		Thread.sleep(5000);
-//		System.out.println(clock.gameTime());
+		Thread.sleep(2000);
+		System.out.println(clock.elapsedTime(clock.startTime));
+		Thread.sleep(5000);
+		System.out.println(clock.gameTime());
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 //		frame.setLayout(new BorderLayout());
 		frame.setSize(300, 200);
