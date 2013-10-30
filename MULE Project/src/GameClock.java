@@ -30,7 +30,7 @@ public class GameClock extends JPanel{
 	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.setColor(Color.yellow);
+		g.setColor(Color.YELLOW);
 		g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
 	}
 	

@@ -24,6 +24,7 @@ public class TownScreen extends Screen implements MouseListener{
 //	int Ycord = 0;
 	int step_size = 10;
 	private Iterator iterator;
+	private Pub pub;
 	
 	public TownScreen(){
 		super();
@@ -31,6 +32,7 @@ public class TownScreen extends Screen implements MouseListener{
 		//super(Color.YELLOW);
 		setLayout(null);
 		iterator = Iterator.getIterator();
+		pub = new Pub();
 	}
 	/**
 	 * Draws the town screen and all its components
@@ -45,14 +47,14 @@ public class TownScreen extends Screen implements MouseListener{
 		g2.fillRect(0, 0, 999999, 999999);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));
-		Image store = new ImageIcon("./Images/store.png").getImage();
-		g2.drawImage(store , 0, 40, super.getWidth()/4, super.getHeight()/3, null);
+		Image storeImage = new ImageIcon("./Images/store.png").getImage();
+		g2.drawImage(storeImage , 0, 40, super.getWidth()/4, super.getHeight()/3, null);
 		g2.setColor(Color.BLACK);
 //		g2.drawString("STORE", 10, 30);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));
-		Image pub = new ImageIcon("./Images/pub.png").getImage();
-		g2.drawImage(pub, super.width/4, 40, super.width/4, super.height/3, null);
+		Image pubImage = new ImageIcon("./Images/pub.png").getImage();
+		g2.drawImage(pubImage, super.width/4, 40, super.width/4, super.height/3, null);
 //		g2.drawString("PUB", super.width/4, 30);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));	
@@ -61,8 +63,8 @@ public class TownScreen extends Screen implements MouseListener{
 //		g2.drawString("AUCTION HOUSE", super.width/2, 30);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));	
-		Image assay = new ImageIcon("./Images/assay.png").getImage();
-		g2.drawImage(assay, super.width/4 * 3, 40, super.width/4, super.height/3, null);
+		Image assayImage = new ImageIcon("./Images/assay.png").getImage();
+		g2.drawImage(assayImage, super.width/4 * 3, 40, super.width/4, super.height/3, null);
 //		g2.drawString("ASSAY", super.width/4 *3, 30);
 		
 		JButton back = new JButton("Back");
@@ -70,7 +72,6 @@ public class TownScreen extends Screen implements MouseListener{
 		{
 			public void mouseClicked(MouseEvent e)
 			{		
-				Iterator iterator = Iterator.getIterator();
 				iterator.switchScreen(new AfterSelectionMap());
 			}
 		});
@@ -80,7 +81,9 @@ public class TownScreen extends Screen implements MouseListener{
 		pubButton.addMouseListener(new MouseAdapter()
 		{
 			public void mouseClicked(MouseEvent e)
-			{		
+			{	
+//				pub.gamble(GameClock.);
+				iterator.switchScreen(new AfterSelectionMap());
 				Controller.controller.endTurn();
 			}
 		});
@@ -94,6 +97,7 @@ public class TownScreen extends Screen implements MouseListener{
 		
 		JButton assayButton = new JButton("Assay");
 		GTools.positionAndAdd(assayButton, 0.87, 0.03, this);
+		
 	}
 /*
   	public int getX(){
