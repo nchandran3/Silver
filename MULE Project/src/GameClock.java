@@ -22,6 +22,7 @@ public class GameClock extends JPanel{
 	private int totalTime;
 	
 	public GameClock(int timeForTurn){
+		clock = this;
 		time = (int) System.currentTimeMillis();
 		startTime = (int) System.currentTimeMillis();
 		rectangle = new Rectangle(10,10,20,timeForTurn * 2);
