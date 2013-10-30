@@ -74,8 +74,8 @@ public class Controller {
 		playerInd = 0;
 		LandOffice landOffice = new LandOffice();
 		new Map(); //initialize the map
+		iterator.setCurrentPhase(1);
 		iterator.switchScreen(new LandSelection());
-		
 	}
 	public void setCurrentPlayer(Player player){
 		currPlayer = player;
@@ -108,10 +108,7 @@ public class Controller {
 		Player player = currPlayer;
 		int landPrice = LandOffice.getLandOffice().getBuyPrice();
 		if(!tile.isOwned()){
-			if(Iterator.getIterator().getRound()<=2){
-				tile.tileSold(player);
-				return true;
-			}else if(player.getGold()>=landPrice){
+			if(player.getGold()>=landPrice){
 				tile.tileSold(player);
 				player.addResources(0, -landPrice, 0,0);
 				System.out.println(player.toString() + "'s new Balance is:" + player.getGold());
@@ -314,8 +311,10 @@ public class Controller {
 	
 	public void endTurn()
 	{
+		new Announcement("End turn called");
 		if(incrementCurrentPlayer() == null) //if the last player has gone, then switch to the next phase.
 		{
+			new Announcement("Reached end of players");
 			Iterator.getIterator().switchToNextPhase(); 
 		}
 		new Announcement("Current player is now " + currPlayer);
