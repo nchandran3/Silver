@@ -14,6 +14,8 @@ public class LandOffice {
 	public LandOffice(){
 		rand = new Random();
 		landOffice = this;
+		buyPrice = 0;
+		sellPrice = 0;
 	}
 	
 	/**

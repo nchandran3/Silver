@@ -79,10 +79,13 @@ public abstract class Tile extends JButton{
 	 * When the covering JButton is pressed, this method is called.  This method attempts to
 	 * purchase the selected tile.
 	 */
-	protected void buttonPressed(){
-		if(Controller.buyLand(this)){
+	protected void buttonPressed()
+	{
+		if(Controller.buyLand(this)) //returns true if the player has enough money to complete the land transaction
+		{
 			Controller controller = Controller.getController();
-			if(controller.incrementCurrentPlayer() != null)
+			controller.endTurn();
+			/*if(controller.incrementCurrentPlayer() != null)
 			{
 				new Announcement("Current player is now " + controller.getCurrentPlayer());
 			}
@@ -91,12 +94,13 @@ public abstract class Tile extends JButton{
 				Iterator iterator = Iterator.getIterator();
 				iterator.incrementRound();
 				new Announcement("Round has changed to " + iterator.getRound());
-			}
-			//this.setBorder(BorderFactory.createLineBorder(Iterator.getIterator().getCurrPlayer().getColor()));
-		}else{System.out.println("Transaction failed");
-			//nextPlayer();
+			}*/
 		}
-		//nextPlayer();
+		
+		else
+		{
+			new Announcement("Transaction failed: Insufficient money or Owned Property");
+		}
 	}
 	
 	/**

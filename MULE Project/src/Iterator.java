@@ -88,7 +88,10 @@ public class Iterator {
 	 *            PHASE Methods
 	 **********************************************/
 	 
-	
+	public void setCurrentPhase(int i)
+	{
+		currPhase = i;
+	}
 	public int getCurrentPhase()
 	{
 		return currPhase;
