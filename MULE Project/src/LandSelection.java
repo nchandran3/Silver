@@ -44,6 +44,7 @@ public class LandSelection extends Screen {
 		for(Tile[] x: tiles)
 			for(Tile t: x)
 				t.setEnabled(true);
+		tiles[2][4].setEnabled(false); // do not let players click on the town - it is not ownable 
 	}
 	
 	public static void main (String [] args)
