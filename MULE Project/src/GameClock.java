@@ -13,16 +13,20 @@ import javax.swing.JPanel;
  *
  */
 public class GameClock extends JPanel{
+	public static GameClock clock;
 	private static int time;
 	private int startTime;
 	private boolean running;
 	private Rectangle rectangle;
 	private int timeForTurn;
+	private int totalTime;
 	
 	public GameClock(int timeForTurn){
 		time = (int) System.currentTimeMillis();
+		startTime = (int) System.currentTimeMillis();
 		rectangle = new Rectangle(10,10,20,timeForTurn * 2);
 		this.timeForTurn = timeForTurn * 2;
+		totalTime = startTime + (timeForTurn * 1000);
 	}
 	/**
 	 * Paints the yellow box representing the time left.
@@ -45,8 +49,8 @@ public class GameClock extends JPanel{
 			repaint();
 			Thread.sleep(500);
 		}
-//		Controller.controller.endTurn();
-		System.out.println("time up" +"\nIt took " + this.elapsedTime(startTime) + " seconds.");
+		Controller.controller.endTurn();
+		System.out.println("Time up!!!" +"\nIt took " + this.elapsedTime(startTime) + " seconds.");
 	}
 	
 	/**
@@ -59,6 +63,7 @@ public class GameClock extends JPanel{
 		this.timeForTurn = timeForTurn * 2;
 		repaint();
 		startTime = (int) System.currentTimeMillis();
+		totalTime = startTime + (timeForTurn * 1000);
 	}
 	
 	/**
@@ -70,6 +75,7 @@ public class GameClock extends JPanel{
 		rectangle.y = 10;
 		repaint();
 		startTime = (int) System.currentTimeMillis();
+		totalTime = startTime + (timeForTurn * 1000);
 	}
 	/**
 	 * Starts clock, and sets running to true.
@@ -80,41 +86,52 @@ public class GameClock extends JPanel{
 	}
 	/**
 	 * 
-	 * @return time returns elapsed time from beginning of game
+	 * @returns elapsed time from beginning of game
 	 */
 	public int gameTime(){
 		return elapsedTime(time);
 	}
 	
 	/**
-	 * Returns the amount of time that passed since startTime
-	 * was called initially.
+	 * Returns the amount of time that passed since startTime or
+	 * resetClock was called initially.
+	 * 
+	 * @return the time elapsed
+	 */
+	public int elapsedTime(){
+		return (((int) System.currentTimeMillis() - startTime) / 1000);
+	}
+	/**
+	 * 
 	 * @param time
 	 * @return
 	 */
 	public int elapsedTime(int time){
-		return (((int) System.currentTimeMillis() - time)/1000);
+		return (((int) System.currentTimeMillis() - time) / 1000);
+	}
+	
+	public int timeLeft(){
+		
+//		return (((int) System.currentTimeMillis() - (elapsedTime()) * 1000)/ 1000);
+		return ((totalTime - (int)System.currentTimeMillis()) / 1000);
 	}
 	public static void main(String [] args) throws InterruptedException{
 		GameClock clock = new GameClock(10);
 		clock.startTime();
-//		Thread.sleep(2000);
-//		System.out.println(clock.elapsedTime(clock.startTime));
-//		Thread.sleep(5000);
-//		System.out.println(clock.gameTime());
+		Thread.sleep(2000);
+		System.out.println(clock.elapsedTime());
+		Thread.sleep(5000);
+		System.out.println(clock.elapsedTime());
+		System.out.println(clock.timeLeft());
 		javax.swing.JFrame frame = new javax.swing.JFrame();
-//		frame.setLayout(new BorderLayout());
 		frame.setSize(300, 200);
-//		frame.setResizable(false);
 		frame.getContentPane().add(clock);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(new Point(100,0));
 		frame.pack();
 		frame.setVisible(true);
-		clock.startCountdown();
-//		clock.resetClock(30);
 //		clock.startCountdown();
-		clock.resetClock();
+//		clock.resetClock();
 		clock.startCountdown();
 
 	}

@@ -82,7 +82,7 @@ public class TownScreen extends Screen implements MouseListener{
 		{
 			public void mouseClicked(MouseEvent e)
 			{	
-//				pub.gamble(GameClock.);
+				pub.gamble(GameClock.clock.timeLeft());
 				iterator.switchScreen(new AfterSelectionMap());
 				Controller.controller.endTurn();
 			}
