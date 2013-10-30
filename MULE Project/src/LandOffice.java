@@ -21,11 +21,7 @@ public class LandOffice {
 	 * following every land purchase.
 	 */
 	public void setPrice(){
-		if(Iterator.getIterator().getFirstLandPhase()){
-			buyPrice = 300;
-		}else{
-			buyPrice = 300 + Iterator.getIterator().getRound()*rand.nextInt(100);
-		}
+		buyPrice = 300 + Iterator.getIterator().getRound()*rand.nextInt(100);
 		sellPrice = 400 + rand.nextInt(200);
 	}
 	
