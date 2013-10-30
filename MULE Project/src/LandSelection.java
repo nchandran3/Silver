@@ -12,12 +12,12 @@ public class LandSelection extends Screen {
 	private JButton pass;
 	private Iterator iterator;
 	private Controller controller;
-	private TestTimer clock;
+	private GameTimer clock;
 	public LandSelection() {
 		super();
 		controller = Controller.getController();
 		iterator = Iterator.getIterator();
-		clock = new TestTimer(10);
+		clock = new GameTimer(10);
 		setLayout(new BorderLayout());
 		enableTiles();
 		add(Map.getMap(), BorderLayout.CENTER);

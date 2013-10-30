@@ -14,23 +14,24 @@ import javax.swing.Timer;
 import control.GTools;
 
 
-public class TestTimer extends Screen implements ActionListener{
+public class GameTimer extends Screen implements ActionListener{
 	private int time;
 	double y;
 	private double rate;
 	private int height = super.height;
 	private int width = super.width/64;
 	private final double FLOW = .01;
-	private Timer timer;
+	private static GameTimer timer;
+	private Timer actionTimer;
 	boolean paused;
 	
-	public TestTimer(int time)
+	public GameTimer(int time)
 	{
 		super();
 		setPreferredSize(new Dimension(width,height));
 		setBackground(Color.BLACK);
 		init(time);
-		
+		timer = this;
 		
 		/*JButton button = new JButton ("Pause");
 		button.addActionListener(new ActionListener(){
@@ -60,7 +61,7 @@ public class TestTimer extends Screen implements ActionListener{
 		y=0;
 		this.time = time;
 		rate = (height/time*FLOW); //how much to take off the rectangle in order to get blank at the end
-		timer = new Timer((int)(FLOW*1000), this);
+		actionTimer = new Timer((int)(FLOW*1000), this);
 		start();
 	}
 	public void paintComponent(Graphics g)
@@ -70,13 +71,22 @@ public class TestTimer extends Screen implements ActionListener{
 		g.fillRect(0, (int)y, width, height);
 	}
 
+	public static GameTimer getTimer()
+	{
+		return timer;
+	}
+	
+	public void reset(int time)
+	{
+		init(time);
+	}
 	public void start()
 	{
-		timer.start();
+		actionTimer.start();
 	}
 	public void pause()
 	{
-		timer.stop();
+		actionTimer.stop();
 	}
 	
 	public int getElapsedTime()
@@ -100,14 +110,14 @@ public class TestTimer extends Screen implements ActionListener{
 		}
 		else
 		{
-			timer.stop();
+			actionTimer.stop();
 			Controller.getController().endTurn();
 			init(time);
 		}
 	}
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		TestTimer timer = new TestTimer(100);
+		GameTimer timer = new GameTimer(100);
 		frame.add(timer);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
