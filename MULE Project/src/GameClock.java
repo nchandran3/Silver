@@ -106,18 +106,25 @@ public class GameClock extends JPanel{
 		return (((int) System.currentTimeMillis() - startTime) / 1000);
 	}
 	/**
-	 * 
+	 *returns the elapsed time from the time given as a parameter. 
 	 * @param time
-	 * @return
+	 * @return elapsed time
 	 */
 	public int elapsedTime(int time){
 		return (((int) System.currentTimeMillis() - time) / 1000);
 	}
 	
+	/**
+	 * Returns an int representing the amount of time the player had
+	 * left in their turn when it was ended.
+	 * @return time left in turn 
+	 */
 	public int timeLeft(){
-		
-//		return (((int) System.currentTimeMillis() - (elapsedTime()) * 1000)/ 1000);
 		return ((totalTime - (int)System.currentTimeMillis()) / 1000);
+	}
+	
+	public GameClock getClock(){
+		return clock;
 	}
 	public static void main(String [] args) throws InterruptedException{
 		GameClock clock = new GameClock(10);
