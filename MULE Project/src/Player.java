@@ -64,7 +64,10 @@ public class Player {
 	}
 
 
-
+	public int calculateTime(){
+		
+		return 0;
+	}
 
 	/**
 	 * updates the player's resources amount based on transactions that happen in-game.  Negative
