@@ -67,7 +67,7 @@ public class GameClock extends JPanel{
 		rectangle.y = 10;
 		this.timeForTurn = timeForTurn * 2;
 		repaint();
-		startTime = (int) System.currentTimeMillis();
+		this.startTime();
 		totalTime = startTime + (timeForTurn * 1000);
 	}
 	
@@ -79,7 +79,7 @@ public class GameClock extends JPanel{
 		rectangle.height = timeForTurn;
 		rectangle.y = 10;
 		repaint();
-		startTime = (int) System.currentTimeMillis();
+		this.startTime();
 		totalTime = startTime + (timeForTurn * 1000);
 	}
 	/**
