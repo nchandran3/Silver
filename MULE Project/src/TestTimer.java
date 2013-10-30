@@ -29,12 +29,9 @@ public class TestTimer extends Screen implements ActionListener{
 		super();
 		setPreferredSize(new Dimension(width,height));
 		setBackground(Color.BLACK);
+		init(time);
 		
-		paused = false;
-		y=0;
-		this.time = time;
-		rate = (height/time*FLOW); //how much to take off the rectangle in order to get blank at the end
-		timer = new Timer((int)(FLOW*1000), this);
+		
 		/*JButton button = new JButton ("Pause");
 		button.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e)
@@ -54,9 +51,18 @@ public class TestTimer extends Screen implements ActionListener{
 			}
 		});
 		GTools.positionAndAdd(button, .9, .2, this);*/
-		start();
 	}
 	
+	
+	private void init(int time)
+	{
+		paused = false;
+		y=0;
+		this.time = time;
+		rate = (height/time*FLOW); //how much to take off the rectangle in order to get blank at the end
+		timer = new Timer((int)(FLOW*1000), this);
+		start();
+	}
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
@@ -96,7 +102,7 @@ public class TestTimer extends Screen implements ActionListener{
 		{
 			timer.stop();
 			Controller.getController().endTurn();
-			
+			init(time);
 		}
 	}
 	public static void main(String[] args) {
