@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -24,17 +25,19 @@ public class AfterSelectionMap extends Screen{
 	public AfterSelectionMap(){
 		super();
 		Map map = Map.getMap();
+		setLayout(new BorderLayout());
 		
-		Tile[][] tileMap = map.getTileMap();
+		//set all buttons of the map disabled, except for the town
+		Tile[][] tileMap = Controller.getController().getTileMap();
 		for(int i = 0; i < tileMap.length; i++){
 			for(int j = 0; j < tileMap[0].length;j++)
 			if(!tileMap[i][j].equals(tileMap[2][4])){
 				tileMap[i][j].setEnabled(false);
 			}
 		}
-		add(map);
+		add(map, BorderLayout.CENTER);
 		JButton pub = new JButton("Pub");
-		GTools.positionAndAdd(pub, .5, 1.01, this);
+		//GTools.positionAndAdd(pub, .5, 1.01, this);
 		pub.addMouseListener(new MouseAdapter()
 		{
 			public void mouseClicked(MouseEvent e)
@@ -46,14 +49,15 @@ public class AfterSelectionMap extends Screen{
 				}
 			}
 		});
-		GTools.positionAndAdd(pub, .90, .90, this);
+		
+		add(pub, BorderLayout.SOUTH);
+		new Announcement("Player Turns start now");
 	}
 	
 	public static void main (String [] args)
 	{
 		Controller controller = new Controller();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
-		frame.getContentPane().setLayout(new java.awt.CardLayout());
 		//Iterator iterator = new Iterator(frame);
 		new Map();
 		frame.getContentPane().add(new AfterSelectionMap());

@@ -17,11 +17,13 @@ public class LandSelection extends Screen {
 		controller = Controller.getController();
 		iterator = Iterator.getIterator();
 		setLayout(new BorderLayout());
+		enableTiles();
 		add(Map.getMap(), BorderLayout.CENTER);
-		if(iterator.getRound() > 2) {
+		//if(iterator.getRound() > 2) {
 			pass = new JButton("Pass");
 			pass.addMouseListener(new PassListener());
-		}
+		//}
+			add(pass, BorderLayout.EAST);
 	}
 	
 	
@@ -30,9 +32,18 @@ public class LandSelection extends Screen {
 		public void mouseClicked(MouseEvent e)
 		{
 			if(controller.incrementCurrentPlayer() == null)
-				iterator.switchScreen(new Menu_Screen());
+				iterator.switchScreen(new AfterSelectionMap());
 			new Announcement("Current player is " + controller.getCurrentPlayer());
 		}
+	}
+	
+	private void enableTiles()
+	{
+		Tile [][] tiles = controller.getTileMap();
+		
+		for(Tile[] x: tiles)
+			for(Tile t: x)
+				t.setEnabled(true);
 	}
 	
 	public static void main (String [] args)

@@ -21,7 +21,7 @@ public class Controller {
 	private static int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
 	private String[][] makeMap;
-	private LinkedList<RoundPhase> phaseList;
+	//private LinkedList<RoundPhase> phaseList;
 	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
@@ -73,7 +73,8 @@ public class Controller {
 		currPlayer = players.get(0);
 		playerInd = 0;
 		LandOffice landOffice = new LandOffice();
-		iterator.switchScreen(new Map());
+		new Map(); //initialize the map
+		iterator.switchScreen(new LandSelection());
 		
 	}
 	public void setCurrentPlayer(Player player){
