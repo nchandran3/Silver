@@ -47,6 +47,7 @@ public class AfterSelectionMap extends Screen{
 		add(pub, BorderLayout.SOUTH);
 		
 		GameTimer timer = GameTimer.getTimer();
+		timer.reset(15);
 		add(timer, BorderLayout.WEST);
 		timer.start();
 		new Announcement("Player Turns start now");

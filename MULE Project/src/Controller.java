@@ -334,7 +334,8 @@ public class Controller {
 		}
 		else if (phase == 2)
 		{
-			timer.reset(getCurrentPlayer().getProperties());
+			timer.reset(currPlayer.calculateTime());
 		}
+		//else auction timer
 	}
 }

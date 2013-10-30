@@ -33,6 +33,7 @@ public class TownScreen extends Screen implements MouseListener{
 		setLayout(null);
 		iterator = Iterator.getIterator();
 		pub = new Pub();
+		GTools.positionAndAdd(GameTimer.getTimer(), 0, 0, this);
 	}
 	/**
 	 * Draws the town screen and all its components

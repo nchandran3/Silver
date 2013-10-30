@@ -81,6 +81,7 @@ public class Iterator {
 	}
 	public void incrementRound(){
 		round++;
+		System.out.println("Round is now " + round);
 	}
 	
 	
@@ -119,7 +120,8 @@ public class Iterator {
 			switchScreen(new AfterSelectionMap());
 			break;
 		case 3:
-			switchScreen(new Menu_Screen()); //switch this to Auction after it is implemented
+			switchScreen(new LandSelection()); //switch this to Auction after it is implemented
+			incrementRound();
 			break;
 		}
 	}
