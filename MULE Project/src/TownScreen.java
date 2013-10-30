@@ -46,22 +46,22 @@ public class TownScreen extends Screen implements MouseListener{
 		Image store = new ImageIcon("./Images/store.png").getImage();
 		g2.drawImage(store , 0, 40, super.getWidth()/4, super.getHeight()/3, null);
 		g2.setColor(Color.BLACK);
-		g2.drawString("STORE", 10, 30);
+//		g2.drawString("STORE", 10, 30);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));
 		Image pub = new ImageIcon("./Images/pub.png").getImage();
 		g2.drawImage(pub, super.width/4, 40, super.width/4, super.height/3, null);
-		g2.drawString("PUB", super.width/4, 30);
+//		g2.drawString("PUB", super.width/4, 30);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));	
 		Image officeImage = new ImageIcon("./Images/auction.png").getImage();
 		g2.drawImage(officeImage, super.width/2, 40, super.width/4, super.height/3, null);
-		g2.drawString("AUCTION HOUSE", super.width/2, 30);
+//		g2.drawString("AUCTION HOUSE", super.width/2, 30);
 		
 		g2.setFont(new Font("Stencil", Font.BOLD, 30));	
 		Image assay = new ImageIcon("./Images/assay.png").getImage();
 		g2.drawImage(assay, super.width/4 * 3, 40, super.width/4, super.height/3, null);
-		g2.drawString("ASSAY", super.width/4 *3, 30);
+//		g2.drawString("ASSAY", super.width/4 *3, 30);
 		
 		JButton back = new JButton("Back");
 		back.addMouseListener(new MouseAdapter()
@@ -73,6 +73,18 @@ public class TownScreen extends Screen implements MouseListener{
 			}
 		});
 		GTools.positionAndAdd(back, .5, .9, this);
+		
+		JButton pubButton = new JButton("Pub");
+		GTools.positionAndAdd(pubButton, 0.35, 0.03, this);
+		
+		JButton storeButton = new JButton("Store");
+		GTools.positionAndAdd(storeButton, 0.1, 0.03, this);
+		
+		JButton auctionHouseButton = new JButton("Auction House");
+		GTools.positionAndAdd(auctionHouseButton, 0.62, 0.03, this);
+		
+		JButton assayButton = new JButton("Assay");
+		GTools.positionAndAdd(assayButton, 0.87, 0.03, this);
 	}
 /*
   	public int getX(){
@@ -128,6 +140,10 @@ public class TownScreen extends Screen implements MouseListener{
 		frame.setLocation(new Point(100,0));
 		frame.pack();
 		frame.setVisible(true);
+	}
+	
+	public void back(){
+		if(Iterator.getIterator().)
 	}
 
 	@Override
