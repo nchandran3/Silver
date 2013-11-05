@@ -25,6 +25,7 @@ public class TownScreen extends Screen implements MouseListener{
 	int step_size = 10;
 	private Iterator iterator;
 	private Pub pub;
+	private GameTimer timer;
 	
 	public TownScreen(){
 		super();
@@ -33,7 +34,40 @@ public class TownScreen extends Screen implements MouseListener{
 		setLayout(null);
 		iterator = Iterator.getIterator();
 		pub = new Pub();
+		timer = GameTimer.getTimer();
 		GTools.positionAndAdd(GameTimer.getTimer(), 0, 0, this);
+		
+		JButton back = new JButton("Back");
+		back.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
+			{		
+				iterator.switchScreen(new AfterSelectionMap());
+			}
+		});
+		GTools.positionAndAdd(back, .5, .9, this);
+		
+		JButton pubButton = new JButton("Pub");
+		pubButton.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent e)
+			{	
+				pub.gamble(timer.getTimeRemaining());
+				Controller.controller.endTurn();
+				if(Controller.controller.getPlayerIndex() > 0)		//current player increments as soon as player clicks
+					iterator.switchScreen(new AfterSelectionMap());
+			}
+		});
+		GTools.positionAndAdd(pubButton, 0.35, 0.03, this);
+		
+		JButton storeButton = new JButton("Store");
+		GTools.positionAndAdd(storeButton, 0.1, 0.03, this);
+		
+		JButton auctionHouseButton = new JButton("Auction House");
+		GTools.positionAndAdd(auctionHouseButton, 0.62, 0.03, this);
+		
+		JButton assayButton = new JButton("Assay");
+		GTools.positionAndAdd(assayButton, 0.87, 0.03, this);
 	}
 	/**
 	 * Draws the town screen and all its components
@@ -67,38 +101,6 @@ public class TownScreen extends Screen implements MouseListener{
 		Image assayImage = new ImageIcon("./Images/assay.png").getImage();
 		g2.drawImage(assayImage, super.width/4 * 3, 40, super.width/4, super.height/3, null);
 //		g2.drawString("ASSAY", super.width/4 *3, 30);
-		
-		JButton back = new JButton("Back");
-		back.addMouseListener(new MouseAdapter()
-		{
-			public void mouseClicked(MouseEvent e)
-			{		
-				iterator.switchScreen(new AfterSelectionMap());
-			}
-		});
-		GTools.positionAndAdd(back, .5, .9, this);
-		
-		JButton pubButton = new JButton("Pub");
-		pubButton.addMouseListener(new MouseAdapter()
-		{
-			public void mouseClicked(MouseEvent e)
-			{	
-				pub.gamble(GameClock.clock.timeLeft());
-				iterator.switchScreen(new AfterSelectionMap());
-				Controller.controller.endTurn();
-			}
-		});
-		GTools.positionAndAdd(pubButton, 0.35, 0.03, this);
-		
-		JButton storeButton = new JButton("Store");
-		GTools.positionAndAdd(storeButton, 0.1, 0.03, this);
-		
-		JButton auctionHouseButton = new JButton("Auction House");
-		GTools.positionAndAdd(auctionHouseButton, 0.62, 0.03, this);
-		
-		JButton assayButton = new JButton("Assay");
-		GTools.positionAndAdd(assayButton, 0.87, 0.03, this);
-		
 	}
 /*
   	public int getX(){

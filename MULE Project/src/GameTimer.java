@@ -76,7 +76,9 @@ public class GameTimer extends Screen implements ActionListener{
 	}
 	public int getTimeRemaining()
 	{
-		return time - (int)(y/height * time);
+		int remaining = time - (int) (y/height * time);
+		System.out.println("Time remaining is " + remaining);
+		return remaining;
 	}
 	
 	/**

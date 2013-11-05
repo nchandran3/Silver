@@ -95,6 +95,14 @@ public class Controller {
 		System.out.println("Difficulty is " + difficulty);
 	}
 	
+	/**
+	 * Returns the current player's index
+	 * @return the current player's index (0 - # players)
+	 */
+	public int getCurrentPlayerIndex()
+	{
+		return playerInd;
+	}
 	//Don't really know why this is supposed to be static.  In case this causes problems,
 	//This method is called from the Tile buttonPressed() method
 	/**

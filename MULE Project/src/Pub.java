@@ -25,6 +25,7 @@ public class Pub{
 			moneyBonus = 250;
 		}
 		currPlayer.addResources(0, moneyBonus, 0, 0);
+		System.out.println("Player " + Controller.getController().getCurrentPlayer() + " gambled and won " + moneyBonus +"!");
 	}
 	/**
 	 * The Time bonus is computed by: 
