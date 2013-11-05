@@ -32,26 +32,6 @@ public class GameTimer extends Screen implements ActionListener{
 		setBackground(Color.BLACK);
 		init(time);
 		timer = this;
-		
-		/*JButton button = new JButton ("Pause");
-		button.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
-				if(!paused)
-				{
-					pause();
-					System.out.println("The time remaining is " + getTimeRemaining());
-					paused = true;
-					
-				}
-				else
-				{
-					timer.start();
-					paused = false;
-				}
-			}
-		});
-		GTools.positionAndAdd(button, .9, .2, this);*/
 	}
 	
 	
@@ -62,6 +42,7 @@ public class GameTimer extends Screen implements ActionListener{
 		this.time = time;
 		rate = (height/time*FLOW); //how much to take off the rectangle in order to get blank at the end
 		actionTimer = new Timer((int)(FLOW*1000), this);
+		actionTimer.setInitialDelay(3*1000); //wait three seconds before starting the timer, to allow reading annoucements.
 		start();
 	}
 	public void paintComponent(Graphics g)
@@ -114,14 +95,13 @@ public class GameTimer extends Screen implements ActionListener{
 			Controller.getController().endTurn();
 		}
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		JFrame frame = new JFrame();
-		GameTimer timer = new GameTimer(100);
+		GameTimer timer = new GameTimer(10);
 		frame.add(timer);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
-
 	}
-
 }

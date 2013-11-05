@@ -84,7 +84,7 @@ public abstract class Tile extends JButton{
 		if(Controller.buyLand(this)) //returns true if the player has enough money to complete the land transaction
 		{
 			Controller controller = Controller.getController();
-			controller.endTurn();
+			controller.endTurn();			//the player has purchased or obtained a land
 			/*if(controller.incrementCurrentPlayer() != null)
 			{
 				new Announcement("Current player is now " + controller.getCurrentPlayer());

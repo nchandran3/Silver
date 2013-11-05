@@ -17,30 +17,23 @@ public class LandSelection extends Screen {
 		super();
 		controller = Controller.getController();
 		iterator = Iterator.getIterator();
-		clock = new GameTimer(10);
+		
 		setLayout(new BorderLayout());
+		
 		enableTiles();
 		add(Map.getMap(), BorderLayout.CENTER);
-		
 		
 		if(iterator.getRound() > 2) {
 			LandOffice.getLandOffice().setPrice(); //tiles now cost money to players if the round is greater than 2
 		}
 		
+		clock = GameTimer.getTimer();
+		clock.reset(10);
 		add(clock, BorderLayout.WEST);
+		System.out.println("New Land Selection Phase; clock added");
 		//clock.resetClock(10);
 	}
 	
-	
-	private class PassListener extends MouseAdapter
-	{
-		public void mouseClicked(MouseEvent e)
-		{
-			if(controller.incrementCurrentPlayer() == null)
-				iterator.switchScreen(new AfterSelectionMap());
-			new Announcement("Current player is " + controller.getCurrentPlayer());
-		}
-	}
 	
 	private void enableTiles()
 	{
@@ -49,7 +42,8 @@ public class LandSelection extends Screen {
 		for(Tile[] x: tiles)
 			for(Tile t: x)
 				t.setEnabled(true);
-		tiles[2][4].setEnabled(false); // do not let players click on the town - it is not ownable 
+		
+		tiles[2][4].setEnabled(false); // does not let players click on the town - it is not ownable 
 	}
 	
 	public static void main (String [] args)

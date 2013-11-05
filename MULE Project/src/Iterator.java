@@ -102,7 +102,8 @@ public class Iterator {
  */
 	public void incrementPhase()
 	{
-		currPhase =  (currPhase % 3) + 1; // ensures that currPhase cycles between 1, 2, or 3.
+//		currPhase =  (currPhase % 3) + 1; 		//ensures that currPhase cycles between 1, 2, or 3.
+		currPhase = (currPhase%2) + 1;		    //used only for testing because Auction is not implemented yet
 	}
 	
 	/**
@@ -114,15 +115,16 @@ public class Iterator {
 		incrementPhase();
 		switch (currPhase) {
 		case 1:
+			incrementRound();
 			switchScreen(new LandSelection());
 			break;
 		case 2:
 			switchScreen(new AfterSelectionMap());
 			break;
-		case 3:
-			switchScreen(new LandSelection()); //switch this to Auction after it is implemented
-			incrementRound();
-			break;
+//		case 3:
+//			switchScreen(new Auction()); //switch this to Auction after it is implemented
+//			incrementRound();			//move this to the beginning of phase 1.
+//			break;
 		}
 	}
 }

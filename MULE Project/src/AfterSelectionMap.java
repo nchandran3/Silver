@@ -22,6 +22,7 @@ import control.GTools;
  *
  */
 public class AfterSelectionMap extends Screen{
+	GameTimer timer;
 	public AfterSelectionMap(){
 		super();
 		Map map = Map.getMap();
@@ -29,27 +30,12 @@ public class AfterSelectionMap extends Screen{
 		
 		disableTiles();
 		
-		add(map, BorderLayout.CENTER);
-		JButton pub = new JButton("Pub");
-		//GTools.positionAndAdd(pub, .5, 1.01, this);
-		pub.addMouseListener(new MouseAdapter()
-		{
-			public void mouseClicked(MouseEvent e)
-			{		
-				Controller controller = Controller.getController();
-				if(controller.incrementCurrentPlayer() == null){
-					Iterator iterator = Iterator.getIterator();
-					iterator.switchScreen(new LandSelection());
-				}
-			}
-		});
+		add(map, BorderLayout.CENTER);		
 		
-		add(pub, BorderLayout.SOUTH);
-		
-		GameTimer timer = GameTimer.getTimer();
-		timer.reset(15);
+		timer = GameTimer.getTimer();
+		timer.reset(35);
 		add(timer, BorderLayout.WEST);
-		timer.start();
+		
 		new Announcement("Player Turns start now");
 	}
 	

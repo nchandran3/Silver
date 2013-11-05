@@ -74,7 +74,8 @@ public class Controller {
 		playerInd = 0;
 		LandOffice landOffice = new LandOffice();
 		new Map(); //initialize the map
-		new GameClock(); //initialize the game clock 
+		new GameTimer(10); //initialize the game clock 
+		GameTimer.getTimer().pause(); // allow the next screen to initialize it
 		iterator.setCurrentPhase(1);
 		iterator.switchScreen(new LandSelection());
 	}
@@ -312,14 +313,15 @@ public class Controller {
 	
 	public void endTurn()
 	{
+		GameTimer timer = GameTimer.getTimer(); //any time a player ends their turn, stop the timer
+		timer.pause();
+		
 		if(incrementCurrentPlayer() == null) //if the last player has gone, then switch to the next phase.
 		{
 			Iterator.getIterator().switchToNextPhase(); 
 		}
 		else
-		{
 			resetClock();
-		}
 		new Announcement("Current player is now " + currPlayer);
 	}
 	
@@ -327,9 +329,9 @@ public class Controller {
 	{
 		int phase = Iterator.getIterator().getCurrentPhase();
 		GameTimer timer = GameTimer.getTimer();
+		
 		if(phase == 1) //Land Selection Phase
 		{
-			timer.pause();
 			timer.reset(10);
 		}
 		else if (phase == 2)
