@@ -2,6 +2,7 @@ package ViewScreens;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,19 +21,45 @@ import control.Store;
  */
 public final class StoreFrame extends JFrame {
 	private JTabbedPane tabs;
+	private StoreScreen mule, food, dragfire, ore;
 	
 	private StoreFrame()
 	{
+		super("Store");
 		setLayout(new BorderLayout());
 		
-		tabs = new JTabbedPane();
-		tabs.addTab("Food", new Food());
-		tabs.addTab("Mule", new Mule());
-		
-		//add the tabs (mule, food, dragonfire, ore)
+		init();
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		pack();
+	}
+	
+	private void init()
+	{
+		initStores();
+		add(new GoldPanel(), BorderLayout.NORTH);
+		initTabs();
+	}
+	
+	private void initStores()
+	{
+		mule = new Mule();
+		food = new Food();
+		dragfire = new DragonFire();
+		ore = new Ore();
+	}
+
+	private void initTabs()
+	{
+		tabs = new JTabbedPane();
+		
+		//add the tabs (mule, food, dragonfire, ore)
+		tabs.addTab("Mule", mule);
+		tabs.addTab("Food", food);
+		tabs.addTab("DragonFire", dragfire);
+		tabs.addTab("Ore", ore);
+		
+		add(tabs,BorderLayout.CENTER);
 	}
 	
 	
@@ -69,5 +96,11 @@ public final class StoreFrame extends JFrame {
 			this.setPreferredSize(new Dimension(100, 50));
 			this.add(new JLabel("GOLD : " + Store.getStore().getGold()));
 		}
+	}
+	
+	public static void main(String [] args)
+	{
+		StoreFrame frame = new StoreFrame();
+		frame.show();
 	}
 }
