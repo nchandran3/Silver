@@ -78,6 +78,7 @@ public class DragonFire extends StoreScreen {
 	@Override
 	void buyButtonPressed() {
 		store.buyDragonFire((int)selector.getSelectedItem());
+		updateComponents();
 	}
 
 	/* (non-Javadoc)
@@ -86,6 +87,7 @@ public class DragonFire extends StoreScreen {
 	@Override
 	void sellButtonPressed() {
 		store.sellDragonFire((int)selector.getSelectedItem());
+		updateComponents();
 	}
 
 	/**

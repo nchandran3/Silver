@@ -81,6 +81,7 @@ public class Mule extends StoreScreen {
 	@Override
 	void buyButtonPressed() {
 		store.buyMule((int)selector.getSelectedItem());
+		updateComponents();
 	}
 
 	/* (non-Javadoc)
