@@ -19,7 +19,7 @@ public class Store {
 	private static int ore;
 	private static int mule;
 	
-	public Store(){
+	private Store(){
 		setUp();
 	}
 	
@@ -39,6 +39,15 @@ public class Store {
 			mule = 14;
 		}
 		gold = 1000;
+	}
+	
+	private static class Holder
+	{
+		public static final Store STORE = new Store(); 
+	}
+	
+	public Store getStore(){
+		return Holder.STORE;
 	}
 	
 	/**
