@@ -89,7 +89,7 @@ public class Mule extends StoreScreen {
 	void buyButtonPressed() {
 		if(store.buyMule((int)selector.getSelectedItem()));			//if a mule can be bought, changes to mule placement screen
 		{
-			System.out.println("We're trying to buy some Mules and shit.")
+			System.out.println("We're trying to buy some Mules and shit.");
 			Tile.changeClickListener(new MuleListener());
 		}
 		
