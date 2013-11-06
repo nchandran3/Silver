@@ -79,6 +79,7 @@ public class Mule extends StoreScreen {
 		removeAll();
 		init();
 		repaint();
+		StoreFrame.frame().updateGold();
 	}
 
 	/* (non-Javadoc)

@@ -14,8 +14,10 @@ public class Ore extends StoreScreen {
 	 * Needs to set up the quantity box to have options 0 - storeInventory of the resource
 	 */
 	void setUpQuantityBox() {
-		Integer[] options = new Integer[getSupply()+1];
-		for(int i =0; i <= store.getDragonFire(); i++ )
+		int supply = getSupply()+1;
+		int owned = Controller.getController().getCurrentPlayer().getOre();
+		Integer[] options = new Integer[supply > owned ? supply : owned];
+		for(int i =0; i <= options.length; i++ )
 			options[i]= i;
 		
 		selector = new JComboBox<Integer>(options);
@@ -55,6 +57,8 @@ public class Ore extends StoreScreen {
 		removeAll();
 		init();
 		repaint();
+		StoreFrame.frame().updateGold();
+
 		// TODO Auto-generated method stub
 		
 	}

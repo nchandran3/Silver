@@ -30,8 +30,10 @@ public class Food extends StoreScreen {
 	@Override
 	void setUpQuantityBox() {
 		//fill options with choices 0 - the supply available
-		Integer[] options = new Integer[getSupply()+1];
-		for(int i =0; i <= store.getFood(); i++ )
+		int supply = getSupply()+1;
+		int owned = Controller.getController().getCurrentPlayer().getFood() + 1;
+		Integer[] options = new Integer[supply > owned ? supply : owned];
+		for(int i =0; i <= options.length; i++ )
 			options[i]= i;
 		
 		selector = new JComboBox<Integer>(options);
@@ -74,6 +76,7 @@ public class Food extends StoreScreen {
 		removeAll();
 		init();
 		repaint();
+		StoreFrame.frame().updateGold();
 	}
 
 	/* (non-Javadoc)

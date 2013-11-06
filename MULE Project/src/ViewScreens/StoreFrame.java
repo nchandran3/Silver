@@ -23,6 +23,7 @@ import control.Controller;
 public final class StoreFrame extends JFrame {
 	private JTabbedPane tabs;
 	private StoreScreen mule, food, dragfire, ore;
+	private GoldPanel goldPanel;
 	
 	private StoreFrame()
 	{
@@ -38,7 +39,8 @@ public final class StoreFrame extends JFrame {
 	private void init()
 	{
 		initStores();
-		add(new GoldPanel(), BorderLayout.NORTH);
+		goldPanel = new GoldPanel();
+		add(goldPanel, BorderLayout.NORTH);
 		initTabs();
 	}
 	
@@ -63,6 +65,11 @@ public final class StoreFrame extends JFrame {
 		add(tabs,BorderLayout.CENTER);
 	}
 	
+	public void updateGold()
+	{
+		goldPanel.updateGold();
+	}
+	
 	public void showStore()
 	{
 		setVisible(true);
@@ -78,6 +85,7 @@ public final class StoreFrame extends JFrame {
 	}
 	
 	
+	
 	/**
 	 * Singleton Holder class using Bill Pugh implementation
 	 *
@@ -90,13 +98,22 @@ public final class StoreFrame extends JFrame {
 	 
 	private class GoldPanel extends JPanel
 	{
-		JLabel gold = new JLabel("GOLD: " + Store.getStore().getGold());
+		private int money = Store.getStore().getGold();
+		JLabel gold = new JLabel("GOLD: " + money);
+		
 		public GoldPanel()
 		{
 			this.setBackground(Color.BLACK);
 			this.setPreferredSize(new Dimension(100, 50));
 			gold.setForeground(Color.YELLOW);
 			add(gold);
+		}
+		
+		public void updateGold()
+		{
+			money = Store.getStore().getGold();
+			gold.setText("GOLD: " + money);
+			revalidate();
 		}
 	}
 	

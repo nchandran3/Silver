@@ -27,8 +27,10 @@ public class DragonFire extends StoreScreen {
 	@Override
 	void setUpQuantityBox() {
 		//fill options with choices 0 - the supply available
-		Integer[] options = new Integer[getSupply()+1];
-		for(int i =0; i <= store.getDragonFire(); i++ )
+		int supply = getSupply()+1;
+		int owned = Controller.getController().getCurrentPlayer().getDragonFire();
+		Integer[] options = new Integer[supply > owned ? supply : owned];
+		for(int i =0; i <= options.length; i++ )
 			options[i]= i;
 		
 		selector = new JComboBox<Integer>(options);
@@ -89,6 +91,8 @@ public class DragonFire extends StoreScreen {
 		store.sellDragonFire((int)selector.getSelectedItem());
 		updateComponents();
 		repaint();
+		StoreFrame.frame().updateGold();
+
 	}
 
 	/**
