@@ -1,9 +1,11 @@
 package ViewScreens;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Panel;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,6 +14,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import org.omg.CORBA.PUBLIC_MEMBER;
 
@@ -39,11 +42,15 @@ public class TownScreen extends Screen implements MouseListener{
 		super();
 		this.setBackground(new Color(255, 200, 0));
 		//super(Color.YELLOW);
-		setLayout(null);
+		setLayout(new BorderLayout());
 		iterator = Iterator.getIterator();
 		pub = new Pub();
 		timer = GameTimer.getTimer();
-		GTools.positionAndAdd(GameTimer.getTimer(), 0, 0, this);
+		add(timer, BorderLayout.WEST);
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		add(panel, BorderLayout.CENTER);
+		panel.setSize(1080, 720);
 		
 		JButton back = new JButton("Back");
 		back.addMouseListener(new MouseAdapter()
@@ -53,7 +60,7 @@ public class TownScreen extends Screen implements MouseListener{
 				iterator.switchScreen(new AfterSelectionMap());
 			}
 		});
-		GTools.positionAndAdd(back, .5, .9, this);
+		GTools.positionAndAdd(back, .5, .9, panel);
 		
 		JButton pubButton = new JButton("Pub");
 		pubButton.addMouseListener(new MouseAdapter()
@@ -65,7 +72,7 @@ public class TownScreen extends Screen implements MouseListener{
 				Controller.controller.endTurn();
 			}
 		});
-		GTools.positionAndAdd(pubButton, 0.35, 0.03, this);
+		GTools.positionAndAdd(pubButton, 0.35, 0.03, panel);
 		
 		JButton storeButton = new JButton("Store");
 		storeButton.addMouseListener(new MouseAdapter(){
@@ -74,19 +81,19 @@ public class TownScreen extends Screen implements MouseListener{
 				StoreFrame.frame().showStore();
 			}
 		});
-		GTools.positionAndAdd(storeButton, 0.1, 0.03, this);
+		GTools.positionAndAdd(storeButton, 0.1, 0.03, panel);
 		
 		JButton auctionHouseButton = new JButton("Auction House");
-		GTools.positionAndAdd(auctionHouseButton, 0.62, 0.03, this);
+		GTools.positionAndAdd(auctionHouseButton, 0.62, 0.03, panel);
 		
 		JButton assayButton = new JButton("Assay");
-		GTools.positionAndAdd(assayButton, 0.87, 0.03, this);
+		GTools.positionAndAdd(assayButton, 0.87, 0.03, panel);
 	}
 	/**
 	 * Draws the town screen and all its components
 	 * @param Graphics G
 	 */
-	/*public void paintComponent(Graphics g){ 
+	public void paintComponent(Graphics g){ 
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		//Image store = GTools.compress(new ImageIcon("./Images/store.png"), 80, 80).getImage();
@@ -114,7 +121,7 @@ public class TownScreen extends Screen implements MouseListener{
 		Image assayImage = new ImageIcon("./Images/assay.png").getImage();
 		g2.drawImage(assayImage, super.width/4 * 3, 40, super.width/4, super.height/3, null);
 //		g2.drawString("ASSAY", super.width/4 *3, 30);
-	} */
+	} 
 /*
   	public int getX(){
 		

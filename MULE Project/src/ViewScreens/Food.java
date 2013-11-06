@@ -73,6 +73,7 @@ public class Food extends StoreScreen {
 	void updateComponents() {
 		removeAll();
 		init();
+		repaint();
 	}
 
 	/* (non-Javadoc)

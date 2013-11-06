@@ -88,6 +88,15 @@ public class GameTimer extends Screen implements ActionListener{
 		return remaining;
 	}
 	
+	public int getHeight()
+	{
+		return height;
+	}
+	
+	public int getWidth()
+	{
+		return width;
+	}
 	/**
 	 * Logic behind drawing the timer. If the timer runs out, it ends the current player's turn
 	 */

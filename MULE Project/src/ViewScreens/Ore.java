@@ -54,6 +54,7 @@ public class Ore extends StoreScreen {
 	void updateComponents() {
 		removeAll();
 		init();
+		repaint();
 		// TODO Auto-generated method stub
 		
 	}

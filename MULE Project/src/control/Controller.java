@@ -333,6 +333,8 @@ public class Controller {
 	{
 		GameTimer timer = GameTimer.getTimer(); //any time a player ends their turn, stop the timer
 		timer.pause();
+		StoreFrame frame=StoreFrame.frame();
+		frame.hideStore();       //store will go away if the player runs out of time
 		
 		if(incrementCurrentPlayer() == null) //if the last player has gone, then switch to the next phase.
 		{

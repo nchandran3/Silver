@@ -88,6 +88,7 @@ public class DragonFire extends StoreScreen {
 	void sellButtonPressed() {
 		store.sellDragonFire((int)selector.getSelectedItem());
 		updateComponents();
+		repaint();
 	}
 
 	/**

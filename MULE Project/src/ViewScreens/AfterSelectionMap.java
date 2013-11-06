@@ -36,11 +36,13 @@ public class AfterSelectionMap extends Screen{
 		
 		disableTiles();
 		
-		add(map, BorderLayout.CENTER);		
-		
 		timer = GameTimer.getTimer();
 		timer.reset(35);
 		add(timer, BorderLayout.WEST);
+		
+		add(map, BorderLayout.CENTER);		
+		
+		
 		
 		new Announcement("Player Turns start now");
 	}

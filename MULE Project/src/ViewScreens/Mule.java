@@ -78,6 +78,7 @@ public class Mule extends StoreScreen {
 	void updateComponents() {
 		removeAll();
 		init();
+		repaint();
 	}
 
 	/* (non-Javadoc)
