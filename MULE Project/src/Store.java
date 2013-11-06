@@ -5,7 +5,7 @@
  *
  */
 
-public class Store extends TownScreen{
+public class Store {
 	private static int dragonFire;
 	private static int food;
 	private static int gold;

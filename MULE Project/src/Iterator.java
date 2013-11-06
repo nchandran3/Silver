@@ -18,6 +18,7 @@ public class Iterator {
 	private Map map;
 	private int currPhase;
 	private Screen cur_screen; //holds the current screen being displayed
+	private Screen prev_screen;
 
 	/**
 	 * Constructor that initializes the iterator
@@ -53,13 +54,23 @@ public class Iterator {
 	public void switchScreen(Screen screen)
 	{
 		contentPane.removeAll(); //remove current screen
+		setPreviousScreen(cur_screen);	//only really used with town screen
 		cur_screen = screen;			//add next screen to display
 		contentPane.add(screen);
 		frame.setContentPane(contentPane);
 		frame.pack();
 	}
 	
+	public void setPreviousScreen(Screen screen)
+	{
+		prev_screen = screen;
+	}
 	
+	
+	public Screen getPreviousScreen()
+	{
+		return prev_screen;
+	}
 	/**
 	 * @return Screen that the Card Layout is currently on 
 	 */

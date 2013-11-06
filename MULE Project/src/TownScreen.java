@@ -53,9 +53,8 @@ public class TownScreen extends Screen implements MouseListener{
 			public void mouseClicked(MouseEvent e)
 			{	
 				pub.gamble(timer.getTimeRemaining());
+				iterator.switchScreen(iterator.getPreviousScreen());
 				Controller.controller.endTurn();
-				if(Controller.controller.getPlayerIndex() > 0)		//current player increments as soon as player clicks
-					iterator.switchScreen(new AfterSelectionMap());
 			}
 		});
 		GTools.positionAndAdd(pubButton, 0.35, 0.03, this);
