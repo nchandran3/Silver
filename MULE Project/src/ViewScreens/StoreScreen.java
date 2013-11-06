@@ -28,8 +28,8 @@ public abstract class StoreScreen extends JPanel{
 	protected JLabel resource_image;
 	protected ButtonListener listener = new ButtonListener();
 	protected Store store = Store.getStore();
-	protected final int WIDTH = 1000;
-	protected int HEIGHT = 800;
+	protected final int WIDTH = 1080;
+	protected int HEIGHT = 720;
 	
 	public StoreScreen()
 	{

@@ -26,6 +26,8 @@ public final class StoreFrame extends JFrame {
 		setLayout(new BorderLayout());
 		
 		tabs = new JTabbedPane();
+		tabs.addTab("Food", new Food());
+		tabs.addTab("Mule", new Mule());
 		
 		//add the tabs (mule, food, dragonfire, ore)
 		
