@@ -17,6 +17,10 @@ public class Store {
 	private static int food;
 	private static int gold;
 	private static int ore;
+	private static int dragonFirePrice;
+	private static int foodPrice;
+	private static int goldPrice;
+	private static int orePrice;
 	private static int mule;
 	
 	private Store(){
@@ -39,6 +43,9 @@ public class Store {
 			mule = 14;
 		}
 		gold = 1000;
+		setFoodPrice(30);
+		setDragonFirePrice(25);
+		setOrePrice(50);
 	}
 	
 	private static class Holder
@@ -50,7 +57,21 @@ public class Store {
 		return Holder.STORE;
 	}
 	
+	//*************************************************************************
+	//								SETTERS
+	//*************************************************************************
 	
+	public void setDragonFirePrice(int price){
+		dragonFirePrice = price;
+	}
+	
+	public void setFoodPrice(int price){
+		foodPrice = price;
+	}
+	
+	private void setOrePrice(int price){
+		orePrice = price;
+	}
 	
 	//*************************************************************************
 	//								GETTERS
@@ -61,9 +82,17 @@ public class Store {
 		return dragonFire;
 	}
 	
+	public int getDragonFirePrice(){
+		return dragonFirePrice;
+	}
+	
 	public int getFood()
 	{
 		return food;
+	}
+	
+	public int getFoodPrice(){
+		return foodPrice;
 	}
 	
 	public int getGold()
@@ -74,6 +103,10 @@ public class Store {
 	public int getOre()
 	{
 		return ore;
+	}
+	
+	public int getOrePrice(){
+		return orePrice;
 	}
 	
 	public int getMules()
