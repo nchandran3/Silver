@@ -18,7 +18,6 @@ import control.Store;
  *
  */
 public class Food extends StoreScreen {
-		private int supply = getSupply();	//the amount of food present in the store
 		
 	public int getSupply()
 	{
@@ -31,8 +30,8 @@ public class Food extends StoreScreen {
 	@Override
 	void setUpQuantityBox() {
 		//fill options with choices 0 - the supply available
-		Integer[] options = new Integer[getSupply()];
-		for(int i =0; i < supply; i++ )
+		Integer[] options = new Integer[getSupply()+1];
+		for(int i =0; i <= store.getFood(); i++ )
 			options[i]= i;
 		
 		selector = new JComboBox<Integer>(options);
