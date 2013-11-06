@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import control.GTools;
+import control.Store;
 
 
 /**
@@ -25,6 +26,7 @@ public abstract class StoreScreen extends JPanel{
 	protected JComboBox<Integer> selector;
 	protected JLabel resource_image;
 	protected ButtonListener listener = new ButtonListener();
+	protected Store store = Store.getStore();
 	
 	public StoreScreen()
 	{
