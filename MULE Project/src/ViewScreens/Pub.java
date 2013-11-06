@@ -24,7 +24,8 @@ public class Pub{
 	 */
 	public void gamble(int time){
 		Player currPlayer = Controller.getController().getCurrentPlayer();
-		
+		//int random = (int )(Math.random() * 50 + 1);
+
 		int moneyBonus = 0;
 		moneyBonus = (int) (roundBonus() * (Math.random()*timeBonus(time)));
 		if(moneyBonus > 250){
