@@ -24,13 +24,17 @@ public abstract class StoreScreen extends JPanel{
 	protected JLabel price, storeInventory;
 	protected JButton buy, sell;
 	protected JComboBox<Integer> selector;
+	protected JLabel selectorLabel;
 	protected JLabel resource_image;
 	protected ButtonListener listener = new ButtonListener();
 	protected Store store = Store.getStore();
+	protected final int WIDTH = 1000;
+	protected int HEIGHT = 800;
 	
 	public StoreScreen()
 	{
-		setPreferredSize(new Dimension(500,500));
+		setLayout(null); 				//use GTools to add components
+		setPreferredSize(new Dimension(WIDTH,HEIGHT));
 		setBackground(Color.GRAY);
 		
 		init();
@@ -41,6 +45,7 @@ public abstract class StoreScreen extends JPanel{
 	 */
 	protected void init()
 	{
+		setUpQuantityBoxLabel();
 		setUpQuantityBox();
 		setUpPriceLabel();
 		setUpInventoryLabel();
@@ -61,11 +66,12 @@ public abstract class StoreScreen extends JPanel{
 	protected void addComponents()
 	{
 		GTools.positionAndAdd(resource_image, .5, .1, this);
-		GTools.positionAndAdd(price, .4, .3, this);
-		GTools.positionAndAdd(storeInventory, .6, .3, this);
-		GTools.positionAndAdd(selector, .5, .6, this);
-		GTools.positionAndAdd(buy, .45, .95, this);
-		GTools.positionAndAdd(sell, .55, .95, this);
+		GTools.positionAndAdd(price, .2, .3, this);
+		GTools.positionAndAdd(storeInventory, .8, .3, this);
+		GTools.positionAndAdd(selectorLabel, .4, .6, this);
+		GTools.positionAndAdd(selector, .6, .6, 1.75, 1, this);
+		GTools.positionAndAdd(buy, .3, .95, this);
+		GTools.positionAndAdd(sell, .7, .95, this);
 	}
 	
 	
@@ -73,6 +79,11 @@ public abstract class StoreScreen extends JPanel{
 	 * Needs to set up the quantity box to have options 0 - storeInventory of the resource
 	 */
 	abstract void setUpQuantityBox();
+	
+	/**
+	 * Needs to set up the quantity box label to say "#of resource to buy/sell"
+	 */
+	abstract void setUpQuantityBoxLabel();
 	
 	/**
 	 * The price label should display "Price " + resource's price
@@ -105,6 +116,16 @@ public abstract class StoreScreen extends JPanel{
 	 */
 	abstract void sellButtonPressed();
 	
+	
+	public int getWidth()
+	{
+		return WIDTH;
+	}
+	
+	public int getHeight()
+	{
+		return HEIGHT;
+	}
 	
 	/**
 	 * Private  listener class that is attached to the buttons

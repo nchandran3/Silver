@@ -4,8 +4,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+
+import control.Store;
 
 /**
  * 
@@ -62,7 +65,7 @@ public final class StoreFrame extends JFrame {
 		{
 			this.setBackground(Color.BLACK);
 			this.setPreferredSize(new Dimension(100, 50));
-			this.add(new JLabel("GOLD : " + ))
+			this.add(new JLabel("GOLD : " + Store.getStore().getGold()));
 		}
 	}
 }

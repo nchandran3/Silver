@@ -4,10 +4,13 @@
 package ViewScreens;
 
 import javax.naming.InitialContext;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.event.ListDataListener;
 
+import control.Controller;
 import control.Store;
 
 /**
@@ -34,6 +37,11 @@ public class Food extends StoreScreen {
 		
 		selector = new JComboBox<Integer>(options);
 	}
+	
+	@Override
+	void setUpQuantityBoxLabel() {
+		selectorLabel = new JLabel("Amount of Food to Buy / Sell");
+	}
 
 	/* (non-Javadoc)
 	 * @see ViewScreens.StoreScreen#setUpPriceLabel()
@@ -56,8 +64,7 @@ public class Food extends StoreScreen {
 	 */
 	@Override
 	void setUpResourceImage() {
-		// TODO Auto-generated method stub
-
+		resource_image = new JLabel(new ImageIcon("./Images/plain.png"));
 	}
 
 	/* (non-Javadoc)
@@ -74,8 +81,7 @@ public class Food extends StoreScreen {
 	 */
 	@Override
 	void buyButtonPressed() {
-		// TODO Auto-generated method stub
-
+		store.buyFood((int)selector.getSelectedItem());
 	}
 
 	/* (non-Javadoc)
@@ -83,16 +89,21 @@ public class Food extends StoreScreen {
 	 */
 	@Override
 	void sellButtonPressed() {
-		// TODO Auto-generated method stub
-
+		store.sellFood((int)selector.getSelectedItem());
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		JFrame frame = new JFrame();
+		new Controller();
+		frame.add(new Food());
+		frame.pack();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
+	
 
 }
