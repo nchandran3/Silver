@@ -22,7 +22,7 @@ public abstract class StoreScreen extends JPanel{
 	private static final long serialVersionUID = 1L;
 	protected JLabel price, storeInventory;
 	protected JButton buy, sell;
-	protected JComboBox selector;
+	protected JComboBox<Integer> selector;
 	protected JLabel resource_image;
 	protected ButtonListener listener = new ButtonListener();
 	
