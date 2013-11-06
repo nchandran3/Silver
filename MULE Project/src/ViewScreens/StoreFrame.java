@@ -79,6 +79,7 @@ public final class StoreFrame extends JFrame {
 	{
 		setVisible(false);
 	}
+	
 	public static StoreFrame frame()
 	{
 		return Holder.FRAME;

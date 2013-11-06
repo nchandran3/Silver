@@ -36,6 +36,7 @@ public class MuleListener extends TileListener{
 		Tile source = (Tile) e.getSource();
 		Player currPlayer = Controller.getController().getCurrentPlayer();
 		if(currPlayer.equals(source.getOwner())){
+			System.out.println("We can see the half-ass!");
 			source.changeMule(currPlayer.getMule());
 		}
 		currPlayer.setMule(-1);
