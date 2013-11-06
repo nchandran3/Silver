@@ -1,18 +1,20 @@
 package ViewScreens;
 
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
+import control.*;
 public class Ore extends StoreScreen {
 
-
-	
-	public Ore(){
-		super();
-	}
 	/**
 	 * Needs to set up the quantity box to have options 0 - storeInventory of the resource
 	 */
-	public void setUpQuantityBox() {
+	void setUpQuantityBox() {
+		Integer[] options = new Integer[Store.getStore().getOre()];
+		for(int i =0; i <Store.getStore().getOre(); i++ )
+			options[i]= i;
+		
+		selector = new JComboBox<Integer>(options);
 		// TODO Auto-generated method stub
 		
 	}
@@ -20,9 +22,9 @@ public class Ore extends StoreScreen {
 	/**
 	 * The price label should display "Price " + resource's price
 	 */
-	public void setUpPriceLabel() {
-		price = new JLabel("Price of Ore");
-		price.
+	void setUpPriceLabel() {
+		price = new JLabel("Price of Ore" + Store.getStore().getOrePrice());
+		
 		// TODO Auto-generated method stub
 		
 	}
@@ -31,6 +33,7 @@ public class Ore extends StoreScreen {
 	 * The storeInventory label should display the amount of resources remaining in the store of the given resource
 	 */
 	void setUpInventoryLabel() {
+		storeInventory = new JLabel("There are: " + Store.getStore().getOre() + " remaining in the store.");
 		// TODO Auto-generated method stub
 		
 	}
@@ -48,6 +51,8 @@ public class Ore extends StoreScreen {
 	 * selector, price, storeInventory
 	 */
 	void updateComponents() {
+		removeAll();
+		init();
 		// TODO Auto-generated method stub
 		
 	}
