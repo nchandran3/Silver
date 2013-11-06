@@ -39,7 +39,7 @@ public abstract class StoreScreen extends JPanel{
 	/**
 	 * Initialize all components when the class is created. Should only be called upon instantiation.
 	 */
-	private void init()
+	protected void init()
 	{
 		setUpQuantityBox();
 		setUpPriceLabel();
