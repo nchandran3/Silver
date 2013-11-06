@@ -4,6 +4,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +27,8 @@ public abstract class Tile extends JButton{
 	protected int x;
 	protected int y;
 	protected JButton button;
-	protected TileListener tListener;
+	protected static TileListener tListener;
+	protected int muleType; // -1 = non-existent, 0 = food, 1 = DragonFire, 2 = Ore
 	
 	/*
 	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to 
@@ -35,6 +37,7 @@ public abstract class Tile extends JButton{
 	public Tile(){
 		super();
 		//setLayout(new BorderLayout());
+		muleType = -1;
 		setFocusable(true);
 		requestFocus();
 		//Change the tileName to match the name of the corresponding png file
@@ -57,6 +60,25 @@ public abstract class Tile extends JButton{
 		//button.addMouseListener(tListener);
 	}
 	
+	public void changeClickListener(TileListener listens){
+		Tile[][] tileMap = Controller.getController().getTileMap();
+		for(Tile [] x : tileMap){
+			for(Tile t : x){
+				t.addClickListener(listens);
+			}
+		}
+	}
+	
+	/**
+	 * This method will attempt to replace the current listener with the listener placed inside.
+	 * @param listens
+	 */
+	public void addClickListener(TileListener listens){
+		removeMouseListener(tListener);
+		tListener=listens;
+		addMouseListener(tListener);
+	}
+	
 	/**
 	 * This attempts to retrieve the image file from the Images folder and save it to the tile's
 	 * img variable.
@@ -69,6 +91,10 @@ public abstract class Tile extends JButton{
 	   
 	}
 	
+	/**
+	 * Not sure if this is needed.  Further testing required.  Should paint the actual tiles
+	 * to the map.  Emphasis on should.
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 	    super.paintComponent(g);
@@ -81,25 +107,36 @@ public abstract class Tile extends JButton{
 	 */
 	protected void buttonPressed()
 	{
-		if(Controller.buyLand(this)) //returns true if the player has enough money to complete the land transaction
-		{
-			Controller controller = Controller.getController();
-			controller.endTurn();			//the player has purchased or obtained a land
-			/*if(controller.incrementCurrentPlayer() != null)
+		if(tListener.getBuyLand()){
+			if(Controller.buyLand(this)) //returns true if the player has enough money to complete the land transaction
 			{
-				new Announcement("Current player is now " + controller.getCurrentPlayer());
+				Controller controller = Controller.getController();
+				controller.endTurn();			//the player has purchased or obtained a land
+				/*if(controller.incrementCurrentPlayer() != null)
+				{
+					new Announcement("Current player is now " + controller.getCurrentPlayer());
+				}
+				else
+				{
+					Iterator iterator = Iterator.getIterator();
+					iterator.incrementRound();
+					new Announcement("Round has changed to " + iterator.getRound());
+				}*/
 			}
+		
 			else
 			{
-				Iterator iterator = Iterator.getIterator();
-				iterator.incrementRound();
-				new Announcement("Round has changed to " + iterator.getRound());
-			}*/
-		}
-		
-		else
-		{
-			new Announcement("Transaction failed: Insufficient money or Owned Property");
+				new Announcement("Transaction failed: Insufficient money or Owned Property");
+			}
+		}else{
+			Player currPlayer = Controller.getController().getCurrentPlayer();
+			if(currPlayer.equals(owner)){
+				changeMule(currPlayer.getMule());
+			}
+			currPlayer.setMule(-1);
+			changeClickListener(new TileListener());
+			//This should set the cursor back to normal.
+			//Toolkit.getDefaultToolkit().
 		}
 	}
 	
@@ -139,6 +176,24 @@ public abstract class Tile extends JButton{
 	
 	public void setY(int y){
 		this.y=y;
+	}
+	
+	/**
+	 * Return the type of mule present on the tile
+	 * -1 = No mule, 0 = food, 1 = DragonFire, 2 = ore
+	 * @return
+	 */
+	public int getMule(){
+		return muleType;
+	}
+	
+	/**
+	 * Changes whatever is currently the muleType to whatever is used as a parameter.  Then
+	 * updates the tile's appearance to reflect the current mule.
+	 * @param newMule
+	 */
+	public void changeMule(int newMule){
+		muleType = newMule;
 	}
 
 }

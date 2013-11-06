@@ -31,6 +31,7 @@ public class Store {
 			ore = 8;
 			mule = 14;
 		}
+		gold = 1000;
 	}
 	
 	/**
@@ -44,6 +45,20 @@ public class Store {
 			if(foodReq*30<= player.getGold()){
 				player.addResources(0, -30*foodReq, foodReq, 0);
 				food-=foodReq;
+				gold+=foodReq*30;
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean sellFood(int foodReq){
+		Player player =Controller.getController().getCurrentPlayer();
+		if(foodReq<=player.getFood()){
+			if(foodReq*30<= gold){
+				player.addResources(0, 30*foodReq, -foodReq, 0);
+				food+=foodReq;
+				gold-=foodReq*30;
 				return true;
 			}
 		}
@@ -61,6 +76,20 @@ public class Store {
 			if(dragonReq*25<= player.getGold()){
 				player.addResources(dragonReq, -25*dragonReq, 0, 0);
 				dragonFire-=dragonReq;
+				gold+=dragonReq*25;
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean sellDragonFire(int dragonReq){
+		Player player =Controller.getController().getCurrentPlayer();
+		if(dragonReq<=player.getDragonFire()){
+			if(dragonReq*25<= gold){
+				player.addResources(-dragonReq, 25*dragonReq, 0, 0);
+				dragonFire+=dragonReq;
+				gold-=dragonReq*25;
 				return true;
 			}
 		}
@@ -78,6 +107,20 @@ public class Store {
 			if(oreReq*50<= player.getGold()){
 				player.addResources(0, -50*oreReq, 0, oreReq);
 				ore-=oreReq;
+				gold+=oreReq*50;
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean sellOre(int oreReq){
+		Player player =Controller.getController().getCurrentPlayer();
+		if(oreReq<=player.getOre()){
+			if(oreReq*50<= gold){
+				player.addResources(-oreReq, 50*oreReq, 0, 0);
+				ore+=oreReq;
+				gold-=oreReq*50;
 				return true;
 			}
 		}

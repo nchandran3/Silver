@@ -22,7 +22,7 @@ public class Player {
 	private int gold;
 	private int food;
 	private int ore;
-	private int muleType;
+	private int muleType; // -1= No mule, 0 = food, 1 = dragonFire, 2 = ore
 	private int tilesOwned;
 	private Point location;
 	private static ArrayList<Player> plArray = new ArrayList<Player>();
@@ -160,6 +160,10 @@ public class Player {
 		return food;
 	}
 	
+	public int getOre(){
+		return ore;
+	}
+	
 	/**
 	 * Calculates the player's current score.
 	 * Score calculation = sum of resources * properties owned
@@ -173,10 +177,15 @@ public class Player {
 		return color;
 	}
 	
+	/**
+	 * Returns the player's image, set in playerInit().
+	 * @return
+	 */
 	public ImageIcon getImage()
 	{
 		return image;
 	}
+	
 	/**
 	 * Returns -1 if the player has no mule, 0, 1, or 2 for food, energy, and ore respectively
 	 * @return
@@ -185,18 +194,33 @@ public class Player {
 		return muleType;
 	}
 	
+	/**
+	 * Setting the muleType should follow these guidelines:
+	 * -1 = no mule, 0 = food mule, 1 = dragonFire mule, 2 = ore mule
+	 * @param muleType
+	 */
 	public void setMule(int muleType){
 		this.muleType = muleType;
 	}
 	
+	/**
+	 * Player just gained a property.
+	 */
 	public void addProperty(){
 		tilesOwned++;
 	}
 	
+	/**
+	 * Player just lost a property.
+	 */
 	public void removeProperty(){
 		tilesOwned--;
 	}
 	
+	/**
+	 * Returns the number of properties owned.  Mainly used for player score valuation.
+	 * @return
+	 */
 	public int getProperties(){
 		return tilesOwned;
 	}

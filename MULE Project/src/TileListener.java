@@ -12,15 +12,25 @@ import javax.swing.border.LineBorder;
  *
  */
 public class TileListener extends MouseAdapter{
+	private boolean buyLand;
+	
 	
 	public TileListener(){
-		
+		buyLand = true;
 	}
 	
 	public void mouseOver(MouseEvent e){
 		JButton source = (JButton) e.getSource();
 		//source.setBorder(new LineBorder(Color.GRAY, 10));
 		source.setBackground(Color.BLACK);
+	}
+	
+	/**
+	 * Returns whether or not this listener is intended to buy land or not.
+	 * @return
+	 */
+	public boolean getBuyLand(){
+		return buyLand;
 	}
 
 }
