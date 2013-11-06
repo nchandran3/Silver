@@ -1,5 +1,6 @@
 package ViewScreens;
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
@@ -23,6 +24,7 @@ public abstract class StoreScreen extends JPanel{
 	protected JButton buy, sell;
 	protected JComboBox selector;
 	protected JLabel resource_image;
+	protected ButtonListener listener = new ButtonListener();
 	
 	public StoreScreen()
 	{
@@ -44,6 +46,9 @@ public abstract class StoreScreen extends JPanel{
 		
 		buy = new JButton("Buy");
 		sell = new JButton("Sell");
+		
+		buy.addMouseListener(listener);
+		sell.addMouseListener(listener);
 		
 		addComponents();
 	}
@@ -88,8 +93,20 @@ public abstract class StoreScreen extends JPanel{
 	 */
 	abstract void updateComponents();
 	
+	/**
+	 * mouseClicked method that should occur when the buy button is pressed
+	 */
+	abstract void buyButtonPressed();
+	
+	/**
+	 * mouseClicked method that should occur when the sell button is pressed
+	 */
+	abstract void sellButtonPressed();
 	
 	
+	/**
+	 * Private  listener class that is attached to the buttons
+	 */
 	private class ButtonListener extends MouseAdapter
 	{
 		public void mouseClicked(MouseEvent e)
@@ -98,8 +115,16 @@ public abstract class StoreScreen extends JPanel{
 			
 			if(src == buy)
 			{
-				
+				buyButtonPressed();
+			}
+			
+			else 
+			{
+				sellButtonPressed();
 			}
 		}
 	}
+	
+	
+//end StoreScreen class	
 }
