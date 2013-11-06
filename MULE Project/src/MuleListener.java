@@ -26,4 +26,18 @@ public class MuleListener extends TileListener{
 		source.setBackground(Color.BLACK);
 	}
 	
+	public void mouseClicked(MouseEvent e){
+		Tile source = (Tile) e.getSource();
+		Player currPlayer = Controller.getController().getCurrentPlayer();
+		if(currPlayer.equals(source.getOwner())){
+			source.changeMule(currPlayer.getMule());
+		}
+		currPlayer.setMule(-1);
+		source.changeClickListener(new TileListener());
+		
+		
+		//This should set the cursor back to normal.
+		//Toolkit.getDefaultToolkit().
+	}
+	
 }

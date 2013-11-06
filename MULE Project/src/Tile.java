@@ -51,11 +51,11 @@ public abstract class Tile extends JButton{
 		add(button);*/
 		//This is some shitty code, but I can't really figure out how to get around it.
 		//Theoretically calls buttonPressed() in the case that the covering JButton is pressed.
-		addActionListener(new ActionListener() { 
+		/*addActionListener(new ActionListener() { 
 			  public void actionPerformed(ActionEvent e) { 
 			    buttonPressed();
 			  } 
-			} );
+			} );*/
 		addMouseListener(tListener);
 		//button.addMouseListener(tListener);
 	}
@@ -107,7 +107,7 @@ public abstract class Tile extends JButton{
 	 */
 	protected void buttonPressed()
 	{
-		if(tListener.getBuyLand()){
+		/*if(tListener.getBuyLand()){
 			if(Controller.buyLand(this)) //returns true if the player has enough money to complete the land transaction
 			{
 				Controller controller = Controller.getController();
@@ -122,22 +122,24 @@ public abstract class Tile extends JButton{
 					iterator.incrementRound();
 					new Announcement("Round has changed to " + iterator.getRound());
 				}*/
-			}
+			/*}
 		
 			else
 			{
 				new Announcement("Transaction failed: Insufficient money or Owned Property");
-			}
-		}else{
+			}*/
+		/*}else{
 			Player currPlayer = Controller.getController().getCurrentPlayer();
 			if(currPlayer.equals(owner)){
 				changeMule(currPlayer.getMule());
 			}
 			currPlayer.setMule(-1);
 			changeClickListener(new TileListener());
+			
+			
 			//This should set the cursor back to normal.
 			//Toolkit.getDefaultToolkit().
-		}
+		}*/
 	}
 	
 	/**
