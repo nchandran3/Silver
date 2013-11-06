@@ -33,7 +33,7 @@ public class Food extends StoreScreen {
 		int supply = getSupply()+1;
 		int owned = Controller.getController().getCurrentPlayer().getFood() + 1;
 		Integer[] options = new Integer[supply > owned ? supply : owned];
-		for(int i =0; i <= options.length; i++ )
+		for(int i =0; i < options.length; i++ )
 			options[i]= i;
 		
 		selector = new JComboBox<Integer>(options);
