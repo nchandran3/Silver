@@ -70,7 +70,7 @@ public abstract class Tile extends JButton{
 		//button.addMouseListener(tListener);
 	}
 	
-	public void changeClickListener(TileListener listens){
+	public static void changeClickListener(TileListener listens){
 		Tile[][] tileMap = Controller.getController().getTileMap();
 		for(Tile [] x : tileMap){
 			for(Tile t : x){

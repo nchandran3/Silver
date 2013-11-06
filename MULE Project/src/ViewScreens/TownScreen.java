@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import control.GTools;
 import Components.*;
 import Player.*;
@@ -66,6 +68,12 @@ public class TownScreen extends Screen implements MouseListener{
 		GTools.positionAndAdd(pubButton, 0.35, 0.03, this);
 		
 		JButton storeButton = new JButton("Store");
+		storeButton.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e)
+			{
+				StoreFrame.frame().showStore();
+			}
+		});
 		GTools.positionAndAdd(storeButton, 0.1, 0.03, this);
 		
 		JButton auctionHouseButton = new JButton("Auction House");
@@ -78,7 +86,7 @@ public class TownScreen extends Screen implements MouseListener{
 	 * Draws the town screen and all its components
 	 * @param Graphics G
 	 */
-	public void paintComponent(Graphics g){ 
+	/*public void paintComponent(Graphics g){ 
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		//Image store = GTools.compress(new ImageIcon("./Images/store.png"), 80, 80).getImage();
@@ -106,7 +114,7 @@ public class TownScreen extends Screen implements MouseListener{
 		Image assayImage = new ImageIcon("./Images/assay.png").getImage();
 		g2.drawImage(assayImage, super.width/4 * 3, 40, super.width/4, super.height/3, null);
 //		g2.drawString("ASSAY", super.width/4 *3, 30);
-	}
+	} */
 /*
   	public int getX(){
 		

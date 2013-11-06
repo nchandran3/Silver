@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import control.Store;
+import control.Controller;
 
 /**
  * 
@@ -52,7 +53,7 @@ public final class StoreFrame extends JFrame {
 	private void initTabs()
 	{
 		tabs = new JTabbedPane();
-		
+	
 		//add the tabs (mule, food, dragonfire, ore)
 		tabs.addTab("Mule", mule);
 		tabs.addTab("Food", food);
@@ -62,21 +63,20 @@ public final class StoreFrame extends JFrame {
 		add(tabs,BorderLayout.CENTER);
 	}
 	
+	public void showStore()
+	{
+		setVisible(true);
+	}
 	
+	public void hideStore()
+	{
+		setVisible(false);
+	}
 	public static StoreFrame frame()
 	{
 		return Holder.FRAME;
 	}
 	
-	public void show()
-	{
-		setVisible(true);
-	}
-	
-	public void hide()
-	{
-		setVisible(false);
-	}
 	
 	/**
 	 * Singleton Holder class using Bill Pugh implementation
@@ -90,17 +90,20 @@ public final class StoreFrame extends JFrame {
 	 
 	private class GoldPanel extends JPanel
 	{
+		JLabel gold = new JLabel("GOLD: " + Store.getStore().getGold());
 		public GoldPanel()
 		{
 			this.setBackground(Color.BLACK);
 			this.setPreferredSize(new Dimension(100, 50));
-			this.add(new JLabel("GOLD : " + Store.getStore().getGold()));
+			gold.setForeground(Color.YELLOW);
+			add(gold);
 		}
 	}
 	
 	public static void main(String [] args)
 	{
-		StoreFrame frame = new StoreFrame();
-		frame.show();
+		new Controller();
+		StoreFrame frame = StoreFrame.frame();
+		frame.showStore();
 	}
 }

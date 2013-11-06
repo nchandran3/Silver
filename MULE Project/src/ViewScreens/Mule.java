@@ -1,5 +1,7 @@
 package ViewScreens;
 
+import java.awt.Toolkit;
+
 import javax.naming.InitialContext;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -7,8 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.event.ListDataListener;
 
+import Tile.MuleListener;
+import Tile.Tile;
 import control.Controller;
 import control.GTools;
+import control.Iterator;
 import control.Store;
 
 /**
@@ -80,8 +85,16 @@ public class Mule extends StoreScreen {
 	 */
 	@Override
 	void buyButtonPressed() {
-		store.buyMule((int)selector.getSelectedItem());
+		if(store.buyMule((int)selector.getSelectedItem()));			//if a mule can be bought, changes to mule placement screen
+		{
+			Tile.changeClickListener(new MuleListener());
+		}
+		
 		updateComponents();
+		
+		Iterator iterator = Iterator.getIterator();
+		iterator.switchScreen(iterator.getPreviousScreen());
+		StoreFrame.frame().hideStore();
 	}
 
 	/* (non-Javadoc)
