@@ -96,17 +96,17 @@ public class Store {
 		
 		int fee = 0;
 		switch(muleType){
-		case 0: fee = 25;
+		case 0: fee = 125;
 			break;
-		case 1: fee = 50;
+		case 1: fee = 150;
 			break;
-		case 2: fee = 75;
+		case 2: fee = 175;
 			break;
 		}
 		
 		if(mule>0 && player.getMule()<0 && fee > 0){
-			if(100+fee<= player.getGold()){
-				player.addResources(0, -(100+fee), 0, 0);
+			if(fee<= player.getGold()){
+				player.addResources(0, -(fee), 0, 0);
 				mule--;
 				player.setMule(muleType);
 				return true;
