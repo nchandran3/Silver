@@ -50,6 +50,41 @@ public class Store {
 		return Holder.STORE;
 	}
 	
+	
+	
+	//*************************************************************************
+	//								GETTERS
+	//*************************************************************************
+	
+	public int getDragonFire()
+	{
+		return dragonFire;
+	}
+	
+	public int getFood()
+	{
+		return food;
+	}
+	
+	public int getGold()
+	{
+		return gold;
+	}
+	
+	public int getOre()
+	{
+		return ore;
+	}
+	
+	public int getMules()
+	{
+		return mule;
+	}
+	
+	//**********************************************************************************
+	//									TRANSACTIONS
+	//**********************************************************************************
+	
 	/**
 	 * Checks validity of player's food transaction request.
 	 * @param foodReq number of food units desired
