@@ -46,7 +46,7 @@ public class Store {
 		public static final Store STORE = new Store(); 
 	}
 	
-	public Store getStore(){
+	public static Store getStore(){
 		return Holder.STORE;
 	}
 	
