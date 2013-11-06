@@ -45,7 +45,6 @@ public class Ore extends StoreScreen {
 	 */
 	void setUpResourceImage() {
 		resource_image = new JLabel(new ImageIcon("./Images/mountain.png"));
-		
 	}
 
 	/**
@@ -64,7 +63,7 @@ public class Ore extends StoreScreen {
 	 */
 	void buyButtonPressed() {
 		store.buyOre((int)selector.getSelectedItem());
-		
+		updateComponents();
 	}
 
 	/**
@@ -72,7 +71,7 @@ public class Ore extends StoreScreen {
 	 */
 	void sellButtonPressed() {
 		store.sellOre((int)selector.getSelectedItem());
-		
+		updateComponents();
 	}
 
 	@Override
