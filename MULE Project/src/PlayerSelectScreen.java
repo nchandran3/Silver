@@ -50,8 +50,9 @@ public class PlayerSelectScreen extends Screen {
 		txtEnterPlayerName = new JTextField();
 		txtEnterPlayerName.setFont(new Font("Lucida Sans Typewriter", Font.ITALIC, 20));
 		txtEnterPlayerName.setHorizontalAlignment(SwingConstants.CENTER);
-		textPrompt = "ENTER PLAYER NAME";
+		textPrompt = "Player " + players_created;
 		txtEnterPlayerName.setText(textPrompt);
+		txtEnterPlayerName.setColumns(10);
 		txtEnterPlayerName.addMouseListener(new MouseAdapter() //clear prompt when user focuses on textbox, and change text properties
 		{
 			public void mouseClicked(MouseEvent e)
