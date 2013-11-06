@@ -27,15 +27,17 @@ public class TileListener extends MouseAdapter{
 	
 	public void mouseClicked(MouseEvent e){
 		Tile source = (Tile) e.getSource();
-		if(Controller.buyLand(source)) //returns true if the player has enough money to complete the land transaction
-		{
-			Controller controller = Controller.getController();
-			controller.endTurn();
-		}
+		if(source.isEnabled()&&!source.isTown()){
+			if(Controller.buyLand(source)) //returns true if the player has enough money to complete the land transaction
+			{
+				Controller controller = Controller.getController();
+				controller.endTurn();
+			}
 	
-		else
-		{
-			new Announcement("Transaction failed: Insufficient money or Owned Property");
+			else
+			{
+				new Announcement("Transaction failed: Insufficient money or Owned Property");
+			}
 		}
 	}
 	

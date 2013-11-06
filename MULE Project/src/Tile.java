@@ -22,6 +22,7 @@ public abstract class Tile extends JButton{
 	ImageIcon img;
 	protected Player owner;
 	protected boolean isOwned;
+	protected boolean town;
 	protected String tileName;
 	protected String directory;
 	protected int x;
@@ -36,6 +37,7 @@ public abstract class Tile extends JButton{
 	 */
 	public Tile(){
 		super();
+		town = false;
 		//setLayout(new BorderLayout());
 		muleType = -1;
 		setFocusable(true);
@@ -56,7 +58,9 @@ public abstract class Tile extends JButton{
 			    buttonPressed();
 			  } 
 			} );*/
-		addMouseListener(tListener);
+		if(!isTown()){
+			addMouseListener(tListener);
+		}
 		//button.addMouseListener(tListener);
 	}
 	
@@ -64,7 +68,9 @@ public abstract class Tile extends JButton{
 		Tile[][] tileMap = Controller.getController().getTileMap();
 		for(Tile [] x : tileMap){
 			for(Tile t : x){
-				t.addClickListener(listens);
+				if(!t.isTown()){
+					t.addClickListener(listens);
+				}
 			}
 		}
 	}
@@ -77,6 +83,10 @@ public abstract class Tile extends JButton{
 		removeMouseListener(tListener);
 		tListener=listens;
 		addMouseListener(tListener);
+	}
+	
+	public boolean isTown(){
+		return town;
 	}
 	
 	/**
