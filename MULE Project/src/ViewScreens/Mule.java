@@ -8,17 +8,18 @@ import javax.swing.JLabel;
 import javax.swing.event.ListDataListener;
 
 import control.Controller;
+import control.GTools;
 import control.Store;
 
 /**
  * @author Hamilton Greene
  *
  */
-public class DragonFire extends StoreScreen {
+public class Mule extends StoreScreen {
 		
 	public int getSupply()
 	{
-		return store.getDragonFire();
+		return store.getMules();
 	}
 	
 	/* (non-Javadoc)
@@ -27,8 +28,8 @@ public class DragonFire extends StoreScreen {
 	@Override
 	void setUpQuantityBox() {
 		//fill options with choices 0 - the supply available
-		Integer[] options = new Integer[getSupply()+1];
-		for(int i =0; i <= store.getDragonFire(); i++ )
+		Integer[] options = new Integer[3];
+		for(int i =0; i < 3; i++ )
 			options[i]= i;
 		
 		selector = new JComboBox<Integer>(options);
@@ -36,7 +37,7 @@ public class DragonFire extends StoreScreen {
 	
 	@Override
 	void setUpQuantityBoxLabel() {
-		selectorLabel = new JLabel("Amount of DragonFire to Buy / Sell");
+		selectorLabel = new JLabel("<html>Type of mule you would like to purchase: <br/> 0 = Food, 1 = DragonFire, 2 = Ore</html>");
 	}
 
 	/* (non-Javadoc)
@@ -44,7 +45,7 @@ public class DragonFire extends StoreScreen {
 	 */
 	@Override
 	void setUpPriceLabel() {
-		price = new JLabel("Price: " + store.getDragonFirePrice());
+		price = new JLabel("<html>Prices: Food Mule - 125<br/>	Energy Mule - 150<br/>	Ore Mule - 175</html>");
 	}
 
 	/* (non-Javadoc)
@@ -52,7 +53,7 @@ public class DragonFire extends StoreScreen {
 	 */
 	@Override
 	void setUpInventoryLabel() {
-		storeInventory = new JLabel("Store Inventory: " + store.getDragonFire());
+		storeInventory = new JLabel("Store Inventory: " + store.getMules());
 	}
 
 	/* (non-Javadoc)
@@ -60,7 +61,9 @@ public class DragonFire extends StoreScreen {
 	 */
 	@Override
 	void setUpResourceImage() {
-		resource_image = new JLabel(new ImageIcon("./Images/mountain.png"));
+		ImageIcon anImage = new ImageIcon("./Images/danny_sprite.png");
+		anImage = GTools.compress(anImage, 50, 100);
+		resource_image = new JLabel(anImage);
 	}
 
 	/* (non-Javadoc)
@@ -77,7 +80,7 @@ public class DragonFire extends StoreScreen {
 	 */
 	@Override
 	void buyButtonPressed() {
-		store.buyDragonFire((int)selector.getSelectedItem());
+		store.buyMule((int)selector.getSelectedItem());
 	}
 
 	/* (non-Javadoc)
@@ -85,7 +88,8 @@ public class DragonFire extends StoreScreen {
 	 */
 	@Override
 	void sellButtonPressed() {
-		store.sellDragonFire((int)selector.getSelectedItem());
+		System.out.println("Sucks to suck bitch.");
+		//store.sellDragonFire((int)selector.getSelectedItem());
 	}
 
 	/**
@@ -94,7 +98,7 @@ public class DragonFire extends StoreScreen {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
 		new Controller();
-		frame.add(new DragonFire());
+		frame.add(new Mule());
 		frame.pack();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
