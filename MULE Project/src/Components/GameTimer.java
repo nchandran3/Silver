@@ -57,6 +57,8 @@ public class GameTimer extends Screen implements ActionListener{
 		super.paintComponent(g);
 		g.setColor(Color.YELLOW);
 		g.fillRect(0, (int)y, width, height);
+		g.setColor(Color.RED);
+		g.drawString(""+getTimeRemaining(),width/8,15);
 	}
 
 	public static GameTimer getTimer()
@@ -84,7 +86,7 @@ public class GameTimer extends Screen implements ActionListener{
 	public int getTimeRemaining()
 	{
 		int remaining = time - (int) (y/height * time);
-		System.out.println("Time remaining is " + remaining);
+		//System.out.println("Time remaining is " + remaining);
 		return remaining;
 	}
 	
