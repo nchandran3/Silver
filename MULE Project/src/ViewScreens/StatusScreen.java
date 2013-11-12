@@ -12,14 +12,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Player.Player;
-import control.Controller;
-import control.Iterator;
+import control.*;
 
 public class StatusScreen extends Screen{
 	private JPanel status = new JPanel();
 	private PlayerStats ps;
 	private JPanel[] panArr = new JPanel[Controller.getController().getNumPlayers()];
-	
+	private JPanel general = new JPanel();
+
 	public StatusScreen(){
 		super(Color.BLACK);
 		status.setLayout(new BoxLayout(status, BoxLayout.X_AXIS));
@@ -40,15 +40,20 @@ public class StatusScreen extends Screen{
 	}
 	private void setUpGeneral() {
 		
-		JPanel general = new JPanel();
 		
-		//general.setLayout(new GridLayout(0, 2));
+		general.setLayout(new GridLayout(0, 2));
 		
 		//String currPlayer = Controller.controller.getCurrentPlayer().toString();
 		//JLabel current = new JLabel(currPlayer);
 		//general.add(current);
 		
 		status.add(general);
+	}
+	public void setUpAnnouncement(String msg){
+		JLabel message = new JLabel(msg);
+		general.add(message);
+		repaint();
+		
 	}
 	public void setBorder(Player currPlayer){
 		int i = 0;

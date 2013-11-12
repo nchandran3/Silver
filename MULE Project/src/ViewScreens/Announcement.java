@@ -29,9 +29,10 @@ public class Announcement extends JFrame implements ActionListener{
 	private ImageIcon msg_background;
 	private JPanel background;
 	private int startx, starty;
-	
+	//private StatusScreen ss;
 	public Announcement(String msg)
 	{
+		//ss.setUpAnnouncement(msg);
 		init(msg);
 		timer.start();
 	}
