@@ -47,11 +47,19 @@ public class RandomEventGenerator {
 					break;
 				case 3: player.addResources(0, 2*m, 0, 0);
 					break;
-				case 4: player.addResources(0,-4*m,0,0);
+				case 4: if(player.getGold()>=4*m){
+							player.addResources(0,-4*m,0,0);
+						}else{
+							player.setGold(0);
+						}
 					break;
 				case 5: player.addResources(0, 0, -player.getFood()/2, 0);
 					break;
-				case 6: player.addResources(0, -6*m, 0, 0);
+				case 6: if(player.getGold()>=6*m){
+							player.addResources(0, -6*m, 0, 0);
+						}else{
+							player.setGold(0);
+						}
 					break;
 				}
 			}

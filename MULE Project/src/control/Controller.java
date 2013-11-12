@@ -195,21 +195,22 @@ public class Controller {
 	
 	/**
 	 * Creates a tile array representing the tiles on the map, by using the default configuration
+	 * In the tileMap below, P = Plain, R = River, and M, M2, M3 = Mountain, Mountain 2, and Mountain 3
+	 * respectively.
 	 */
 	public void createMap(){
 		Tile[][] tileMap = new Tile[5][9];
 		makeMap = new String[][]{
-			{"P","P","M","P","R","P","M","P","P"}, 
-			{"P","M","P","P","R","P","P","P","M"}, 
-			{"M","P","P","P","Town","P","P","P","M"}, 
-			{"P","M","P","P","R","P","M","P","P"}, 
-			{"P","P","M","P","R","P","P","P","M"}
+			{"P","P","M","P","R","P","M3","P","P"}, 
+			{"P","M","P","P","R","P","P","P","M3"}, 
+			{"M3","P","P","P","Town","P","P","P","M"}, 
+			{"P","M2","P","P","R","P","M2","P","P"}, 
+			{"P","P","M2","P","R","P","P","P","M2"}
 		};	
 		setMap(makeMap);
 		for(int i = 0; i < 5; i++){
 			for(int j = 0; j < 9; j++){
 				if(makeMap[i][j].equalsIgnoreCase("P")){
-					//System.out.println("Hep");
 					tileMap[i][j] = new Plain();
 				}
 				else if(makeMap[i][j].equalsIgnoreCase("R")){
@@ -217,6 +218,10 @@ public class Controller {
 				}
 				else if(makeMap[i][j].equalsIgnoreCase("m")){
 					tileMap[i][j] = new Mountain();
+				}else if(makeMap[i][j].equalsIgnoreCase("m2")){
+					tileMap[i][j] = new Mountain2();
+				}else if(makeMap[i][j].equalsIgnoreCase("m3")){
+					tileMap[i][j] = new Mountain3();
 				}
 				else{
 					tileMap[i][j] = new Town();

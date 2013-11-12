@@ -32,6 +32,7 @@ public class Player {
 	private int ore;
 	private int muleType; // -1= No mule, 0 = food, 1 = dragonFire, 2 = ore
 	private int tilesOwned;
+	private ArrayList<Tile> properties;
 	private Point location;
 	private static ArrayList<Player> plArray = new ArrayList<Player>();
 	private static ArrayList<ImageIcon> sprites;
@@ -44,6 +45,7 @@ public class Player {
 	 * @param race
 	 */
 	public Player(String name, Color color, Race race){
+		properties = new ArrayList<Tile>();
 		this.name = name;
 		this.color = color;
 		this.race = race;
@@ -156,6 +158,16 @@ public class Player {
 		return race;
 	}
 	
+	/**
+	 * Sets the player's gold to the provided quantity.  Should be used primarily in the case
+	 * that some outside force would cause the player's gold quantity to go sub zero to set
+	 * the gold amount to 0.
+	 * @param goldQuantity
+	 */
+	public void setGold(int goldQuantity){
+		gold = goldQuantity;
+	}
+	
 	public int getGold(){
 		return gold;
 	}
@@ -214,14 +226,16 @@ public class Player {
 	/**
 	 * Player just gained a property.
 	 */
-	public void addProperty(){
+	public void addProperty(Tile newProperty){
+		properties.add(newProperty);
 		tilesOwned++;
 	}
 	
 	/**
 	 * Player just lost a property.
 	 */
-	public void removeProperty(){
+	public void removeProperty(Tile oldProperty){
+		properties.remove(oldProperty);
 		tilesOwned--;
 	}
 	
@@ -231,6 +245,12 @@ public class Player {
 	 */
 	public int getProperties(){
 		return tilesOwned;
+	}
+	
+	public void getProduction(){
+		for(Tile t: properties){
+			t.getProduction();
+		}
 	}
 	
 	@Override

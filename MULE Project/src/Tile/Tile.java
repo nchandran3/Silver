@@ -36,6 +36,9 @@ public abstract class Tile extends JButton{
 	protected JButton button;
 	protected static TileListener tListener;
 	protected int muleType; // -1 = non-existent, 0 = food, 1 = DragonFire, 2 = Ore
+	protected int foodProduced;
+	protected int dragonFireProduced;
+	protected int oreProduced;
 	
 	/*
 	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to 
@@ -46,6 +49,9 @@ public abstract class Tile extends JButton{
 		town = false;
 		//setLayout(new BorderLayout());
 		muleType = -1;
+		foodProduced = 0;
+		dragonFireProduced = 0;
+		oreProduced = 0;
 		setFocusable(true);
 		requestFocus();
 		//Change the tileName to match the name of the corresponding png file
@@ -117,6 +123,8 @@ public abstract class Tile extends JButton{
 	    g.drawImage(img.getImage(), 0, 0, null);
 	}
 	
+	
+	
 	/**
 	 * When the covering JButton is pressed, this method is called.  This method attempts to
 	 * purchase the selected tile.
@@ -166,10 +174,10 @@ public abstract class Tile extends JButton{
 	public void tileSold(Player player){
 		if(isOwned == true)
 		{
-			owner.removeProperty();
+			owner.removeProperty(this);
 		}
 		owner = player;
-		player.addProperty();
+		player.addProperty(this);
 		isOwned = true;
 		setBorder(new LineBorder(player.getColor(),10));
 	}
@@ -212,6 +220,24 @@ public abstract class Tile extends JButton{
 	 */
 	public void changeMule(int newMule){
 		muleType = newMule;
+	}
+	
+	/**
+	 * This method gives the owner the amount of resources the tile provides based on
+	 * what kind of mule is present on the tile.
+	 * Muletype: 0 = food, 1 = dragonFire, 2 = ore
+	 */
+	public void getProduction(){
+		if(isOwned && muleType!=-1){
+			switch(muleType){
+				case 0: owner.addResources(0, 0, foodProduced, 0);
+					break;
+				case 1: owner.addResources(dragonFireProduced, 0, 0, 0);
+					break;
+				case 2: owner.addResources(0, 0, 0, oreProduced);
+					break;
+			}
+		}
 	}
 
 }
