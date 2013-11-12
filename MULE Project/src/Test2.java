@@ -5,13 +5,6 @@ import java.awt.Point;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import control.Controller;
-import control.Iterator;
-import control.LandOffice;
-import ViewScreens.Map;
-import ViewScreens.Screen;
-import Player.*;
-
 
 public class Test2 extends Screen{
 	private Controller controller;

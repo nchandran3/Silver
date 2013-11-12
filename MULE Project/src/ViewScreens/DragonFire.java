@@ -1,10 +1,12 @@
 package ViewScreens;
 
 import javax.naming.InitialContext;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.border.BevelBorder;
 import javax.swing.event.ListDataListener;
 
 import control.Controller;
@@ -63,6 +65,7 @@ public class DragonFire extends StoreScreen {
 	@Override
 	void setUpResourceImage() {
 		resource_image = new JLabel(new ImageIcon("./Images/mountain.png"));
+		resource_image.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 	}
 
 	/* (non-Javadoc)

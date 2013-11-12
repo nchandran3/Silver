@@ -35,12 +35,14 @@ public class MuleListener extends TileListener{
 	public void mouseClicked(MouseEvent e){
 		Tile source = (Tile) e.getSource();
 		Player currPlayer = Controller.getController().getCurrentPlayer();
-		if(currPlayer.equals(source.getOwner())){
+		//If player owns property and player has a mule
+		if(currPlayer.equals(source.getOwner())&&currPlayer.getMule()>-1){
 			System.out.println("We can see the half-ass!");
+			//This places whatever mule the player has onto the property
 			source.changeMule(currPlayer.getMule());
 		}
 		currPlayer.setMule(-1);
-		source.changeClickListener(new TileListener());
+		Tile.changeClickListener(new TileListener());
 		
 		
 		//This should set the cursor back to normal.

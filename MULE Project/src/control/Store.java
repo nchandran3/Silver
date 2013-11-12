@@ -231,10 +231,16 @@ public class Store {
 			break;
 		}
 		
+		//If Store has a mule to sell, player doesn't currently have a mule, and
+		//the switch statement didn't fuck up.
 		if(mule>0 && player.getMule()<0 && fee > 0){
+			//If the player can afford the fee
 			if(fee<= player.getGold()){
 				player.addResources(0, -(fee), 0, 0);
 				mule--;
+				System.out.println("This many mules: " +mule);
+				gold+=fee;
+				System.out.println("New Store balance: " + gold);
 				player.setMule(muleType);
 				return true;
 			}

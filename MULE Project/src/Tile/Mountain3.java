@@ -1,13 +1,13 @@
 package Tile;
 
-public class Mountain extends Tile{
-	
+public class Mountain3 extends Tile{
+
 String directory;
 	
-	public Mountain(){
+	public Mountain3(){
 		foodProduced = 1;
 		dragonFireProduced = 1;
-		oreProduced = 2;
+		oreProduced = 4;
 		this.directory = "./Images/mountain.png";
 		setUp(directory);
 	}

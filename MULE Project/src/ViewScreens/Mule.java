@@ -3,10 +3,12 @@ package ViewScreens;
 import java.awt.Toolkit;
 
 import javax.naming.InitialContext;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.border.BevelBorder;
 import javax.swing.event.ListDataListener;
 
 import Tile.MuleListener;
@@ -69,6 +71,7 @@ public class Mule extends StoreScreen {
 		ImageIcon anImage = new ImageIcon("./Images/danny_sprite.png");
 		anImage = GTools.compress(anImage, 50, 100);
 		resource_image = new JLabel(anImage);
+		resource_image.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 	}
 
 	/* (non-Javadoc)
@@ -87,8 +90,10 @@ public class Mule extends StoreScreen {
 	 */
 	@Override
 	void buyButtonPressed() {
+		System.out.println("This is selector's 0: "+ (int)selector.getSelectedItem());
 		if(store.buyMule((int)selector.getSelectedItem()));			//if a mule can be bought, changes to mule placement screen
 		{
+			updateComponents();
 			System.out.println("We're trying to buy some Mules and shit.");
 			Tile.changeClickListener(new MuleListener());
 		}

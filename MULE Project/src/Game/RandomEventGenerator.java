@@ -1,4 +1,5 @@
 package Game;
+import java.util.ArrayList;
 import java.util.Random;
 
 import Player.*;
@@ -19,11 +20,11 @@ public class RandomEventGenerator {
 	}
 	
 	/**
-	 * Rolls for a random event for the current player and dishes out the consequences 
+	 * Rolls for a random event then dishes out the consequences to all players except
+	 * the one in last place.
 	 */
 	public void createRandomEvent(){
-		Player player = Controller.getController().getCurrentPlayer();
-		if(player!=Controller.getController().getLastPlayer()){
+		ArrayList<Player> playerList = Controller.getController().getPlayerOrder();
 			if(rand.nextInt(99)<27){
 				int round = Iterator.getIterator().getRound();
 				int m;
@@ -36,23 +37,35 @@ public class RandomEventGenerator {
 				}else{
 					m = 100;
 				}
-				
-				int event = rand.nextInt(7);
-				switch(event) {
-				case 0:	player.addResources(2,0,3,0);
-					break;
-				case 1: player.addResources(0,0,0,2);
-					break;
-				case 2: player.addResources(0, 8*m, 0, 0);
-					break;
-				case 3: player.addResources(0, 2*m, 0, 0);
-					break;
-				case 4: player.addResources(0,-4*m,0,0);
-					break;
-				case 5: player.addResources(0, 0, -player.getFood()/2, 0);
-					break;
-				case 6: player.addResources(0, -6*m, 0, 0);
-					break;
+			for(Player player: playerList){
+				//This should work.  If problems in which the lowest ranked player receives
+				//these effects, try using .equals instead of ==/!= operations
+				if(player!=Controller.getController().getLastPlayer()){
+					int event = rand.nextInt(7);
+					switch(event) {
+					case 0:	player.addResources(2,0,3,0);
+						break;
+					case 1: player.addResources(0,0,0,2);
+						break;
+					case 2: player.addResources(0, 8*m, 0, 0);
+						break;
+					case 3: player.addResources(0, 2*m, 0, 0);
+						break;
+					case 4: if(player.getGold()>=4*m){
+								player.addResources(0,-4*m,0,0);
+							}else{
+								player.setGold(0);
+							}
+						break;
+					case 5: player.addResources(0, 0, -player.getFood()/2, 0);
+						break;
+					case 6: if(player.getGold()>=6*m){
+								player.addResources(0, -6*m, 0, 0);
+							}else{
+								player.setGold(0);
+							}
+						break;
+					}	
 				}
 			}
 		}

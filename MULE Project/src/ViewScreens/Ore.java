@@ -1,8 +1,10 @@
 package ViewScreens;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.border.BevelBorder;
 
 import control.*;
 public class Ore extends StoreScreen {
@@ -47,6 +49,7 @@ public class Ore extends StoreScreen {
 	 */
 	void setUpResourceImage() {
 		resource_image = new JLabel(new ImageIcon("./Images/mountain.png"));
+		resource_image.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 	}
 
 	/**
