@@ -186,8 +186,18 @@ public abstract class Tile extends JButton{
 		return owner;
 	}
 	
+	/**
+	 * Set the owner of this Tile to the given Player.  If the Tile was previously owned,
+	 * this tile is removed from the old Player's Tile array.
+	 * @param newOwner
+	 */
 	public void setOwner(Player newOwner){
+		//If the property is owned, then the property is removed from the old owner's tile array
+		if(owner!=null){
+			owner.removeProperty(this);
+		}
 		owner = newOwner;
+		owner.addProperty(this);
 		button.setBorder(new LineBorder(newOwner.getColor(),2));
 		repaint();
 	}
@@ -225,6 +235,8 @@ public abstract class Tile extends JButton{
 	/**
 	 * This method gives the owner the amount of resources the tile provides based on
 	 * what kind of mule is present on the tile.
+	 * Checks the Tile's resource output based on instance variables and the type 
+	 * of mule placed on the Tile, if any.
 	 * Muletype: 0 = food, 1 = dragonFire, 2 = ore
 	 */
 	public void getProduction(){
