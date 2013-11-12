@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import Player.Player;
+import Player.Race;
 import control.Store;
 import control.Controller;
 
@@ -113,14 +115,19 @@ public final class StoreFrame extends JFrame {
 		public void updateGold()
 		{
 			money = Store.getStore().getGold();
-			gold.setText("GOLD: " + money);
+			gold.setText("STORE GOLD: " + money);
 			revalidate();
 		}
 	}
 	
 	public static void main(String [] args)
 	{
-		new Controller();
+		Controller controller =new Controller();
+		
+		controller.setNumPlayers(2);
+		controller.createPlayer("Who Cares", Color.RED, Race.BARATHEON);
+		controller.createPlayer("Wzzz", Color.BLACK, Race.BARATHEON);
+		controller.setCurrentPlayer(controller.getCurrentPlayer());
 		StoreFrame frame = StoreFrame.frame();
 		frame.showStore();
 	}

@@ -12,13 +12,6 @@ public class GameFrame extends JFrame {
 	private JPanel contentPane;
 	private CardLayout cl;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String [] args)
-	{
-		new GameFrame();
-	}
 
 	/**
 	 * Create the frame.
@@ -30,4 +23,11 @@ public class GameFrame extends JFrame {
 		setResizable(false);
 	}
 
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String [] args)
+	{
+		new GameFrame();
+	}
 }

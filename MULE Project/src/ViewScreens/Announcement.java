@@ -28,13 +28,10 @@ public class Announcement extends JFrame implements ActionListener{
 	private JLabel message;
 	private ImageIcon msg_background;
 	private JPanel background;
-	private static Announcement announcement;
+	private int startx, starty;
 	
 	public Announcement(String msg)
 	{
-		if(announcement != null && announcement != this)
-			announcement.dispose();
-		announcement = this;
 		init(msg);
 		timer.start();
 	}
@@ -63,8 +60,10 @@ public class Announcement extends JFrame implements ActionListener{
 		//Frame construction
 		
 		setUndecorated(true);
-		setBackground(Color.WHITE);
-		setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - 150, Toolkit.getDefaultToolkit().getScreenSize().height/2 - 150);
+		setBackground(Color.LIGHT_GRAY);
+		startx = Toolkit.getDefaultToolkit().getScreenSize().width/2 - 150;
+		starty = Toolkit.getDefaultToolkit().getScreenSize().height/2 - 150;
+		setLocation(startx, starty);
 		add(background);
 		
 		
@@ -81,6 +80,6 @@ public class Announcement extends JFrame implements ActionListener{
 	
 	public static void main(String [] args)
 	{
-		new Announcement("Player 1 is a complete nimrod and probably wants to do something with his life other than cry about it");
+		new Announcement("Player 1 probably wants to do something with his life other than cry about it");
 	}
 }

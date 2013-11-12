@@ -37,7 +37,8 @@ public class AfterSelectionMap extends Screen{
 		disableTiles();
 		
 		timer = GameTimer.getTimer();
-		timer.reset(35);
+		if(!timer.isEnabled())
+			timer.reset(35);
 		add(timer, BorderLayout.WEST);
 		
 		add(map, BorderLayout.CENTER);		
