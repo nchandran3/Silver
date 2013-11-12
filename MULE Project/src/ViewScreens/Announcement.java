@@ -28,10 +28,13 @@ public class Announcement extends JFrame implements ActionListener{
 	private JLabel message;
 	private ImageIcon msg_background;
 	private JPanel background;
-	
+	private static Announcement announcement;
 	
 	public Announcement(String msg)
 	{
+		if(announcement != null && announcement != this)
+			announcement.dispose();
+		announcement = this;
 		init(msg);
 		timer.start();
 	}
