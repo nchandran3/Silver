@@ -20,8 +20,8 @@ public class RandomEventGenerator {
 	}
 	
 	/**
-	 * Rolls for a random event then dishes out the consequences to all players except
-	 * the one in last place.
+	 * Rolls for a random event (27% chance of occurrence) 
+	 * then dishes out the consequences to all players except the one in last place.
 	 */
 	public void createRandomEvent(){
 		ArrayList<Player> playerList = Controller.getController().getPlayerOrder();

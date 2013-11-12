@@ -27,6 +27,11 @@ public class Store {
 		setUp();
 	}
 	
+	public Store(Store store){
+		setUp();
+		setResources(store.getDragonFire(),store.getGold(),store.getFood(),store.getOre());
+	}
+	
 	/**
 	 * Stocks the store according to the chosen difficulty.
 	 */
@@ -60,6 +65,19 @@ public class Store {
 	//*************************************************************************
 	//								SETTERS
 	//*************************************************************************
+	
+	/**
+	 * setResources after a load
+	 * @param dragonFire
+	 * @param gold
+	 * @param food
+	 */
+	private void setResources(int dragonFire, int gold, int food, int ore){
+		this.dragonFire = dragonFire;
+		this.gold = gold;
+		this.food = food;
+		this.ore = ore;
+	}
 	
 	public void setDragonFirePrice(int price){
 		dragonFirePrice = price;

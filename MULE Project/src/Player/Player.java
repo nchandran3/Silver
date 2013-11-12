@@ -224,7 +224,7 @@ public class Player {
 	}
 	
 	/**
-	 * Player just gained a property.
+	 * Player just gained the given property.
 	 */
 	public void addProperty(Tile newProperty){
 		properties.add(newProperty);
@@ -232,7 +232,7 @@ public class Player {
 	}
 	
 	/**
-	 * Player just lost a property.
+	 * Player just lost the given property.
 	 */
 	public void removeProperty(Tile oldProperty){
 		properties.remove(oldProperty);
@@ -247,6 +247,11 @@ public class Player {
 		return tilesOwned;
 	}
 	
+	/**
+	 * This method iterates through the array containing the Player's owned properties
+	 * and updates his inventory based on the production value of each of the tiles.
+	 * Calls the Tile's getProduction() method.
+	 */
 	public void getProduction(){
 		for(Tile t: properties){
 			t.getProduction();

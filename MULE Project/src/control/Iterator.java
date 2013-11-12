@@ -33,6 +33,14 @@ public class Iterator {
 	 */
 	public Iterator(){iterator = this;}
 	
+	/**
+	 * Constructor used when a game is loaded.
+	 * @param it
+	 */
+	public Iterator(Iterator it){
+		iterator = it;
+	}
+	
 	
 	/**
 	 * Overloaded constructor that instantiates the gameframe into the cardLayout and adds the two components 

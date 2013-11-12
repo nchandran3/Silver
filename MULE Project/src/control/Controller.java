@@ -44,6 +44,15 @@ public class Controller {
 //	 	phaseList.add(AfterSelectionPhase);
 //	 	phaseList.add(AuctionPhase);
 	}
+	
+	/**
+	 * This constructor is used when a saved game is loaded.
+	 * @param control
+	 */
+	public Controller(Controller control){
+		controller = control;
+	}
+	
 	/**
 	 * This creates new players by calling the player class to set up each player's instance variables 
 	 * It puts the players into an array which makes it easy for the iterator to iterate through the players for the game.
