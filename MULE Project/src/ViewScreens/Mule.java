@@ -91,9 +91,8 @@ public class Mule extends StoreScreen {
 	@Override
 	void buyButtonPressed() {
 		System.out.println("This is selector's 0: "+ (int)selector.getSelectedItem());
-		if(store.buyMule((int)selector.getSelectedItem()));			//if a mule can be bought, changes to mule placement screen
+		if(store.buyMule((int)selector.getSelectedItem()))		//if a mule can be bought, changes to mule placement screen
 		{
-			updateComponents();
 			System.out.println("We're trying to buy some Mules and shit.");
 			Tile.changeClickListener(new MuleListener());
 		}

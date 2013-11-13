@@ -221,7 +221,7 @@ public class Store {
 	public boolean buyMule(int muleType){
 		Player player = Controller.getController().getCurrentPlayer();
 		
-		int fee = 0;
+		int fee = 125 + 25*muleType; //food costs 125, energy costs 150, and ore costs 175
 		switch(muleType){
 		case 0: fee = 125;
 			break;
@@ -230,10 +230,12 @@ public class Store {
 		case 2: fee = 175;
 			break;
 		}
-		
+		System.out.println("The fee is " + fee);
+		System.out.println("Mules " + mule +"\t Player has mule: " + player.getMule());
 		//If Store has a mule to sell, player doesn't currently have a mule, and
 		//the switch statement didn't fuck up.
 		if(mule>0 && player.getMule()<0 && fee > 0){
+			System.out.println("BITCH");
 			//If the player can afford the fee
 			if(fee<= player.getGold()){
 				player.addResources(0, -(fee), 0, 0);

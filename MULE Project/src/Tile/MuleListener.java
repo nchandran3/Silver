@@ -1,8 +1,10 @@
 package Tile;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+
 import Components.*;
 import Player.*;
 import Tile.*;
@@ -42,6 +44,7 @@ public class MuleListener extends TileListener{
 			
 			//This places whatever mule the player has onto the property
 			source.changeMule(currPlayer.getMule());
+			
 			//This will draw the mule on the property
 			source.repaint();
 		}
