@@ -153,7 +153,7 @@ public class Controller implements Serializable{
 	 * For use with Serialization
 	 * @param c the read controller from the file. 
 	 */
-	public static void setController(Controller c)
+	static void setController(Controller c)
 	{
 		controller = c;
 	}

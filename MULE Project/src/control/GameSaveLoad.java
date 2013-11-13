@@ -1,5 +1,6 @@
 package control;
 
+import java.awt.Color;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,6 +10,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import Player.Race;
 
 public class GameSaveLoad implements Serializable{
 	private static GameSaveLoad game;
@@ -103,9 +106,13 @@ public class GameSaveLoad implements Serializable{
      }
      
      public static void main(String [] args){
-    	 GameSaveLoad test = new GameSaveLoad(Controller.getController(), Iterator.getIterator());
-    	 test.save("test.dat");
-    	 Controller.getController().incrementCurrentPlayer();
+//    	 Controller cont = new Controller();
+//    	 GameSaveLoad test = new GameSaveLoad(cont, new Iterator());
+//    	 cont.setDifficulty(5);
+//    	 test.save("test.dat");
+//    	 test.getFromFile("test.dat");
+//    	 Controller.setController(getFromFile("test.dat").getController());
+//    	 Iterator.setIterator(getFromFile("test.dat").getIterator());
 //    	 test.
 //    	 System.out.println(test.test);
 //    	 test.test++;

@@ -94,7 +94,10 @@ public class Iterator implements Serializable{
 	{
 		return iterator;
 	}
-
+	
+	static void setIterator(Iterator i){
+		iterator = i;
+	}
 
 	public int getRound(){
 		return round;
