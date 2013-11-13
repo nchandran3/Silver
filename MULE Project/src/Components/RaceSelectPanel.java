@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -126,7 +127,7 @@ public class RaceSelectPanel extends Screen {
 	 * @author Naveen
 	 *
 	 */
-	private class ButtonListener implements ActionListener
+	private class ButtonListener implements ActionListener, Serializable
 	{
 
 		@Override
