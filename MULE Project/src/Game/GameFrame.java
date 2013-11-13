@@ -11,6 +11,7 @@ public class GameFrame extends JFrame {
 
 	private JPanel contentPane;
 	private CardLayout cl;
+	
 
 
 	/**
