@@ -243,7 +243,7 @@ public abstract class Tile extends JButton{
 	 * of mule placed on the Tile, if any.
 	 * Muletype: 0 = food, 1 = dragonFire, 2 = ore
 	 */
-	public void getProduction(){
+	public void production(){
 		if(isOwned && muleType!=-1){
 			switch(muleType){
 				case 0: owner.addResources(0, 0, foodProduced, 0);
