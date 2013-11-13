@@ -341,6 +341,10 @@ public class Controller {
 		return currPlayer;
 	}
 	
+	/**
+	 * Effectively ends a players turn, stops the clock, and switches to the next phase if need be.
+	 * It also starts the production simulation at the end of the round.
+	 */
 	public void endTurn()
 	{
 		GameTimer timer = GameTimer.getTimer(); //any time a player ends their turn, stop the timer
@@ -351,6 +355,9 @@ public class Controller {
 		
 		if(incrementCurrentPlayer() == null) //if the last player has gone, then switch to the next phase.
 		{
+			if(Iterator.getIterator().getCurrentPhase() == 2){
+				this.calculateProduction();
+			}
 			Iterator.getIterator().switchToNextPhase(); 
 		}
 		else
@@ -358,6 +365,19 @@ public class Controller {
 		new Announcement("Current player is now " + currPlayer);
 	}
 	
+	/**
+	 * This method iterates through the each players owned tiles and simulates the production for each.
+	 * It does this by calling the production method in each subclass of Tile.
+	 */
+	private void calculateProduction() {
+		//new production screen
+		//calculations
+		for(Player player: players){
+			for(Tile tile: player.getPropertiesArray()){
+				tile.production();
+			}
+		}
+	}
 	private void resetClock()
 	{
 		int phase = Iterator.getIterator().getCurrentPhase();

@@ -247,9 +247,13 @@ public class Player {
 		return tilesOwned;
 	}
 	
+	public ArrayList<Tile> getPropertiesArray(){
+		return properties;
+	}
+	
 	public void getProduction(){
 		for(Tile t: properties){
-			t.getProduction();
+			t.production();
 		}
 	}
 	

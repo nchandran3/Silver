@@ -7,3 +7,8 @@ Class:
 		
 	Mule(?)
 		For some reason buying the mule 0 (food) doesn't update the Store panel, but does update the data. 
+	
+Misc:
+	
+	-Even after the announcement pops up saying the player can't buy the tile it shows the tile as being owned and seems to
+		actually set the owner of the tile to the player.

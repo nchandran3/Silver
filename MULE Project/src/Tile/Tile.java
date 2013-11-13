@@ -247,10 +247,14 @@ public abstract class Tile extends JButton{
 		if(isOwned && muleType!=-1){
 			switch(muleType){
 				case 0: owner.addResources(0, 0, foodProduced, 0);
+					System.out.println(foodProduced + " food has been produced for player: " + owner.toString());
 					break;
 				case 1: owner.addResources(dragonFireProduced, 0, 0, 0);
+					System.out.println(dragonFireProduced + " dragonFire has been produced for player: " + owner.toString());
+
 					break;
 				case 2: owner.addResources(0, 0, 0, oreProduced);
+					System.out.println(oreProduced + " oreProduced has been produced for player: " + owner.toString());
 					break;
 			}
 		}
