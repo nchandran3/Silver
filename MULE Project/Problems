@@ -14,3 +14,5 @@ AfterSelectionPhase
 			screen instead of resetting. 
 	The original constructor can stay; it should just reset the timer to currPlayer.getTime();
 	
+Loading: create new listeners (method in controller that re-loads all listeners)
+	
