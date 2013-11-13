@@ -1,7 +1,10 @@
 package control;
 
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
@@ -338,6 +341,7 @@ public class Controller {
 	{
 		GameTimer timer = GameTimer.getTimer(); //any time a player ends their turn, stop the timer
 		timer.pause();
+		
 		StoreFrame frame=StoreFrame.frame();
 		frame.hideStore();       //store will go away if the player runs out of time
 		
@@ -364,5 +368,31 @@ public class Controller {
 			timer.reset(currPlayer.calculateTime());
 		}
 		//else auction timer
+	}
+	
+	/**
+	 * Set Cursor method used to change the cursor when the user attempts to place a mule (or anything else).
+	 * This method only changes the cursor while it is on the Map - it will not work for any other component.
+	 * 
+	 * @param image the path to the image that the cursor should change to. 
+	 * @param hotx the x coordinate on the image that should "click"
+	 * @param hoty the y coordinate on the image that should "click"
+	 * @param size the size of the cursor (length and width are the same)
+	 */
+	public void setCustomCursor(String image, int hotx, int hoty, int size)
+	{
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Map map = Map.getMap();
+		Image img = toolkit.getImage(image).getScaledInstance(size, size, Image.SCALE_FAST);
+		Cursor c = toolkit.createCustomCursor(img, new Point(hotx, hoty),"Custom Cursor");
+		map.setCursor(c);
+	}
+	
+	/**
+	 * Resets the default system cursor
+	 */
+	public void resetDefaultCursor()
+	{
+		Map.getMap().setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 	}
 }

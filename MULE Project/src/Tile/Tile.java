@@ -121,6 +121,10 @@ public abstract class Tile extends JButton{
 	protected void paintComponent(Graphics g) {
 	    super.paintComponent(g);
 	    g.drawImage(img.getImage(), 0, 0, null);
+	    
+	    //draw the mule if it has one on it
+	    if(muleType >=0)
+	    	g.drawImage(Toolkit.getDefaultToolkit().getImage("./Images/dragon_cursor.png"), 5, 5, 45, 45, null);
 	}
 	
 	

@@ -101,7 +101,8 @@ public class Mule extends StoreScreen {
 		updateComponents();
 		
 		Iterator iterator = Iterator.getIterator();
-		iterator.switchScreen(iterator.getPreviousScreen());
+		iterator.switchScreen(new AfterSelectionMap());
+		Controller.getController().setCustomCursor("./Images/dragon_cursor.png", 45/2, 45/2, 45);
 		StoreFrame.frame().hideStore();
 	}
 

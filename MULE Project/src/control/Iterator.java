@@ -112,12 +112,16 @@ public class Iterator {
 	{
 		currPhase = i;
 	}
+	/**
+	 * Gets the current phase
+	 * @return The current phase (1 for LandSelection, 2 for AfterSelectionMap())
+	 */
 	public int getCurrentPhase()
 	{
 		return currPhase;
 	}
 /**
- * Increments the phase index. It can only vary from 1-3. If it reaches 3, it goes back to 1.
+ * Increments the phase index. It can only vary from 1-2. If it reaches 2, it goes back to 1.
  */
 	public void incrementPhase()
 	{

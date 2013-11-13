@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import control.GTools;
+import control.Iterator;
 import Components.*;
 import Player.*;
 import Tile.*;
@@ -28,7 +29,8 @@ import Game.*;
  *
  */
 public class AfterSelectionMap extends Screen{
-	GameTimer timer;
+	private GameTimer timer;
+	private static boolean first = true;
 	public AfterSelectionMap(){
 		super();
 		Map map = Map.getMap();
@@ -37,8 +39,11 @@ public class AfterSelectionMap extends Screen{
 		disableTiles();
 		
 		timer = GameTimer.getTimer();
-		if(!timer.isEnabled())
+		if(!(Iterator.getIterator().getPreviousScreen() instanceof TownScreen) || !first && !timer.isEnabled())
+		{
 			timer.reset(35);
+			first=false;
+		}
 		add(timer, BorderLayout.WEST);
 		
 		add(map, BorderLayout.CENTER);		
