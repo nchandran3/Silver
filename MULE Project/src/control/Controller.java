@@ -27,7 +27,7 @@ import Game.*;
  * @author Michael Carlson
  *
  */
-public class Controller implements Serializable  {
+public class Controller implements Serializable{
 	
 	public static Controller controller;
 	private ArrayList<Player> players;
@@ -110,14 +110,7 @@ public class Controller implements Serializable  {
 		System.out.println("Difficulty is " + difficulty);
 	}
 	
-	/**
-	 * Returns the current player's index
-	 * @return the current player's index (0 - # players)
-	 */
-	public int getCurrentPlayerIndex()
-	{
-		return playerInd;
-	}
+
 	//Don't really know why this is supposed to be static.  In case this causes problems,
 	//This method is called from the Tile buttonPressed() method
 	/**
@@ -267,7 +260,12 @@ public class Controller implements Serializable  {
 		playerInd = num;
 	}
 	
-	public int getPlayerIndex() {
+	/**
+	 * Returns the current player's index
+	 * @return the current player's index (0 - # players)
+	 */
+	public int getCurrentPlayerIndex()
+	{
 		return playerInd;
 	}
 	
