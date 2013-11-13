@@ -1,8 +1,9 @@
-package Game;
+package control;
 import java.awt.EventQueue;
 
 import javax.swing.JOptionPane;
 
+import Game.GameFrame;
 import ViewScreens.StartScreen;
 import control.*;
 
@@ -37,7 +38,10 @@ public class Main {
 		
 		else 
 		{
-			
+			GameSaveLoad game = GameSaveLoad.getFromFile("save.dat");
+			Controller.setController(game.getController());
+			Iterator.setIterator(game.getIterator());
+			System.out.println(Controller.getController().getNumPlayers());
 		}
 	}
 
