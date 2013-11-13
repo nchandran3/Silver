@@ -5,6 +5,7 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
@@ -26,7 +27,8 @@ import Game.*;
  * @author Michael Carlson
  *
  */
-public class Controller {
+public class Controller implements Serializable  {
+	
 	public static Controller controller;
 	private ArrayList<Player> players;
 	private Player currPlayer;

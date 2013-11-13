@@ -9,7 +9,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
+
 import Components.*;
 import Player.*;
 import Tile.*;
@@ -23,7 +25,7 @@ import Game.*;
  * @author Michael Carlson
  *
  */
-public abstract class Tile extends JButton{
+public abstract class Tile extends JButton implements Serializable{
 
 	ImageIcon img;
 	protected Player owner;

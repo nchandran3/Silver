@@ -1,5 +1,6 @@
 package control;
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ import Game.*;
  * @author Andrew Ford
  *
  */
-public class Iterator {
+public class Iterator implements Serializable{
 	private static Iterator iterator;
 	private Container contentPane;
 	private JFrame frame;

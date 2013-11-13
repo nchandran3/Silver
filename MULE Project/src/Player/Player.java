@@ -3,6 +3,7 @@ package Player;
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -20,7 +21,7 @@ import Game.*;
  *
  */
 
-public class Player {
+public class Player implements Serializable{
 	private ImageIcon image;
 	private int score;
 	private final Race race;
