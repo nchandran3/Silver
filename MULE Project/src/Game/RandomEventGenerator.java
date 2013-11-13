@@ -15,10 +15,8 @@ import control.*;
  *
  */
 public class RandomEventGenerator {
-	private Random rand;
 	
 	public RandomEventGenerator(){
-		rand = new Random();
 	}
 	
 	/**
@@ -26,8 +24,9 @@ public class RandomEventGenerator {
 	 * be inflicted upon the player in last. 
 	 * @param the current player
 	 */
-	public void createRandomEvent(Player player){
+	public static void createRandomEvent(Player player){
 //		ArrayList<Player> playerList = Controller.getController().getPlayerOrder();
+		Random rand = new Random();
 		if(rand.nextInt(99)<27){
 			int round = Iterator.getIterator().getRound();
 			int m;

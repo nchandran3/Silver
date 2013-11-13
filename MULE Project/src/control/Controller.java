@@ -334,6 +334,10 @@ public class Controller {
 			return null;
 		}
 		setCurrentPlayer(array.get(playerInd));
+
+		if(Iterator.getIterator().getCurrentPhase() == 2){
+			RandomEventGenerator.createRandomEvent(currPlayer);
+		}
 		return currPlayer;
 	}
 	
