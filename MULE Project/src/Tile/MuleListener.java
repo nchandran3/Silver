@@ -39,7 +39,7 @@ public class MuleListener extends TileListener{
 		Player currPlayer = Controller.getController().getCurrentPlayer();
 		
 		//If player owns property and player has a mule
-		if(currPlayer.equals(source.getOwner())&&currPlayer.getMule()>-1){
+		if(currPlayer.equals(source.getOwner()) && currPlayer.getMule() > -1){
 			System.out.println("We can see the half-ass!");
 			
 			//This places whatever mule the player has onto the property
