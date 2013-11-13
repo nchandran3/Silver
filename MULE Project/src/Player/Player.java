@@ -131,6 +131,7 @@ public class Player {
 		ore = 0;
 		tilesOwned = 0;
 		image = new ImageIcon("./Images/danny_sprite.png");  
+		muleType = -1;
 		//tintImage(image);	 reimplement once image array is set up
 	}
 	

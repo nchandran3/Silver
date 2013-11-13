@@ -26,6 +26,7 @@ public final class StoreFrame extends JFrame {
 	private JTabbedPane tabs;
 	private StoreScreen mule, food, dragfire, ore;
 	private GoldPanel goldPanel;
+	Store store = Store.getStore();
 	
 	private StoreFrame()
 	{
@@ -101,8 +102,8 @@ public final class StoreFrame extends JFrame {
 	 
 	private class GoldPanel extends JPanel
 	{
-		private int money = Store.getStore().getGold();
-		JLabel gold = new JLabel("GOLD: " + money);
+		private int money = store.getGold();
+		JLabel gold = new JLabel("STORE GOLD: " + money);
 		
 		public GoldPanel()
 		{
