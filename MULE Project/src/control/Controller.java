@@ -29,9 +29,9 @@ import Game.*;
 public class Controller {
 	public static Controller controller;
 	private ArrayList<Player> players;
-	private static Player currPlayer;
-	private static int playerInd;
-	private static int playerCount, numPlayers, difficulty;
+	private Player currPlayer;
+	private int playerInd;
+	private int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
 	private String[][] makeMap;
 	//private LinkedList<RoundPhase> phaseList;
@@ -127,7 +127,7 @@ public class Controller {
 	 * @param tile
 	 * @return true if land acquisition was successful
 	 */
-	public static boolean buyLand(Tile tile){
+	public boolean buyLand(Tile tile){
 		Player player = currPlayer;
 		int landPrice = LandOffice.getLandOffice().getBuyPrice();
 		if(!tile.isOwned()){
@@ -150,10 +150,18 @@ public class Controller {
 	 * @return Controller
 	 */
 	public static Controller getController()
-	{
+	{			
 		return controller;
 	}
 	
+	/**
+	 * For use with Serialization
+	 * @param c the read controller from the file. 
+	 */
+	public static void setController(Controller c)
+	{
+		controller = c;
+	}
 	/**
 	 * This calculates player order based on each player's respective score.  Lowest score first.
 	 * Really not sure if this code works.  Should probably be checked.
