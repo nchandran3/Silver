@@ -34,7 +34,7 @@ public class TileListener extends MouseAdapter{
 	public void mouseClicked(MouseEvent e){
 		Tile source = (Tile) e.getSource();
 		if(source.isEnabled()&&!source.isTown()){
-			if(Controller.buyLand(source)) //returns true if the player has enough money to complete the land transaction
+			if(Controller.getController().buyLand(source)) //returns true if the player has enough money to complete the land transaction
 			{
 				Controller controller = Controller.getController();
 				controller.endTurn();
