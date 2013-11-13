@@ -86,6 +86,11 @@ public class Iterator implements Serializable{
 	public Screen getScreen(){
 		return cur_screen;
 	}
+	
+	public JFrame getFrame()
+	{
+		return frame;
+	}
 	/**
 	 * 
 	 * @return Instance of Iterator

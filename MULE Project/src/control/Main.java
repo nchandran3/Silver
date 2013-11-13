@@ -41,6 +41,9 @@ public class Main {
 			GameSaveLoad game = GameSaveLoad.getFromFile("save.dat");
 			Controller.setController(game.getController());
 			Iterator.setIterator(game.getIterator());
+			Iterator iterator = Iterator.getIterator();
+			iterator.switchScreen(iterator.getScreen());
+			iterator.getFrame().setVisible(true);
 			System.out.println(Controller.getController().getNumPlayers());
 		}
 	}
