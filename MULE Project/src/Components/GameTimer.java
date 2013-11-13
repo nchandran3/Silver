@@ -20,7 +20,11 @@ import ViewScreens.*;
 import control.*;
 import Game.*;
 
-
+/**
+ * This class draws the Yellow bar that represents time left in a turn.
+ * 
+ *
+ */
 public class GameTimer extends Screen implements ActionListener{
 	private int time;
 	double y;
