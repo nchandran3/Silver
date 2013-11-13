@@ -327,6 +327,11 @@ public class Controller {
 	{
 		ArrayList <Player> array = Player.getPlArray();
 		playerInd++;
+		
+		if(Iterator.getIterator().getCurrentPhase() == 2){
+			System.out.println("New Random Event Possibility .....");
+			RandomEventGenerator.createRandomEvent(currPlayer);
+		}
 		if(playerInd >= numPlayers)
 		{
 			playerInd =0;
@@ -335,9 +340,6 @@ public class Controller {
 		}
 		setCurrentPlayer(array.get(playerInd));
 
-		if(Iterator.getIterator().getCurrentPhase() == 2){
-			RandomEventGenerator.createRandomEvent(currPlayer);
-		}
 		return currPlayer;
 	}
 	
