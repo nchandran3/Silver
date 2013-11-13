@@ -251,12 +251,6 @@ public class Player {
 		return properties;
 	}
 	
-	public void getProduction(){
-		for(Tile t: properties){
-			t.production();
-		}
-	}
-	
 	@Override
 	public String toString()
 	{
