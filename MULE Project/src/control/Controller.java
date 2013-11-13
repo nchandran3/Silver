@@ -376,7 +376,8 @@ public class Controller {
 		//calculations
 		for(Player player: players){
 			for(Tile tile: player.getPropertiesArray()){
-				tile.production();
+				if(player.getDragonFire() > 0)
+					tile.production();
 			}
 		}
 	}
