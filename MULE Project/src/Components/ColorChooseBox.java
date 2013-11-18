@@ -55,6 +55,7 @@ public class ColorChooseBox extends Screen implements ActionListener {
 		
 		
 		panel = new JPanel();
+		panel.setBackground(Color.PINK);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 

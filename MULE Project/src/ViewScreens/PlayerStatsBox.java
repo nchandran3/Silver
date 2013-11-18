@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -18,7 +20,7 @@ import control.Iterator;
 import Player.Player;
 import Player.Race;
 
-public class PlayerStatsBox extends JPanel{
+public class PlayerStatsBox extends JPanel implements ActionListener{
 	private Toolkit toolkit = Toolkit.getDefaultToolkit();
 	private int HEIGHT, WIDTH;
 	private JLabel goldlbl, gold, orelbl, ore, dflbl, df, foodlbl, food, scorelbl, score;
@@ -27,7 +29,7 @@ public class PlayerStatsBox extends JPanel{
 	public PlayerStatsBox(Player pl){
 		super();
 		this.pl = pl;
-		
+				
 		determineSize();
 		
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -56,6 +58,7 @@ public class PlayerStatsBox extends JPanel{
 		scorelbl = new JLabel("SCORE:");
 		score = new JLabel("" + pl.getScore());
 		
+
 		setBackground(pl.getColor());
 		setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		setBorder(BorderFactory.createTitledBorder(this.getBorder(), pl.toString(),TitledBorder.CENTER, TitledBorder.TOP));
@@ -100,5 +103,12 @@ public class PlayerStatsBox extends JPanel{
 		frame.setLocation(new Point(100,0));
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
