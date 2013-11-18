@@ -12,11 +12,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import Player.Race;
+import Tile.Tile;
+import Tile.TileListener;
 
 public class GameSaveLoad implements Serializable{
 	private static GameSaveLoad game;
 	private Controller savedController;
 	private Iterator savedIterator;
+	private Tile [][] map;
 	
 	/**
      * This version number helps make sure everything is sync'd if
@@ -103,6 +106,12 @@ public class GameSaveLoad implements Serializable{
      
      public Iterator getIterator(){
     	 return savedIterator;
+     }
+     
+     public void reset(){
+//    	map = savedController.getTileMap();
+		Tile.changeClickListener(new TileListener());
+		
      }
      
      public static void main(String [] args){
