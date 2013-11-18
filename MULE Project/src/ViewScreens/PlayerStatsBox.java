@@ -7,6 +7,7 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -20,7 +21,7 @@ import control.Iterator;
 import Player.Player;
 import Player.Race;
 
-public class PlayerStatsBox extends JPanel implements ActionListener{
+public class PlayerStatsBox extends JPanel implements ActionListener ,Serializable{
 	private Toolkit toolkit = Toolkit.getDefaultToolkit();
 	private int HEIGHT, WIDTH;
 	private JLabel goldlbl, gold, orelbl, ore, dflbl, df, foodlbl, food, scorelbl, score;
