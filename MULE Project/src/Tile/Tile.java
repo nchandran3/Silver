@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -103,7 +104,11 @@ public abstract class Tile extends JButton implements Serializable{
 	 * @param listens
 	 */
 	public void addClickListener(TileListener listens){
-		removeMouseListener(tListener);
+		MouseListener[] ml = getMouseListeners();
+		for(int i = 0; i < ml.length; i++){
+			if(ml[i] instanceof TileListener)
+				removeMouseListener(ml[i]);
+		}	
 		tListener=listens;
 		addMouseListener(tListener);
 	}
