@@ -2,8 +2,10 @@ package ViewScreens;
 
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 
 import Player.Player;
 import control.Controller;
@@ -15,6 +17,7 @@ public class PlayerStatsPanel extends JPanel {
 	private PlayerStatsPanel()
 	{
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 		
 		for(Player p: players)
 		{

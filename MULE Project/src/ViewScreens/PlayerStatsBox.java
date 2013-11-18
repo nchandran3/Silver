@@ -57,7 +57,7 @@ public class PlayerStatsBox extends JPanel{
 		score = new JLabel("" + pl.getScore());
 		
 		setBackground(pl.getColor());
-		setBorder(BorderFactory.createLineBorder(Color.BLACK, 5));
+		setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		setBorder(BorderFactory.createTitledBorder(this.getBorder(), pl.toString(),TitledBorder.CENTER, TitledBorder.TOP));
 	}
 	

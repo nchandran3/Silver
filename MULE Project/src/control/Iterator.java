@@ -112,6 +112,10 @@ public class Iterator implements Serializable{
 		System.out.println("Round is now " + round);
 	}
 	
+	public void setUpStatsPanel()
+	{
+		contentPane.add(PlayerStatsPanel.getPanel(), BorderLayout.SOUTH);
+	}
 	
 	/**********************************************
 	 *            PHASE Methods

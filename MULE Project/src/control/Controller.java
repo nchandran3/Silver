@@ -92,7 +92,9 @@ public class Controller implements Serializable{
 		new GameTimer(10); //initialize the game clock 
 		GameTimer.getTimer().pause(); // allow the next screen to initialize it
 		iterator.setCurrentPhase(1);
+		iterator.setUpStatsPanel();
 		iterator.switchScreen(new LandSelection());
+		
 	}
 	public void setCurrentPlayer(Player player){
 		currPlayer = player;
