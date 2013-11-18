@@ -66,7 +66,7 @@ public class PlayerStatsBox extends JPanel implements ActionListener{
 	
 	public void determineSize()
 	{
-		HEIGHT = toolkit.getScreenSize().height / 8;
+		HEIGHT = toolkit.getScreenSize().height / 12;
 		WIDTH = toolkit.getScreenSize().width / 6;
 	}
 	
