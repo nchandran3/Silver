@@ -202,7 +202,7 @@ public class Store {
 		Player player =Controller.getController().getCurrentPlayer();
 		if(oreReq<=player.getOre()){
 			if(oreReq*50<= gold){
-				player.addResources(-oreReq, 50*oreReq, 0, 0);
+				player.addResources(0, 50*oreReq, 0, -oreReq);
 				ore+=oreReq;
 				gold-=oreReq*50;
 				return true;
