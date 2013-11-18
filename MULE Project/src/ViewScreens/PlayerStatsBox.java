@@ -88,7 +88,7 @@ public class PlayerStatsBox extends JPanel implements ActionListener{
 	{
 		gold.setText("" + pl.getGold());
 		food.setText("" + pl.getFood());
-		df.setText("" + pl.getGold());
+		df.setText("" + pl.getDragonFire());
 		ore.setText("" + pl.getOre());
 		score.setText("" + pl.getScore());
 	}
