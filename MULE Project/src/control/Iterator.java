@@ -44,7 +44,7 @@ public class Iterator implements Serializable{
 	public Iterator(JFrame frm){ //add the cards to the pane
 		this();
 		frame = frm;
-		contentPane = frame.getContentPane();
+		contentPane = frame.getContentPane();			//crucial for layout. This is what will be used to add components, remove them, and position timers and stat boxes
 		Screen menu = new Menu_Screen();
 		cur_screen = menu;
 		contentPane.add(menu);
@@ -62,11 +62,11 @@ public class Iterator implements Serializable{
 	 */
 	public void switchScreen(Screen screen)
 	{
-		contentPane.removeAll(); //remove current screen
+		contentPane.remove(cur_screen); //remove current screen
 		setPreviousScreen(cur_screen);	//only really used with town screen
 		cur_screen = screen;			//add next screen to display
-		contentPane.add(screen);
-		frame.setContentPane(contentPane);
+		contentPane.add(screen, BorderLayout.CENTER);
+//		frame.setContentPane(contentPane);
 		frame.pack();
 	}
 	
