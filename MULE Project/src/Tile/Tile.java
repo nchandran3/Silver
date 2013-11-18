@@ -78,6 +78,10 @@ public abstract class Tile extends JButton implements Serializable{
 		//button.addMouseListener(tListener);
 	}
 	
+	/**
+	 * This class changes the listener for all of the tiles.
+	 * @param TileListener listens
+	 */
 	public static void changeClickListener(TileListener listens){
 		Tile[][] tileMap = Controller.getController().getTileMap();
 		for(Tile [] x : tileMap){
@@ -88,6 +92,11 @@ public abstract class Tile extends JButton implements Serializable{
 			}
 		}
 	}
+	
+//	public void resetClickListener(){
+//		changeClickListener(new TileListener());
+//	}
+	
 	
 	/**
 	 * This method will attempt to replace the current listener with the listener placed inside.
