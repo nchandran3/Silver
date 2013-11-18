@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import Player.Player;
 import Player.Race;
