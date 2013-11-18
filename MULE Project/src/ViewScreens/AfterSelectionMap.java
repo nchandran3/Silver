@@ -38,13 +38,7 @@ public class AfterSelectionMap extends Screen{
 		
 		disableTiles();
 		
-		timer = GameTimer.getTimer();
-		if(!(Iterator.getIterator().getPreviousScreen() instanceof TownScreen) || !first && !timer.isEnabled())
-		{
-			timer.reset(35);
-			first=false;
-		}
-		add(timer, BorderLayout.WEST);
+		setUpTimer();
 		
 		add(map, BorderLayout.CENTER);		
 		
@@ -53,6 +47,18 @@ public class AfterSelectionMap extends Screen{
 		new Announcement("Player Turns start now");
 	}
 	
+	
+	public void setUpTimer()
+	{
+		timer = GameTimer.getTimer();
+		Screen prev_screen = Iterator.getIterator().getPreviousScreen();
+		if(!(prev_screen instanceof TownScreen) || !first && !timer.isEnabled())
+		{
+			timer.reset(Controller.getController().getCurrentPlayer().calculateTime());
+			first=false;
+		}
+		add(timer, BorderLayout.WEST);
+	}
 	/**
 	 * Disable all tiles from being clicked, except the Town tile
 	 */

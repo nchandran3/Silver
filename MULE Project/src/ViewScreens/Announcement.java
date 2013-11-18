@@ -41,7 +41,6 @@ public class Announcement extends JFrame implements ActionListener{
 	{
 		
 		//Message construction
-		msg_background = new ImageIcon("./Images/mountain.png");
 		message = new JLabel("<html>" + msg + "</html>");
 		message.setForeground(Color.BLACK);
 		message.setHorizontalAlignment(JLabel.CENTER);
