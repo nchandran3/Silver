@@ -75,6 +75,10 @@ public class PlayerSelectScreen extends Screen {
 		txtEnterPlayerName.setBackground(Color.BLACK);
 		GTools.positionAndAdd(txtEnterPlayerName, .5, .2, 1.5, 1.5, this);
 		
+		JLabel namelbl = new JLabel("Name:");
+		namelbl.setFont(new Font("Vivaldi", Font.PLAIN, 20));
+		GTools.positionAndAdd(namelbl, .3, .2, this);
+		
 		
 		/*
 		 * RaceSelectPanel initialization
@@ -86,15 +90,8 @@ public class PlayerSelectScreen extends Screen {
 		 * ColorChooseBox initialization
 		 */
 		colorChooseBox = new ColorChooseBox();
-		GTools.positionAndAdd(colorChooseBox, .5, .9, this);
+		GTools.positionAndAdd(colorChooseBox, .5, .85, this);
 		
-		/*
-		 * Choose A Color label
-		 */
-		JLabel lblChooseColor = new JLabel("Choose A Color: ");
-		lblChooseColor.setFont(new Font("Tahoma", Font.PLAIN, 40));
-		lblChooseColor.setForeground(Color.BLACK);
-		GTools.positionAndAdd(lblChooseColor, .5, .92, this);
 		
 		/*
 		 * Submit Button

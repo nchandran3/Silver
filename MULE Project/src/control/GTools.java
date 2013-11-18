@@ -20,7 +20,7 @@ public abstract class GTools {
  * @param percentY the percent y of the panel to center the component 
  * @param container the container to add the component to
  */
-	public static void positionAndAdd(JComponent component, double percentX, double percentY, JPanel container)
+	public static void positionAndAdd(JComponent component, double percentX, double percentY, JComponent container)
 	{
 		int c_width = component.getPreferredSize().width;
 		int c_height = component.getPreferredSize().height;
@@ -48,7 +48,7 @@ public abstract class GTools {
 	 * @param rheight the ratio to scale the height
 	 * @param container the container to add the component to
 	 */
-		public static void positionAndAdd(JComponent component, double percentX, double percentY, double rwidth, double rheight, JPanel container)
+		public static void positionAndAdd(JComponent component, double percentX, double percentY, double rwidth, double rheight, JComponent container)
 		{
 			double c_width = component.getPreferredSize().width * rwidth;
 			double c_height = component.getPreferredSize().height * rheight;

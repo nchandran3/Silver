@@ -14,3 +14,7 @@ AfterSelectionPhase
 			screen instead of resetting. 
 	The original constructor can stay; it should just reset the timer to currPlayer.getTime();
 	
+RaceSelectionPanel
+
+	-Done button only appears on mouse over. Fix this to always show.
+	-Add labels for Name:, Race:, Color: so that the user can more easily discern what they have to do.
