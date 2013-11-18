@@ -90,7 +90,7 @@ public class Player implements Serializable{
 		this.gold+=gold;
 		this.food+=food;
 		this.ore+=ore;
-		
+		PlayerStatsPanel.getPanel().updateBox();
 	}
 	
 	/**
