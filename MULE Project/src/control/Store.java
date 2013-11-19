@@ -69,7 +69,7 @@ public class Store {
 		foodPrice = price;
 	}
 	
-	private void setOrePrice(int price){
+	public void setOrePrice(int price){
 		orePrice = price;
 	}
 	
