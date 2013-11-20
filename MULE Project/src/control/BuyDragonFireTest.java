@@ -21,11 +21,12 @@ public class BuyDragonFireTest {
 		controller.createPlayer("Trey", Color.BLUE, Race.BARATHEON);
 		
 		controller.getCurrentPlayer().setGold(1000);
+		Player player = controller.getCurrentPlayer();
 		
 		//Amount of dragonfire allocated to store
 		int amount = store.getDragonFire();
 		
-		boolean result = store.buyDragonFire(amount-3);
+		boolean result = store.buyDragonFire(player, amount-3);
 		assertTrue("The transaction was succesful", result);
 	}
 	
@@ -39,10 +40,11 @@ public class BuyDragonFireTest {
 		controller.createPlayer("Trey", Color.BLUE, Race.BARATHEON);
 		
 		controller.getCurrentPlayer().setGold(10);
+		Player player = controller.getCurrentPlayer();
 		
 		int amount = store.getDragonFire();
 		
-		boolean result = store.buyDragonFire(amount-3);
+		boolean result = store.buyDragonFire(player, amount-3);
 		assertFalse("The transaction failed", result);
 	}
 	
@@ -55,9 +57,11 @@ public class BuyDragonFireTest {
 		controller.setNumPlayers(1);
 		controller.createPlayer("Trey", Color.BLUE, Race.BARATHEON);
 		
+		Player player = controller.getCurrentPlayer();
+		
 		int amount = store.getDragonFire();
 		
-		boolean result = store.buyDragonFire(amount+1);
+		boolean result = store.buyDragonFire(player, amount+1);
 		assertFalse("The transaction failed", result);
 	}
 
