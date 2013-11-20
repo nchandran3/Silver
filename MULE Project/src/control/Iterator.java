@@ -170,8 +170,8 @@ public class Iterator implements Serializable
 	 */
 	public void incrementPhase()
 	{
-		// currPhase = (currPhase % 3) + 1; //ensures that currPhase cycles between 1, 2, or 3.
-		currPhase = (currPhase % 2) + 1; // used only for testing because Auction is not implemented yet
+		 //ensures that currPhase cycles between 1 or 2
+		currPhase = (currPhase % 2) + 1; 
 	}
 
 	/**

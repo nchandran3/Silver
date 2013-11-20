@@ -121,8 +121,7 @@ public class Controller implements Serializable
 		System.out.println("Difficulty is " + difficulty);
 	}
 
-	// Don't really know why this is supposed to be static. In case this causes problems,
-	// This method is called from the Tile buttonPressed() method
+	
 	/**
 	 * Determines the price of the piece of land the current player is trying to buy then checks the viability of the
 	 * transaction against the player's available resources. Round<2 -> landPrice = free Round>2 && first land selection

@@ -57,5 +57,10 @@ public class LandOffice
 	{
 		return sellPrice;
 	}
+	
+	public static void reset()
+	{
+		Holder.INSTANCE = new LandOffice();
+	}
 
 }
