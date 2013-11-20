@@ -16,14 +16,17 @@ import Tile.Tile;
 public class BuyLandTest {
 
 	static Controller controller;
+	static Iterator iterator;
 	
-	@BeforeClass
+	@Before
 	/**
 	 * Sets up all the necessary classes pivotal to the game functionality.
 	 */
-	public static void setUp()
+	public void setUp()
 	{
+		System.out.println("Setting up controller and iterator \n\n");
 		controller = Controller.getController();
+		iterator = Iterator.getIterator();
 	}
 	
 	@Test
@@ -34,6 +37,7 @@ public class BuyLandTest {
 		controller.startGame();
 		
 		int price = LandOffice.getLandOffice().getBuyPrice();
+		System.out.println("Round: " + Iterator.getIterator().getRound());
 		
 		assertTrue("Round should be 1", Iterator.getIterator().getRound() == 1);
 		assertTrue("Buy Land Price is zero", price == 0);
@@ -71,13 +75,17 @@ public class BuyLandTest {
 	{
 		
 	}
+	
+	
 	@After
 	/**
-	 * Resets the controller
+	 * Resets the controller and iterator after every method
 	 */
 	public void reset()
 	{
+		System.out.println("Resetting for the next test \n");
 		Controller.reset();
+		Iterator.reset();
 	}
 	
 	@AfterClass
