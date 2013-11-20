@@ -14,17 +14,20 @@ import Game.*;
  */
 public class LandOffice {
 	private Random rand;
-	public static LandOffice landOffice;
 	private int buyPrice;
 	private int sellPrice;
 	
-	public LandOffice(){
+	private LandOffice(){
 		rand = new Random();
-		landOffice = this;
 		buyPrice = 0;
 		sellPrice = 0;
 	}
 	
+	
+	private static class Holder
+	{
+		private static LandOffice INSTANCE = new LandOffice();
+	}
 	/**
 	 * This sets the purchase price of land based on the game phase.  This should be called 
 	 * following every land purchase.
@@ -35,7 +38,7 @@ public class LandOffice {
 	}
 	
 	public static LandOffice getLandOffice(){
-		return landOffice;
+		return Holder.INSTANCE;
 	}
 	
 	public int getBuyPrice(){

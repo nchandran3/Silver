@@ -1,20 +1,24 @@
 package ViewScreens;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 
 import Player.Player;
 import control.Controller;
 
-public class PlayerStatsPanel extends JPanel {
+public class PlayerStatsPanel extends JPanel implements Serializable{
 	private ArrayList<PlayerStatsBox> boxes = new ArrayList<>();
 	private ArrayList<Player> players = Player.getPlArray();
 	
 	private PlayerStatsPanel()
 	{
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 		
 		for(Player p: players)
 		{

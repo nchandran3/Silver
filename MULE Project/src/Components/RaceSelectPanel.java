@@ -1,6 +1,7 @@
 package Components;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -16,9 +17,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 
 import control.GTools;
 import Components.*;
@@ -51,7 +56,11 @@ public class RaceSelectPanel extends Screen {
 		super(Color.PINK);
 		setLayout(null);
 		setPreferredSize(new Dimension(width,height));
+		setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+		setBorder(BorderFactory.createTitledBorder(getBorder(), "Select a Race:", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
 		
+		
+
 		/*
 		 * Button initialization
 		 */
@@ -171,7 +180,7 @@ public class RaceSelectPanel extends Screen {
 	
 	public static void main (String [] args)
 	{
-		Controller controller = new Controller();
+		Controller controller = Controller.getController();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
 		//Iterator iterator = new Iterator(frame);

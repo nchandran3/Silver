@@ -1,5 +1,6 @@
 package control;
 import java.awt.EventQueue;
+import java.awt.Frame;
 
 import javax.swing.JOptionPane;
 
@@ -25,10 +26,9 @@ public class Main {
 		{
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
-					try {
-						GameFrame frame = new GameFrame();
-						Iterator iterator = new Iterator(frame);
-						Controller controller = new Controller();
+					try 
+					{
+						Iterator.getIterator().setUpFrame();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -39,12 +39,14 @@ public class Main {
 		else 
 		{
 			GameSaveLoad game = GameSaveLoad.getFromFile("save.dat");
-			Controller.setController(game.getController());
-			Iterator.setIterator(game.getIterator());
+			Controller.setController(game.getController());		//reset the controller
+			Iterator.setIterator(game.getIterator());			//reset the iterator
 			Iterator iterator = Iterator.getIterator();
-			iterator.switchScreen(iterator.getScreen());
-			iterator.getFrame().setVisible(true);
-			System.out.println(Controller.getController().getNumPlayers());
+			iterator.switchScreen(iterator.getScreen());		//makes the next screen to show up the last screen
+			iterator.getFrame().setVisible(true);				
+			game.reset();										//resets the listeners
+			System.out.println(Controller.getController().getNumPlayers()); //shows the number of players
+			
 		}
 	}
 

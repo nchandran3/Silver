@@ -68,8 +68,8 @@ public class TownScreen extends Screen implements MouseListener{
 			public void mouseClicked(MouseEvent e)
 			{	
 				pub.gamble(timer.getTimeRemaining());
-				iterator.switchScreen(iterator.getPreviousScreen());
-				Controller.controller.endTurn();
+				iterator.switchScreen(new AfterSelectionMap());
+				Controller.getController().endTurn();
 			}
 		});
 		GTools.positionAndAdd(pubButton, 0.35, 0.03, panel);
@@ -167,7 +167,6 @@ public class TownScreen extends Screen implements MouseListener{
 	}*/
 	public static void main (String [] args)
 	{
-		Controller controller = new Controller();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
 		//Iterator iterator = new Iterator(frame);

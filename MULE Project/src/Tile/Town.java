@@ -32,4 +32,12 @@ public class Town extends Tile{
 	protected void buttonPressed(){
 		Iterator.getIterator().switchScreen(new TownScreen());
 	}
+	
+	public void resetClickListener(){
+		addActionListener(new ActionListener() { 
+			  public void actionPerformed(ActionEvent e) { 
+			    buttonPressed();
+			  }
+			} );
+	}
 }

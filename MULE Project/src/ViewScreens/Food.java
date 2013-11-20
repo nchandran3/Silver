@@ -105,7 +105,6 @@ public class Food extends StoreScreen {
 	 */
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		new Controller();
 		frame.add(new Food());
 		frame.pack();
 		frame.setVisible(true);

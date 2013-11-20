@@ -1,4 +1,5 @@
 package Components;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -8,11 +9,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.TitledBorder;
 
 import Components.*;
 import Player.*;
@@ -31,20 +36,33 @@ import Game.*;
 public class ColorChooseBox extends Screen implements ActionListener {
 	private static Color [] colors = new Color [] {Color.BLUE, Color.YELLOW, Color.RED, Color.MAGENTA, Color.GREEN, Color.CYAN};
 	private static ArrayList <Color> colors_available = new ArrayList <Color>(Arrays.asList(colors));			//Each time a color is chosen, the color will be removed from the ArrayList
-	private int width = super.width, height = super.height/3;
+//	private int width = width, height = super.height/6;
+	private int height2 = height/6;
 	private HashMap<JButton, Color> map = new HashMap<>();
 	private Color chosen;
+	private JPanel panel;
+	private JLabel label;
 	/**
 	 * Constructor that initializes the layout and dimensions of the boxlayout where the colors will be displayed.
 	 */
 	public ColorChooseBox()
 	{
-		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-		setPreferredSize(new Dimension(width, height));
+//		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		setLayout(new BorderLayout());
+		setPreferredSize(new Dimension(width, height2));
 		setBackground(Color.PINK);
+		setBorder(BorderFactory.createTitledBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED), "Choose Color", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION));
+		
+		
+		panel = new JPanel();
+		panel.setBackground(Color.PINK);
+		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 		for(Color c : colors_available)
 			drawColorBox(c, width);
+		
+		add(panel,BorderLayout.SOUTH);
 	}
 	
 	/**
@@ -54,7 +72,7 @@ public class ColorChooseBox extends Screen implements ActionListener {
 	 */
 	public void drawColorBox(Color c, int width)
 	{
-		add(Box.createHorizontalGlue());
+		panel.add(Box.createHorizontalGlue());
 		JButton box = new JButton("                                                       ");
 		map.put(box, c);
 		box.setBackground(c);
@@ -62,8 +80,8 @@ public class ColorChooseBox extends Screen implements ActionListener {
 		box.setForeground(c);
 		box.setMinimumSize(new Dimension(width/6, height));
 		box.addActionListener(this);
-		add(box);
-		add(Box.createHorizontalGlue());
+		panel.add(box);
+		panel.add(Box.createHorizontalGlue());
 	}
 	
 	
@@ -96,6 +114,11 @@ public class ColorChooseBox extends Screen implements ActionListener {
 	public void removeColorFromChoices()
 	{
 		colors_available.remove(chosen);
+	}
+	
+	public int getHeight()
+	{
+		return height2;
 	}
 	
 	public static void main (String [] args)

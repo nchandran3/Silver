@@ -72,6 +72,7 @@ public class GameTimer extends Screen implements ActionListener{
 	
 	public void reset(int time)
 	{
+		pause();
 		init(time);
 	}
 	public void start()

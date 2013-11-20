@@ -104,7 +104,6 @@ public class DragonFire extends StoreScreen {
 	 */
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		new Controller();
 		frame.add(new DragonFire());
 		frame.pack();
 		frame.setVisible(true);

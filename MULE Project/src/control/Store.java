@@ -1,11 +1,7 @@
 package control;
 
-import Components.*;
 import Player.*;
-import Tile.*;
-import ViewScreens.*;
-import control.*;
-import Game.*;
+
 /**
  * The store allows players to purchase certain supplies with their hard-earned gold.
  * @author Hamilton Greene
@@ -13,15 +9,14 @@ import Game.*;
  */
 
 public class Store {
-	private static int dragonFire;
-	private static int food;
-	private static int gold;
-	private static int ore;
-	private static int dragonFirePrice;
-	private static int foodPrice;
-	private static int goldPrice;
-	private static int orePrice;
-	private static int mule;
+	private int dragonFire;
+	private int food;
+	private int gold;
+	private int ore;
+	private int dragonFirePrice;
+	private int foodPrice;
+	private int orePrice;
+	private int mule;
 	
 	private Store(){
 		setUp();
@@ -202,7 +197,7 @@ public class Store {
 		Player player =Controller.getController().getCurrentPlayer();
 		if(oreReq<=player.getOre()){
 			if(oreReq*50<= gold){
-				player.addResources(-oreReq, 50*oreReq, 0, 0);
+				player.addResources(0, 50*oreReq, 0, -oreReq);
 				ore+=oreReq;
 				gold-=oreReq*50;
 				return true;
@@ -233,9 +228,8 @@ public class Store {
 		System.out.println("The fee is " + fee);
 		System.out.println("Mules " + mule +"\t Player has mule: " + player.getMule());
 		//If Store has a mule to sell, player doesn't currently have a mule, and
-		//the switch statement didn't fuck up.
+		//the player can afford the selected mule, a mule shall be granted unto him.
 		if(mule>0 && player.getMule()<0 && fee > 0){
-			System.out.println("BITCH");
 			//If the player can afford the fee
 			if(fee<= player.getGold()){
 				player.addResources(0, -(fee), 0, 0);

@@ -21,7 +21,7 @@ import Game.*;
  *
  */
 
-public class Player implements Serializable{
+public class Player implements Serializable, Comparable<Player>{
 	private ImageIcon image;
 	private int score;
 	private final Race race;
@@ -90,7 +90,7 @@ public class Player implements Serializable{
 		this.gold+=gold;
 		this.food+=food;
 		this.ore+=ore;
-		
+		PlayerStatsPanel.getPanel().updateBox();
 	}
 	
 	/**
@@ -257,6 +257,18 @@ public class Player implements Serializable{
 	public String toString()
 	{
 		return name;
+	}
+
+	/**
+	 * This method details how Players are supposed to be compared (by score).
+	 * @param o
+	 * @return
+	 */
+	@Override
+	public int compareTo(Player pCompare) {
+		// TODO Auto-generated method stub
+		int compareScore = pCompare.getScore();
+		return this.getScore() - compareScore;
 	}
 
 }
