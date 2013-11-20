@@ -42,7 +42,7 @@ public class Controller implements Serializable{
 	 */
 	private Controller(){
 		playerCount = 0;
-	 	players = new ArrayList<Player>();
+	 	players = Player.getPlArray();
 	}
 	
 	private static class Holder{
@@ -58,10 +58,9 @@ public class Controller implements Serializable{
 	 */
 	public void createPlayer(String name, Color color, Race race){
 		if(playerCount < numPlayers){	// checks to make sure you don't add too many players
-			Player newPlayer = new Player(name, color, race);
+			new Player(name, color, race);	//player is added to player array upon creation
 			System.out.println("Created player " + (playerCount + 1) + ":\nname " + name + "\ncolor " + color + 
 					"\nand race " + race); 
-			players.add(newPlayer);
 			playerCount++;
 		}
 	/*	else
@@ -75,8 +74,6 @@ public class Controller implements Serializable{
 	public void setNumPlayers(int num){
 		numPlayers = num;
 		System.out.println("Set number of players to: "  + num);
-		players = new ArrayList<Player>(numPlayers);
-
 	}
 	
 	/**
