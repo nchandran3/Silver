@@ -7,6 +7,7 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
@@ -154,19 +155,7 @@ public class Controller implements Serializable{
 	{
 		Holder.INSTANCE = c;
 	}
-	/**
-	 * This calculates player order based on each player's respective score.  Lowest score first.
-	 * Really not sure if this code works.  Should probably be checked.
-	 * @return
-	 */
-	public ArrayList<Player> getPlayerOrder(){
-		PriorityQueue<Player> playOrder = new PriorityQueue<Player>(players.size(), PlayerComparator.INSTANCE);
-		playOrder.addAll(players);
-		players.clear();
-		players.addAll(playOrder);
-		return players;
-	}
-	
+
 	/**
 	 * Calculate the given player's score.  Not quite sure how this is supposed to be calculated
 	 * at the moment, but will be changed to reflect intended values once clarified.
@@ -305,23 +294,8 @@ public class Controller implements Serializable{
 	 * @return the ordered arraylist of players
 	 */
 	public ArrayList<Player> setPlayerOrder() {
-		ArrayList<Player> temp = players;
-		ArrayList<Player> order = new ArrayList<Player>(numPlayers);
-		int lowestScore = calculateScore(players.get(0));
-		int j = 0;
-		while(temp != null) {
-			for(int i = 0; i<temp.size();i++) {
-				if(temp.get(i) != null) {
-					if(calculateScore(temp.get(i))<lowestScore) {
-						lowestScore = calculateScore(temp.get(i));
-						order.set(j, temp.get(i));
-						temp.set(i, null);
-						j++;
-					}
-				}
-			}
-		}	
-		return order;
+		Collections.sort(players);
+		return players;
 	}
 	
 	/**
