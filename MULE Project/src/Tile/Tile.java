@@ -22,10 +22,9 @@ import control.*;
 import Game.*;
 
 /**
- * This class represents a Tile on the Map. It stores the tileType(int),
- * owner(Player), and isOwned(boolean). There are 6 different types of tiles
- * that are given in the constructor. The owner is set with the TileSold method
- * once the player has chosen a new tile in the GUI of the game.
+ * This class represents a Tile on the Map. It stores the tileType(int), owner(Player), and isOwned(boolean). There are
+ * 6 different types of tiles that are given in the constructor. The owner is set with the TileSold method once the
+ * player has chosen a new tile in the GUI of the game.
  * 
  * @author Michael Carlson
  * 
@@ -43,15 +42,13 @@ public abstract class Tile extends JButton implements Serializable
 	protected int y;
 	protected JButton button;
 	protected static TileListener tListener;
-	protected int muleType; // -1 = non-existent, 0 = food, 1 = DragonFire, 2 =
-							// Ore
+	protected int muleType; // -1 = non-existent, 0 = food, 1 = DragonFire, 2 = Ore
 	protected int foodProduced;
 	protected int dragonFireProduced;
 	protected int oreProduced;
 
 	/*
-	 * Essentially creates a new JPanel and then fills it with a JButton that
-	 * reacts to mouse clicks.
+	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to mouse clicks.
 	 */
 	public Tile()
 	{
@@ -71,16 +68,12 @@ public abstract class Tile extends JButton implements Serializable
 		isOwned = false; // set all new tiles to have no owners
 		tListener = new TileListener();
 		/*
-		 * button = new JButton((Icon)img); button.setBackground(Color.BLACK);
-		 * add(button);
+		 * button = new JButton((Icon)img); button.setBackground(Color.BLACK); add(button);
 		 */
-		// This is some shitty code, but I can't really figure out how to get
-		// around it.
-		// Theoretically calls buttonPressed() in the case that the covering
-		// JButton is pressed.
+		// This is some shitty code, but I can't really figure out how to get around it.
+		// Theoretically calls buttonPressed() in the case that the covering JButton is pressed.
 		/*
-		 * addActionListener(new ActionListener() { public void
-		 * actionPerformed(ActionEvent e) { buttonPressed(); } } );
+		 * addActionListener(new ActionListener() { public void actionPerformed(ActionEvent e) { buttonPressed(); } } );
 		 */
 		if (!isTown())
 		{
@@ -115,8 +108,7 @@ public abstract class Tile extends JButton implements Serializable
 	// }
 
 	/**
-	 * This method will attempt to replace the current listener with the
-	 * listener placed inside.
+	 * This method will attempt to replace the current listener with the listener placed inside.
 	 * 
 	 * @param listens
 	 */
@@ -138,8 +130,7 @@ public abstract class Tile extends JButton implements Serializable
 	}
 
 	/**
-	 * This attempts to retrieve the image file from the Images folder and save
-	 * it to the tile's img variable.
+	 * This attempts to retrieve the image file from the Images folder and save it to the tile's img variable.
 	 */
 	public void setUp(String directory)
 	{
@@ -151,8 +142,8 @@ public abstract class Tile extends JButton implements Serializable
 	}
 
 	/**
-	 * Not sure if this is needed. Further testing required. Should paint the
-	 * actual tiles to the map. Emphasis on should.
+	 * Not sure if this is needed. Further testing required. Should paint the actual tiles to the map. Emphasis on
+	 * should.
 	 */
 	@Override
 	protected void paintComponent(Graphics g)
@@ -168,44 +159,35 @@ public abstract class Tile extends JButton implements Serializable
 	}
 
 	/**
-	 * When the covering JButton is pressed, this method is called. This method
-	 * attempts to purchase the selected tile.
+	 * When the covering JButton is pressed, this method is called. This method attempts to purchase the selected tile.
 	 */
 	protected void buttonPressed()
 	{
 		/*
-		 * if(tListener.getBuyLand()){ if(Controller.buyLand(this)) //returns
-		 * true if the player has enough money to complete the land transaction
-		 * { Controller controller = Controller.getController();
-		 * controller.endTurn(); //the player has purchased or obtained a land
-		 * /*if(controller.incrementCurrentPlayer() != null) { new
-		 * Announcement("Current player is now " +
-		 * controller.getCurrentPlayer()); } else { Iterator iterator =
-		 * Iterator.getIterator(); iterator.incrementRound(); new
-		 * Announcement("Round has changed to " + iterator.getRound()); }
+		 * if(tListener.getBuyLand()){ if(Controller.buyLand(this)) //returns true if the player has enough money to
+		 * complete the land transaction { Controller controller = Controller.getController(); controller.endTurn();
+		 * //the player has purchased or obtained a land /*if(controller.incrementCurrentPlayer() != null) { new
+		 * Announcement("Current player is now " + controller.getCurrentPlayer()); } else { Iterator iterator =
+		 * Iterator.getIterator(); iterator.incrementRound(); new Announcement("Round has changed to " +
+		 * iterator.getRound()); }
 		 */
 		/*
 		 * }
 		 * 
-		 * else { new
-		 * Announcement("Transaction failed: Insufficient money or Owned Property"
-		 * ); }
+		 * else { new Announcement("Transaction failed: Insufficient money or Owned Property"); }
 		 */
 		/*
-		 * }else{ Player currPlayer =
-		 * Controller.getController().getCurrentPlayer();
-		 * if(currPlayer.equals(owner)){ changeMule(currPlayer.getMule()); }
-		 * currPlayer.setMule(-1); changeClickListener(new TileListener());
+		 * }else{ Player currPlayer = Controller.getController().getCurrentPlayer(); if(currPlayer.equals(owner)){
+		 * changeMule(currPlayer.getMule()); } currPlayer.setMule(-1); changeClickListener(new TileListener());
 		 * 
 		 * 
-		 * //This should set the cursor back to normal.
-		 * //Toolkit.getDefaultToolkit(). }
+		 * //This should set the cursor back to normal. //Toolkit.getDefaultToolkit(). }
 		 */
 	}
 
 	/**
-	 * changes the owner of the Tile to the parameter given. Sets the border of
-	 * the tile to the color of the player. Repaints.
+	 * changes the owner of the Tile to the parameter given. Sets the border of the tile to the color of the player.
+	 * Repaints.
 	 * 
 	 * @param player
 	 *            : new owner of the tile.
@@ -228,15 +210,14 @@ public abstract class Tile extends JButton implements Serializable
 	}
 
 	/**
-	 * Set the owner of this Tile to the given Player. If the Tile was
-	 * previously owned, this tile is removed from the old Player's Tile array.
+	 * Set the owner of this Tile to the given Player. If the Tile was previously owned, this tile is removed from the
+	 * old Player's Tile array.
 	 * 
 	 * @param newOwner
 	 */
 	public void setOwner(Player newOwner)
 	{
-		// If the property is owned, then the property is removed from the old
-		// owner's tile array
+		// If the property is owned, then the property is removed from the old owner's tile array
 		if (owner != null)
 		{
 			owner.removeProperty(this);
@@ -263,8 +244,7 @@ public abstract class Tile extends JButton implements Serializable
 	}
 
 	/**
-	 * Return the type of mule present on the tile -1 = No mule, 0 = food, 1 =
-	 * DragonFire, 2 = ore
+	 * Return the type of mule present on the tile -1 = No mule, 0 = food, 1 = DragonFire, 2 = ore
 	 * 
 	 * @return
 	 */
@@ -274,9 +254,8 @@ public abstract class Tile extends JButton implements Serializable
 	}
 
 	/**
-	 * Changes whatever is currently the muleType to whatever is used as a
-	 * parameter. Then updates the tile's appearance to reflect the current
-	 * mule.
+	 * Changes whatever is currently the muleType to whatever is used as a parameter. Then updates the tile's appearance
+	 * to reflect the current mule.
 	 * 
 	 * @param newMule
 	 */
@@ -286,10 +265,9 @@ public abstract class Tile extends JButton implements Serializable
 	}
 
 	/**
-	 * This method gives the owner the amount of resources the tile provides
-	 * based on what kind of mule is present on the tile. Checks the Tile's
-	 * resource output based on instance variables and the type of mule placed
-	 * on the Tile, if any. Muletype: 0 = food, 1 = dragonFire, 2 = ore
+	 * This method gives the owner the amount of resources the tile provides based on what kind of mule is present on
+	 * the tile. Checks the Tile's resource output based on instance variables and the type of mule placed on the Tile,
+	 * if any. Muletype: 0 = food, 1 = dragonFire, 2 = ore
 	 */
 	public void production()
 	{

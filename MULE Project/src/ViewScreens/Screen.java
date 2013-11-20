@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
- * This class is meant to provide a definition for all viewable game screens. It
- * contains the basic properties and methods for all viewable
+ * This class is meant to provide a definition for all viewable game screens. It contains the basic properties and
+ * methods for all viewable
  * 
  * @author Naveen Chandran
  * 

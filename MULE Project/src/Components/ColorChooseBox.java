@@ -28,9 +28,8 @@ import control.*;
 import Game.*;
 
 /**
- * Creates the Color choose option that is displayed on the player select
- * screen. Once a color is selected it is dicarded from the remaining colors
- * that the next player can choose from.
+ * Creates the Color choose option that is displayed on the player select screen. Once a color is selected it is
+ * dicarded from the remaining colors that the next player can choose from.
  * 
  * @author Naveen Chandran
  * 
@@ -41,8 +40,7 @@ public class ColorChooseBox extends Screen implements ActionListener
 	{ Color.BLUE, Color.YELLOW, Color.RED, Color.MAGENTA, Color.GREEN,
 			Color.CYAN };
 	private static ArrayList<Color> colors_available = new ArrayList<Color>(
-			Arrays.asList(colors)); // Each time a color is chosen, the color
-									// will be removed from the ArrayList
+			Arrays.asList(colors)); // Each time a color is chosen, the color will be removed from the ArrayList
 	// private int width = width, height = super.height/6;
 	private int height2 = height / 6;
 	private HashMap<JButton, Color> map = new HashMap<>();
@@ -51,8 +49,7 @@ public class ColorChooseBox extends Screen implements ActionListener
 	private JLabel label;
 
 	/**
-	 * Constructor that initializes the layout and dimensions of the boxlayout
-	 * where the colors will be displayed.
+	 * Constructor that initializes the layout and dimensions of the boxlayout where the colors will be displayed.
 	 */
 	public ColorChooseBox()
 	{
@@ -77,8 +74,7 @@ public class ColorChooseBox extends Screen implements ActionListener
 	}
 
 	/**
-	 * This draws the colorBox in the panel and adds the action listener that
-	 * reads what the user inputs.
+	 * This draws the colorBox in the panel and adds the action listener that reads what the user inputs.
 	 * 
 	 * @param c
 	 * @param width
@@ -99,9 +95,8 @@ public class ColorChooseBox extends Screen implements ActionListener
 	}
 
 	/**
-	 * Recognizes an action performed from the players and based on that action
-	 * draws over the color that was just chosen which in turn eliminates that
-	 * option from the next player.
+	 * Recognizes an action performed from the players and based on that action draws over the color that was just
+	 * chosen which in turn eliminates that option from the next player.
 	 * 
 	 * @param ActionEvent
 	 *            e

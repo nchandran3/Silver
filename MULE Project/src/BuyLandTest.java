@@ -34,15 +34,7 @@ public class BuyLandTest
 	{
 		Tile tile = new River(); // by default the tile is not owned
 
-		controller.createPlayer("Test", Color.BLACK, Race.TARGARYEN); // This
-																		// player
-																		// should
-																		// have
-																		// a
-																		// default
-																		// gold
-																		// value
-																		// of
+		controller.createPlayer("Test", Color.BLACK, Race.TARGARYEN); // This player should have a default gold value of
 																		// 600
 		controller.startGame();
 
@@ -65,13 +57,7 @@ public class BuyLandTest
 	{
 		Tile tile = new River(); // by default the tile is not owned
 
-		controller.createPlayer("Test", Color.BLACK, Race.TARGARYEN); // Player
-																		// has
-																		// default
-																		// gold
-																		// value
-																		// of
-																		// 600
+		controller.createPlayer("Test", Color.BLACK, Race.TARGARYEN); // Player has default gold value of 600
 		controller.startGame();
 
 		int price = LandOffice.getLandOffice().getBuyPrice();

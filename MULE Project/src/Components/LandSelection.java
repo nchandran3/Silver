@@ -13,8 +13,7 @@ import control.*;
 import Game.*;
 
 /**
- * Puts the game into the land selection phase where players can buy property
- * and see their recent purchases.
+ * Puts the game into the land selection phase where players can buy property and see their recent purchases.
  * 
  * @author Andrew Ford
  * 
@@ -39,9 +38,7 @@ public class LandSelection extends Screen
 
 		if (iterator.getRound() > 2)
 		{
-			LandOffice.getLandOffice().setPrice(); // tiles now cost money to
-													// players if the round is
-													// greater than 2
+			LandOffice.getLandOffice().setPrice(); // tiles now cost money to players if the round is greater than 2
 		}
 
 		clock = GameTimer.getTimer();
@@ -59,8 +56,7 @@ public class LandSelection extends Screen
 			for (Tile t : x)
 				t.setEnabled(true);
 
-		tiles[2][4].setEnabled(false); // does not let players click on the town
-										// - it is not ownable
+		tiles[2][4].setEnabled(false); // does not let players click on the town - it is not ownable
 	}
 
 	public static void main(String[] args)

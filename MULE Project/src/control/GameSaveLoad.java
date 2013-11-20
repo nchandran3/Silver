@@ -23,8 +23,7 @@ public class GameSaveLoad implements Serializable
 	private Tile[][] map;
 
 	/**
-	 * This version number helps make sure everything is sync'd if we start
-	 * changing object content
+	 * This version number helps make sure everything is sync'd if we start changing object content
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -50,21 +49,18 @@ public class GameSaveLoad implements Serializable
 		try
 		{
 			/*
-			 * Create the object output stream for serialization. We are
-			 * wrapping a FileOutputStream since we want to save to disk. You
-			 * can also save to socket streams or any other kind of stream.
+			 * Create the object output stream for serialization. We are wrapping a FileOutputStream since we want to
+			 * save to disk. You can also save to socket streams or any other kind of stream.
 			 */
 			ObjectOutputStream out = new ObjectOutputStream(
 					new FileOutputStream(filename));
 
 			/*
-			 * The only real call we need. The stream buffers the output and
-			 * reuses data, so if you are serializing very frequently, then the
-			 * object values might not actually change because the old
-			 * serialized object is being reused.
+			 * The only real call we need. The stream buffers the output and reuses data, so if you are serializing very
+			 * frequently, then the object values might not actually change because the old serialized object is being
+			 * reused.
 			 * 
-			 * To fix this you can try writeUnshared() or you can reset the
-			 * stream. out.reset();
+			 * To fix this you can try writeUnshared() or you can reset the stream. out.reset();
 			 */
 			out.writeObject(this);
 		}
@@ -81,8 +77,8 @@ public class GameSaveLoad implements Serializable
 	}
 
 	/**
-	 * This is an example of a factory method We call this static method to
-	 * create an instance of Company from a serialized file.
+	 * This is an example of a factory method We call this static method to create an instance of Company from a
+	 * serialized file.
 	 * 
 	 * @param filename
 	 *            the name of the file to use
@@ -94,8 +90,7 @@ public class GameSaveLoad implements Serializable
 		try
 		{
 			/*
-			 * Create the input stream. Since we want to read from the disk, we
-			 * wrap a file stream.
+			 * Create the input stream. Since we want to read from the disk, we wrap a file stream.
 			 */
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(
 					filename));

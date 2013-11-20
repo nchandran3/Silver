@@ -88,8 +88,7 @@ public class GameClock extends JPanel
 	}
 
 	/**
-	 * Resets the rectangle representing the clock with the time given as the
-	 * parameter.
+	 * Resets the rectangle representing the clock with the time given as the parameter.
 	 * 
 	 * @param timeForTurn
 	 */
@@ -104,8 +103,7 @@ public class GameClock extends JPanel
 	}
 
 	/**
-	 * Resets the clock with the same amount of time as it was originally given
-	 * when the GameClock was created.
+	 * Resets the clock with the same amount of time as it was originally given when the GameClock was created.
 	 */
 	public void resetClock()
 	{
@@ -135,8 +133,7 @@ public class GameClock extends JPanel
 	}
 
 	/**
-	 * Returns the amount of time that passed since startTime or resetClock was
-	 * called initially.
+	 * Returns the amount of time that passed since startTime or resetClock was called initially.
 	 * 
 	 * @return the time elapsed
 	 */
@@ -157,8 +154,7 @@ public class GameClock extends JPanel
 	}
 
 	/**
-	 * Returns an int representing the amount of time the player had left in
-	 * their turn when it was ended.
+	 * Returns an int representing the amount of time the player had left in their turn when it was ended.
 	 * 
 	 * @return time left in turn
 	 */

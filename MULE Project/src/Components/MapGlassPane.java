@@ -23,8 +23,7 @@ import control.*;
 import Game.*;
 
 /**
- * Class for drawing the player sprite across the map. Will be overlaid and
- * transparent over map.
+ * Class for drawing the player sprite across the map. Will be overlaid and transparent over map.
  * 
  * @author Michael
  * 
@@ -63,9 +62,7 @@ public class MapGlassPane extends Screen implements KeyListener
 		currPlayer = controller.getCurrentPlayer();
 		sprite = currPlayer.getImage();
 		ind = controller.getCurrentPlayerIndex();
-		location = new Point(getWidth() / 2, getHeight() / 2); // begin player
-																// in the center
-																// of the screen
+		location = new Point(getWidth() / 2, getHeight() / 2); // begin player in the center of the screen
 		currPlayer.move(location);
 		image_width = (int) (getWidth() * .05);
 		image_height = (int) (getHeight() * .05);
@@ -78,10 +75,7 @@ public class MapGlassPane extends Screen implements KeyListener
 	{
 		super.paintComponent(g);
 		g.drawImage(sprite.getImage(), location.x - image_width / 2, location.y
-				- image_height / 2, image_width, image_height, null); // center
-																		// the
-																		// image
-																		// drawn
+				- image_height / 2, image_width, image_height, null); // center the image drawn
 
 	}
 

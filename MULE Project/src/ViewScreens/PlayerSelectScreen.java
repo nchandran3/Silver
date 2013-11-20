@@ -61,12 +61,8 @@ public class PlayerSelectScreen extends Screen
 		textPrompt = "Player " + players_created;
 		txtEnterPlayerName.setText(textPrompt);
 		txtEnterPlayerName.setColumns(10);
-		txtEnterPlayerName.addMouseListener(new MouseAdapter() // clear prompt
-																// when user
-																// focuses on
-																// textbox, and
-																// change text
-																// properties
+		txtEnterPlayerName.addMouseListener(new MouseAdapter() // clear prompt when user focuses on textbox, and change
+																// text properties
 				{
 					public void mouseClicked(MouseEvent e)
 					{
@@ -114,9 +110,8 @@ public class PlayerSelectScreen extends Screen
 	}
 
 	/**
-	 * Listener for the Done button. Determines if all options are selected, and
-	 * if so, will create a new player and bring up another PlayerSelectScreen
-	 * if needed; otherwise, bring up the map.
+	 * Listener for the Done button. Determines if all options are selected, and if so, will create a new player and
+	 * bring up another PlayerSelectScreen if needed; otherwise, bring up the map.
 	 * 
 	 * @author Naveen
 	 * 
@@ -125,9 +120,8 @@ public class PlayerSelectScreen extends Screen
 	{
 
 		/*
-		 * If user has selected all required fields, create a new player. Then
-		 * check to see if there are more players left to create. If not, change
-		 * to the map screen.
+		 * If user has selected all required fields, create a new player. Then check to see if there are more players
+		 * left to create. If not, change to the map screen.
 		 */
 		@Override
 		public void actionPerformed(ActionEvent e)
@@ -142,19 +136,10 @@ public class PlayerSelectScreen extends Screen
 				controller.createPlayer(txtEnterPlayerName.getText(),
 						colorChooseBox.getColorChosen(),
 						raceSelectPanel.getSelectedRace());
-				colorChooseBox.removeColorFromChoices(); // remove the color
-															// chosen from the
-															// list of options
+				colorChooseBox.removeColorFromChoices(); // remove the color chosen from the list of options
 
-				if (players_created < controller.getNumPlayers()) // if it is
-																	// the last
-																	// player
-																	// that
-																	// needs to
-																	// be
-																	// created,
-																	// switch to
-																	// Map
+				if (players_created < controller.getNumPlayers()) // if it is the last player that needs to be created,
+																	// switch to Map
 				{
 					iterator.switchScreen(new PlayerSelectScreen());
 				}
@@ -163,8 +148,7 @@ public class PlayerSelectScreen extends Screen
 				{
 					Controller.getController().startGame();
 					// iterator.startGame();
-					// iterator.switchScreen(new Map()); //change this to the
-					// Map Screen class
+					// iterator.switchScreen(new Map()); //change this to the Map Screen class
 				}
 			}
 

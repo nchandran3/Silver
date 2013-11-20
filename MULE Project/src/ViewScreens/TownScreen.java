@@ -105,8 +105,7 @@ public class TownScreen extends Screen implements MouseListener
 	{
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		// Image store = GTools.compress(new ImageIcon("./Images/store.png"),
-		// 80, 80).getImage();
+		// Image store = GTools.compress(new ImageIcon("./Images/store.png"), 80, 80).getImage();
 		// super.paintComponent(g);
 		g.setColor(Color.ORANGE);
 		g2.fillRect(0, 0, 999999, 999999);
@@ -142,19 +141,16 @@ public class TownScreen extends Screen implements MouseListener
 	 * 
 	 * return Xcord; } public int getY(){
 	 * 
-	 * return Ycord; } public void setX(int x){ Xcord = x; } public void
-	 * setY(int y){ Ycord = y; } public void updatePos(){
+	 * return Ycord; } public void setX(int x){ Xcord = x; } public void setY(int y){ Ycord = y; } public void
+	 * updatePos(){
 	 * 
 	 * }
 	 */
 	/*
-	 * public int checkCollision(int x, int y){ if(y <= super.height/3){ if(x >=
-	 * 0 && x < super.width/4){ return 1; } else if(x >= super.width/4 && x <
-	 * super.width/2){ return 2; } else if(x >= super.width/2 && x <
-	 * super.width/4 * 3){ return 3; } else{ return 4; } } else{ return 0; } }
-	 * public void chooseStore(int x, int y){ Iterator iterator =
-	 * Iterator.getIterator(); if(checkCollision(x, y) == 1){
-	 * iterator.switchScreen(pub); } }
+	 * public int checkCollision(int x, int y){ if(y <= super.height/3){ if(x >= 0 && x < super.width/4){ return 1; }
+	 * else if(x >= super.width/4 && x < super.width/2){ return 2; } else if(x >= super.width/2 && x < super.width/4 *
+	 * 3){ return 3; } else{ return 4; } } else{ return 0; } } public void chooseStore(int x, int y){ Iterator iterator
+	 * = Iterator.getIterator(); if(checkCollision(x, y) == 1){ iterator.switchScreen(pub); } }
 	 */
 	public static void main(String[] args)
 	{

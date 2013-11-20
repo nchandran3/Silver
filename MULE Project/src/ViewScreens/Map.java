@@ -31,8 +31,8 @@ import control.*;
 import Game.*;
 
 /**
- * This class is responsible for creating the map and storing the tileMap, as a
- * 2-D array, and the players of game, stored in the array players.
+ * This class is responsible for creating the map and storing the tileMap, as a 2-D array, and the players of game,
+ * stored in the array players.
  * 
  * @author Michael Carlson
  * 
@@ -50,8 +50,8 @@ public final class Map extends Screen
 	private Controller controller;
 
 	/**
-	 * This is the constructor of the class which sets the number of tiles on
-	 * the map and also sets the players array equal to the parameters value.
+	 * This is the constructor of the class which sets the number of tiles on the map and also sets the players array
+	 * equal to the parameters value.
 	 * 
 	 * @param numTiles
 	 * @param newPlayers
@@ -78,10 +78,8 @@ public final class Map extends Screen
 			}
 		}
 
-		tile_width = tileMap[0][0].getWidth(); // for use with MapGlassPane and
-												// the controller method
-		tile_height = tileMap[0][0].getHeight();// to return the tile given a
-												// coordinate.
+		tile_width = tileMap[0][0].getWidth(); // for use with MapGlassPane and the controller method
+		tile_height = tileMap[0][0].getHeight();// to return the tile given a coordinate.
 
 		map = this; // there is only one map!
 	}

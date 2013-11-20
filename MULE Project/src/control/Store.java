@@ -3,8 +3,7 @@ package control;
 import Player.*;
 
 /**
- * The store allows players to purchase certain supplies with their hard-earned
- * gold.
+ * The store allows players to purchase certain supplies with their hard-earned gold.
  * 
  * @author Hamilton Greene
  * 
@@ -244,8 +243,7 @@ public class Store
 	}
 
 	/**
-	 * This method allows you to buy a mule. It checks the player's eligibility
-	 * to perform such a feat.
+	 * This method allows you to buy a mule. It checks the player's eligibility to perform such a feat.
 	 * 
 	 * @param muleReq
 	 *            -> Type of mule you want to buy 0 = food, 1 = energy, 2 = ore
@@ -255,8 +253,7 @@ public class Store
 	{
 		Player player = Controller.getController().getCurrentPlayer();
 
-		int fee = 125 + 25 * muleType; // food costs 125, energy costs 150, and
-										// ore costs 175
+		int fee = 125 + 25 * muleType; // food costs 125, energy costs 150, and ore costs 175
 		switch (muleType)
 		{
 			case 0:
@@ -272,10 +269,8 @@ public class Store
 		System.out.println("The fee is " + fee);
 		System.out.println("Mules " + mule + "\t Player has mule: "
 				+ player.getMule());
-		// If Store has a mule to sell, player doesn't currently have a mule,
-		// and
-		// the player can afford the selected mule, a mule shall be granted unto
-		// him.
+		// If Store has a mule to sell, player doesn't currently have a mule, and
+		// the player can afford the selected mule, a mule shall be granted unto him.
 		if (mule > 0 && player.getMule() < 0 && fee > 0)
 		{
 			// If the player can afford the fee

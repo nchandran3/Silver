@@ -23,9 +23,8 @@ import Game.*;
  */
 
 /**
- * This class moves the game into the after selection of land phase where
- * players dont have the ability to choose land but can walk around and enter
- * the pub.
+ * This class moves the game into the after selection of land phase where players dont have the ability to choose land
+ * but can walk around and enter the pub.
  * 
  * @author Andrew Ford
  * 

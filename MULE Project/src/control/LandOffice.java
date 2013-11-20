@@ -34,8 +34,8 @@ public class LandOffice
 	}
 
 	/**
-	 * This sets the purchase price of land based on the game phase. This should
-	 * be called following every land purchase.
+	 * This sets the purchase price of land based on the game phase. This should be called following every land
+	 * purchase.
 	 */
 	public void setPrice()
 	{

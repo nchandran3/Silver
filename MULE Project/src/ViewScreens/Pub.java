@@ -8,8 +8,8 @@ import control.*;
 import Game.*;
 
 /**
- * The Gamble class just calculates the amount of money each player gets after
- * their turn based on how much time remains in the game clock for their turn.
+ * The Gamble class just calculates the amount of money each player gets after their turn based on how much time remains
+ * in the game clock for their turn.
  * 
  * @author Andrew Ford
  * 
@@ -22,8 +22,8 @@ public class Pub
 	}
 
 	/**
-	 * Gets the time left on the game clock and adds the corresponding amount to
-	 * the players total amount of gold based on the time left.
+	 * Gets the time left on the game clock and adds the corresponding amount to the players total amount of gold based
+	 * on the time left.
 	 * 
 	 * @param time
 	 */
@@ -45,8 +45,8 @@ public class Pub
 	}
 
 	/**
-	 * The Time bonus is computed by: 37-50 seconds left : 200 25 - 37 seconds
-	 * left : 150 12 - 25 seconds left : 100 0 - 12 seconds left : 50
+	 * The Time bonus is computed by: 37-50 seconds left : 200 25 - 37 seconds left : 150 12 - 25 seconds left : 100 0 -
+	 * 12 seconds left : 50
 	 * 
 	 * @param time
 	 * @return time bonus
@@ -69,9 +69,8 @@ public class Pub
 	}
 
 	/**
-	 * Calculates the round bonus based on the current round because based on
-	 * your round it is important to get more money later on in the game based
-	 * on how the game changes and the players need more money.
+	 * Calculates the round bonus based on the current round because based on your round it is important to get more
+	 * money later on in the game based on how the game changes and the players need more money.
 	 * 
 	 * @return int round bonus
 	 */

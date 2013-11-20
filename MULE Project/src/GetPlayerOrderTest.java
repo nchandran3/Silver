@@ -23,10 +23,8 @@ import control.Iterator;
 public class GetPlayerOrderTest
 {
 	/*
-	 * Player score is calculated by: food + dragonFire + ore +
-	 * gold*propertiesOwned The different Races start out with different amounts
-	 * of gold: TARGARYEN = 600 GREYJOY = 1000 BARATHEON = 1000 STARK = 1000
-	 * LANNISTER = 1600
+	 * Player score is calculated by: food + dragonFire + ore + gold*propertiesOwned The different Races start out with
+	 * different amounts of gold: TARGARYEN = 600 GREYJOY = 1000 BARATHEON = 1000 STARK = 1000 LANNISTER = 1600
 	 */
 
 	@Test
@@ -34,18 +32,9 @@ public class GetPlayerOrderTest
 	{
 		Controller controller = Controller.getController();
 		controller.setNumPlayers(4);
-		// This should set the player's resources to: 8 food, 4 dragonFire, 0
-		// ore
+		// This should set the player's resources to: 8 food, 4 dragonFire, 0 ore
 		controller.setDifficulty(1);
-		controller.createPlayer("Last", Color.BLACK, Race.BARATHEON); // This
-																		// player
-																		// should
-																		// have
-																		// a
-																		// default
-																		// gold
-																		// value
-																		// of
+		controller.createPlayer("Last", Color.BLACK, Race.BARATHEON); // This player should have a default gold value of
 																		// 600
 		ArrayList<Player> orderedPlayers = controller.setPlayerOrder();
 
@@ -66,16 +55,14 @@ public class GetPlayerOrderTest
 		Controller controller = Controller.getController();
 		controller.setDifficulty(1);
 		/*
-		 * Because no player has any properties, they should all be viewed
-		 * equally by the priority queue they're entered in in getPlayerOrder().
-		 * 0 properties cancels out any gold advantages.
+		 * Because no player has any properties, they should all be viewed equally by the priority queue they're entered
+		 * in in getPlayerOrder(). 0 properties cancels out any gold advantages.
 		 */
 		controller.createPlayer("Third", Color.RED, Race.TARGARYEN);
 		controller.createPlayer("Second", Color.YELLOW, Race.GREYJOY);
 		controller.createPlayer("First", Color.GREEN, Race.LANNISTER);
 
-		// Checks if players are added in order of creation if they all have the
-		// same score
+		// Checks if players are added in order of creation if they all have the same score
 		ArrayList<Player> equalPlayers = controller.setPlayerOrder();
 
 		// Ensures all players have a score of 0 due to property.
@@ -88,8 +75,7 @@ public class GetPlayerOrderTest
 		assertTrue("First player has score = 0: ", equalPlayers.get(3)
 				.getScore() == 0);
 
-		// Ensures all players were added to the PQ based on creation time
-		// (stable)
+		// Ensures all players were added to the PQ based on creation time (stable)
 		assertTrue("First player is named Last: ",
 				"Last".equals(equalPlayers.get(0).toString()));
 		assertTrue("Second player is named Third: ",

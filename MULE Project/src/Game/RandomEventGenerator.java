@@ -22,16 +22,15 @@ public class RandomEventGenerator
 	}
 
 	/**
-	 * There is a 27% chance that a random event will happen to any player, but
-	 * no bad event may be inflicted upon the player in last.
+	 * There is a 27% chance that a random event will happen to any player, but no bad event may be inflicted upon the
+	 * player in last.
 	 * 
 	 * @param the
 	 *            current player
 	 */
 	public static void createRandomEvent(Player player)
 	{
-		// ArrayList<Player> playerList =
-		// Controller.getController().getPlayerOrder();
+		// ArrayList<Player> playerList = Controller.getController().getPlayerOrder();
 		Random rand = new Random();
 		if (rand.nextInt(99) < 27)
 		{
@@ -54,8 +53,7 @@ public class RandomEventGenerator
 				m = 100;
 			}
 
-			// This should work. If problems in which the lowest ranked player
-			// receives
+			// This should work. If problems in which the lowest ranked player receives
 			// these effects, try using .equals instead of ==/!= operations
 			int event = rand.nextInt(7);
 			switch (event)

@@ -47,20 +47,13 @@ public class Main
 		else
 		{
 			GameSaveLoad game = GameSaveLoad.getFromFile("save.dat");
-			Controller.setController(game.getController()); // reset the
-															// controller
+			Controller.setController(game.getController()); // reset the controller
 			Iterator.setIterator(game.getIterator()); // reset the iterator
 			Iterator iterator = Iterator.getIterator();
-			iterator.switchScreen(iterator.getScreen()); // makes the next
-															// screen to show up
-															// the last screen
+			iterator.switchScreen(iterator.getScreen()); // makes the next screen to show up the last screen
 			iterator.getFrame().setVisible(true);
 			game.reset(); // resets the listeners
-			System.out.println(Controller.getController().getNumPlayers()); // shows
-																			// the
-																			// number
-																			// of
-																			// players
+			System.out.println(Controller.getController().getNumPlayers()); // shows the number of players
 
 		}
 	}

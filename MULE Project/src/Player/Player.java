@@ -41,8 +41,7 @@ public class Player implements Serializable, Comparable<Player>
 	private static ArrayList<ImageIcon> sprites;
 
 	/**
-	 * This is the constructor for the player class which initializes the
-	 * player's data.
+	 * This is the constructor for the player class which initializes the player's data.
 	 * 
 	 * @param name
 	 * @param color
@@ -60,8 +59,7 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * Moves the player's location to the point given. Returns the point the
-	 * player ends up at.
+	 * Moves the player's location to the point given. Returns the point the player ends up at.
 	 */
 	public Point move(Point p)
 	{
@@ -89,8 +87,8 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * updates the player's resources amount based on transactions that happen
-	 * in-game. Negative integers will deplete the player's resources.
+	 * updates the player's resources amount based on transactions that happen in-game. Negative integers will deplete
+	 * the player's resources.
 	 * 
 	 */
 	public void addResources(int dragonFire, int gold, int food, int ore)
@@ -103,13 +101,12 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * This method will set the player's attributes and starting resources based
-	 * on map chosen, difficulty, and selected race.
+	 * This method will set the player's attributes and starting resources based on map chosen, difficulty, and selected
+	 * race.
 	 */
 	public void playerInit()
 	{
-		// This code is to be implemented if/when additional map types are
-		// introduced
+		// This code is to be implemented if/when additional map types are introduced
 		// map = Map.getMapType();
 		// resources[x] moneyStart = 1000;
 		// (where x is chosen slot for money)
@@ -179,9 +176,8 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * Sets the player's gold to the provided quantity. Should be used primarily
-	 * in the case that some outside force would cause the player's gold
-	 * quantity to go sub zero to set the gold amount to 0.
+	 * Sets the player's gold to the provided quantity. Should be used primarily in the case that some outside force
+	 * would cause the player's gold quantity to go sub zero to set the gold amount to 0.
 	 * 
 	 * @param goldQuantity
 	 */
@@ -211,8 +207,7 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * Calculates the player's current score. Score calculation = sum of
-	 * resources * properties owned
+	 * Calculates the player's current score. Score calculation = sum of resources * properties owned
 	 * 
 	 * @return
 	 */
@@ -237,8 +232,7 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * Returns -1 if the player has no mule, 0, 1, or 2 for food, energy, and
-	 * ore respectively
+	 * Returns -1 if the player has no mule, 0, 1, or 2 for food, energy, and ore respectively
 	 * 
 	 * @return
 	 */
@@ -248,8 +242,8 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * Setting the muleType should follow these guidelines: -1 = no mule, 0 =
-	 * food mule, 1 = dragonFire mule, 2 = ore mule
+	 * Setting the muleType should follow these guidelines: -1 = no mule, 0 = food mule, 1 = dragonFire mule, 2 = ore
+	 * mule
 	 * 
 	 * @param muleType
 	 */
@@ -277,8 +271,7 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * Returns the number of properties owned. Mainly used for player score
-	 * valuation.
+	 * Returns the number of properties owned. Mainly used for player score valuation.
 	 * 
 	 * @return
 	 */
@@ -299,9 +292,8 @@ public class Player implements Serializable, Comparable<Player>
 	}
 
 	/**
-	 * This method details how Players are supposed to be compared (by score).
-	 * Compares in opposite order to accomodate for Collection.sorts required
-	 * ascending order sort
+	 * This method details how Players are supposed to be compared (by score). Compares in opposite order to accomodate
+	 * for Collection.sorts required ascending order sort
 	 * 
 	 * @param o
 	 * @return

@@ -51,12 +51,10 @@ public class GameTimer extends Screen implements ActionListener
 		paused = false;
 		y = 0;
 		this.time = time;
-		rate = (height / time * FLOW); // how much to take off the rectangle in
-										// order to get blank at the end
+		rate = (height / time * FLOW); // how much to take off the rectangle in order to get blank at the end
 		actionTimer = new Timer((int) (FLOW * 1000), this);
-		actionTimer.setInitialDelay(3 * 1000); // wait three seconds before
-												// starting the timer, to allow
-												// reading annoucements.
+		actionTimer.setInitialDelay(3 * 1000); // wait three seconds before starting the timer, to allow reading
+												// annoucements.
 		start();
 	}
 
@@ -113,8 +111,7 @@ public class GameTimer extends Screen implements ActionListener
 	}
 
 	/**
-	 * Logic behind drawing the timer. If the timer runs out, it ends the
-	 * current player's turn
+	 * Logic behind drawing the timer. If the timer runs out, it ends the current player's turn
 	 */
 	public void actionPerformed(ActionEvent e)
 	{

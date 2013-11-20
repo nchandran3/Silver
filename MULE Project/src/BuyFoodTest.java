@@ -80,15 +80,12 @@ public class BuyFoodTest
 	 * 
 	 * @Test public void testBuyFoodFT(){ Store store = Store.getStore();
 	 * 
-	 * Player np = new Player("Test", Color.BLACK, Race.TARGARYEN);
-	 * //np.addResources(0, -300, 0, 0);
+	 * Player np = new Player("Test", Color.BLACK, Race.TARGARYEN); //np.addResources(0, -300, 0, 0);
 	 * 
 	 * int price = store.getFoodPrice();
 	 * 
-	 * assertTrue("Make Sure there is a price for food", price > 0);
-	 * assertFalse("Owner want to buy too many ", store.buyFood(np,
-	 * store.getFood() + 1)); assertTrue("Player has ebough Gold",
-	 * np.getGold()>store.getFood()*0);
+	 * assertTrue("Make Sure there is a price for food", price > 0); assertFalse("Owner want to buy too many ",
+	 * store.buyFood(np, store.getFood() + 1)); assertTrue("Player has ebough Gold", np.getGold()>store.getFood()*0);
 	 * 
 	 * System.out.println("Test 4 Done"); }
 	 */

@@ -15,8 +15,8 @@ public abstract class GTools
 {
 
 	/**
-	 * Sets the bounds of the component by computing the percent of pixels
-	 * horizontally and vertically. Centers the component on the given pixel
+	 * Sets the bounds of the component by computing the percent of pixels horizontally and vertically. Centers the
+	 * component on the given pixel
 	 * 
 	 * @param component
 	 *            the JComponent to add to the panel
@@ -36,11 +36,8 @@ public abstract class GTools
 		int width = container.getWidth();
 		int height = container.getHeight();
 
-		component.setBounds((int) (width * percentX - c_width / 2), // the
-																	// centered
-																	// x bound
-				(int) (height * percentY - c_height / 2), // the centered y
-															// bound
+		component.setBounds((int) (width * percentX - c_width / 2), // the centered x bound
+				(int) (height * percentY - c_height / 2), // the centered y bound
 				c_width, // the width
 				c_height); // the height
 
@@ -48,9 +45,8 @@ public abstract class GTools
 	}
 
 	/**
-	 * Overload Sets the bounds of the component by computing the percent of
-	 * pixels horizontally and vertically. Centers the component on the given
-	 * pixel. Scales the component based on the given width and height ratios
+	 * Overload Sets the bounds of the component by computing the percent of pixels horizontally and vertically. Centers
+	 * the component on the given pixel. Scales the component based on the given width and height ratios
 	 * 
 	 * @param component
 	 *            the JComponent to add to the panel
@@ -74,11 +70,8 @@ public abstract class GTools
 		int width = container.getWidth();
 		int height = container.getHeight();
 
-		component.setBounds((int) (width * percentX - c_width / 2), // the
-																	// centered
-																	// x bound
-				(int) (height * percentY - c_height / 2), // the centered y
-															// bound
+		component.setBounds((int) (width * percentX - c_width / 2), // the centered x bound
+				(int) (height * percentY - c_height / 2), // the centered y bound
 				(int) (c_width), // the width scaled by a factor of rwidth
 				(int) (c_height)); // the height scaled by a factor of rheight
 
@@ -104,8 +97,7 @@ public abstract class GTools
 	}
 
 	/**
-	 * Overload Creates a compressed ImageIcon from a file in the working
-	 * directory
+	 * Overload Creates a compressed ImageIcon from a file in the working directory
 	 * 
 	 * @param image
 	 *            the image to compress

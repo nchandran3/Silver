@@ -39,8 +39,7 @@ public class Controller implements Serializable
 	private String[][] makeMap;
 
 	/**
-	 * This is the constructor for the class which initializes the player count
-	 * to 0.
+	 * This is the constructor for the class which initializes the player count to 0.
 	 */
 	private Controller()
 	{
@@ -54,9 +53,8 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * This creates new players by calling the player class to set up each
-	 * player's instance variables It puts the players into an array which makes
-	 * it easy for the iterator to iterate through the players for the game.
+	 * This creates new players by calling the player class to set up each player's instance variables It puts the
+	 * players into an array which makes it easy for the iterator to iterate through the players for the game.
 	 * 
 	 * @param name
 	 * @param color
@@ -64,8 +62,7 @@ public class Controller implements Serializable
 	 */
 	public void createPlayer(String name, Color color, Race race)
 	{
-		new Player(name, color, race); // player is added to player array upon
-										// creation
+		new Player(name, color, race); // player is added to player array upon creation
 		System.out.println("Created player " + (playerCount + 1) + ":\nname "
 				+ name + "\ncolor " + color + "\nand race " + race);
 		playerCount++;
@@ -87,8 +84,7 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * Called after the player selection screen to instatiate all the next
-	 * screens.
+	 * Called after the player selection screen to instatiate all the next screens.
 	 */
 	public void startGame()
 	{
@@ -125,15 +121,12 @@ public class Controller implements Serializable
 		System.out.println("Difficulty is " + difficulty);
 	}
 
-	// Don't really know why this is supposed to be static. In case this causes
-	// problems,
+	// Don't really know why this is supposed to be static. In case this causes problems,
 	// This method is called from the Tile buttonPressed() method
 	/**
-	 * Determines the price of the piece of land the current player is trying to
-	 * buy then checks the viability of the transaction against the player's
-	 * available resources. Round<2 -> landPrice = free Round>2 && first land
-	 * selection phase -> landPrice = 300 Round>2 && !first land selection phase
-	 * -> landPrice = found in LandOffice
+	 * Determines the price of the piece of land the current player is trying to buy then checks the viability of the
+	 * transaction against the player's available resources. Round<2 -> landPrice = free Round>2 && first land selection
+	 * phase -> landPrice = 300 Round>2 && !first land selection phase -> landPrice = found in LandOffice
 	 * 
 	 * @param tile
 	 * @return true if land acquisition was successful
@@ -188,9 +181,8 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * This calculates player order based on each player's respective score.
-	 * Lowest score first. Really not sure if this code works. Should probably
-	 * be checked.
+	 * This calculates player order based on each player's respective score. Lowest score first. Really not sure if this
+	 * code works. Should probably be checked.
 	 * 
 	 * @return
 	 */
@@ -205,9 +197,8 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * Calculate the given player's score. Not quite sure how this is supposed
-	 * to be calculated at the moment, but will be changed to reflect intended
-	 * values once clarified.
+	 * Calculate the given player's score. Not quite sure how this is supposed to be calculated at the moment, but will
+	 * be changed to reflect intended values once clarified.
 	 * 
 	 * @param player
 	 * @return player's score
@@ -217,12 +208,10 @@ public class Controller implements Serializable
 		return player.getDragonFire() + player.getFood() + player.getGold();
 	}
 
-	// This method may be out of date please check
-	// (*)&)&^&^&%&$%&^(*)*%*()_*()&*()&
+	// This method may be out of date please check (*)&)&^&^&%&$%&^(*)*%*()_*()&*()&
 	/**
-	 * This method goes through each of the players in the players[] and finds
-	 * the player with the smallest score. Really not sure if we want this right
-	 * now
+	 * This method goes through each of the players in the players[] and finds the player with the smallest score.
+	 * Really not sure if we want this right now
 	 * 
 	 * @return Player in last place
 	 */
@@ -242,9 +231,8 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * Creates a tile array representing the tiles on the map, by using the
-	 * default configuration In the tileMap below, P = Plain, R = River, and M,
-	 * M2, M3 = Mountain, Mountain 2, and Mountain 3 respectively.
+	 * Creates a tile array representing the tiles on the map, by using the default configuration In the tileMap below,
+	 * P = Plain, R = River, and M, M2, M3 = Mountain, Mountain 2, and Mountain 3 respectively.
 	 */
 	public void createMap()
 	{
@@ -333,8 +321,7 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * Returns the tile corresponding to the location of the player. For use
-	 * with glass pane
+	 * Returns the tile corresponding to the location of the player. For use with glass pane
 	 * 
 	 * @param point
 	 *            the player's location
@@ -387,11 +374,10 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * Increments the player index pointer to get the next player. If it is the
-	 * last player, it will return null and reset the pointer
+	 * Increments the player index pointer to get the next player. If it is the last player, it will return null and
+	 * reset the pointer
 	 * 
-	 * @return the player at the incremented index. Null if it is the last
-	 *         player
+	 * @return the player at the incremented index. Null if it is the last player
 	 */
 	public Player incrementCurrentPlayer()
 	{
@@ -415,22 +401,18 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * Effectively ends a players turn, stops the clock, and switches to the
-	 * next phase if need be. It also starts the production simulation at the
-	 * end of the round.
+	 * Effectively ends a players turn, stops the clock, and switches to the next phase if need be. It also starts the
+	 * production simulation at the end of the round.
 	 */
 	public void endTurn()
 	{
-		GameTimer timer = GameTimer.getTimer(); // any time a player ends their
-												// turn, stop the timer
+		GameTimer timer = GameTimer.getTimer(); // any time a player ends their turn, stop the timer
 		timer.pause();
 
 		StoreFrame frame = StoreFrame.frame();
 		frame.hideStore(); // store will go away if the player runs out of time
 
-		if (incrementCurrentPlayer() == null) // if the last player has gone,
-												// then switch to the next
-												// phase.
+		if (incrementCurrentPlayer() == null) // if the last player has gone, then switch to the next phase.
 		{
 			if (Iterator.getIterator().getCurrentPhase() == 2)
 			{
@@ -444,9 +426,8 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * This method iterates through the each players owned tiles and simulates
-	 * the production for each. It does this by calling the production method in
-	 * each subclass of Tile.
+	 * This method iterates through the each players owned tiles and simulates the production for each. It does this by
+	 * calling the production method in each subclass of Tile.
 	 */
 	private void calculateProduction()
 	{
@@ -479,9 +460,8 @@ public class Controller implements Serializable
 	}
 
 	/**
-	 * Set Cursor method used to change the cursor when the user attempts to
-	 * place a mule (or anything else). This method only changes the cursor
-	 * while it is on the Map - it will not work for any other component.
+	 * Set Cursor method used to change the cursor when the user attempts to place a mule (or anything else). This
+	 * method only changes the cursor while it is on the Map - it will not work for any other component.
 	 * 
 	 * @param image
 	 *            the path to the image that the cursor should change to.

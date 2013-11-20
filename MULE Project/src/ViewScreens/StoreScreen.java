@@ -14,8 +14,7 @@ import control.GTools;
 import control.Store;
 
 /**
- * @author Naveen Chandran Abstract class for representing the layout of all
- *         panels in the Store Frame
+ * @author Naveen Chandran Abstract class for representing the layout of all panels in the Store Frame
  */
 public abstract class StoreScreen extends JPanel
 {
@@ -40,8 +39,7 @@ public abstract class StoreScreen extends JPanel
 	}
 
 	/**
-	 * Initialize all components when the class is created. Should only be
-	 * called upon instantiation.
+	 * Initialize all components when the class is created. Should only be called upon instantiation.
 	 */
 	protected void init()
 	{
@@ -75,8 +73,7 @@ public abstract class StoreScreen extends JPanel
 	}
 
 	/**
-	 * Needs to set up the quantity box to have options 0 - storeInventory of
-	 * the resource
+	 * Needs to set up the quantity box to have options 0 - storeInventory of the resource
 	 */
 	abstract void setUpQuantityBox();
 
@@ -91,20 +88,17 @@ public abstract class StoreScreen extends JPanel
 	abstract void setUpPriceLabel();
 
 	/**
-	 * The storeInventory label should display the amount of resources remaining
-	 * in the store of the given resource
+	 * The storeInventory label should display the amount of resources remaining in the store of the given resource
 	 */
 	abstract void setUpInventoryLabel();
 
 	/**
-	 * Resource Image should be a picture of the current resource. The size
-	 * should also be set.
+	 * Resource Image should be a picture of the current resource. The size should also be set.
 	 */
 	abstract void setUpResourceImage();
 
 	/**
-	 * Needs to update the following components (change labels / options):
-	 * selector, price, storeInventory
+	 * Needs to update the following components (change labels / options): selector, price, storeInventory
 	 */
 	abstract void updateComponents();
 

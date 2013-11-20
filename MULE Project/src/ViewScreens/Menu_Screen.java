@@ -28,9 +28,8 @@ import control.*;
 import Game.*;
 
 /**
- * This class creates the first screen that will be displayed when the player
- * starts the game. In allows the player to choose a difficulty, map, and the
- * number of players that are going to be playing.
+ * This class creates the first screen that will be displayed when the player starts the game. In allows the player to
+ * choose a difficulty, map, and the number of players that are going to be playing.
  * 
  * @author Naveen Chandran
  * 
@@ -58,11 +57,10 @@ public class Menu_Screen extends Screen
 		/*
 		 * Initialization components and methods below
 		 * 
-		 * **********************************************************************
-		 * ******************************************************
-		 * ****************
-		 * ******************************************************
-		 * ******************************************************
+		 * **************************************************************************************************************
+		 * **************
+		 * ************************************************************************************************
+		 * ****************************
 		 */
 
 		/*
@@ -75,8 +73,8 @@ public class Menu_Screen extends Screen
 		GTools.positionAndAdd(title, .5, .1, this);
 
 		/*
-		 * Combo box to select the number of players. Includes selectable
-		 * options, font, color, position, and default selection.
+		 * Combo box to select the number of players. Includes selectable options, font, color, position, and default
+		 * selection.
 		 */
 
 		comboBox = new JComboBox<Integer>();
@@ -108,9 +106,8 @@ public class Menu_Screen extends Screen
 		GTools.positionAndAdd(difficultylbl, .5, .55, this);
 
 		/*
-		 * Difficulty selector. Plebian is beginner, bourgeoisie is
-		 * intermediate, and royalty is advanced. No two check boxes can be
-		 * selected at once due to the ButtonGroup functionality.
+		 * Difficulty selector. Plebian is beginner, bourgeoisie is intermediate, and royalty is advanced. No two check
+		 * boxes can be selected at once due to the ButtonGroup functionality.
 		 */
 
 		plebian = new JRadioButton("Plebian");
@@ -137,8 +134,7 @@ public class Menu_Screen extends Screen
 		difgroup.add(royalty);
 
 		/*
-		 * Random map generation check box. If checked, map will be generated
-		 * randomly.
+		 * Random map generation check box. If checked, map will be generated randomly.
 		 */
 
 		JCheckBox map = new JCheckBox("Random Map");
@@ -149,8 +145,8 @@ public class Menu_Screen extends Screen
 		GTools.positionAndAdd(map, .5, .78, this);
 
 		/*
-		 * Start button, which initiates the connection to the configuration
-		 * manager to set up the next screens and record input.
+		 * Start button, which initiates the connection to the configuration manager to set up the next screens and
+		 * record input.
 		 */
 
 		JButton done = new JButton("START!");
@@ -168,9 +164,8 @@ public class Menu_Screen extends Screen
 	}
 
 	/**
-	 * This is the action performed method which reads when the user presses the
-	 * start button. It then reads all the other information that was selected
-	 * and then calls the controller class to start the game and progress to the
+	 * This is the action performed method which reads when the user presses the start button. It then reads all the
+	 * other information that was selected and then calls the controller class to start the game and progress to the
 	 * player select screen.
 	 * 
 	 */

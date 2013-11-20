@@ -14,8 +14,8 @@ import control.*;
 import Game.*;
 
 /**
- * This class controls the switching between the screens in the game. It keeps
- * track of the current screen and updates the game according to the controller.
+ * This class controls the switching between the screens in the game. It keeps track of the current screen and updates
+ * the game according to the controller.
  * 
  * @author Andrew Ford
  * 
@@ -37,11 +37,8 @@ public class Iterator implements Serializable
 	private Iterator()
 	{
 		frame = GameFrame.getFrame();
-		contentPane = frame.getContentPane(); // crucial for layout. This is
-												// what will be used to add
-												// components, remove them, and
-												// position timers and stat
-												// boxes
+		contentPane = frame.getContentPane(); // crucial for layout. This is what will be used to add components, remove
+												// them, and position timers and stat boxes
 		cur_screen = new Menu_Screen();
 	}
 
@@ -70,9 +67,8 @@ public class Iterator implements Serializable
 	}
 
 	/**
-	 * Overloaded constructor that instantiates the gameframe into the
-	 * cardLayout and adds the two components menu screen and player select
-	 * screen
+	 * Overloaded constructor that instantiates the gameframe into the cardLayout and adds the two components menu
+	 * screen and player select screen
 	 * 
 	 * @param JFrame
 	 *            gameframe
@@ -162,8 +158,7 @@ public class Iterator implements Serializable
 	/**
 	 * Gets the current phase
 	 * 
-	 * @return The current phase (1 for LandSelection, 2 for
-	 *         AfterSelectionMap())
+	 * @return The current phase (1 for LandSelection, 2 for AfterSelectionMap())
 	 */
 	public int getCurrentPhase()
 	{
@@ -171,20 +166,16 @@ public class Iterator implements Serializable
 	}
 
 	/**
-	 * Increments the phase index. It can only vary from 1-2. If it reaches 2,
-	 * it goes back to 1.
+	 * Increments the phase index. It can only vary from 1-2. If it reaches 2, it goes back to 1.
 	 */
 	public void incrementPhase()
 	{
-		// currPhase = (currPhase % 3) + 1; //ensures that currPhase cycles
-		// between 1, 2, or 3.
-		currPhase = (currPhase % 2) + 1; // used only for testing because
-											// Auction is not implemented yet
+		// currPhase = (currPhase % 3) + 1; //ensures that currPhase cycles between 1, 2, or 3.
+		currPhase = (currPhase % 2) + 1; // used only for testing because Auction is not implemented yet
 	}
 
 	/**
-	 * Switches the screen to the next phase. [Ensure that the last player has
-	 * gone]
+	 * Switches the screen to the next phase. [Ensure that the last player has gone]
 	 */
 	public void switchToNextPhase()
 	{
@@ -199,8 +190,7 @@ public class Iterator implements Serializable
 				switchScreen(new AfterSelectionMap());
 				break;
 		// case 3:
-		// switchScreen(new Auction()); //switch this to Auction after it is
-		// implemented
+		// switchScreen(new Auction()); //switch this to Auction after it is implemented
 		// incrementRound(); //move this to the beginning of phase 1.
 		// break;
 		}

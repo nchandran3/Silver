@@ -14,9 +14,8 @@ import control.*;
 import Game.*;
 
 /**
- * This listener is used when a player purchases a mule. It essentially takes
- * the place of TileListener, thus changing which path of logic Tile chooses
- * when clicked.
+ * This listener is used when a player purchases a mule. It essentially takes the place of TileListener, thus changing
+ * which path of logic Tile chooses when clicked.
  * 
  * @author Hamilton Greene
  * 
@@ -31,8 +30,8 @@ public class MuleListener extends TileListener
 	}
 
 	/**
-	 * This should just change the background color of the tile your mouse is
-	 * hovering over, so it's easier for the player to tell where it is.
+	 * This should just change the background color of the tile your mouse is hovering over, so it's easier for the
+	 * player to tell where it is.
 	 */
 	public void mouseOver(MouseEvent e)
 	{

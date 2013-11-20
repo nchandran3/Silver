@@ -38,8 +38,7 @@ public enum Race
 	}
 
 	/**
-	 * Returns the index of the array in Player that represents the image to use
-	 * for the race's sprite
+	 * Returns the index of the array in Player that represents the image to use for the race's sprite
 	 * 
 	 * @return
 	 */

@@ -14,8 +14,7 @@ import control.*;
 import Game.*;
 
 /**
- * The main purpose of this class is to change the border of the tile when the
- * mouse is hovered over it.
+ * The main purpose of this class is to change the border of the tile when the mouse is hovered over it.
  * 
  * @author Hamilton Greene
  * 
@@ -41,11 +40,8 @@ public class TileListener extends MouseAdapter
 		Tile source = (Tile) e.getSource();
 		if (source.isEnabled() && !source.isTown())
 		{
-			if (Controller.getController().buyLand(source)) // returns true if
-															// the player has
-															// enough money to
-															// complete the land
-															// transaction
+			if (Controller.getController().buyLand(source)) // returns true if the player has enough money to complete
+															// the land transaction
 			{
 				Controller controller = Controller.getController();
 				controller.endTurn();
