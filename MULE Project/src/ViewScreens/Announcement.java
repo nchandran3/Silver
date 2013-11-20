@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import Game.GameFrame;
+
 
 /**
  * Displays announcements to the player
@@ -61,8 +63,9 @@ public class Announcement extends JFrame implements ActionListener{
 		
 		setUndecorated(true);
 		setBackground(Color.LIGHT_GRAY);
-		startx = Toolkit.getDefaultToolkit().getScreenSize().width/2 - 150;
-		starty = Toolkit.getDefaultToolkit().getScreenSize().height/2 - 150;
+		GameFrame frm = GameFrame.getFrame();
+		startx = frm.getLocation().x + frm.getWidth()/2 - 150;
+		starty = frm.getLocation().y + frm.getHeight()/2 - 150;
 		setLocation(startx, starty);
 		add(background);
 		

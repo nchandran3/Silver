@@ -21,7 +21,7 @@ import Game.*;
 public class Iterator implements Serializable{
 	private Container contentPane;
 	private JFrame frame;
-	private static int round = 1;
+	private int round = 1;
 	private Player p;
 	private Map map;
 	private int currPhase;
@@ -39,6 +39,8 @@ public class Iterator implements Serializable{
 		cur_screen = menu;
 		contentPane.add(menu);
 		frame.pack();
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		frame.setLocation(tk.getScreenSize().width/2-frame.getWidth()/2, 10);
 		frame.setVisible(true);
 	}
 	

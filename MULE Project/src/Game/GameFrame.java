@@ -1,6 +1,7 @@
 package Game;
 import java.awt.CardLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
