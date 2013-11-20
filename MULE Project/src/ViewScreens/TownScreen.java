@@ -69,7 +69,7 @@ public class TownScreen extends Screen implements MouseListener{
 			{	
 				pub.gamble(timer.getTimeRemaining());
 				iterator.switchScreen(new AfterSelectionMap());
-				Controller.controller.endTurn();
+				Controller.getController().endTurn();
 			}
 		});
 		GTools.positionAndAdd(pubButton, 0.35, 0.03, panel);

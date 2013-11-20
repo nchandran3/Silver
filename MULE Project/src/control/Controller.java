@@ -29,14 +29,13 @@ import Game.*;
  */
 public class Controller implements Serializable{
 	
-	public static Controller controller;
+	private static Controller controller;
 	private ArrayList<Player> players;
 	private Player currPlayer;
 	private int playerInd;
 	private int playerCount, numPlayers, difficulty;
 	private Tile[][] tileMap;
 	private String[][] makeMap;
-	//private LinkedList<RoundPhase> phaseList;
 	
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
@@ -44,10 +43,7 @@ public class Controller implements Serializable{
 	public Controller(){
 		controller=this;
 		playerCount = 0;
-	 	players = new ArrayList<Player>(numPlayers);
-//	 	phaseList.add(LandSelectionPhase);
-//	 	phaseList.add(AfterSelectionPhase);
-//	 	phaseList.add(AuctionPhase);
+	 	players = new ArrayList<Player>();
 	}
 	/**
 	 * This creates new players by calling the player class to set up each player's instance variables 
