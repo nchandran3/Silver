@@ -34,7 +34,11 @@ public class TileListener extends MouseAdapter
 		// source.setBorder(new LineBorder(Color.GRAY, 10));
 		source.setBackground(Color.BLACK);
 	}
-
+	/**
+	 * Keeps track of which tile was pressed.
+	 * 
+	 * @param Mouse event
+	 */
 	public void mouseClicked(MouseEvent e)
 	{
 		Tile source = (Tile) e.getSource();

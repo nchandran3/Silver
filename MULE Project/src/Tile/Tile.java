@@ -47,7 +47,7 @@ public abstract class Tile extends JButton implements Serializable
 	protected int dragonFireProduced;
 	protected int oreProduced;
 
-	/*
+	/**
 	 * Essentially creates a new JPanel and then fills it with a JButton that reacts to mouse clicks.
 	 */
 	public Tile()
