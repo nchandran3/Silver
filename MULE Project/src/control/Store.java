@@ -1,11 +1,7 @@
 package control;
 
-import Components.*;
 import Player.*;
-import Tile.*;
-import ViewScreens.*;
-import control.*;
-import Game.*;
+
 /**
  * The store allows players to purchase certain supplies with their hard-earned gold.
  * @author Hamilton Greene
