@@ -1,9 +1,11 @@
 package Tile;
 
-public class Plain extends Tile{
+public class Plain extends Tile
+{
 	String directory;
-	
-	public Plain(){
+
+	public Plain()
+	{
 		foodProduced = 2;
 		dragonFireProduced = 3;
 		oreProduced = 1;

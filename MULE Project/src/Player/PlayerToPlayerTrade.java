@@ -1,4 +1,5 @@
 package Player;
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Components.*;
@@ -8,10 +9,12 @@ import ViewScreens.*;
 import control.*;
 import Game.*;
 
-public class PlayerToPlayerTrade extends Screen{
+public class PlayerToPlayerTrade extends Screen
+{
 
-	public PlayerToPlayerTrade(){
+	public PlayerToPlayerTrade()
+	{
 		super();
-		
+
 	}
 }

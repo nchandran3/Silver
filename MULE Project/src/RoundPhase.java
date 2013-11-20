@@ -1,8 +1,10 @@
-
-public abstract class RoundPhase {
+public abstract class RoundPhase
+{
 	protected int landPrice;
-	public RoundPhase(){
-		
+
+	public RoundPhase()
+	{
+
 	}
-//	public abstract int getLandPrice();
+	// public abstract int getLandPrice();
 }

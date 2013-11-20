@@ -1,7 +1,8 @@
+public class LandSelectionPhase extends RoundPhase
+{
 
-public class LandSelectionPhase extends RoundPhase {
-
-	public int getLandPrice() {
+	public int getLandPrice()
+	{
 		return 0;
 	}
 

@@ -1,4 +1,5 @@
 package Game;
+
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
@@ -14,13 +15,14 @@ import control.Controller;
 import control.GameSaveLoad;
 import control.Iterator;
 
+public class GameFrame extends JFrame
+{
 
-public class GameFrame extends JFrame {
-	
 	/**
 	 * Create the frame.
 	 */
-	private GameFrame() {
+	private GameFrame()
+	{
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		addWindowListener(new Listener());
 		setBounds(100, 0, 450, 300);
@@ -32,11 +34,12 @@ public class GameFrame extends JFrame {
 	{
 		private static GameFrame INSTANCE = new GameFrame();
 	}
-	
+
 	public static GameFrame getFrame()
 	{
 		return Holder.INSTANCE;
 	}
+
 	/*
 	 * This listener class automatically saves upon exiting the frame.
 	 */
@@ -44,15 +47,17 @@ public class GameFrame extends JFrame {
 	{
 		public void windowClosing(WindowEvent e)
 		{
-			GameSaveLoad saver = new GameSaveLoad(Controller.getController(), Iterator.getIterator());
+			GameSaveLoad saver = new GameSaveLoad(Controller.getController(),
+					Iterator.getIterator());
 			saver.save("save.dat");
 			System.exit(0);
 		}
 	}
+
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String [] args)
+	public static void main(String[] args)
 	{
 		new GameFrame();
 	}

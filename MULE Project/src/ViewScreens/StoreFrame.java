@@ -1,4 +1,5 @@
 package ViewScreens;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -20,25 +21,26 @@ import control.Controller;
 
 /**
  * @author Naveen Chandran
- *
+ * 
  */
-public final class StoreFrame extends JFrame {
+public final class StoreFrame extends JFrame
+{
 	private JTabbedPane tabs;
 	private StoreScreen mule, food, dragfire, ore;
 	private GoldPanel goldPanel;
 	Store store = Store.getStore();
-	
+
 	private StoreFrame()
 	{
 		super("Store");
 		setLayout(new BorderLayout());
-		
+
 		init();
-		
+
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		pack();
 	}
-	
+
 	private void init()
 	{
 		initStores();
@@ -46,7 +48,7 @@ public final class StoreFrame extends JFrame {
 		add(goldPanel, BorderLayout.NORTH);
 		initTabs();
 	}
-	
+
 	private void initStores()
 	{
 		mule = new Mule();
@@ -58,53 +60,50 @@ public final class StoreFrame extends JFrame {
 	private void initTabs()
 	{
 		tabs = new JTabbedPane();
-	
-		//add the tabs (mule, food, dragonfire, ore)
+
+		// add the tabs (mule, food, dragonfire, ore)
 		tabs.addTab("Mule", mule);
 		tabs.addTab("Food", food);
 		tabs.addTab("DragonFire", dragfire);
 		tabs.addTab("Ore", ore);
-		
-		add(tabs,BorderLayout.CENTER);
+
+		add(tabs, BorderLayout.CENTER);
 	}
-	
+
 	public void updateGold()
 	{
 		goldPanel.updateGold();
 	}
-	
+
 	public void showStore()
 	{
 		setVisible(true);
 	}
-	
+
 	public void hideStore()
 	{
 		setVisible(false);
 	}
-	
+
 	public static StoreFrame frame()
 	{
 		return Holder.FRAME;
 	}
-	
-	
-	
+
 	/**
 	 * Singleton Holder class using Bill Pugh implementation
-	 *
+	 * 
 	 */
 	private static class Holder
 	{
-		public static final StoreFrame FRAME = new StoreFrame(); 
+		public static final StoreFrame FRAME = new StoreFrame();
 	}
 
-	 
 	private class GoldPanel extends JPanel
 	{
 		private int money = store.getGold();
 		JLabel gold = new JLabel("STORE GOLD: " + money);
-		
+
 		public GoldPanel()
 		{
 			this.setBackground(Color.BLACK);
@@ -112,7 +111,7 @@ public final class StoreFrame extends JFrame {
 			gold.setForeground(Color.YELLOW);
 			add(gold);
 		}
-		
+
 		public void updateGold()
 		{
 			money = Store.getStore().getGold();
@@ -120,11 +119,11 @@ public final class StoreFrame extends JFrame {
 			revalidate();
 		}
 	}
-	
-	public static void main(String [] args)
+
+	public static void main(String[] args)
 	{
-		Controller controller =Controller.getController();
-		
+		Controller controller = Controller.getController();
+
 		controller.setNumPlayers(2);
 		controller.createPlayer("Who Cares", Color.RED, Race.BARATHEON);
 		controller.createPlayer("Wzzz", Color.BLACK, Race.BARATHEON);
