@@ -224,7 +224,7 @@ public abstract class Tile extends JButton implements Serializable
 		}
 		owner = newOwner;
 		owner.addProperty(this);
-		button.setBorder(new LineBorder(newOwner.getColor(), 2));
+//		button.setBorder(new LineBorder(newOwner.getColor(), 2));
 		repaint();
 	}
 
