@@ -155,7 +155,28 @@ public class Controller implements Serializable{
 	{
 		Holder.INSTANCE = c;
 	}
+<<<<<<< HEAD
 
+=======
+	
+	public static void reset()
+	{
+		Holder.INSTANCE = new Controller();
+	}
+	/**
+	 * This calculates player order based on each player's respective score.  Lowest score first.
+	 * Really not sure if this code works.  Should probably be checked.
+	 * @return
+	 */
+	public ArrayList<Player> getPlayerOrder(){
+		PriorityQueue<Player> playOrder = new PriorityQueue<Player>(players.size(), PlayerComparator.INSTANCE);
+		playOrder.addAll(players);
+		players.clear();
+		players.addAll(playOrder);
+		return players;
+	}
+	
+>>>>>>> b0bb9b6221331e7d6d5d11c955dfebcec6cdde6f
 	/**
 	 * Calculate the given player's score.  Not quite sure how this is supposed to be calculated
 	 * at the moment, but will be changed to reflect intended values once clarified.

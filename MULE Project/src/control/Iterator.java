@@ -45,6 +45,23 @@ public class Iterator implements Serializable{
 	}
 	
 	/**
+	 * 
+	 * @return Instance of Iterator
+	 */
+	public static Iterator getIterator()
+	{
+		return Holder.INSTANCE;
+	}
+	
+	static void setIterator(Iterator i){
+		Holder.INSTANCE = i;
+	}
+	
+	public static void reset()
+	{
+		Holder.INSTANCE = new Iterator();
+	}
+	/**
 	 * Overloaded constructor that instantiates the gameframe into the cardLayout and adds the two components 
 	 * menu screen and player select screen
 	 * 
@@ -102,18 +119,7 @@ public class Iterator implements Serializable{
 	{
 		return frame;
 	}
-	/**
-	 * 
-	 * @return Instance of Iterator
-	 */
-	public static Iterator getIterator()
-	{
-		return Holder.INSTANCE;
-	}
 	
-	static void setIterator(Iterator i){
-		Holder.INSTANCE = i;
-	}
 
 	public int getRound(){
 		return round;
