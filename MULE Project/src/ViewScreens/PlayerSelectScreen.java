@@ -128,7 +128,7 @@ public class PlayerSelectScreen extends Screen
 		{
 			if (raceSelectPanel.getSelectedRace() != null
 					&& colorChooseBox.getColorChosen() != null
-					&& txtEnterPlayerName.getText() != "")
+					&& !txtEnterPlayerName.getText().equals("") )
 			{
 				Controller controller = Controller.getController();
 				Iterator iterator = Iterator.getIterator();

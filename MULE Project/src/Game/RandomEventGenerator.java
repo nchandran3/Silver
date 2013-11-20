@@ -157,6 +157,9 @@ public class RandomEventGenerator
 								+ player.getGold() + " gold");
 					}
 					break;
+					
+				default:
+					break;
 			}
 		}
 	}

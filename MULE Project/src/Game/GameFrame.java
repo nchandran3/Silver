@@ -43,7 +43,7 @@ public class GameFrame extends JFrame
 	/*
 	 * This listener class automatically saves upon exiting the frame.
 	 */
-	private class Listener extends WindowAdapter
+	private static class Listener extends WindowAdapter
 	{
 		public void windowClosing(WindowEvent e)
 		{

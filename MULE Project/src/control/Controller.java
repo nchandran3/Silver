@@ -331,7 +331,7 @@ public class Controller implements Serializable
 	{
 		// Tile tile;
 		int row = (int) Math.round(point.x / 142.22);
-		int column = (int) Math.round(point.y / 144);
+		int column = (int) Math.round(point.y / 144.0);
 		if (getTileName(row, column).equalsIgnoreCase("Town"))
 		{
 			// tileMap[row][column];//.setOwner(iterator.getCurrPlayer());

@@ -36,8 +36,8 @@ public abstract class GTools
 		int width = container.getWidth();
 		int height = container.getHeight();
 
-		component.setBounds((int) (width * percentX - c_width / 2), // the centered x bound
-				(int) (height * percentY - c_height / 2), // the centered y bound
+		component.setBounds((int) (width * percentX - c_width / 2.0), // the centered x bound
+				(int) (height * percentY - c_height / 2.0), // the centered y bound
 				c_width, // the width
 				c_height); // the height
 
@@ -117,7 +117,7 @@ public abstract class GTools
 	 * 
 	 * @return screen width
 	 */
-	public static int GetScreenWidth()
+	public static int getScreenWidth()
 	{
 		return java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment()
 				.getMaximumWindowBounds().width;
@@ -128,7 +128,7 @@ public abstract class GTools
 	 * 
 	 * @return screen height
 	 */
-	public static int GetScreenHeight()
+	public static int getScreenHeight()
 	{
 		return java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment()
 				.getMaximumWindowBounds().height;

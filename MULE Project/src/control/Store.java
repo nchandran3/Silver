@@ -265,6 +265,8 @@ public class Store
 			case 2:
 				fee = 175;
 				break;
+			default:
+				break;
 		}
 		System.out.println("The fee is " + fee);
 		System.out.println("Mules " + mule + "\t Player has mule: "

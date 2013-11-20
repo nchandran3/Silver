@@ -46,15 +46,12 @@ public class GameSaveLoad implements Serializable
 	 */
 	public void save(String filename)
 	{
-		try
+		/*
+		 * Create the object output stream for serialization. We are wrapping a FileOutputStream since we want to
+		 * save to disk. You can also save to socket streams or any other kind of stream.
+		 */
+		try ( ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename)); )
 		{
-			/*
-			 * Create the object output stream for serialization. We are wrapping a FileOutputStream since we want to
-			 * save to disk. You can also save to socket streams or any other kind of stream.
-			 */
-			ObjectOutputStream out = new ObjectOutputStream(
-					new FileOutputStream(filename));
-
 			/*
 			 * The only real call we need. The stream buffers the output and reuses data, so if you are serializing very
 			 * frequently, then the object values might not actually change because the old serialized object is being
@@ -87,13 +84,12 @@ public class GameSaveLoad implements Serializable
 	public static GameSaveLoad getFromFile(String filename)
 	{
 		GameSaveLoad c = null;
-		try
+		
+		/*
+		 * Create the input stream. Since we want to read from the disk, we wrap a file stream.
+		 */
+		try ( ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename)); )
 		{
-			/*
-			 * Create the input stream. Since we want to read from the disk, we wrap a file stream.
-			 */
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream(
-					filename));
 			/*
 			 * Now we can read the entire company in with only one call
 			 */
@@ -114,6 +110,7 @@ public class GameSaveLoad implements Serializable
 			myLogger.log(Level.SEVERE, "Company class not found on loading: "
 					+ filename, e);
 		}
+		
 		return c;
 	}
 
