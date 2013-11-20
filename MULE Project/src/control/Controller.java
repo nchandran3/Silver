@@ -7,6 +7,7 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
@@ -153,6 +154,11 @@ public class Controller implements Serializable{
 	static void setController(Controller c)
 	{
 		Holder.INSTANCE = c;
+	}
+	
+	public static void reset()
+	{
+		Holder.INSTANCE = new Controller();
 	}
 	/**
 	 * This calculates player order based on each player's respective score.  Lowest score first.

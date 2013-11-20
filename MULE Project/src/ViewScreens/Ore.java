@@ -70,7 +70,7 @@ public class Ore extends StoreScreen {
 	 * mouseClicked method that should occur when the buy button is pressed
 	 */
 	void buyButtonPressed() {
-		store.buyOre((int)selector.getSelectedItem());
+		store.buyOre(Controller.getController().getCurrentPlayer(), (int)selector.getSelectedItem());
 		updateComponents();
 	}
 
@@ -78,7 +78,7 @@ public class Ore extends StoreScreen {
 	 * mouseClicked method that should occur when the sell button is pressed
 	 */
 	void sellButtonPressed() {
-		store.sellOre((int)selector.getSelectedItem());
+		store.sellOre(Controller.getController().getCurrentPlayer(), (int)selector.getSelectedItem());
 		updateComponents();
 	}
 

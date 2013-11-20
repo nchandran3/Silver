@@ -87,7 +87,7 @@ public class Food extends StoreScreen {
 	 */
 	@Override
 	void buyButtonPressed() {
-		store.buyFood((int)selector.getSelectedItem());
+		store.buyFood(Controller.getController().getCurrentPlayer(), (int)selector.getSelectedItem());
 		updateComponents();
 	}
 
@@ -96,7 +96,7 @@ public class Food extends StoreScreen {
 	 */
 	@Override
 	void sellButtonPressed() {
-		store.sellFood((int)selector.getSelectedItem());
+		store.sellFood(Controller.getController().getCurrentPlayer(), (int)selector.getSelectedItem());
 		updateComponents();
 	}
 

@@ -84,7 +84,7 @@ public class DragonFire extends StoreScreen {
 	 */
 	@Override
 	void buyButtonPressed() {
-		store.buyDragonFire((int)selector.getSelectedItem());
+		store.buyDragonFire(Controller.getController().getCurrentPlayer(), (int)selector.getSelectedItem());
 		updateComponents();
 	}
 
@@ -93,7 +93,7 @@ public class DragonFire extends StoreScreen {
 	 */
 	@Override
 	void sellButtonPressed() {
-		store.sellDragonFire((int)selector.getSelectedItem());
+		store.sellDragonFire(Controller.getController().getCurrentPlayer(), (int)selector.getSelectedItem());
 		updateComponents();
 		
 
