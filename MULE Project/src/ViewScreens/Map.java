@@ -39,8 +39,7 @@ import Game.*;
  */
 public final class Map extends Screen
 {
-	private static Tile[][] tileMap;
-	private static Map map;
+	private Tile[][] tileMap;
 	private Player currentPlayer;
 	private int playerX, playerY = 0;
 	private Rectangle rec;
@@ -56,7 +55,7 @@ public final class Map extends Screen
 	 * @param numTiles
 	 * @param newPlayers
 	 */
-	public Map()
+	private Map()
 	{
 		super();
 		// BorderLayout bd = new BorderLayout();
@@ -80,10 +79,13 @@ public final class Map extends Screen
 
 		tile_width = tileMap[0][0].getWidth(); // for use with MapGlassPane and the controller method
 		tile_height = tileMap[0][0].getHeight();// to return the tile given a coordinate.
-
-		map = this; // there is only one map!
 	}
 
+	private static class Holder
+	{
+		private static Map INSTANCE = new Map();
+	}
+	
 	/**
 	 * Returns the instance of the Map
 	 * 
@@ -91,7 +93,7 @@ public final class Map extends Screen
 	 */
 	public static Map getMap()
 	{
-		return map;
+		return Holder.INSTANCE;
 	}
 
 	public static void main(String[] args)

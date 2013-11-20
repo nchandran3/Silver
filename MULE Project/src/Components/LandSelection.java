@@ -33,8 +33,9 @@ public class LandSelection extends Screen
 
 		setLayout(new BorderLayout());
 
-		enableTiles();
 		add(Map.getMap(), BorderLayout.CENTER);
+		enableTiles();
+		
 
 		if (iterator.getRound() > 2)
 		{
@@ -63,7 +64,6 @@ public class LandSelection extends Screen
 
 	public static void main(String[] args)
 	{
-		new Map();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
 		frame.getContentPane().add(new LandSelection());

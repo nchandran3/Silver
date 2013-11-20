@@ -91,7 +91,6 @@ public class Controller implements Serializable
 		Iterator iterator = Iterator.getIterator();
 		currPlayer = players.get(0);
 		playerInd = 0;
-		new Map(); // initialize the map
 		new GameTimer(10); // initialize the game clock
 		GameTimer.getTimer().pause(); // allow the next screen to initialize it
 		iterator.setCurrentPhase(1);

@@ -81,7 +81,6 @@ public class AfterSelectionMap extends Screen
 	{
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		// Iterator iterator = new Iterator(frame);
-		new Map();
 		frame.getContentPane().add(new AfterSelectionMap());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(new Point(100, 0));
