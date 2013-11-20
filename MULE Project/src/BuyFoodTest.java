@@ -12,12 +12,6 @@ import Player.Race;
 public class BuyFoodTest
 {
 
-	public static void setUp()
-	{
-		Iterator iterator = Iterator.getIterator();
-		Store store = Store.getStore();
-	}
-
 	@Test
 	public void testBuyFoodFF()
 	{
