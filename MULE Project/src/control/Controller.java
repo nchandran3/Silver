@@ -155,6 +155,11 @@ public class Controller implements Serializable{
 	{
 		Holder.INSTANCE = c;
 	}
+	
+	public static void reset()
+	{
+		Holder.INSTANCE = new Controller();
+	}
 	/**
 	 * This calculates player order based on each player's respective score.  Lowest score first.
 	 * Really not sure if this code works.  Should probably be checked.
