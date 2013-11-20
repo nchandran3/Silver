@@ -96,58 +96,10 @@ public class BuyLandTest
 		assertTrue("Round should be 3", iterator.getRound() == 3);
 		assertFalse("Buy Land Price is not zero", price == 0);
 		assertFalse("Round 3 with Tile unowned and player with insufficient money should return false",
-				controller.buyLand(tile3) == true );
+				controller.buyLand(tile4) == true );
 
 	}
 
-//	@Test
-//	public void round2WithEnoughMoney()
-//	{
-//		Tile tile = new River(); // by default the tile is not owned
-//
-//		controller.createPlayer("Test", Color.BLACK, Race.TARGARYEN); // Player has default gold value of 600
-//		controller.startGame();
-//
-//		iterator.incrementRound();
-//		int price = LandOffice.getLandOffice().getBuyPrice();
-//		
-//
-//		assertTrue("Round should be 2", iterator.getRound() == 2);
-//		assertTrue("Buy Land Price is still zero on round 2", price == 0);
-//		assertTrue(
-//				"Round 2 with Tile unowned and player with sufficient money should return true",
-//				controller.buyLand(tile));
-//		assertTrue("Player money did not change", controller.getCurrentPlayer()
-//				.getGold() == 600);
-//
-//		System.out.println("Done with Test 2");
-//	}
-//
-//	@Test
-//	public void round3WithEnoughMoney()
-//	{
-//		Tile tile = new River(); // by default the tile is not owned
-//
-//		controller.createPlayer("Test", Color.BLACK, Race.TARGARYEN); // Player has default gold value of 600
-//		controller.startGame();
-//
-//		iterator.incrementRound();
-//		iterator.incrementRound();
-//		new Components.LandSelection();
-//		int price = LandOffice.getLandOffice().getBuyPrice();
-//		
-//		
-//		assertTrue("Round should be 3", iterator.getRound() == 3);
-//		assertFalse("Buy Land Price is not zero on round 3", price == 0);
-//		assertTrue(
-//				"Round 3 with Tile unowned and player with sufficient money should return true",
-//				controller.buyLand(tile));
-//		assertFalse("Player money did change", controller.getCurrentPlayer()
-//				.getGold() == 600);
-//
-//		System.out.println("Done with Test 3 \n");
-//
-//	}
 
 	@After
 	/**
