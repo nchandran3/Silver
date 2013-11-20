@@ -27,7 +27,7 @@ import Game.GameFrame;
 public class Announcement extends JFrame implements ActionListener
 {
 
-	private final int TIMEOUT = 2; // how long the message should display in seconds
+	private static final int TIMEOUT = 2; // how long the message should display in seconds
 	private Timer timer;
 	private JLabel message;
 	private ImageIcon msg_background;

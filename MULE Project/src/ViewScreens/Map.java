@@ -63,7 +63,7 @@ public final class Map extends Screen
 
 		controller = Controller.getController();
 		controller.createMap();
-		this.tileMap = controller.getTileMap();
+		tileMap = controller.getTileMap();
 
 		this.rows = tileMap.length;
 		this.columns = tileMap[0].length;

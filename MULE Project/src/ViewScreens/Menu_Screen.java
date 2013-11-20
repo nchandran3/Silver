@@ -176,7 +176,7 @@ public class Menu_Screen extends Screen
 
 		if (verifyDifficultySelected() != -1)
 		{
-			Integer num = (int) comboBox.getSelectedItem();
+			int num = (int) comboBox.getSelectedItem();
 			controller.setNumPlayers(num);
 
 			iterator.switchScreen(new PlayerSelectScreen());

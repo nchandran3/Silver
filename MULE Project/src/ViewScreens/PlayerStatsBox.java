@@ -24,7 +24,7 @@ import Player.Race;
 public class PlayerStatsBox extends JPanel implements ActionListener,
 		Serializable
 {
-	private Toolkit toolkit = Toolkit.getDefaultToolkit();
+	private transient Toolkit toolkit = Toolkit.getDefaultToolkit();
 	private int HEIGHT, WIDTH;
 	private JLabel goldlbl, gold, orelbl, ore, dflbl, df, foodlbl, food,
 			scorelbl, score;
