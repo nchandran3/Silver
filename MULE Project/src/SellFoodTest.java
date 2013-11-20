@@ -11,16 +11,20 @@ import control.Store;
 
 
 public class SellFoodTest {
-
+	
+	@Test
 	public void testPlayerWithNoFood(){
 		Player tp = new Player("Test", Color.black, Race.STARK);
 		Store ts = Store.getStore();
 		
 		tp.addResources(0, 0, 0 - tp.getFood(), 0);
-		assertFalse("Player doesn't have food to sell", ts.sellFood(tp, 1));
+		assertTrue("Player has no food", tp.getFood() <= 0);
+		assertFalse("Player doesn't have food to sell", ts.sellFood(tp, 2));
 		
 		System.out.println("Test 1 done.");
 	}
+	
+	@Test
 	public void testStoreNotEnoughGold(){
 		Player tp = new Player("Test", Color.black, Race.STARK);
 		Store ts = Store.getStore();
@@ -34,6 +38,7 @@ public class SellFoodTest {
 		System.out.println("Test 2 done.");
 	}
 	
+	@Test
 	public void testSellFoodAllTrue(){
 		Player tp = new Player("Test", Color.black, Race.STARK);
 		Store ts = Store.getStore();
