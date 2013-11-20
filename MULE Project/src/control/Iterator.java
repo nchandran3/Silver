@@ -19,10 +19,9 @@ import Game.*;
  *
  */
 public class Iterator implements Serializable{
-	private static Iterator iterator;
 	private Container contentPane;
 	private JFrame frame;
-	private static int round = 1;
+	private int round = 1;
 	private Player p;
 	private Map map;
 	private int currPhase;
@@ -32,8 +31,18 @@ public class Iterator implements Serializable{
 	/**
 	 * Constructor that initializes the iterator
 	 */
-	public Iterator(){iterator = this;}
+	private Iterator()
+	{
+		frame = GameFrame.getFrame();
+		contentPane = frame.getContentPane();	//crucial for layout. This is what will be used to add components, remove them, and position timers and stat boxes
+		cur_screen = new Menu_Screen();
+	}
 	
+	
+	private static class Holder
+	{
+		private static Iterator INSTANCE = new Iterator();
+	}
 	
 	/**
 	 * Overloaded constructor that instantiates the gameframe into the cardLayout and adds the two components 
@@ -41,21 +50,23 @@ public class Iterator implements Serializable{
 	 * 
 	 * @param JFrame gameframe
 	 */
-	public Iterator(JFrame frm){ //add the cards to the pane
-		this();
-		frame = frm;
-		contentPane = frame.getContentPane();			//crucial for layout. This is what will be used to add components, remove them, and position timers and stat boxes
-		Screen menu = new Menu_Screen();
-		cur_screen = menu;
-		contentPane.add(menu);
-		frame.pack();
-		frame.setVisible(true);
-	}
+
 	
 /**********************************************************************************************************************
  * 														METHODS	                                                      *
  **********************************************************************************************************************/
 	
+	/**
+	 * Sets up the GameFrame with the preliminary screens
+	 */
+	public void setUpFrame()
+	{
+		contentPane.add(cur_screen);
+		frame.pack();
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		frame.setLocation(tk.getScreenSize().width/2-frame.getWidth()/2, 10);
+		frame.setVisible(true);
+	}
 	/**
 	 * Changes the screen displayed on the frame 
 	 * @param Screen screen the screen to display next
@@ -97,11 +108,11 @@ public class Iterator implements Serializable{
 	 */
 	public static Iterator getIterator()
 	{
-		return iterator;
+		return Holder.INSTANCE;
 	}
 	
 	static void setIterator(Iterator i){
-		iterator = i;
+		Holder.INSTANCE = i;
 	}
 
 	public int getRound(){

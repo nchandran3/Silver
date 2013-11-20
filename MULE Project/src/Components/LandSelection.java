@@ -55,11 +55,9 @@ public class LandSelection extends Screen {
 	
 	public static void main (String [] args)
 	{
-		Controller controller = Controller.getController();
-		Map map = new Map();
+		new Map();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
-		Iterator iterator = new Iterator(frame);
 		frame.getContentPane().add(new LandSelection());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(new Point(100,0));

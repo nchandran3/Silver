@@ -135,7 +135,6 @@ public class MapGlassPane extends Screen implements KeyListener {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(new JButton("hello"));
-		Iterator iterator = new Iterator();
 		MapGlassPane gp = new MapGlassPane();
 		JPanel glass = (JPanel) frame.getGlassPane();
 		glass.setVisible(true);

@@ -42,7 +42,7 @@ public class Controller implements Serializable{
 	 */
 	private Controller(){
 		playerCount = 0;
-	 	players = new ArrayList<Player>();
+	 	players = Player.getPlArray();
 	}
 	
 	private static class Holder{
@@ -56,14 +56,13 @@ public class Controller implements Serializable{
 	 * @param color
 	 * @param race
 	 */
-	public void createPlayer(String name, Color color, Race race){
-		if(playerCount < numPlayers){	// checks to make sure you don't add too many players
-			Player newPlayer = new Player(name, color, race);
+	public void createPlayer(String name, Color color, Race race)
+	{
+			new Player(name, color, race);	//player is added to player array upon creation
 			System.out.println("Created player " + (playerCount + 1) + ":\nname " + name + "\ncolor " + color + 
 					"\nand race " + race); 
-			players.add(newPlayer);
 			playerCount++;
-		}
+		
 	/*	else
 			System.out.print("Can not create anymore players");*/
 	}
@@ -75,8 +74,6 @@ public class Controller implements Serializable{
 	public void setNumPlayers(int num){
 		numPlayers = num;
 		System.out.println("Set number of players to: "  + num);
-		players = new ArrayList<Player>(numPlayers);
-
 	}
 	
 	/**
@@ -86,7 +83,6 @@ public class Controller implements Serializable{
 		Iterator iterator = Iterator.getIterator();
 		currPlayer = players.get(0);
 		playerInd = 0;
-		LandOffice landOffice = new LandOffice();
 		new Map(); //initialize the map
 		new GameTimer(10); //initialize the game clock 
 		GameTimer.getTimer().pause(); // allow the next screen to initialize it

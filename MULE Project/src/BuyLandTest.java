@@ -17,29 +17,25 @@ public class BuyLandTest {
 
 	@BeforeClass
 	/**
-	 * Sets up all the necessary singletons pivotal to the game functionality. Without these instantiations,
-	 * the game would not run. Defines the Controller, Iterator, and LandOffice
+	 * Sets up all the necessary classes pivotal to the game functionality.
 	 */
 	public static void setUp()
 	{
-		Iterator iterator = new Iterator();
-		LandOffice landOffice = new LandOffice();
 	}
 	
 	@Test
 	public void testBuyLand(){
 		Tile tile = new River();		//by default the tile is not owned
 		Controller controller = Controller.getController();
-		Iterator iterator = Iterator.getIterator();
 		
 		controller.createPlayer("Test", Color.BLACK, Race.TARGARYEN);		//This player should have a default gold value of 600
+		controller.startGame();
 		
-		int price = landOffice.getBuyPrice();
+		int price = LandOffice.getLandOffice().getBuyPrice();
 		
-		assertTrue("Buy Land Price is not zero", price > 0);
+		assertTrue("Buy Land Price is zero", price == 0);
 		assertTrue("Round 3 with Tile unowned and player with full money should return true", controller.buyLand(tile) == true);
-		
-		
+		System.out.println("Done");
 	}
 	
 	@AfterClass
@@ -48,6 +44,7 @@ public class BuyLandTest {
 	 */
 	public static void cleanUp()
 	{
+		System.out.println("END OF TESTS!");
 		System.exit(0);
 	}
 }

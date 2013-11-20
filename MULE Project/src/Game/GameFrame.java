@@ -1,6 +1,7 @@
 package Game;
 import java.awt.CardLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -15,16 +16,11 @@ import control.Iterator;
 
 
 public class GameFrame extends JFrame {
-
-	private JPanel contentPane;
-	private CardLayout cl;
 	
-
-
 	/**
 	 * Create the frame.
 	 */
-	public GameFrame() {
+	private GameFrame() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		addWindowListener(new Listener());
 		setBounds(100, 0, 450, 300);
@@ -32,7 +28,15 @@ public class GameFrame extends JFrame {
 		setResizable(false);
 	}
 
+	private static class Holder
+	{
+		private static GameFrame INSTANCE = new GameFrame();
+	}
 	
+	public static GameFrame getFrame()
+	{
+		return Holder.INSTANCE;
+	}
 	/*
 	 * This listener class automatically saves upon exiting the frame.
 	 */
