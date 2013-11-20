@@ -260,7 +260,9 @@ public class Player implements Serializable, Comparable<Player>{
 	}
 
 	/**
-	 * This method details how Players are supposed to be compared (by score).
+	 * This method details how Players are supposed to be compared (by score).  Compares in
+	 * opposite order to accomodate for Collection.sorts required ascending order
+	 * sort
 	 * @param o
 	 * @return
 	 */
@@ -268,7 +270,7 @@ public class Player implements Serializable, Comparable<Player>{
 	public int compareTo(Player pCompare) {
 		// TODO Auto-generated method stub
 		int compareScore = pCompare.getScore();
-		return this.getScore() - compareScore;
+		return compareScore - this.getScore();
 	}
 
 }

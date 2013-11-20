@@ -172,7 +172,7 @@ public class Controller implements Serializable{
 		players.addAll(playOrder);
 		return players;
 	}
-	
+
 	/**
 	 * Calculate the given player's score.  Not quite sure how this is supposed to be calculated
 	 * at the moment, but will be changed to reflect intended values once clarified.
@@ -311,23 +311,8 @@ public class Controller implements Serializable{
 	 * @return the ordered arraylist of players
 	 */
 	public ArrayList<Player> setPlayerOrder() {
-		ArrayList<Player> temp = players;
-		ArrayList<Player> order = new ArrayList<Player>(numPlayers);
-		int lowestScore = calculateScore(players.get(0));
-		int j = 0;
-		while(temp != null) {
-			for(int i = 0; i<temp.size();i++) {
-				if(temp.get(i) != null) {
-					if(calculateScore(temp.get(i))<lowestScore) {
-						lowestScore = calculateScore(temp.get(i));
-						order.set(j, temp.get(i));
-						temp.set(i, null);
-						j++;
-					}
-				}
-			}
-		}	
-		return order;
+		Collections.sort(players);
+		return players;
 	}
 	
 	/**
