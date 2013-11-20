@@ -47,7 +47,9 @@ public class LandSelection extends Screen
 		System.out.println("New Land Selection Phase; clock added");
 		// clock.resetClock(10);
 	}
-
+	/**
+	 * Enables all tiles in the grid except for the town tile to let players be able to click them.
+	 */
 	private void enableTiles()
 	{
 		Tile[][] tiles = controller.getTileMap();

@@ -45,7 +45,10 @@ public class GameTimer extends Screen implements ActionListener
 		init(time);
 		timer = this;
 	}
-
+	/**
+	 * Sets up timer and the dalay of the timer
+	 * @param time
+	 */
 	private void init(int time)
 	{
 		paused = false;
@@ -57,7 +60,11 @@ public class GameTimer extends Screen implements ActionListener
 												// annoucements.
 		start();
 	}
-
+	/**
+	 * Draws the yellow boy representing the timer
+	 * 
+	 * @param Graphics g
+	 */
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
@@ -71,7 +78,10 @@ public class GameTimer extends Screen implements ActionListener
 	{
 		return timer;
 	}
-
+	/**
+	 * Resets the game timer
+	 * @param time
+	 */
 	public void reset(int time)
 	{
 		pause();

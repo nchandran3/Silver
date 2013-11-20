@@ -89,7 +89,11 @@ public class MapGlassPane extends Screen implements KeyListener
 		repaint();
 
 	}
-
+	/**
+	 * Based on what the user inputs from the keyboard, moves the mule up that many pixels
+	 * while it is held down it continuously increments.
+	 * @param e
+	 */
 	public void doKeyAction(KeyEvent e)
 	{
 		int code = e.getKeyCode();
