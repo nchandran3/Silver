@@ -155,9 +155,6 @@ public class Controller implements Serializable{
 	{
 		Holder.INSTANCE = c;
 	}
-<<<<<<< HEAD
-
-=======
 	
 	public static void reset()
 	{
@@ -175,8 +172,7 @@ public class Controller implements Serializable{
 		players.addAll(playOrder);
 		return players;
 	}
-	
->>>>>>> b0bb9b6221331e7d6d5d11c955dfebcec6cdde6f
+
 	/**
 	 * Calculate the given player's score.  Not quite sure how this is supposed to be calculated
 	 * at the moment, but will be changed to reflect intended values once clarified.
