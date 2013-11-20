@@ -132,6 +132,8 @@ public class Store
 	 * 
 	 * @param foodReq
 	 *            number of food units desired
+	 * @param curr_player
+	 * 			get the current player
 	 * @return
 	 */
 	public boolean buyFood(Player curr_player, int foodReq)
@@ -148,7 +150,12 @@ public class Store
 		}
 		return false;
 	}
-
+	/**
+	 * 
+	 * @param curr_player
+	 * @param foodReq
+	 * @return
+	 */
 	public boolean sellFood(Player curr_player, int foodReq)
 	{
 		if (foodReq <= curr_player.getFood())

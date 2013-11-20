@@ -162,7 +162,10 @@ public class RaceSelectPanel extends Screen
 			setSelected(src); // sets the selected race
 			changePicture(src); // changes the central image to the selected race
 		}
-
+		/**
+		 * Reads the user input to determine what race was selected.
+		 * @param src
+		 */
 		public void setSelected(JButton src)
 		{
 			if (src == btnGreyjoy)
@@ -178,7 +181,10 @@ public class RaceSelectPanel extends Screen
 
 			System.out.println("Seleted race was " + selected);
 		}
-
+		/**
+		 * Based on the race above, the corresponding picture is matched with the race
+		 * @param src
+		 */
 		public void changePicture(JButton src)
 		{
 			if (src == btnGreyjoy)

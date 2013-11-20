@@ -442,7 +442,9 @@ public class Controller implements Serializable
 			}
 		}
 	}
-
+	/**
+	 * This resets the clock based on what phase of the game it is
+	 */
 	private void resetClock()
 	{
 		int phase = Iterator.getIterator().getCurrentPhase();

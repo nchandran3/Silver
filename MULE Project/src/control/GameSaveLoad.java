@@ -14,7 +14,11 @@ import java.util.logging.Logger;
 import Player.Race;
 import Tile.Tile;
 import Tile.TileListener;
-
+/**
+ * This class allows for the game state to be saved which then can later be accessed by loading it. 
+ * @author Andrew Ford
+ *
+ */
 public class GameSaveLoad implements Serializable
 {
 	private static GameSaveLoad game;
