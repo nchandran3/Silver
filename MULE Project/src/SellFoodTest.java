@@ -27,7 +27,7 @@ public class SellFoodTest {
 		
 		tp.addResources(0, 0, 50, 0);
 		
-		assertTrue("Player has more 34 food", tp.getFood() > 34);	//34 food because that is more gold than the store has.
+		assertTrue("Player has more 34 food", tp.getFood() > 34);	//34 food because that is worth more gold than the store has.
 		assertTrue("Store has 1000 or less gold", ts.getGold() <= 1000);
 		assertFalse("Store does not have enough gold", ts.sellFood(tp, 50));
 		
