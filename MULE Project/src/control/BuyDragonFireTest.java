@@ -22,6 +22,7 @@ public class BuyDragonFireTest {
 		
 		controller.getCurrentPlayer().setGold(1000);
 		Player player = controller.getCurrentPlayer();
+		System.out.print("Current player: " + player.toString());
 		
 		//Amount of dragonfire allocated to store
 		int amount = store.getDragonFire();
