@@ -118,11 +118,10 @@ public class Store {
 	 * @param foodReq number of food units desired
 	 * @return
 	 */
-	public boolean buyFood(int foodReq){
-		Player player =Controller.getController().getCurrentPlayer();
+	public boolean buyFood(Player curr_player, int foodReq){
 		if(foodReq<=food){
-			if(foodReq*30<= player.getGold()){
-				player.addResources(0, -30*foodReq, foodReq, 0);
+			if(foodReq*30<= curr_player.getGold()){
+				curr_player.addResources(0, -30*foodReq, foodReq, 0);
 				food-=foodReq;
 				gold+=foodReq*30;
 				return true;
@@ -131,11 +130,10 @@ public class Store {
 		return false;
 	}
 	
-	public boolean sellFood(int foodReq){
-		Player player =Controller.getController().getCurrentPlayer();
-		if(foodReq<=player.getFood()){
+	public boolean sellFood(Player curr_player, int foodReq){
+		if(foodReq<=curr_player.getFood()){
 			if(foodReq*30<= gold){
-				player.addResources(0, 30*foodReq, -foodReq, 0);
+				curr_player.addResources(0, 30*foodReq, -foodReq, 0);
 				food+=foodReq;
 				gold-=foodReq*30;
 				return true;
@@ -149,7 +147,7 @@ public class Store {
 	 * @param dragonReq number of dragonFire units desired
 	 * @return
 	 */
-	public boolean buyDragonFire(int dragonReq){
+	public boolean buyDragonFire(Player curr_player, int dragonReq){
 		Player player = Controller.getController().getCurrentPlayer();
 		if(dragonReq<=dragonFire){
 			if(dragonReq*25<= player.getGold()){
@@ -162,7 +160,7 @@ public class Store {
 		return false;
 	}
 	
-	public boolean sellDragonFire(int dragonReq){
+	public boolean sellDragonFire(Player curr_player, int dragonReq){
 		Player player =Controller.getController().getCurrentPlayer();
 		if(dragonReq<=player.getDragonFire()){
 			if(dragonReq*25<= gold){
@@ -180,7 +178,7 @@ public class Store {
 	 * @param oreReq number of ore units required
 	 * @return
 	 */
-	public boolean buyOre(int oreReq){
+	public boolean buyOre(Player curr_player, int oreReq){
 		Player player = Controller.getController().getCurrentPlayer();
 		if(oreReq<=ore){
 			if(oreReq*50<= player.getGold()){
@@ -193,7 +191,7 @@ public class Store {
 		return false;
 	}
 	
-	public boolean sellOre(int oreReq){
+	public boolean sellOre(Player curr_player, int oreReq){
 		Player player =Controller.getController().getCurrentPlayer();
 		if(oreReq<=player.getOre()){
 			if(oreReq*50<= gold){
@@ -213,7 +211,7 @@ public class Store {
 	 * 0 = food, 1 = energy, 2 = ore
 	 * @return
 	 */
-	public boolean buyMule(int muleType){
+	public boolean buyMule(Player curr_player, int muleType){
 		Player player = Controller.getController().getCurrentPlayer();
 		
 		int fee = 125 + 25*muleType; //food costs 125, energy costs 150, and ore costs 175
