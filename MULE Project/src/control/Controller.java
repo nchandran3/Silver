@@ -56,13 +56,13 @@ public class Controller implements Serializable{
 	 * @param color
 	 * @param race
 	 */
-	public void createPlayer(String name, Color color, Race race){
-		if(playerCount < numPlayers){	// checks to make sure you don't add too many players
+	public void createPlayer(String name, Color color, Race race)
+	{
 			new Player(name, color, race);	//player is added to player array upon creation
 			System.out.println("Created player " + (playerCount + 1) + ":\nname " + name + "\ncolor " + color + 
 					"\nand race " + race); 
 			playerCount++;
-		}
+		
 	/*	else
 			System.out.print("Can not create anymore players");*/
 	}
