@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 import javax.swing.*;
+import javax.xml.ws.Holder;
 
 import Components.*;
 import Player.*;
@@ -29,7 +30,6 @@ import Game.*;
  */
 public class Controller implements Serializable{
 	
-	private static Controller controller;
 	private ArrayList<Player> players;
 	private Player currPlayer;
 	private int playerInd;
@@ -40,10 +40,13 @@ public class Controller implements Serializable{
 	/**
 	 * This is the constructor for the class which initializes the player count to 0. 
 	 */
-	public Controller(){
-		controller=this;
+	private Controller(){
 		playerCount = 0;
 	 	players = new ArrayList<Player>();
+	}
+	
+	private static class Holder{
+		private static Controller INSTANCE = new Controller();
 	}
 	/**
 	 * This creates new players by calling the player class to set up each player's instance variables 
@@ -144,7 +147,7 @@ public class Controller implements Serializable{
 	 */
 	public static Controller getController()
 	{			
-		return controller;
+		return Holder.INSTANCE;
 	}
 	
 	/**
@@ -153,7 +156,7 @@ public class Controller implements Serializable{
 	 */
 	static void setController(Controller c)
 	{
-		controller = c;
+		Holder.INSTANCE = c;
 	}
 	/**
 	 * This calculates player order based on each player's respective score.  Lowest score first.

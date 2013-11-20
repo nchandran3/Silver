@@ -96,7 +96,6 @@ public class PlayerStatsBox extends JPanel implements ActionListener ,Serializab
 	
 	public static void main (String [] args)
 	{
-		Controller controller = new Controller();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
 		frame.getContentPane().add(new PlayerStatsBox(new Player("BOZO", Color.MAGENTA, Race.TARGARYEN)));

@@ -123,7 +123,7 @@ public final class StoreFrame extends JFrame {
 	
 	public static void main(String [] args)
 	{
-		Controller controller =new Controller();
+		Controller controller =Controller.getController();
 		
 		controller.setNumPlayers(2);
 		controller.createPlayer("Who Cares", Color.RED, Race.BARATHEON);

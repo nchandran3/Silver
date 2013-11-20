@@ -119,7 +119,6 @@ public class Mule extends StoreScreen {
 	 */
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		new Controller();
 		frame.add(new Mule());
 		frame.pack();
 		frame.setVisible(true);

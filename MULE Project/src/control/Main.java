@@ -28,7 +28,6 @@ public class Main {
 					try {
 						GameFrame frame = new GameFrame();
 						Iterator iterator = new Iterator(frame);
-						Controller controller = new Controller();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

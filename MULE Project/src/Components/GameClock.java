@@ -72,7 +72,7 @@ public class GameClock extends JPanel{
 			repaint();
 			Thread.sleep(500);
 		}
-		Controller.controller.endTurn();
+		Controller.getController().endTurn();
 		System.out.println("Time up!!!" +"\nIt took " + this.elapsedTime(startTime) + " seconds.");
 	}
 	
