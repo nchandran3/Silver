@@ -22,12 +22,6 @@ import Game.*;
  */
 public class MuleListener extends TileListener
 {
-	private boolean buyLand;
-
-	public MuleListener()
-	{
-		buyLand = false;
-	}
 
 	/**
 	 * This should just change the background color of the tile your mouse is hovering over, so it's easier for the

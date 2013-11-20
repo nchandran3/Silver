@@ -15,8 +15,8 @@ import Tile.Tile;
 public class BuyLandTest
 {
 
-	static Controller controller;
-	static Iterator iterator;
+	Controller controller;
+	Iterator iterator;
 
 	@Before
 	/**
@@ -30,7 +30,7 @@ public class BuyLandTest
 	}
 
 	@Test
-	public void Round1WithEnoughMoney()
+	public void round1WithEnoughMoney()
 	{
 		Tile tile = new River(); // by default the tile is not owned
 
@@ -53,7 +53,7 @@ public class BuyLandTest
 	}
 
 	@Test
-	public void Round2WithEnoughMoney()
+	public void round2WithEnoughMoney()
 	{
 		Tile tile = new River(); // by default the tile is not owned
 
@@ -75,7 +75,7 @@ public class BuyLandTest
 	}
 
 	@Test
-	public void Round3WithEnoughMoney()
+	public void round3WithEnoughMoney()
 	{
 
 	}

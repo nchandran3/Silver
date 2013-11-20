@@ -41,7 +41,7 @@ public abstract class Tile extends JButton implements Serializable
 	protected int x;
 	protected int y;
 	protected JButton button;
-	protected static TileListener tListener;
+	protected TileListener tListener;
 	protected int muleType; // -1 = non-existent, 0 = food, 1 = DragonFire, 2 = Ore
 	protected int foodProduced;
 	protected int dragonFireProduced;
@@ -293,6 +293,8 @@ public abstract class Tile extends JButton implements Serializable
 					System.out.println(oreProduced
 							+ " oreProduced has been produced for player: "
 							+ owner.toString());
+					break;
+				default:
 					break;
 			}
 		}

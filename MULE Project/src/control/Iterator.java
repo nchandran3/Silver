@@ -193,6 +193,8 @@ public class Iterator implements Serializable
 		// switchScreen(new Auction()); //switch this to Auction after it is implemented
 		// incrementRound(); //move this to the beginning of phase 1.
 		// break;
+			default:
+				break;
 		}
 	}
 }

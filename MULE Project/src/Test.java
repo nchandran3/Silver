@@ -45,7 +45,7 @@ public class Test extends JFrame
 
 		layers.add(pane1, 1);
 		layers.add(pane2, 2);
-		layers.add(pane3, new Integer(-1));
+		layers.add(pane3, -1);
 
 		add(layers, BorderLayout.CENTER);
 	}

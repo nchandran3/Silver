@@ -203,7 +203,6 @@ public class RaceSelectPanel extends Screen
 
 	public static void main(String[] args)
 	{
-		Controller controller = Controller.getController();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
 		// Iterator iterator = new Iterator(frame);

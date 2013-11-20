@@ -32,7 +32,7 @@ public class GameTimer extends Screen implements ActionListener
 	private double rate;
 	private int height = super.height;
 	private int width = super.width / 64;
-	private final double FLOW = .01;
+	private static final double FLOW = .01;
 	private static GameTimer timer;
 	private Timer actionTimer;
 	boolean paused;
@@ -54,7 +54,7 @@ public class GameTimer extends Screen implements ActionListener
 		paused = false;
 		y = 0;
 		this.time = time;
-		rate = (height / time * FLOW); // how much to take off the rectangle in order to get blank at the end
+		rate = ((double)height / time * FLOW); // how much to take off the rectangle in order to get blank at the end
 		actionTimer = new Timer((int) (FLOW * 1000), this);
 		actionTimer.setInitialDelay(3 * 1000); // wait three seconds before starting the timer, to allow reading
 												// annoucements.
