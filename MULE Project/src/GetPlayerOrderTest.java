@@ -37,7 +37,7 @@ public class GetPlayerOrderTest {
 		//This should set the player's resources to: 8 food, 4 dragonFire, 0 ore
 		controller.setDifficulty(1);
 		controller.createPlayer("Last", Color.BLACK, Race.BARATHEON);		//This player should have a default gold value of 600
-		ArrayList<Player> orderedPlayers = controller.getPlayerOrder();
+		ArrayList<Player> orderedPlayers = controller.setPlayerOrder();
 		
 		assertTrue("Number of players == 1:",controller.getNumPlayers()==4);
 		assertTrue("The created TARGARYEN has 1000 gold: ", orderedPlayers.get(0).getGold()==1000);
@@ -60,7 +60,7 @@ public class GetPlayerOrderTest {
 		controller.createPlayer("First", Color.GREEN, Race.LANNISTER);
 		
 		//Checks if players are added in order of creation if they all have the same score
-		ArrayList<Player> equalPlayers = controller.getPlayerOrder();
+		ArrayList<Player> equalPlayers = controller.setPlayerOrder();
 		
 		//Ensures all players have a score of 0 due to property.
 		assertTrue("Last player has score = 0: ", equalPlayers.get(0).getScore()==0);
@@ -87,21 +87,14 @@ public class GetPlayerOrderTest {
 		//Ensures players have proper scores
 		assertTrue("Last Player's score = 112: ", equalPlayers.get(0).getScore()==112);
 		assertTrue("Third Player's score = 212: ", equalPlayers.get(1).getScore()==212);
+		assertTrue("Second Player's score = 312: ", equalPlayers.get(2).getScore()==312);
+		assertTrue("First Player's score = 412: ", equalPlayers.get(3).getScore()==412);
 		
-		//Ensures all players were added to the PQ based on score
-		ArrayList<Player> unequalPlayers = controller.getPlayerOrder();
+		//Ensures all players were ordered based on score
+		ArrayList<Player> unequalPlayers = controller.setPlayerOrder();
 		assertTrue("First player is named First: ", "First".equals(unequalPlayers.get(0).toString()));
 		assertTrue("Second player is named Second: ", "Second".equals(unequalPlayers.get(1).toString()));
 		assertTrue("Third player is named Third: ", "Third".equals(unequalPlayers.get(2).toString()));
 		assertTrue("Last player is named Last: ", "Last".equals(unequalPlayers.get(3).toString()));
-	}
-	
-	@AfterClass
-	/**
-	 * Exits
-	 */
-	public static void cleanUp()
-	{
-		System.exit(0);
 	}
 }
