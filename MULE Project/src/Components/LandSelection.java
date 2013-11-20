@@ -55,8 +55,7 @@ public class LandSelection extends Screen {
 	
 	public static void main (String [] args)
 	{
-		Controller controller = Controller.getController();
-		Map map = new Map();
+		new Map();
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
 		frame.getContentPane().add(new LandSelection());

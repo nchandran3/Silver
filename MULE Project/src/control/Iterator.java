@@ -34,14 +34,8 @@ public class Iterator implements Serializable{
 	private Iterator()
 	{
 		frame = GameFrame.getFrame();
-		contentPane = frame.getContentPane();			//crucial for layout. This is what will be used to add components, remove them, and position timers and stat boxes
-		Screen menu = new Menu_Screen();
-		cur_screen = menu;
-		contentPane.add(menu);
-		frame.pack();
-		Toolkit tk = Toolkit.getDefaultToolkit();
-		frame.setLocation(tk.getScreenSize().width/2-frame.getWidth()/2, 10);
-		frame.setVisible(true);
+		contentPane = frame.getContentPane();	//crucial for layout. This is what will be used to add components, remove them, and position timers and stat boxes
+		cur_screen = new Menu_Screen();
 	}
 	
 	
@@ -62,6 +56,17 @@ public class Iterator implements Serializable{
  * 														METHODS	                                                      *
  **********************************************************************************************************************/
 	
+	/**
+	 * Sets up the GameFrame with the preliminary screens
+	 */
+	public void setUpFrame()
+	{
+		contentPane.add(cur_screen);
+		frame.pack();
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		frame.setLocation(tk.getScreenSize().width/2-frame.getWidth()/2, 10);
+		frame.setVisible(true);
+	}
 	/**
 	 * Changes the screen displayed on the frame 
 	 * @param Screen screen the screen to display next
