@@ -211,7 +211,6 @@ public class Menu_Screen extends Screen  {
 	{
 		javax.swing.JFrame frame = new javax.swing.JFrame();
 		frame.getContentPane().setLayout(new java.awt.CardLayout());
-		Iterator iterator = new Iterator(frame);
 		frame.getContentPane().add(new Menu_Screen());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(new Point(100,0));

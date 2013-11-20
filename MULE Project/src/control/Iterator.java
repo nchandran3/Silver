@@ -19,7 +19,6 @@ import Game.*;
  *
  */
 public class Iterator implements Serializable{
-	private static Iterator iterator;
 	private Container contentPane;
 	private JFrame frame;
 	private static int round = 1;
@@ -32,18 +31,9 @@ public class Iterator implements Serializable{
 	/**
 	 * Constructor that initializes the iterator
 	 */
-	public Iterator(){iterator = this;}
-	
-	
-	/**
-	 * Overloaded constructor that instantiates the gameframe into the cardLayout and adds the two components 
-	 * menu screen and player select screen
-	 * 
-	 * @param JFrame gameframe
-	 */
-	public Iterator(JFrame frm){ //add the cards to the pane
-		this();
-		frame = frm;
+	private Iterator()
+	{
+		frame = GameFrame.getFrame();
 		contentPane = frame.getContentPane();			//crucial for layout. This is what will be used to add components, remove them, and position timers and stat boxes
 		Screen menu = new Menu_Screen();
 		cur_screen = menu;
@@ -51,6 +41,20 @@ public class Iterator implements Serializable{
 		frame.pack();
 		frame.setVisible(true);
 	}
+	
+	
+	private static class Holder
+	{
+		private static Iterator INSTANCE = new Iterator();
+	}
+	
+	/**
+	 * Overloaded constructor that instantiates the gameframe into the cardLayout and adds the two components 
+	 * menu screen and player select screen
+	 * 
+	 * @param JFrame gameframe
+	 */
+
 	
 /**********************************************************************************************************************
  * 														METHODS	                                                      *
@@ -97,11 +101,11 @@ public class Iterator implements Serializable{
 	 */
 	public static Iterator getIterator()
 	{
-		return iterator;
+		return Holder.INSTANCE;
 	}
 	
 	static void setIterator(Iterator i){
-		iterator = i;
+		Holder.INSTANCE = i;
 	}
 
 	public int getRound(){

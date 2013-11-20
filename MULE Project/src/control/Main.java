@@ -1,5 +1,6 @@
 package control;
 import java.awt.EventQueue;
+import java.awt.Frame;
 
 import javax.swing.JOptionPane;
 
@@ -26,8 +27,8 @@ public class Main {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						GameFrame frame = new GameFrame();
-						Iterator iterator = new Iterator(frame);
+						GameFrame.getFrame();
+						Iterator.getIterator();
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

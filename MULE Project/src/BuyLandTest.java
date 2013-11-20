@@ -34,9 +34,9 @@ public class BuyLandTest {
 		
 		controller.createPlayer("Test", Color.BLACK, Race.TARGARYEN);		//This player should have a default gold value of 600
 		
-		int price = landOffice.getBuyPrice();
+		int price = new LandOffice().getBuyPrice();
 		
-		assertTrue("Buy Land Price is not zero", price > 0);
+		assertTrue("Buy Land Price is not zero", price == 0);
 		assertTrue("Round 3 with Tile unowned and player with full money should return true", controller.buyLand(tile) == true);
 		
 		
