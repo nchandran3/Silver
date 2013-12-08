@@ -35,6 +35,7 @@ public class Main
 					try
 					{
 						Iterator.getIterator().setUpFrame();
+						
 					}
 					catch (Exception e)
 					{
